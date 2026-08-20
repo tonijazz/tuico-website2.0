@@ -1,0 +1,57 @@
+<?php
+
+namespace App\Filament\Resources\HeroSlides\Tables;
+
+use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteBulkAction;
+use Filament\Actions\EditAction;
+use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Table;
+
+class HeroSlidesTable
+{
+    public static function configure(Table $table): Table
+    {
+        return $table
+            ->columns([
+                TextColumn::make('title')->searchable(),
+                TextColumn::make('subtitle')->searchable(),
+                TextColumn::make('cta_label')->searchable(),
+                TextColumn::make('cta_url')
+                    ->searchable(),
+                ImageColumn::make('image'),
+                IconColumn::make('is_active')
+                    ->boolean(),
+                TextColumn::make('starts_at')
+                    ->date()
+                    ->sortable(),
+                TextColumn::make('ends_at')
+                    ->date()
+                    ->sortable(),
+                TextColumn::make('order')
+                    ->numeric()
+                    ->sortable(),
+                TextColumn::make('created_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                TextColumn::make('updated_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+            ])
+            ->filters([
+                //
+            ])
+            ->recordActions([
+                EditAction::make(),
+            ])
+            ->toolbarActions([
+                BulkActionGroup::make([
+                    DeleteBulkAction::make(),
+                ]),
+            ]);
+    }
+}
