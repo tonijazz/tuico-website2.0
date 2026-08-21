@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Filament\Resources\OrgUnits\Pages;
+namespace App\Filament\Resources\GovernanceMeetings\Pages;
 
-use App\Filament\Resources\OrgUnits\OrgUnitResource;
+use App\Filament\Resources\GovernanceMeetings\GovernanceMeetingResource;
 use Filament\Resources\Pages\CreateRecord;
 
-class CreateOrgUnit extends CreateRecord
+class CreateGovernanceMeeting extends CreateRecord
 {
-    protected static string $resource = OrgUnitResource::class;
-
+    protected static string $resource = GovernanceMeetingResource::class;
 
     protected function mutateFormDataBeforeCreate(array $data): array
     {
@@ -17,7 +16,7 @@ class CreateOrgUnit extends CreateRecord
 
     public static function foldTranslatableFields(array $data): array
     {
-        foreach (['title', 'description'] as $field) {
+        foreach (['name', 'frequency'] as $field) {
             $data[$field] = [
                 'en' => $data["{$field}_en"] ?? null,
                 'sw' => $data["{$field}_sw"] ?? null,
