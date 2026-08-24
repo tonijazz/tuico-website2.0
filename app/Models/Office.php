@@ -2,9 +2,11 @@
 
 namespace App\Models;
 
+use App\Enums\LeaderRoleType;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Office extends Model
 {
@@ -31,4 +33,9 @@ class Office extends Model
     {
         return $this->belongsTo(Zone::class);
     }
+
+    public function secretary(): HasOne
+{
+    return $this->hasOne(Leader::class)->where('role_type', LeaderRoleType::Secretary);
+}
 }
