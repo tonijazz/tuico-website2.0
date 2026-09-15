@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Filament\Pages;
 
 use App\Settings\SiteSettings;
@@ -11,13 +10,17 @@ use Filament\Forms\Contracts\HasForms;
 use Filament\Pages\Page;
 use Filament\Schemas\Schema;
 use Filament\Forms\Components\FileUpload;
-
+use Filament\Support\Icons\Heroicon;
 
 class ManageSiteSettings extends Page implements HasForms
 {
     use InteractsWithForms;
 
     protected string $view = 'filament.pages.manage-site-settings';
+
+    protected static string|\BackedEnum|null $navigationIcon = Heroicon::OutlinedCog6Tooth;
+
+    protected static string|\UnitEnum|null $navigationGroup = 'Settings';
 
     public ?array $data = [];
 
