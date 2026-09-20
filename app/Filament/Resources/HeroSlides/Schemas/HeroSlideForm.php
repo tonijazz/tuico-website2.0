@@ -52,6 +52,8 @@ class HeroSlideForm
                     ->default(null),
                 FileUpload::make('image')
                     ->image()
+                    ->disk('public')
+                    ->directory('hero-slides')
                     ->required(),
                 Toggle::make('is_active'),
                 DatePicker::make('starts_at'),

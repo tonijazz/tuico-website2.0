@@ -34,6 +34,10 @@ class Office extends Model
         return $this->belongsTo(Zone::class);
     }
 
+    public function chairperson(): HasOne
+{
+    return $this->hasOne(Leader::class)->where('role_type', LeaderRoleType::Chairperson);
+}
     public function secretary(): HasOne
 {
     return $this->hasOne(Leader::class)->where('role_type', LeaderRoleType::Secretary);

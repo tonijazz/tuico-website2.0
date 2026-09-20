@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Enums\OrgUnitType;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Spatie\Translatable\HasTranslations;
 
 class OrgUnit extends Model
@@ -16,4 +17,9 @@ class OrgUnit extends Model
     protected $casts = [
         'type' => OrgUnitType::class,
     ];
+
+    public function leader(): HasOne
+    {
+        return $this->hasOne(Leader::class)->where('role_type', 'unit_head');
+    }
 }

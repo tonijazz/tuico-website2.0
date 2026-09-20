@@ -23,9 +23,9 @@ class ResourceCategory extends Model
      * did in the migration — you only need to spell it out if your naming doesn't
      * follow the convention.
      */
-    public function resources(): HasMany
-    {
-        return $this->hasMany(ResourceItem::class, 'category_id')->orderBy('order');
-    }
+public function resources(): HasMany
+{
+    return $this->hasMany(ResourceItem::class, 'category_id')->orderBy('title');
+}
 
 }

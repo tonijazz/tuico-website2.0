@@ -7,8 +7,8 @@ use App\Enums\NewsType;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Tabs;
 use Filament\Schemas\Components\Tabs\Tab;
 use Filament\Schemas\Schema;
@@ -61,7 +61,9 @@ class NewsForm
                     ->default('draft')
                     ->required(),
                 FileUpload::make('featured_image')
-                    ->image(),
+                    ->image()
+                    ->disk('public')
+                    ->directory('news'),
                 DateTimePicker::make('published_at'),
                 Select::make('author_id')
                     ->relationship('author', 'name')

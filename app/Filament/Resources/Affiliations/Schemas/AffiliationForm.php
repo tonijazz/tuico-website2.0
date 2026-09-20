@@ -4,10 +4,10 @@ namespace App\Filament\Resources\Affiliations\Schemas;
 
 use App\Enums\AffiliationScope;
 use App\Enums\AffiliationType;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Grid;
-use Filament\Forms\Components\FileUpload;
 use Filament\Schemas\Schema;
 
 class AffiliationForm
@@ -38,6 +38,7 @@ class AffiliationForm
                     ->default(null),
                 FileUpload::make('logo')
                     ->image()
+                    ->disk('public')
                     ->directory('affiliations'),
                 TextInput::make('order')
                     ->required()

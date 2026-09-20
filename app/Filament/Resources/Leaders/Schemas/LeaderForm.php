@@ -47,6 +47,7 @@ class LeaderForm
                     ->columnSpanFull(),
                 FileUpload::make('photo')
                     ->image()
+                    ->disk('public')
                     ->directory('leaders')
                     ->default(null),
                 Select::make('level')

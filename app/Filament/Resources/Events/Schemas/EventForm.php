@@ -49,7 +49,9 @@ class EventForm
                 DatePicker::make('ends_at')
                     ->required(),
                 FileUpload::make('banner_image')
-                    ->image(),
+                    ->image()
+                    ->disk('public')
+                    ->directory('events'),
                 Select::make('governance_meeting_id')
                     ->relationship('governanceMeeting', 'name')
                     ->default(null),

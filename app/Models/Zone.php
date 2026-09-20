@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\Leader;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Spatie\Translatable\HasTranslations;
 
 class Zone extends Model
@@ -23,5 +24,9 @@ class Zone extends Model
     $seat = $this->offices()->where('is_zonal_seat', true)->first();
 
     return $seat?->secretary;
+}
+public function chairperson(): HasOne
+{
+    return $this->hasOne(Leader::class)->where('role_type', 'chairperson');
 }
 }

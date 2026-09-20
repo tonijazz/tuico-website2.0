@@ -3,13 +3,13 @@
 namespace App\Filament\Pages;
 
 use App\Settings\SiteSettings;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Pages\Page;
 use Filament\Schemas\Schema;
-use Filament\Forms\Components\FileUpload;
 use Filament\Support\Icons\Heroicon;
 
 class ManageSiteSettings extends Page implements HasForms
@@ -47,6 +47,7 @@ class ManageSiteSettings extends Page implements HasForms
                 TextInput::make('youtube_url')->url()->default(null),
                 FileUpload::make('logo')
                     ->image()
+                    ->disk('public')
                     ->directory('site')
                     ->default(null),
             ])

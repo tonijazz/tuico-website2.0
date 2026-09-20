@@ -44,7 +44,8 @@ class ResourceItemForm
                     ->columnSpanFull(),
                 FileUpload::make('file_path')
                     ->required()
-                    ->directory('resources'),
+                    ->directory('resources')
+                    ->disk('public'),
                 Select::make('access_level')
                     ->options([
                         'public' => 'Public',
@@ -64,7 +65,9 @@ class ResourceItemForm
                     ->default(null),
                 FileUpload::make('cover_image')
                     ->visible(fn (Get $get) => $get('is_publication'))
-                    ->image(),
+                    ->image()
+                    ->disk('public')
+                    ->directory('resources/cover-images'),
 
                 TextInput::make('downloads_count')
                     ->required()
