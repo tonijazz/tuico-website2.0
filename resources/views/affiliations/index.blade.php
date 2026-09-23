@@ -2,6 +2,8 @@
 
 @section('title', 'Affiliations & Partners')
 
+@section('meta_description', 'TUICO\'s national and international affiliations and partnerships, including TUCTA and global union federations such as IndustriALL and PSI.')
+
 @section('content')
     <div class="max-w-5xl mx-auto p-8">
 

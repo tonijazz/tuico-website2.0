@@ -1,12 +1,45 @@
 @extends('layouts.app')
 
-@section('title', 'Test Page')
+@section('title', 'Home')
 
 @section('content')
-<p class="mt-4">Site email: {{ $siteSettings->email }}</p>
-    <div class="max-w-2xl mx-auto p-8 text-center">
-        <h1 class="text-3xl font-bold text-amber-600">If this is styled, Tailwind works.</h1>
-        <p class="mt-4 text-gray-600">This is a plain paragraph testing the base layout.</p>
-        <p class="mt-4 font-semibold">Current locale: {{ app()->getLocale() }}</p>
+
+<div x-data="{ current: 0, total: {{ $slides->count() }} }"
+     x-init="setInterval(() => { current = (current + 1) % total }, 5000)"
+     class="relative h-96 overflow-hidden">
+
+    @foreach ($slides as $index => $slide)
+        <div x-show="current === {{ $index }}"
+             class="absolute inset-0 bg-cover bg-center flex items-center justify-center text-white"
+             style="background-image: url('{{ asset('storage/' . $slide->image) }}')">
+            <div class="bg-black/40 p-8 text-center">
+                <h2 class="text-3xl font-display font-bold">{{ $slide->title }}</h2>
+                @if ($slide->subtitle)
+                    <p class="mt-2">{{ $slide->subtitle }}</p>
+                @endif
+                @if ($slide->cta_label && $slide->cta_url)
+                    <a href="{{ $slide->cta_url }}" class="mt-4 inline-block bg-tuico-sky hover:bg-tuico-navy transition px-4 py-2 rounded">
+                        {{ $slide->cta_label }}
+                    </a>
+                @endif
+            </div>
+        </div>
+    @endforeach
+
+
+</div>
+<div class="max-w-5xl mx-auto p-8">
+    <h2 class="text-2xl font-display font-bold mb-4 text-tuico-navy">Latest News</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        @foreach ($featuredNews as $article)
+            <div class="border rounded-lg p-4 shadow-sm">
+                <a href="{{ route('news.show', $article->slug) }}" class="text-lg font-semibold text-tuico-navy hover:underline">
+                    {{ $article->title }}
+                </a>
+                <p class="text-gray-600 mt-2">{{ $article->excerpt }}</p>
+                <p class="text-sm text-gray-400 mt-2">{{ $article->published_at->format('F j, Y') }}</p>
+            </div>
+        @endforeach
     </div>
+</div>
 @endsection

@@ -2,6 +2,8 @@
 
 @section('title', $region->name)
 
+@section('meta_description', $region->name . ' — TUICO Regional Office. Address: ' . $region->address)
+
 @section('content')
     <div class="max-w-3xl mx-auto p-8">
         <div class="border rounded-lg p-4 mb-4 shadow-sm">

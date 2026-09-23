@@ -5,7 +5,15 @@
 @source '../**/*.blade.php';
 @source '../**/*.js';
 
+[x-cloak] { display: none !important; }
+
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Barlow Condensed', ui-sans-serif, system-ui, sans-serif;
+
+    --color-tuico-navy: #0E3A5F;
+    --color-tuico-sky: #2EA8DC;
+    --color-tuico-yellow: #F5C518;
+    --color-tuico-green: #1C8A4B;
+    --color-tuico-charcoal: #33322A;
 }

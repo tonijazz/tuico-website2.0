@@ -2,6 +2,8 @@
 
 @section('title', 'Resources')
 
+@section('meta_description', 'Download TUICO resources including the membership form (TUF 15), the Constitution, policy briefs, labour laws, and union publications.')
+
 @section('content')
     <div class="max-w-3xl mx-auto p-8">
         <h2 class="text-2xl font-bold mb-4">Resources</h2>

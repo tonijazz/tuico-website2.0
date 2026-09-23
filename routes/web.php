@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AffiliationController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\EventController;
@@ -12,9 +13,18 @@ use App\Http\Controllers\OfficeController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProgrammeController;
 use App\Http\Controllers\ResourceItemController;
+use App\Http\Controllers\SecretaryGeneralMessageController;
 use Illuminate\Support\Facades\Route;
 
+
+// =========================
+// DEFINE PUBLIC PAGE ROUTES
+// =========================
+// All public routes are defined once here so the same
+// route structure can be used for both English and Swahili.
+
 $pageRoutes = function () {
+
     Route::get('/test', function () {
         return view('test');
     });
@@ -36,11 +46,28 @@ $pageRoutes = function () {
     Route::get('/join-us', [JoinUsController::class, 'create'])->name('join-us.create');
     Route::post('/join-us', [JoinUsController::class, 'store'])->name('join-us.store');
     Route::get('/events', [EventController::class, 'index'])->name('events.index');
+    Route::get('/about', [AboutController::class, 'index'])->name('about.index');
+    Route::get('/secretary-general-message', [SecretaryGeneralMessageController::class, 'index'])->name('secretary-general-message');
+
+
+    // =========================
+    // DYNAMIC PAGE CATCH-ALL
+    // =========================
+    // Handles CMS pages that are not assigned a dedicated
+    // controller route. The constraint prevents /sw routes
+    // from being captured by this English fallback route.
 
     Route::get('/{slug}', [PageController::class, 'show'])
-    ->where('slug', '^(?!sw$|sw/).*')
-    ->name('pages.show');
+        ->where('slug', '^(?!sw$|sw/).*')
+        ->name('pages.show');
 };
+
+
+// =========================
+// REGISTER ROUTE SET
+// =========================
+// Register the same route definition for both languages.
+// English uses the root path; Swahili uses the /sw prefix.
 
 $pageRoutes();
 
