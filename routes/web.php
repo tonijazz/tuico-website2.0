@@ -9,13 +9,14 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JoinUsController;
 use App\Http\Controllers\LeaderController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\NewsEventsController;
 use App\Http\Controllers\OfficeController;
+use App\Http\Controllers\OrgUnitController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProgrammeController;
 use App\Http\Controllers\ResourceItemController;
 use App\Http\Controllers\SecretaryGeneralMessageController;
 use Illuminate\Support\Facades\Route;
-
 
 // =========================
 // DEFINE PUBLIC PAGE ROUTES
@@ -30,25 +31,69 @@ $pageRoutes = function () {
     });
 
     Route::get('/', [HomeController::class, 'index']);
+
+    // =========================
+    // NEWS & EVENTS PAGES
+    // =========================
+    Route::get('/news-events', [NewsEventsController::class, 'index'])->name('news-events.index');
     Route::get('/news', [NewsController::class, 'index'])->name('news.index');
     Route::get('/news/{slug}', [NewsController::class, 'show'])->name('news.show');
-    Route::get('/affiliations', [AffiliationController::class, 'index'])->name('affiliations.index');
-    Route::get('/faq', [FaqController::class, 'index'])->name('faq.index');
+    Route::get('/events', [EventController::class, 'index'])->name('events.index');
+    Route::get('/events/{slug}', [EventController::class, 'show'])->name('events.show');
+
+    // =========================
+    // RESOURCES & STRATEGIC PLAN PAGES
+    // =========================
     Route::get('/resources', [ResourceItemController::class, 'index'])->name('resources.index');
+
+    // Resources use the resource ID instead of a slug because
+    // the resources table does not have a slug column.
+    Route::get('/resources/{resource}', [ResourceItemController::class, 'show'])->name('resources.show');
+
     Route::get('/strategic-plan', [ProgrammeController::class, 'index'])->name('programmes.index');
+    Route::get('/strategic-plan/areas/{strategicArea}', [ProgrammeController::class, 'strategicArea'])->name('programmes.strategic-area');
+    Route::get('/strategic-plan/programmes/{programme}', [ProgrammeController::class, 'programme'])->name('programmes.programme');
+
+    // =========================
+    // ORGANIZATION PAGES
+    // =========================
     Route::get('/leadership', [LeaderController::class, 'index'])->name('leadership.index');
     Route::get('/regions', [OfficeController::class, 'regions'])->name('regions.index');
     Route::get('/regions/{slug}', [OfficeController::class, 'showRegion'])->name('regions.show');
     Route::get('/zones', [OfficeController::class, 'zones'])->name('zones.index');
     Route::get('/zones/{slug}', [OfficeController::class, 'showZone'])->name('zones.show');
+
+    // =========================
+    // INQUIRY PAGES
+    // =========================
     Route::get('/contact', [ContactController::class, 'create'])->name('contact.create');
     Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
     Route::get('/join-us', [JoinUsController::class, 'create'])->name('join-us.create');
     Route::post('/join-us', [JoinUsController::class, 'store'])->name('join-us.store');
-    Route::get('/events', [EventController::class, 'index'])->name('events.index');
+
+    // =========================
+    // ORGANIZATION
+    // =========================
+
+    // Sectors
+    Route::get('/sectors', [OrgUnitController::class, 'sectors'])->name('sectors.index');
+    Route::get('/sectors/{slug}', [OrgUnitController::class, 'showSector'])->name('sectors.show');
+
+    // Departments
+    Route::get('/departments', [OrgUnitController::class, 'departments'])->name('departments.index');
+    Route::get('/departments/{slug}', [OrgUnitController::class, 'showDepartment'])->name('departments.show');
+
+    // Units
+    Route::get('/units', [OrgUnitController::class, 'units'])->name('units.index');
+    Route::get('/units/{slug}', [OrgUnitController::class, 'showUnit'])->name('units.show');
+
+    // =========================
+    // OTHER PAGES
+    // =========================
     Route::get('/about', [AboutController::class, 'index'])->name('about.index');
     Route::get('/secretary-general-message', [SecretaryGeneralMessageController::class, 'index'])->name('secretary-general-message');
-
+    Route::get('/affiliations', [AffiliationController::class, 'index'])->name('affiliations.index');
+    Route::get('/faq', [FaqController::class, 'index'])->name('faq.index');
 
     // =========================
     // DYNAMIC PAGE CATCH-ALL
@@ -61,7 +106,6 @@ $pageRoutes = function () {
         ->where('slug', '^(?!sw$|sw/).*')
         ->name('pages.show');
 };
-
 
 // =========================
 // REGISTER ROUTE SET

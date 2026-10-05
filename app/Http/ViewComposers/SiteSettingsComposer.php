@@ -10,5 +10,6 @@ class SiteSettingsComposer
     public function compose(View $view): void
     {
         $view->with('siteSettings', app(SiteSettings::class));
+        $view->with('isSwahili', app()->getLocale() === 'sw');
     }
 }

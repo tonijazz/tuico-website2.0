@@ -10,14 +10,30 @@ class LeaderController extends Controller
     public function index()
     {
         $nationalExecutives = Leader::where('level', 'national')
-            ->where('role_type', '!=', 'unit_head')
+            ->whereIn('role_type', ['chairperson', 'secretary'])
+            ->orderBy('order')
             ->get();
 
-        $orgUnits = OrgUnit::with('leader')->orderBy('order')->get();
+        $sectors = OrgUnit::where('type', 'sector')
+            ->with('leader')
+            ->orderBy('order')
+            ->get();
+
+        $departments = OrgUnit::where('type', 'department')
+            ->with('leader')
+            ->orderBy('order')
+            ->get();
+
+        $units = OrgUnit::where('type', 'unit')
+            ->with('leader')
+            ->orderBy('order')
+            ->get();
 
         return view('leadership.index', [
             'nationalExecutives' => $nationalExecutives,
-            'orgUnits' => $orgUnits,
+            'sectors' => $sectors,
+            'departments' => $departments,
+            'units' => $units,
         ]);
     }
 }

@@ -3,27 +3,128 @@
 @section('title', $zone->name)
 
 @section('content')
-    <div class="max-w-3xl mx-auto p-8">
-        <div class="border rounded-lg p-4 mb-4 shadow-sm">
-            <h4 class="text-lg font-semibold">{{ $zone->name }}</h4>
 
-            @if ($zone->chairperson)
-                <p class="text-sm text-gray-400">Chairperson: {{ $zone->chairperson->name }}</p>
-            @endif
+    {{-- =========================
+         HERO
+    ========================== --}}
+
+    <section class="bg-tuico-navy text-white">
+
+        <div class="max-w-7xl mx-auto px-6 py-12">
+
+            <p class="text-sm uppercase tracking-widest text-blue-200 mb-2">
+                {{ app()->getLocale() === 'sw' ? 'Kanda' : 'Zone' }}
+            </p>
+
+            <h1 class="text-4xl md:text-5xl font-bold">
+                {{ $zone->name }}
+            </h1>
+
         </div>
 
-        <h3 class="text-md font-semibold mt-4 mb-2">Member Regions</h3>
-        <ul>
-            @foreach ($zone->offices as $office)
-                <li class="border-b py-2">
-                    <a href="{{ route('regions.show', $office->slug) }}" class="hover:underline">
-                        {{ $office->name }}
-                    </a>
-                    @if ($office->is_zonal_seat)
-                        <span class="text-xs text-amber-600 font-semibold ml-2">(Zonal Seat)</span>
-                    @endif
-                </li>
-            @endforeach
-        </ul>
-    </div>
+    </section>
+
+
+    {{-- =========================
+         ZONE INFORMATION
+    ========================== --}}
+
+    <section class="max-w-7xl mx-auto px-6 py-8">
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+            {{-- CHAIRPERSON --}}
+            @if ($zone->chairperson)
+
+                <div class="border border-gray-100 bg-gray-50 p-6">
+
+                    <p class="text-sm uppercase tracking-widest text-blue-700 mb-2">
+                        {{ app()->getLocale() === 'sw' ? 'Mwenyekiti wa Kanda' : 'Zone Chairperson' }}
+                    </p>
+
+                    <h2 class="text-xl font-bold text-gray-900">
+                        {{ $zone->chairperson->name }}
+                    </h2>
+
+                </div>
+
+            @endif
+
+
+            {{-- MEMBER REGIONS --}}
+            <div class="{{ $zone->chairperson ? 'lg:col-span-2' : 'lg:col-span-3' }}">
+
+                <p class="text-sm uppercase tracking-widest text-blue-700 mb-2">
+                    {{ app()->getLocale() === 'sw' ? 'Mikoa Wanachama' : 'Member Regions' }}
+                </p>
+
+                <h2 class="text-3xl font-bold text-gray-900">
+                    {{ app()->getLocale() === 'sw' ? 'Mikoa ya Kanda' : 'Regions in this Zone' }}
+                </h2>
+
+                <div class="mt-6 space-y-3">
+
+                    @foreach ($zone->offices as $office)
+
+                        <a
+                            href="{{ route('regions.show', $office->slug) }}"
+                            class="group flex items-center justify-between gap-4 border border-gray-100 bg-white px-5 py-4 hover:border-blue-100 hover:bg-blue-50 transition"
+                        >
+
+                            <div class="min-w-0">
+
+                                <span class="font-medium text-gray-900 group-hover:text-blue-800">
+                                    {{ $office->name }}
+                                </span>
+
+                                @if ($office->is_zonal_seat)
+
+                                    <span class="inline-flex items-center rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800 ml-2">
+                                        {{ app()->getLocale() === 'sw' ? 'Ofisi ya Kanda' : 'Zonal Office' }}
+                                    </span>
+
+                                @endif
+
+                            </div>
+
+                            <span class="text-blue-700 group-hover:translate-x-1 transition">
+                                →
+                            </span>
+
+                        </a>
+
+                    @endforeach
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    {{-- =========================
+         BACK TO ZONES
+    ========================== --}}
+
+    <section class="bg-gray-50">
+
+        <div class="max-w-7xl mx-auto px-6 py-8">
+
+            <a
+                href="{{ route('zones.index') }}"
+                class="inline-flex items-center text-sm font-semibold text-blue-700 hover:text-blue-950 transition"
+            >
+
+                <span class="mr-2">←</span>
+
+                {{ app()->getLocale() === 'sw' ? 'Rudi kwenye Kanda' : 'Back to Zones' }}
+
+            </a>
+
+        </div>
+
+    </section>
+
 @endsection

@@ -1,24 +1,149 @@
 @extends('layouts.app')
 
-@section('title', 'FAQ')
+@php
+$isSwahili = app()->getLocale() === 'sw';
+@endphp
+
+@section('title', $isSwahili ? 'Maswali Yanayoulizwa Mara kwa Mara' : 'Frequently Asked Questions')
 
 @section('content')
-    <div class="max-w-3xl mx-auto p-8">
-        <h2 class="text-2xl font-bold mb-4">Frequently Asked Questions</h2>
 
-        @foreach ($categories as $category)
-            <h3 class="text-lg font-semibold mt-6 mb-2">{{ $category->name }}</h3>
+{{-- HERO --}}
 
-            @foreach ($category->faqs as $faq)
-                <div x-data="{ open: false }" class="border-b py-2">
-                    <button @click="open = !open" class="w-full text-left font-semibold">
-                        {{ $faq->question }}
-                    </button>
-                    <div x-show="open" class="text-gray-600 mt-2">
-                        {{ $faq->answer }}
-                    </div>
-                </div>
-            @endforeach
-        @endforeach
+<section class="bg-tuico-navy text-white">
+
+<div class="max-w-7xl mx-auto px-6 py-12">
+
+    <div class="max-w-3xl">
+
+        <p class="text-sm uppercase tracking-widest text-blue-200 mb-2">
+            {{ $isSwahili ? 'Mawasiliano' : 'Inquiries' }}
+        </p>
+
+        <h1 class="text-4xl md:text-5xl font-bold leading-tight">
+            {{ $isSwahili
+                ? 'Maswali Yanayoulizwa Mara kwa Mara'
+                : 'Frequently Asked Questions' }}
+        </h1>
+
+        <p class="mt-5 max-w-2xl text-lg leading-8 text-blue-100">
+            {{ $isSwahili
+                ? 'Pata majibu ya baadhi ya maswali yanayoulizwa mara kwa mara kuhusu TUICO na huduma zake.'
+                : 'Find answers to some of the questions commonly asked about TUICO and its services.' }}
+        </p>
+
     </div>
+
+</div>
+
+</section>
+
+{{-- FAQ CONTENT --}}
+
+<section class="bg-gray-50">
+
+<div class="max-w-4xl mx-auto px-6 py-8">
+
+    <div class="space-y-3">
+
+        @forelse ($categories as $category)
+
+            {{-- CATEGORY --}}
+            <div
+                x-data="{ open: false }"
+                class="bg-white rounded-lg border border-gray-100 overflow-hidden"
+            >
+
+                <button
+                    type="button"
+                    @click="open = !open"
+                    class="flex items-center justify-between w-full gap-6 px-6 py-5 md:px-7 text-left hover:bg-gray-50 transition"
+                >
+
+                    <span class="text-lg font-bold text-gray-900">
+                        {{ $category->name }}
+                    </span>
+
+                    <span
+                        class="flex-shrink-0 text-xl text-blue-700 transition-transform duration-200"
+                        :class="{ 'rotate-45': open }"
+                    >
+                        +
+                    </span>
+
+                </button>
+
+
+                {{-- QUESTIONS --}}
+                <div
+                    x-show="open"
+                    x-collapse
+                    class="border-t border-gray-100 px-6 md:px-7"
+                >
+
+                    @foreach ($category->faqs as $faq)
+
+                        <div
+                            x-data="{ questionOpen: false }"
+                            class="border-b border-gray-100 last:border-b-0"
+                        >
+
+                            <button
+                                type="button"
+                                @click="questionOpen = !questionOpen"
+                                class="flex items-center justify-between w-full gap-6 py-5 text-left hover:text-tuico-navy transition"
+                            >
+
+                                <span class="font-semibold text-gray-800">
+                                    {{ $faq->question }}
+                                </span>
+
+                                <span
+                                    class="flex-shrink-0 text-lg text-blue-700 transition-transform duration-200"
+                                    :class="{ 'rotate-45': questionOpen }"
+                                >
+                                    +
+                                </span>
+
+                            </button>
+
+
+                            {{-- ANSWER --}}
+                            <div
+                                x-show="questionOpen"
+                                x-collapse
+                                class="pb-5 pr-8 text-gray-600 leading-7"
+                            >
+                                {{ $faq->answer }}
+                            </div>
+
+                        </div>
+
+                    @endforeach
+
+                </div>
+
+            </div>
+
+        @empty
+
+            <div class="bg-white rounded-lg border border-gray-100 p-8 text-center">
+
+                <p class="text-gray-500">
+                    {{ $isSwahili
+                        ? 'Hakuna maswali yanayopatikana kwa sasa.'
+                        : 'No frequently asked questions are currently available.' }}
+                </p>
+
+            </div>
+
+        @endforelse
+
+    </div>
+
+</div>
+
+
+</section>
+
 @endsection

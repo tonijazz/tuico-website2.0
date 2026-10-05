@@ -14,7 +14,7 @@
          PAGE HERO
     ========================== --}}
 
-    <section class="bg-blue-900 text-white">
+    <section class="bg-tuico-navy text-white">
         <div class="max-w-7xl mx-auto px-6 py-16 md:py-20">
 
             <p class="text-sm font-semibold uppercase tracking-widest text-blue-200">
@@ -76,7 +76,7 @@
                                     {{ $selectedMessage->leader?->name }}
                                 </h2>
 
-                                <p class="mt-1 text-blue-700 font-medium">
+                                <p class="mt-1 text-tuico-sky font-medium">
                                     {{ $isSwahili
                                         ? 'Katibu Mkuu'
                                         : 'General Secretary' }}
@@ -150,7 +150,7 @@
 
                                     <a
                                         href="{{ request()->url() }}?message={{ $message->id }}"
-                                        class="block p-4 rounded-lg border border-gray-200 hover:border-blue-300 hover:bg-blue-50 transition"
+                                        class="block p-4 rounded-lg border border-gray-200 hover:border-tuico-sky hover:bg-sky-50 transition"
                                     >
 
                                         <p class="font-semibold text-blue-950 leading-snug">
