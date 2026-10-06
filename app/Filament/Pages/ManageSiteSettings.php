@@ -11,10 +11,12 @@ use Filament\Forms\Contracts\HasForms;
 use Filament\Pages\Page;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
+use BezhanSalleh\FilamentShield\Traits\HasPageShield;
 
 class ManageSiteSettings extends Page implements HasForms
 {
     use InteractsWithForms;
+    use HasPageShield;
 
     protected string $view = 'filament.pages.manage-site-settings';
 

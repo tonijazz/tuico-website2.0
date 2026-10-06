@@ -1,0 +1,136 @@
+@import '../../../../vendor/filament/filament/resources/css/theme.css';
+
+@source '../../../../app/Filament';
+@source '../../../../resources/views/filament';
+
+/* ---------- TUICO tokens ---------- */
+@theme {
+    --color-tuico-navy: #0E3A5F;
+    --color-tuico-sky: #2EA8DC;
+    --color-tuico-yellow: #F5C518;
+    --color-tuico-green: #1C8A4B;
+    --color-tuico-charcoal: #33322A;
+}
+
+:root {
+    --tuico-sidebar: #0E3A5F;
+    --tuico-sidebar-dark: #081F33;
+}
+
+/* ---------- Page titles ---------- */
+.fi-header-heading {
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+/* ---------- Brand (logo badge + TUICO text) ---------- */
+.tuico-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.tuico-brand__badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 2.75rem;
+    height: 2.75rem;
+    padding: 0.2rem;
+    border-radius: 9999px;
+    background: #fff;
+}
+
+.tuico-brand__badge img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.tuico-brand__name {
+    font-weight: 700;
+    font-size: 1.35rem;
+    letter-spacing: 0.08em;
+    line-height: 1;
+    color: #fff; /* sidebar is navy */
+}
+
+/* Login page (light/dark page background): larger badge, readable text */
+.fi-simple-layout .tuico-brand {
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.fi-simple-layout .tuico-brand__badge {
+    width: 5.5rem;
+    height: 5.5rem;
+    padding: 0;
+    background: transparent;
+}
+
+.fi-simple-layout .tuico-brand__name {
+    font-size: 1.75rem;
+    color: var(--color-tuico-navy);
+}
+
+.dark .fi-simple-layout .tuico-brand__name {
+    color: #fff;
+}
+
+/* ---------- Navy sidebar ---------- */
+.fi-sidebar {
+    background-color: var(--tuico-sidebar);
+}
+
+.dark .fi-sidebar {
+    background-color: var(--tuico-sidebar-dark);
+}
+
+.fi-sidebar-header {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+/* Menu items */
+.fi-sidebar-item-btn {
+    border-radius: 0.5rem;
+}
+
+.fi-sidebar-item-label,
+.fi-sidebar-item-icon {
+    color: rgb(255 255 255 / 0.8);
+}
+
+.fi-sidebar-item-btn:hover {
+    background-color: rgb(255 255 255 / 0.08);
+}
+
+/* Active item: sky highlight + yellow marker */
+.fi-sidebar-item.fi-active > .fi-sidebar-item-btn {
+    background-color: rgb(46 168 220 / 0.2);
+    box-shadow: inset 3px 0 0 var(--color-tuico-yellow);
+}
+
+.fi-sidebar-item.fi-active .fi-sidebar-item-label {
+    color: #fff;
+    font-weight: 600;
+}
+
+.fi-sidebar-item.fi-active .fi-sidebar-item-icon {
+    color: var(--color-tuico-sky);
+}
+
+/* Group labels (e.g. "Settings") */
+.fi-sidebar-group-label {
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgb(255 255 255 / 0.55);
+}
+
+.fi-sidebar-group-btn svg,
+.fi-sidebar-group-collapse-button {
+    color: rgb(255 255 255 / 0.55);
+}
