@@ -8,6 +8,8 @@ use Spatie\Translatable\HasTranslations;
 
 class Faq extends Model
 {
+    use \App\Models\Concerns\LogsChanges;
+
     use HasTranslations;
 
     public $translatable = ['question', 'answer'];

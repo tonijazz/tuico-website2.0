@@ -7,6 +7,8 @@ use Spatie\Translatable\HasTranslations;
 
 class HeroSlide extends Model
 {
+    use \App\Models\Concerns\LogsChanges;
+
     use HasTranslations;
 
     public $translatable = ['title', 'subtitle', 'cta_label'];

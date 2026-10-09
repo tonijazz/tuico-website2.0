@@ -9,6 +9,8 @@ use Spatie\Translatable\HasTranslations;
 
 class ResourceCategory extends Model
 {
+    use \App\Models\Concerns\LogsChanges;
+
     //this model is for the "resource_categories" table, which is a collection of categories that resources belong to. Each category has a name and a slug. The name is translatable.
     use HasTranslations;
 

@@ -8,6 +8,8 @@ use Spatie\Translatable\HasTranslations;
 
 class ResourceItem extends Model
 {
+    use \App\Models\Concerns\LogsChanges;
+
     protected $table = 'resources';
 
     // this model is for the "resources" table, which is a collection of resources that belong to a category. Each resource has a name, a slug, and category_id. The name is translatable.

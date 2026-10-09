@@ -9,6 +9,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Inquiry extends Model
 {
+    use \App\Models\Concerns\LogsChanges;
+    protected array $activityLogOnly = ['status', 'type'];
+    protected static $recordEvents = ['updated', 'deleted'];
+
     //
     protected $fillable = ['name','email','phone','subject','message','type','workplace','region_id','status',
 ];

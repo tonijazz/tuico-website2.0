@@ -10,6 +10,8 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Office extends Model
 {
+    use \App\Models\Concerns\LogsChanges;
+
     protected $fillable = [
         'type', 'parent_office_id', 'zone_id', 'is_zonal_seat',
         'name', 'slug', 'address', 'phone', 'email', 'lat', 'lng',

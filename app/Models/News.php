@@ -10,6 +10,8 @@ use Spatie\Translatable\HasTranslations;
 
 class News extends Model
 {
+    use \App\Models\Concerns\LogsChanges;
+
     use HasTranslations;
 
     protected $table = 'news_posts';

@@ -9,6 +9,8 @@ use Spatie\Translatable\HasTranslations;
 
 class Programme extends Model
 {
+    use \App\Models\Concerns\LogsChanges;
+
     use HasTranslations;
 
     public $translatable = ['title', 'description', 'outcomes'];

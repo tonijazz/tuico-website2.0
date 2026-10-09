@@ -10,6 +10,8 @@ use Spatie\Translatable\HasTranslations;
 
 class Leader extends Model
 {
+    use \App\Models\Concerns\LogsChanges;
+
     //
     use HasTranslations;
 

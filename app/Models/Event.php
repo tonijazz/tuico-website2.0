@@ -8,6 +8,8 @@ use Spatie\Translatable\HasTranslations;
 
 class Event extends Model
 {
+    use \App\Models\Concerns\LogsChanges;
+
     use HasTranslations;
 
     public $translatable = ['title', 'description'];

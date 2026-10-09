@@ -8,6 +8,8 @@ use Spatie\Translatable\HasTranslations;
 
 class SecretaryGeneralMessage extends Model
 {
+    use \App\Models\Concerns\LogsChanges;
+
     use HasTranslations;
 
     public array $translatable = [

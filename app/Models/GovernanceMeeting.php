@@ -8,6 +8,8 @@ use Spatie\Translatable\HasTranslations;
 
 class GovernanceMeeting extends Model
 {
+    use \App\Models\Concerns\LogsChanges;
+
     use HasTranslations;
 
     public $translatable = ['name', 'frequency'];
