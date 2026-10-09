@@ -21,6 +21,8 @@ use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\HtmlString;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use LaBoiteACode\FilamentLogsExplorer\FilamentLogsExplorerPlugin;
+use Rmsramos\Activitylog\ActivitylogPlugin;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -92,6 +94,23 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->plugins([
                 FilamentShieldPlugin::make(),
+
+                // Who did what (content changes, logins, logouts). Super admin only.
+                ActivitylogPlugin::make()
+                    ->label('Activity Log')
+                    ->pluralLabel('Activity Logs')
+                    ->navigationGroup('Logs')
+                    ->navigationIcon('heroicon-o-clipboard-document-list')
+                    ->datetimeFormat('d M Y, H:i')
+                    ->isRestoreActionHidden(true)   // keep the audit trail read-only
+                    ->authorize(fn (): bool => auth()->user()?->hasRole('super_admin') ?? false),
+
+                // Technical error logs (storage/logs). Super admin only, no deleting.
+                FilamentLogsExplorerPlugin::make()
+                    ->navigationGroup('Logs')
+                    ->navigationLabel('Server Logs')
+                    ->deletable(false)
+                    ->canAccessUsing(fn (): bool => auth()->user()?->hasRole('super_admin') ?? false),
             ])
             ->authMiddleware([
                 Authenticate::class,

@@ -1,7 +1,9 @@
 @import '../../../../vendor/filament/filament/resources/css/theme.css';
 
+@source '../../../../vendor/rmsramos/activitylog/resources/**/*';
 @source '../../../../app/Filament';
 @source '../../../../resources/views/filament';
+
 
 /* ---------- TUICO tokens ---------- */
 @theme {
