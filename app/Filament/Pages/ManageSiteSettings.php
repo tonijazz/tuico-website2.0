@@ -9,6 +9,7 @@ use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
+use Filament\Notifications\Notification;
 use Filament\Pages\Page;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -78,5 +79,10 @@ class ManageSiteSettings extends Page implements HasForms
         $settings = app(SiteSettings::class);
         $settings->fill($this->form->getState());
         $settings->save();
+
+        Notification::make()
+            ->title('Saved')
+            ->success()
+            ->send();
     }
 }
