@@ -8,7 +8,11 @@ class SiteSettings extends Settings
 {
     public string $vision;
 
+    public string $vision_sw;
+
     public string $mission;
+
+    public string $mission_sw;
 
     public ?string $logo;
 
@@ -29,7 +33,10 @@ class SiteSettings extends Settings
     public string $email;
 
     public string $fax;
+
     public string $street_address;
+
+    public string $footer_credit;
 
     // your turn: add the rest based on the plan doc list above
     // think about which should be `string` vs `?string` (nullable) —

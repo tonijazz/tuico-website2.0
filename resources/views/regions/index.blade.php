@@ -193,14 +193,13 @@
 
                         <div class="mt-6">
 
-                            <a
-                                href="{{ route('regions.show', $region->slug) }}"
-                                class="inline-flex items-center text-sm font-semibold text-blue-700 hover:text-blue-900"
-                            >
-                                {{ app()->getLocale() === 'sw' ? 'Tazama Ofisi' : 'View Office' }}
-
-                                <span class="ml-2">→</span>
-                            </a>
+<a
+    href="{{ app()->getLocale() === 'sw' ? url('/sw/regions/' . $region->slug . '?from=regions') : route('regions.show', $region->slug) . '?from=regions' }}"
+    class="inline-flex items-center text-sm font-semibold text-blue-700 hover:text-blue-900"
+>
+    {{ app()->getLocale() === 'sw' ? 'Tazama Ofisi' : 'View Office' }}
+    <span class="ml-2">→</span>
+</a>
 
                         </div>
 

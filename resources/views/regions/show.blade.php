@@ -502,19 +502,24 @@
 
     {{-- BACK --}}
 
-    <section class="max-w-7xl mx-auto px-6 pb-12">
+@php
+    $backToZones = request()->query('from') === 'zones';
+@endphp
 
-        <a
-            href="{{ route('regions.index') }}"
-            class="inline-flex items-center text-sm font-semibold text-blue-700 hover:text-blue-900"
-        >
-            <span class="mr-2">←</span>
+<section class="max-w-7xl mx-auto px-6 pb-12">
 
-            {{ app()->getLocale() === 'sw'
-                ? 'Rudi kwenye Ofisi za Mikoa'
-                : 'Back to Regional Offices' }}
-        </a>
+    <a
+        href="{{ $backToZones
+            ? (app()->getLocale() === 'sw' ? url('/sw/zones') : route('zones.index'))
+            : (app()->getLocale() === 'sw' ? url('/sw/regions') : route('regions.index')) }}"
+        class="inline-flex items-center text-sm font-semibold text-blue-700 hover:text-blue-900"
+    >
+        <span class="mr-2">←</span>
 
-    </section>
+        {{ $backToZones
+            ? (app()->getLocale() === 'sw' ? 'Rudi kwenye Kanda' : 'Back to Zones')
+            : (app()->getLocale() === 'sw' ? 'Rudi kwenye Ofisi za Mikoa' : 'Back to Regional Offices') }}
+    </a>
 
+</section>
 @endsection

@@ -5,7 +5,6 @@
 @endsection
 
 @section('content')
-
     {{-- =========================
          HERO
     ========================== --}}
@@ -55,7 +54,6 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
             @foreach ($zones as $zone)
-
                 <div class="border border-gray-100 bg-white p-6">
 
                     <div class="flex items-start justify-between gap-4">
@@ -75,19 +73,10 @@
 
                         <div class="w-10 h-10 bg-blue-50 text-blue-700 flex items-center justify-center shrink-0">
 
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke-width="1.8"
-                                stroke="currentColor"
-                                class="w-5 h-5"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    d="M12 21s7-5.25 7-11a7 7 0 1 0-14 0c0 5.75 7 11 7 11Z"
-                                />
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8"
+                                stroke="currentColor" class="w-5 h-5">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 21s7-5.25 7-11a7 7 0 1 0-14 0c0 5.75 7 11 7 11Z" />
                                 <circle cx="12" cy="10" r="2.5" />
                             </svg>
 
@@ -99,11 +88,8 @@
                     <div class="mt-6 space-y-3">
 
                         @foreach ($zone->offices as $office)
-
-                            <a
-                                href="{{ route('regions.show', $office->slug) }}"
-                                class="group flex items-center justify-between gap-4 border border-gray-100 bg-gray-50 px-4 py-3 hover:bg-blue-50 hover:border-blue-100 transition"
-                            >
+                            <a href="{{ app()->getLocale() === 'sw' ? url('/sw/regions/' . $office->slug . '?from=zones') : route('regions.show', $office->slug) . '?from=zones' }}"
+                                class="group flex items-center justify-between gap-4 border border-gray-100 bg-gray-50 px-4 py-3 hover:bg-blue-50 hover:border-blue-100 transition">
 
                                 <div class="min-w-0">
 
@@ -114,50 +100,36 @@
                                         </span>
 
                                         @if ($office->is_zonal_seat)
-
-                                            <span class="inline-flex items-center rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800">
+                                            <span
+                                                class="inline-flex items-center rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800">
                                                 {{ app()->getLocale() === 'sw' ? 'Ofisi ya Kanda' : 'Zonal Office' }}
                                             </span>
-
                                         @endif
 
                                     </div>
 
                                     @if ($office->subOffices->count())
-
                                         <p class="mt-1 text-xs text-gray-500">
                                             {{ $office->subOffices->count() }}
                                             {{ app()->getLocale() === 'sw' ? 'Ofisi Ndogo' : 'Sub-Office' }}{{ $office->subOffices->count() > 1 ? 's' : '' }}
                                         </p>
-
                                     @endif
 
                                 </div>
 
 
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke-width="1.8"
-                                    stroke="currentColor"
-                                    class="w-5 h-5 text-gray-400 group-hover:text-blue-700 shrink-0"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        d="m9 5 7 7-7 7"
-                                    />
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.8" stroke="currentColor"
+                                    class="w-5 h-5 text-gray-400 group-hover:text-blue-700 shrink-0">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m9 5 7 7-7 7" />
                                 </svg>
 
                             </a>
-
                         @endforeach
 
                     </div>
 
                 </div>
-
             @endforeach
 
         </div>
@@ -180,9 +152,7 @@
                 </p>
 
                 <h2 class="text-3xl font-bold text-gray-900">
-                    {{ app()->getLocale() === 'sw'
-                        ? 'Ofisi za Mikoa nchini'
-                        : 'Regional Offices Across Tanzania' }}
+                    {{ app()->getLocale() === 'sw' ? 'Ofisi za Mikoa nchini' : 'Regional Offices Across Tanzania' }}
                 </h2>
 
                 <p class="mt-3 text-gray-600 leading-7">
@@ -297,8 +267,10 @@
 
                         popup += '<br><br>';
 
+
                         popup +=
-                            '<a href="/regions/' + office.slug + '"' +
+                            '<a href="{{ app()->getLocale() === 'sw' ? '/sw/regions/' : '/regions/' }}' +
+                            office.slug + '?from=zones"' +
                             ' style="color:#1d4ed8;font-weight:600;">' +
                             '{{ app()->getLocale() === 'sw' ? 'Tazama Ofisi' : 'View Office' }}' +
                             '</a>';
@@ -339,5 +311,4 @@
 
         });
     </script>
-
 @endsection

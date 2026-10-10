@@ -4,9 +4,10 @@
 
 @section('content')
 
+
     {{-- =========================
-         HERO
-    ========================== --}}
+     HERO
+========================== --}}
 
     <section class="bg-tuico-navy text-white">
         <div class="max-w-7xl mx-auto px-6 py-12">
@@ -30,8 +31,8 @@
 
 
     {{-- =========================
-         WHO WE ARE + AT A GLANCE
-    ========================== --}}
+     WHO WE ARE + AT A GLANCE
+========================== --}}
 
     <section class="max-w-7xl mx-auto px-6 py-8">
 
@@ -138,8 +139,8 @@
 
 
     {{-- =========================
-         HISTORY
-    ========================== --}}
+     HISTORY
+========================== --}}
 
     @php
         $historyHeading = app()->getLocale() === 'sw' ? 'Historia' : 'Background and History';
@@ -185,8 +186,8 @@
 
 
     {{-- =========================
-         MISSION & VISION
-    ========================== --}}
+     MISSION & VISION
+========================== --}}
 
     <section class="max-w-7xl mx-auto px-6 py-8">
 
@@ -211,7 +212,7 @@
                 </h3>
 
                 <p class="text-gray-600 leading-7">
-                    {{ $siteSettings->vision }}
+                    {{ app()->getLocale() === 'sw' ? $siteSettings->vision_sw : $siteSettings->vision }}
                 </p>
 
             </div>
@@ -223,7 +224,7 @@
                 </h3>
 
                 <p class="text-gray-600 leading-7">
-                    {{ $siteSettings->mission }}
+                    {{ app()->getLocale() === 'sw' ? $siteSettings->mission_sw : $siteSettings->mission }}
                 </p>
 
             </div>
@@ -234,8 +235,8 @@
 
 
     {{-- =========================
-         STRATEGIC AREAS
-    ========================== --}}
+     STRATEGIC AREAS
+========================== --}}
 
     <section class="bg-gray-50">
 
@@ -299,8 +300,8 @@
     </section>
 
     {{-- =========================
-         STATUTORY MEETINGS
-    ========================== --}}
+     STATUTORY MEETINGS
+========================== --}}
 
     <section class="max-w-7xl mx-auto px-6 py-8">
 
@@ -359,5 +360,6 @@
         @endif
 
     </section>
+
 
 @endsection

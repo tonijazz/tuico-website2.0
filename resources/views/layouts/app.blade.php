@@ -974,7 +974,7 @@
         </div>
 
     </div>
-
+{{-- FOOTER CREDIT --}} <div class="border-t border-white/10"> <div class="max-w-7xl mx-auto px-6 py-4 text-center text-xs sm:text-sm text-gray-400"> {{ $siteSettings->footer_credit }} </div> </div>
 </footer>
 
 
