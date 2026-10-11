@@ -61,8 +61,12 @@
     $basePath = $isSwahili ? substr($currentPath, 3) : $currentPath;
     $basePath = $basePath === '/' ? '' : $basePath;
 
-    $englishUrl = '/' . $basePath;
-    $swahiliUrl = $basePath === '' ? '/sw' : '/sw/' . $basePath;
+    // Keep the query string (e.g. ?page=2) when switching language
+    $query = request()->getQueryString();
+    $suffix = $query ? '?' . $query : '';
+
+    $englishUrl = '/' . $basePath . $suffix;
+    $swahiliUrl = ($basePath === '' ? '/sw' : '/sw/' . $basePath) . $suffix;
 @endphp
 
 
@@ -75,9 +79,41 @@
 
     <div class="max-w-[1600px] mx-auto px-6">
 
-        <div class="flex items-center justify-end h-10">
+        <div class="flex w-full items-center justify-between h-10">
 
-            <div class="flex items-center gap-5">
+            {{-- MOBILE LANGUAGE SWITCHER --}}
+            <div class="flex lg:hidden items-center -ml-3 text-sm font-medium whitespace-nowrap">
+
+                <a
+                    href="{{ $englishUrl }}"
+                    lang="en"
+                    hreflang="en"
+                    @if (!$isSwahili) aria-current="true" @endif
+                    class="px-3 py-2 {{ !$isSwahili ? 'font-bold text-white' : 'text-gray-300 hover:text-white' }} transition"
+                    aria-label="Switch to English"
+                >
+                    EN
+                </a>
+
+                <span class="text-white/50" aria-hidden="true">|</span>
+
+                <a
+                    href="{{ $swahiliUrl }}"
+                    lang="sw"
+                    hreflang="sw"
+                    @if ($isSwahili) aria-current="true" @endif
+                    class="px-3 py-2 {{ $isSwahili ? 'font-bold text-white' : 'text-gray-300 hover:text-white' }} transition"
+                    aria-label="Badili lugha iwe Kiswahili"
+                >
+                    SW
+                </a>
+
+            </div>
+
+            <div
+                class="flex items-center gap-3 sm:gap-5"
+                style="margin-left: auto;"
+            >
 
                 {{-- FACEBOOK --}}
                 @if ($siteSettings->facebook_url)
@@ -784,28 +820,6 @@
         </a>
 
 
-        {{-- MOBILE LANGUAGE SWITCHER --}}
-
-        <div class="border-t border-gray-100 mt-2 pt-3 flex items-center gap-2">
-
-            <a
-                href="{{ $englishUrl }}"
-                class="{{ !$isSwahili ? 'font-bold text-tuico-navy' : 'text-gray-400 hover:text-tuico-navy' }}"
-            >
-                EN
-            </a>
-
-            <span class="text-gray-300">|</span>
-
-            <a
-                href="{{ $swahiliUrl }}"
-                class="{{ $isSwahili ? 'font-bold text-tuico-navy' : 'text-gray-400 hover:text-tuico-navy' }}"
-            >
-                SW
-            </a>
-
-        </div>
-
     </div>
 
 </header>
@@ -974,7 +988,18 @@
         </div>
 
     </div>
-{{-- FOOTER CREDIT --}} <div class="border-t border-white/10"> <div class="max-w-7xl mx-auto px-6 py-4 text-center text-xs sm:text-sm text-gray-400"> {{ $siteSettings->footer_credit }} </div> </div>
+
+
+    {{-- FOOTER CREDIT --}}
+
+    <div class="border-t border-white/10">
+
+        <div class="max-w-7xl mx-auto px-6 py-4 text-center text-xs sm:text-sm text-gray-400">
+            {{ $siteSettings->footer_credit }}
+        </div>
+
+    </div>
+
 </footer>
 
 
