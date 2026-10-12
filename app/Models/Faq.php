@@ -2,15 +2,16 @@
 
 namespace App\Models;
 
+use App\Models\Concerns\LogsChanges;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Spatie\Translatable\HasTranslations;
 
 class Faq extends Model
 {
-    use \App\Models\Concerns\LogsChanges;
-
     use HasTranslations;
+    use LogsChanges;
 
     public $translatable = ['question', 'answer'];
 
@@ -24,5 +25,10 @@ class Faq extends Model
     public function category(): BelongsTo
     {
         return $this->belongsTo(FaqCategory::class);
+    }
+
+    public function links(): HasMany
+    {
+        return $this->hasMany(FaqLink::class)->orderBy('order');
     }
 }

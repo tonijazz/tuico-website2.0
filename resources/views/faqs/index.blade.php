@@ -2,6 +2,7 @@
 
 @php
 $isSwahili = app()->getLocale() === 'sw';
+$locale = app()->getLocale();
 @endphp
 
 @section('title', $isSwahili ? 'Maswali Yanayoulizwa Mara kwa Mara' : 'Frequently Asked Questions')
@@ -49,6 +50,7 @@ $isSwahili = app()->getLocale() === 'sw';
         @forelse ($categories as $category)
 
             {{-- CATEGORY --}}
+
             <div
                 x-data="{ open: false }"
                 class="bg-white rounded-lg border border-gray-100 overflow-hidden"
@@ -73,8 +75,8 @@ $isSwahili = app()->getLocale() === 'sw';
 
                 </button>
 
-
                 {{-- QUESTIONS --}}
+
                 <div
                     x-show="open"
                     x-collapse
@@ -82,6 +84,15 @@ $isSwahili = app()->getLocale() === 'sw';
                 >
 
                     @foreach ($category->faqs as $faq)
+
+                        @php
+                            $answer = $faq->answer;
+
+                            $links = $faq->links->filter(function ($link) use ($locale) {
+                                return filled($link->url)
+                                    && filled($link->getTranslation('label', $locale));
+                            });
+                        @endphp
 
                         <div
                             x-data="{ questionOpen: false }"
@@ -107,14 +118,41 @@ $isSwahili = app()->getLocale() === 'sw';
 
                             </button>
 
-
                             {{-- ANSWER --}}
+
                             <div
                                 x-show="questionOpen"
                                 x-collapse
                                 class="pb-5 pr-8 text-gray-600 leading-7"
                             >
-                                {{ $faq->answer }}
+
+                                <p>
+                                    {{ $answer }}
+                                </p>
+
+                                {{-- DATABASE-DRIVEN RELATED LINKS --}}
+
+                                @if ($links->isNotEmpty())
+
+                                    <div class="mt-3 flex flex-wrap gap-x-4 gap-y-2">
+
+                                        @foreach ($links as $link)
+
+                                            <a
+                                                href="{{ $link->url }}"
+                                                class="inline-flex items-center font-semibold text-tuico-navy underline underline-offset-4 hover:text-blue-700 transition"
+                                            >
+                                                {{ $link->getTranslation('label', $locale) }}
+
+                                                <span class="ml-1" aria-hidden="true">↗</span>
+                                            </a>
+
+                                        @endforeach
+
+                                    </div>
+
+                                @endif
+
                             </div>
 
                         </div>
@@ -142,7 +180,6 @@ $isSwahili = app()->getLocale() === 'sw';
     </div>
 
 </div>
-
 
 </section>
 

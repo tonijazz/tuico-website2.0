@@ -19,7 +19,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        //this is for the quiklinks composer to be available in all views
+        $this->app->singleton(QuickLinksComposer::class);
     }
 
     /**
@@ -31,7 +32,7 @@ class AppServiceProvider extends ServiceProvider
 
         // I added this inside boot():
         View::composer('*', SiteSettingsComposer::class);
-        View::composer('*', QuickLinksComposer::class);
+        View::composer('layouts.app', QuickLinksComposer::class);
         AuthActivityLogger::register();   // <-- NEW (call)
     }
 }

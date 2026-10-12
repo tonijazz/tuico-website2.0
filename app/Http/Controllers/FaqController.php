@@ -8,8 +8,7 @@ class FaqController extends Controller
 {
     public function index()
     {
-        $categories = FaqCategory::with('faqs')->get();
-
+        $categories = FaqCategory::with('faqs.links')->get();
         return view('faqs.index', ['categories' => $categories]);
     }
 }
