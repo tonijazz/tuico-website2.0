@@ -41,17 +41,18 @@ class StrategicAreaForm
                     ->columnSpanFull(),
                 Select::make('icon')
                     ->options([
-                        'heroicon-o-flag' => 'Flag',
-                        'heroicon-o-scale' => 'Scale (Bargaining)',
-                        'heroicon-o-academic-cap' => 'Academic Cap (Education)',
-                        'heroicon-o-chat-bubble-left-right' => 'Chat Bubbles (Dialogue)',
-                        'heroicon-o-shield-check' => 'Shield (Safety/Rights)',
-                        'heroicon-o-users' => 'Users (Organising)',
-                        'heroicon-o-globe-alt' => 'Globe (Partnerships)',
-                        'heroicon-o-chart-bar' => 'Chart (Monitoring)',
+                        'heroicon-o-users' => 'Users (Organising and Union Building)',
+                        'heroicon-o-scale' => 'Scale (Collective Bargaining)',
+                        'heroicon-o-academic-cap' => 'Academic Cap (Workers’ Education)',
+                        'heroicon-o-chat-bubble-left-right' => 'Chat Bubbles (Social Dialogue)',
+                        'heroicon-o-shield-check' => 'Shield (Labour Rights Advocacy)',
+                        'heroicon-o-heart' => 'Heart (Health, Safety, and Welfare)',
+                        'heroicon-o-building-office-2' => 'Building (Union Governance and Capacity Building)',
+                        'heroicon-o-globe-alt' => 'Globe (Policy Influence and Strategic Partnerships)',
+                        'heroicon-o-chart-bar' => 'Chart (Monitoring and Evaluation)',
                     ])
                     ->required()
-                    ->default('heroicon-o-flag'),
+                    ->default('heroicon-o-users'),
                 TextInput::make('order')
                     ->required()
                     ->numeric()
