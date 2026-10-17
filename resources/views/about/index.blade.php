@@ -312,12 +312,12 @@
             </p>
 
             <h2 class="text-3xl font-bold text-gray-900 mb-3">
-                {{ app()->getLocale() === 'sw' ? 'Mikutano ya Kisheria' : 'Statutory Meetings' }}
+                {{ app()->getLocale() === 'sw' ? 'Vikao vya Kikatiba' : 'Statutory Meetings' }}
             </h2>
 
             <p class="text-gray-600 leading-7">
                 {{ app()->getLocale() === 'sw'
-                    ? 'Mikutano hii huendesha na kusimamia shughuli za Chama katika ngazi mbalimbali kwa mujibu wa Katiba na Kanuni za Chama.'
+                    ? 'Vikao hivi hufanyika ili kusimamia shughuli za Chama katika ngazi mbalimbali kwa mujibu wa Katiba na Kanuni za Chama.'
                     : "These meetings conduct and oversee the affairs of the Union at different levels in accordance with the Union's Constitution and Rules." }}
             </p>
 
