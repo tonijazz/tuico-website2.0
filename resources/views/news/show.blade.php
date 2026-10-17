@@ -128,7 +128,7 @@
                 prose-blockquote:text-gray-600
                 prose-img:rounded-lg"
         >
-            {!! $body !!}
+            {!! str($body)->sanitizeHtml() !!}
         </article>
 
     </div>

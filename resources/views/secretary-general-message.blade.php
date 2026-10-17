@@ -108,7 +108,7 @@
                             @endif
 
                             <div class="mt-8 text-gray-700 leading-8 text-lg space-y-6">
-                                {!! $selectedMessage->getTranslation('content', app()->getLocale()) !!}
+                                {!! str($selectedMessage->getTranslation('content', app()->getLocale()))->sanitizeHtml() !!}
                             </div>
 
                             <div class="mt-10 pt-8 border-t border-gray-200">
