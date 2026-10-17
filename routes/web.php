@@ -17,6 +17,7 @@ use App\Http\Controllers\ProgrammeController;
 use App\Http\Controllers\ResourceItemController;
 use App\Http\Controllers\SecretaryGeneralMessageController;
 use Illuminate\Support\Facades\Route;
+use Spatie\Honeypot\ProtectAgainstSpam;
 
 // =========================
 // DEFINE PUBLIC PAGE ROUTES
@@ -66,10 +67,16 @@ $pageRoutes = function () {
     // =========================
     // INQUIRY PAGES
     // =========================
+    Route::post('/contact', [ContactController::class, 'store'])
+        ->middleware(['throttle:5,10', ProtectAgainstSpam::class])
+        ->name('contact.store');
+
+    Route::post('/join-us', [JoinUsController::class, 'store'])
+        ->middleware(['throttle:5,10', ProtectAgainstSpam::class])
+        ->name('join-us.store');
     Route::get('/contact', [ContactController::class, 'create'])->name('contact.create');
-    Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
     Route::get('/join-us', [JoinUsController::class, 'create'])->name('join-us.create');
-    Route::post('/join-us', [JoinUsController::class, 'store'])->name('join-us.store');
+
 
     // =========================
     // ORGANIZATION
