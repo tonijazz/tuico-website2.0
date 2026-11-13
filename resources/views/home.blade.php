@@ -21,7 +21,7 @@ $isSwahili = str_starts_with(request()->path(), 'sw/') || request()->path() === 
     <section
         x-data="{ current: 0, total: {{ $slides->count() }} }"
         x-init="setInterval(() => { current = (current + 1) % total }, 6000)"
-        class="relative overflow-hidden"
+        class="relative overflow-hidden min-h-[480px] md:min-h-[560px]"
     >
 
         @foreach ($slides as $index => $slide)
@@ -34,8 +34,8 @@ $isSwahili = str_starts_with(request()->path(), 'sw/') || request()->path() === 
                 x-transition:leave="transition ease-in duration-500"
                 x-transition:leave-start="opacity-100"
                 x-transition:leave-end="opacity-0"
-                class="relative min-h-[480px] md:min-h-[560px] bg-cover bg-center"
-                style="background-image: url('{{ asset('storage/' . $slide->image) }}')"
+                class="absolute inset-0 bg-cover bg-center"
+                style="{{ $index > 0 ? 'display: none; ' : '' }}background-image: url('{{ asset('storage/' . $slide->image) }}')"
             >
 
                 {{-- Overlay --}}
@@ -43,18 +43,18 @@ $isSwahili = str_starts_with(request()->path(), 'sw/') || request()->path() === 
 
                 {{-- Content --}}
                 <div
-                    class="relative z-10 max-w-7xl mx-auto px-6 py-20 md:py-28 min-h-[480px] md:min-h-[560px] flex items-center"
+                    class="relative z-10 max-w-7xl mx-auto px-6 py-10 md:py-12 min-h-[480px] md:min-h-[560px] flex items-center"
                 >
 
                     <div class="max-w-2xl text-white">
 
-                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight line-clamp-3">
                             {{ $slide->title }}
                         </h1>
 
                         @if ($slide->subtitle)
 
-                            <p class="mt-5 text-lg md:text-xl text-blue-50 leading-relaxed max-w-xl">
+                            <p class="mt-5 text-lg md:text-xl text-blue-50 leading-relaxed max-w-xl line-clamp-4">
                                 {{ $slide->subtitle }}
                             </p>
 
@@ -113,7 +113,7 @@ $isSwahili = str_starts_with(request()->path(), 'sw/') || request()->path() === 
 
 
 {{-- =========================
- GENERAL SECRETARY + TUICO AT A GLANCE
+ GENERAL SECRETARY + STANDING TOGETHER
 
 
 ========================== --}}
@@ -122,7 +122,7 @@ $isSwahili = str_starts_with(request()->path(), 'sw/') || request()->path() === 
 <section class="grid grid-cols-1 lg:grid-cols-2">
 
     {{-- GENERAL SECRETARY MESSAGE --}}
-    <div class="bg-blue-900 text-white px-6 py-10 md:px-12 md:py-12 lg:px-16">
+    <div class="bg-blue-900 text-white px-6 py-8 md:px-12 md:py-10 lg:px-16">
 
         <div class="max-w-xl mx-auto lg:ml-auto lg:mr-0">
 
@@ -174,28 +174,22 @@ $isSwahili = str_starts_with(request()->path(), 'sw/') || request()->path() === 
     </div>
 
 
-    {{-- TUICO AT A GLANCE --}}
-    <div class="bg-white px-6 py-10 md:px-12 md:py-12 lg:px-16">
+    {{-- STANDING TOGETHER --}}
+    <div class="bg-white px-6 py-8 md:px-12 md:py-10 lg:px-16">
 
         <div class="max-w-xl mx-auto lg:ml-0 lg:mr-auto">
 
-            <p class="text-sm font-semibold uppercase tracking-widest text-blue-700">
-                {{ app()->getLocale() === 'sw' ? 'TUICO kwa Muhtasari' : 'TUICO at a Glance' }}
-            </p>
-
-            <h2 class="mt-3 text-3xl md:text-4xl font-bold text-blue-950 leading-tight">
-                {{ app()->getLocale() === 'sw'
-                    ? 'Imejengwa juu ya mshikamano. Imekita mizizi Tanzania.'
-                    : 'Built on solidarity. Rooted in Tanzania.' }}
+            <h2 class="text-3xl md:text-4xl font-bold text-blue-950 leading-tight">
+                {{ $isSwahili ? 'Pamoja kwa maslahi bora ya wafanyakazi' : 'Standing together for better working lives' }}
             </h2>
 
             <p class="mt-5 text-gray-600 leading-relaxed">
-                {{ app()->getLocale() === 'sw'
-                    ? 'Kwa zaidi ya miongo mitatu, TUICO imekuwa mstari wa mbele katika uwakilishi wa wafanyakazi, majadiliano ya pamoja na kazi zenye staha. Kuanzia Makao Makuu hadi mtandao wetu wa kanda na mikoa, tunaleta nguvu ya wafanyakazi waliopangwa karibu na maeneo ya kazi kote nchini.'
-                    : "For more than three decades, TUICO has stood for workers' representation, collective bargaining and decent work. From our headquarters to our regional and zonal network, we bring the strength of organised workers closer to workplaces across the country." }}
+                {{ $isSwahili
+                    ? 'TUICO ni chama huru cha wafanyakazi katika sekta za viwanda, biashara, taasisi za fedha, na huduma na ushauri. Kupitia matawi yetu mahali pa kazi na ofisi za mikoa, wanachama huhamasishana, huwasilisha hoja zao na hushiriki katika majadiliano ya pamoja ili kuboresha masharti na mazingira ya kazi.'
+                    : 'TUICO is an independent trade union for workers in industry, commerce, financial institutions, and services and consultancy. Through our workplace branches and regional offices, members organise, raise concerns and bargain together for better terms and conditions of employment.' }}
             </p>
 
-            <div class="mt-8 grid grid-cols-2 gap-6">
+            <div class="mt-6 grid grid-cols-2 gap-5">
 
                 {{-- Founded --}}
                 <div class="border-l-4 border-blue-700 pl-4">
@@ -254,58 +248,25 @@ $isSwahili = str_starts_with(request()->path(), 'sw/') || request()->path() === 
 
             </div>
 
-        </div>
+            <div class="mt-6 flex flex-col sm:flex-row gap-3">
 
-    </div>
+                <a
+                    href="{{ $isSwahili ? '/sw/join-us' : '/join-us' }}"
+                    class="inline-flex w-full sm:w-auto items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-md border border-blue-600 hover:border-blue-700 transition"
+                >
+                    {{ $isSwahili ? 'Jiunge na TUICO' : 'Join TUICO' }}
 
-</section>
+                    <span class="ml-2 text-lg">→</span>
+                </a>
 
+                <a
+                    href="{{ $isSwahili ? '/sw/regions' : '/regions' }}"
+                    class="inline-flex w-full sm:w-auto items-center justify-center bg-white text-blue-800 hover:bg-blue-50 font-semibold px-6 py-3 rounded-md border border-blue-700 transition"
+                >
+                    {{ $isSwahili ? 'Tafuta ofisi ya mkoa wako' : 'Find your regional office' }}
 
-{{-- =========================
- MISSION & VISION
-
-
-========================== --}}
-
-
-<section class="bg-gray-50">
-
-    <div class="max-w-7xl mx-auto px-6 py-12 md:px-12 md:py-16 lg:px-16">
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
-
-            {{-- MISSION --}}
-            <div class="bg-white p-8 md:p-10 border-t-4 border-blue-700 shadow-sm">
-
-                <p class="text-sm font-semibold uppercase tracking-widest text-blue-700">
-                    {{ $isSwahili ? 'Dhamira' : 'Our Mission' }}
-                </p>
-
-                <h2 class="mt-3 text-2xl md:text-3xl font-bold text-blue-950">
-                    {{ $isSwahili ? 'Dhamira Yetu' : 'Our Mission' }}
-                </h2>
-
-                <p class="mt-5 text-gray-600 leading-relaxed">
-                    {{ $isSwahili ? $siteSettings->mission_sw : $siteSettings->mission }}
-                </p>
-
-            </div>
-
-
-            {{-- VISION --}}
-            <div class="bg-white p-8 md:p-10 border-t-4 border-blue-700 shadow-sm">
-
-                <p class="text-sm font-semibold uppercase tracking-widest text-blue-700">
-                    {{ $isSwahili ? 'Dira' : 'Our Vision' }}
-                </p>
-
-                <h2 class="mt-3 text-2xl md:text-3xl font-bold text-blue-950">
-                    {{ $isSwahili ? 'Dira Yetu' : 'Our Vision' }}
-                </h2>
-
-                <p class="mt-5 text-gray-600 leading-relaxed">
-                    {{ $isSwahili ? $siteSettings->vision_sw : $siteSettings->vision }}
-                </p>
+                    <span class="ml-2 text-lg">→</span>
+                </a>
 
             </div>
 
@@ -323,11 +284,38 @@ $isSwahili = str_starts_with(request()->path(), 'sw/') || request()->path() === 
 ========================== --}}
 
 
+@php
+    $pillars = [
+        [
+            'number' => '01',
+            'title_en' => 'Representation',
+            'title_sw' => 'Uwakilishi',
+            'text_en' => "Your workplace representative or regional office can help you raise a concern, understand your rights or seek support with a workplace dispute. TUICO also trains members and representatives to take part in workplace decisions.",
+            'text_sw' => "Mwakilishi wako mahali pa kazi au ofisi ya mkoa inaweza kukusaidia kuwasilisha hoja, kuelewa haki zako au kupata msaada katika mgogoro wa kazi. TUICO pia hutoa mafunzo kwa wanachama na wawakilishi ili waweze kushiriki katika maamuzi mahali pa kazi.",
+        ],
+        [
+            'number' => '02',
+            'title_en' => 'Influence',
+            'title_sw' => 'Ushawishi',
+            'text_en' => "We bring workers' concerns into negotiations with employers and into dialogue with government and other labour stakeholders. We work with trade unions in Tanzania and internationally on issues workers share.",
+            'text_sw' => "Tunawasilisha hoja za wafanyakazi katika majadiliano na waajiri, serikali na wadau wengine wa masuala ya kazi. Tunashirikiana na vyama vya wafanyakazi nchini Tanzania na kimataifa katika masuala yanayowahusu wafanyakazi kwa pamoja.",
+        ],
+        [
+            'number' => '03',
+            'title_en' => 'Results',
+            'title_sw' => 'Matokeo',
+            'text_en' => "Follow updates on collective bargaining agreements and other documented outcomes for workers. Our Strategic Plan 2026-2030 sets out what TUICO aims to achieve during the period.",
+            'text_sw' => "Fuatilia taarifa kuhusu Mikataba ya Hali Bora na matokeo mengine yaliyothibitishwa kwa wafanyakazi. Mpango Mkakati wa TUICO wa 2026-2030 unaeleza malengo ambayo Chama kimejiwekea kwa kipindi hicho.",
+        ],
+    ];
+@endphp
+
+
 <section class="bg-white">
 
-    <div class="max-w-7xl mx-auto px-6 py-12 md:px-12 md:py-16 lg:px-16">
+    <div class="max-w-7xl mx-auto px-6 py-8 md:px-12 md:py-10 lg:px-16">
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-start">
 
             {{-- INTRODUCTION --}}
             <div>
@@ -337,47 +325,29 @@ $isSwahili = str_starts_with(request()->path(), 'sw/') || request()->path() === 
                 </p>
 
                 <h2 class="mt-3 text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-blue-950">
-                    {{ $isSwahili
-                        ? 'Tunageuza mshikamano kuwa nguvu ya wafanyakazi.'
-                        : 'Turning solidarity into strength for workers.' }}
+                    {{ $isSwahili ? 'Uwakilishi. Ushawishi. Matokeo.' : 'Representation. Influence. Results.' }}
                 </h2>
-
-                <p class="mt-5 text-lg leading-relaxed text-gray-600">
-                    {{ $isSwahili
-                        ? 'TUICO inafanya kazi kulinda na kuendeleza maslahi ya wafanyakazi kupitia uwakilishi, majadiliano, elimu, msaada wa kisheria na ushirikiano na wadau mbalimbali.'
-                        : 'TUICO works to protect and advance workers’ interests through representation, collective bargaining, education, legal support and engagement with key stakeholders.' }}
-                </p>
-
-                <p class="mt-3 text-gray-600 leading-relaxed">
-                    {{ $isSwahili
-                        ? 'Kazi hii inatekelezwa kupitia mtandao wetu wa viongozi, ofisi na wanachama katika sekta mbalimbali za uchumi.'
-                        : 'This work is carried out through our network of leaders, offices and members across diverse sectors of the economy.' }}
-                </p>
-
-
-                {{-- AREAS OF WORK INDICATOR --}}
-                <div class="mt-6 flex items-center gap-4">
-
-                    <div class="text-3xl font-bold text-blue-900">
-                        06
-                    </div>
-
-                    <div class="h-8 w-px bg-gray-300"></div>
-
-                    <div class="text-sm font-semibold uppercase tracking-wider text-gray-500">
-                        {{ $isSwahili ? 'Maeneo ya Kazi' : 'Areas of Work' }}
-                    </div>
-
-                </div>
 
 
                 <div class="mt-6">
 
                     <a
+                        href="{{ $isSwahili ? '/sw/news' : '/news' }}"
+                        class="inline-flex items-center font-semibold text-tuico-navy hover:text-blue-950 transition"
+                    >
+                        {{ $isSwahili ? 'Soma habari za TUICO' : 'Read TUICO news' }}
+                        <span class="ml-2">→</span>
+                    </a>
+
+                </div>
+
+                <div class="mt-3">
+
+                    <a
                         href="{{ $isSwahili ? '/sw/strategic-plan' : '/strategic-plan' }}"
                         class="inline-flex items-center font-semibold text-tuico-navy hover:text-blue-950 transition"
                     >
-                        {{ $isSwahili ? 'Angalia maeneo yetu ya kimkakati' : 'Explore our strategic areas' }}
+                        {{ $isSwahili ? 'Tazama Mpango Mkakati' : 'Explore the strategic plan' }}
                         <span class="ml-2">→</span>
                     </a>
 
@@ -386,153 +356,34 @@ $isSwahili = str_starts_with(request()->path(), 'sw/') || request()->path() === 
             </div>
 
 
-            {{-- AREAS OF WORK --}}
+            {{-- PILLARS --}}
             <div>
 
                 <div class="border-t border-gray-200">
 
-                    {{-- ITEM 01 --}}
-                    <div class="flex gap-4 py-3 border-b border-gray-200">
+                    @foreach ($pillars as $pillar)
 
-                        <div class="text-sm font-bold text-blue-700 pt-1">
-                            01
-                        </div>
+                        <div class="flex gap-4 py-3 border-b border-gray-200">
 
-                        <div>
+                            <div class="w-6 shrink-0 text-sm font-bold text-blue-700 pt-1">
+                                {{ $pillar['number'] }}
+                            </div>
 
-                            <h3 class="text-lg font-bold text-blue-950">
-                                {{ $isSwahili ? 'Uwakilishi wa Wafanyakazi' : 'Workers’ Representation' }}
-                            </h3>
+                            <div>
 
-                            <p class="mt-1 text-sm text-gray-600 leading-relaxed">
-                                {{ $isSwahili
-                                    ? 'Kuwakilisha wafanyakazi na kuendeleza maslahi yao mahali pa kazi.'
-                                    : 'Representing workers and advancing their interests in the workplace.' }}
-                            </p>
+                                <h3 class="text-lg font-bold text-blue-950">
+                                    {{ $isSwahili ? $pillar['title_sw'] : $pillar['title_en'] }}
+                                </h3>
 
-                        </div>
+                                <p class="mt-1 text-sm text-gray-600 leading-relaxed">
+                                    {{ $isSwahili ? $pillar['text_sw'] : $pillar['text_en'] }}
+                                </p>
 
-                    </div>
-
-
-                    {{-- ITEM 02 --}}
-                    <div class="flex gap-4 py-3 border-b border-gray-200">
-
-                        <div class="text-sm font-bold text-blue-700 pt-1">
-                            02
-                        </div>
-
-                        <div>
-
-                            <h3 class="text-lg font-bold text-blue-950">
-                                {{ $isSwahili ? 'Majadiliano ya Pamoja' : 'Collective Bargaining' }}
-                            </h3>
-
-                            <p class="mt-1 text-sm text-gray-600 leading-relaxed">
-                                {{ $isSwahili
-                                    ? 'Kushiriki katika majadiliano kuhusu mishahara, mazingira na masharti ya kazi.'
-                                    : 'Supporting negotiations on wages, working conditions and terms of employment.' }}
-                            </p>
+                            </div>
 
                         </div>
 
-                    </div>
-
-
-                    {{-- ITEM 03 --}}
-                    <div class="flex gap-4 py-3 border-b border-gray-200">
-
-                        <div class="text-sm font-bold text-blue-700 pt-1">
-                            03
-                        </div>
-
-                        <div>
-
-                            <h3 class="text-lg font-bold text-blue-950">
-                                {{ $isSwahili ? 'Haki za Wafanyakazi' : 'Workers’ Rights' }}
-                            </h3>
-
-                            <p class="mt-1 text-sm text-gray-600 leading-relaxed">
-                                {{ $isSwahili
-                                    ? 'Kukuza haki mahali pa kazi, kazi zenye staha na mazingira salama ya kazi.'
-                                    : 'Promoting workplace rights, decent work and safe working environments.' }}
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    {{-- ITEM 04 --}}
-                    <div class="flex gap-4 py-3 border-b border-gray-200">
-
-                        <div class="text-sm font-bold text-blue-700 pt-1">
-                            04
-                        </div>
-
-                        <div>
-
-                            <h3 class="text-lg font-bold text-blue-950">
-                                {{ $isSwahili ? 'Elimu na Ujenzi wa Uwezo' : 'Education & Capacity Building' }}
-                            </h3>
-
-                            <p class="mt-1 text-sm text-gray-600 leading-relaxed">
-                                {{ $isSwahili
-                                    ? 'Kuwawezesha wafanyakazi na viongozi kwa maarifa na ujuzi unaohitajika.'
-                                    : 'Equipping workers and leaders with relevant knowledge and skills.' }}
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    {{-- ITEM 05 --}}
-                    <div class="flex gap-4 py-3 border-b border-gray-200">
-
-                        <div class="text-sm font-bold text-blue-700 pt-1">
-                            05
-                        </div>
-
-                        <div>
-
-                            <h3 class="text-lg font-bold text-blue-950">
-                                {{ $isSwahili ? 'Msaada wa Kisheria' : 'Legal Support' }}
-                            </h3>
-
-                            <p class="mt-1 text-sm text-gray-600 leading-relaxed">
-                                {{ $isSwahili
-                                    ? 'Kusaidia wafanyakazi katika masuala ya sheria za kazi na migogoro ya ajira.'
-                                    : 'Supporting workers on labour matters, employment disputes and related legal issues.' }}
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    {{-- ITEM 06 --}}
-                    <div class="flex gap-4 py-3 border-b border-gray-200">
-
-                        <div class="text-sm font-bold text-blue-700 pt-1">
-                            06
-                        </div>
-
-                        <div>
-
-                            <h3 class="text-lg font-bold text-blue-950">
-                                {{ $isSwahili ? 'Mazungumzo ya Kijamii' : 'Social Dialogue' }}
-                            </h3>
-
-                            <p class="mt-1 text-sm text-gray-600 leading-relaxed">
-                                {{ $isSwahili
-                                    ? 'Kushirikiana na waajiri, serikali na wadau wengine katika masuala ya ajira.'
-                                    : 'Engaging employers, government and other stakeholders on employment matters.' }}
-                            </p>
-
-                        </div>
-
-                    </div>
+                    @endforeach
 
                 </div>
 
@@ -554,7 +405,7 @@ $isSwahili = str_starts_with(request()->path(), 'sw/') || request()->path() === 
 
 <section class="bg-gray-50">
 
-    <div class="max-w-7xl mx-auto px-6 py-12 md:px-12 md:py-16 lg:px-16">
+    <div class="max-w-7xl mx-auto px-6 py-8 md:px-12 md:py-10 lg:px-16">
 
         <div class="text-center">
 
@@ -563,13 +414,13 @@ $isSwahili = str_starts_with(request()->path(), 'sw/') || request()->path() === 
             </p>
 
             <h2 class="mt-3 text-3xl md:text-4xl font-bold text-blue-950">
-                {{ $isSwahili ? 'Sekta Tunazowakilisha' : 'The Sectors We Represent' }}
+                {{ $isSwahili ? 'Tambua sekta yako' : 'Find your sector' }}
             </h2>
 
         </div>
 
 
-        <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
             @foreach ($sectors as $sector)
 
@@ -669,6 +520,15 @@ $isSwahili = str_starts_with(request()->path(), 'sw/') || request()->path() === 
 
         </div>
 
+        <p class="mt-5 text-center text-sm text-gray-500">
+            {{ $isSwahili
+                ? 'Kama hujui sekta au ofisi inayohudumia eneo lako la kazi, wasiliana na '
+                : 'If you are unsure which sector or office covers your workplace, contact your ' }}<a
+                href="{{ $isSwahili ? '/sw/regions' : '/regions' }}"
+                class="underline underline-offset-2 hover:text-blue-700 transition"
+            >{{ $isSwahili ? 'ofisi ya TUICO iliyo karibu nawe' : 'nearest TUICO office' }}</a>.
+        </p>
+
     </div>
 
 </section>
@@ -683,7 +543,7 @@ $isSwahili = str_starts_with(request()->path(), 'sw/') || request()->path() === 
 
 <section class="bg-white">
 
-    <div class="max-w-7xl mx-auto px-6 py-12 md:px-12 md:py-16 lg:px-16">
+    <div class="max-w-7xl mx-auto px-6 py-8 md:px-12 md:py-10 lg:px-16">
 
         <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
 
@@ -713,7 +573,7 @@ $isSwahili = str_starts_with(request()->path(), 'sw/') || request()->path() === 
 
         @if ($featuredNews->count())
 
-            <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
 
                 @foreach ($featuredNews as $news)
 
@@ -795,7 +655,7 @@ $isSwahili = str_starts_with(request()->path(), 'sw/') || request()->path() === 
 
         @else
 
-            <div class="mt-10 border border-gray-200 bg-gray-50 px-6 py-10 text-center">
+            <div class="mt-6 border border-gray-200 bg-gray-50 px-6 py-10 text-center">
 
                 <p class="text-gray-600">
                     {{ $isSwahili
@@ -823,7 +683,7 @@ $isSwahili = str_starts_with(request()->path(), 'sw/') || request()->path() === 
 
     <section class="bg-gray-50 border-t border-gray-200">
 
-        <div class="max-w-7xl mx-auto px-6 py-12 md:px-12 md:py-16 lg:px-16">
+        <div class="max-w-7xl mx-auto px-6 py-8 md:px-12 md:py-10 lg:px-16">
 
             {{-- HEADER --}}
             <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
@@ -854,7 +714,7 @@ $isSwahili = str_starts_with(request()->path(), 'sw/') || request()->path() === 
 
             {{-- CAROUSEL --}}
             <div
-                class="relative mt-10"
+                class="relative mt-6"
                 x-data="{
                     current: 0,
                     total: {{ $affiliations->count() }},
@@ -948,17 +808,43 @@ $isSwahili = str_starts_with(request()->path(), 'sw/') || request()->path() === 
 
                         @foreach ($affiliations as $affiliation)
 
+                            @php
+                                $affiliationAttributes = $affiliation->getAttributes();
+                                $affiliationUrl = null;
+
+                                foreach (['website_url', 'url', 'website', 'link'] as $field) {
+                                    if (! empty($affiliationAttributes[$field])) {
+                                        $affiliationUrl = $affiliationAttributes[$field];
+                                        break;
+                                    }
+                                }
+
+                                if ($affiliationUrl && ! preg_match('#^https?://#i', $affiliationUrl)) {
+                                    $affiliationUrl = 'https://' . $affiliationUrl;
+                                }
+
+                                $affiliationCardClasses = 'h-40 bg-white border border-gray-200 flex flex-col items-center justify-center px-5 py-6 hover:border-blue-200 hover:shadow-md transition duration-300';
+                            @endphp
+
                             <div
                                 class="flex-none w-1/2 md:w-1/4 px-2"
                             >
 
-                                <div
-                                    class="h-40 bg-white border border-gray-200
-                                           flex flex-col items-center justify-center
-                                           px-5 py-6
-                                           hover:border-blue-200 hover:shadow-md
-                                           transition duration-300"
-                                >
+                                @if ($affiliationUrl)
+
+                                    <a
+                                        href="{{ $affiliationUrl }}"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label="{{ $affiliation->name }}"
+                                        class="{{ $affiliationCardClasses }} focus:outline-none focus:ring-2 focus:ring-blue-600"
+                                    >
+
+                                @else
+
+                                    <div class="{{ $affiliationCardClasses }}">
+
+                                @endif
 
                                     {{-- LOGO --}}
                                     <div class="h-20 w-full flex items-center justify-center">
@@ -986,7 +872,11 @@ $isSwahili = str_starts_with(request()->path(), 'sw/') || request()->path() === 
                                         {{ $affiliation->name }}
                                     </div>
 
-                                </div>
+                                @if ($affiliationUrl)
+                                    </a>
+                                @else
+                                    </div>
+                                @endif
 
                             </div>
 
@@ -1030,7 +920,7 @@ $isSwahili = str_starts_with(request()->path(), 'sw/') || request()->path() === 
 
 <section class="bg-blue-950 text-white">
 
-    <div class="max-w-7xl mx-auto px-6 py-14 md:px-12 md:py-18 lg:px-16">
+    <div class="max-w-7xl mx-auto px-6 py-8 md:px-12 md:py-10 lg:px-16">
 
         <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
 
@@ -1063,7 +953,7 @@ $isSwahili = str_starts_with(request()->path(), 'sw/') || request()->path() === 
                            bg-white text-blue-950 font-bold
                            hover:bg-blue-50 transition duration-300"
                 >
-                    {{ $isSwahili ? 'Jiunge Nasi' : 'Join Us' }}
+                    {{ $isSwahili ? 'Jiunge na TUICO' : 'Join TUICO' }}
 
                     <span class="ml-2">→</span>
                 </a>

@@ -10,11 +10,10 @@ use Spatie\Translatable\HasTranslations;
 class OrgUnit extends Model
 {
     use \App\Models\Concerns\LogsChanges;
-
     use HasTranslations;
 
-    public $translatable = ['name', 'description'];
-    protected $fillable = ['name', 'description', 'type', 'order'];
+    public $translatable = ['name', 'description', 'examples'];
+    protected $fillable = ['name', 'description', 'examples', 'type', 'order'];
 
     protected $casts = [
         'type' => OrgUnitType::class,

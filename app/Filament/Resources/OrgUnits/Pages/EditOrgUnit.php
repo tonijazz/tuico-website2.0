@@ -17,15 +17,19 @@ class EditOrgUnit extends EditRecord
         ];
     }
 
-    protected function mutateFormDataBeforeFill(array $data): array
-    {
-        foreach (['name', 'description'] as $field) {
-            $data["{$field}_en"] = $this->record->getTranslation($field, 'en');
-            $data["{$field}_sw"] = $this->record->getTranslation($field, 'sw');
-        }
-
-        return $data;
+protected function mutateFormDataBeforeFill(array $data): array
+{
+    foreach (['name', 'description'] as $field) {
+        $data["{$field}_en"] = $this->record->getTranslation($field, 'en');
+        $data["{$field}_sw"] = $this->record->getTranslation($field, 'sw');
     }
+
+    $examples = $this->record->getTranslations('examples');
+    $data['examples_en'] = $examples['en'] ?? [];
+    $data['examples_sw'] = $examples['sw'] ?? [];
+
+    return $data;
+}
 
     protected function mutateFormDataBeforeSave(array $data): array
     {

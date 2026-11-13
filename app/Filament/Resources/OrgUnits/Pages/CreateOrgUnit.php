@@ -9,21 +9,27 @@ class CreateOrgUnit extends CreateRecord
 {
     protected static string $resource = OrgUnitResource::class;
 
-
     protected function mutateFormDataBeforeCreate(array $data): array
     {
-        return $this->foldTranslatableFields($data);
+        return self::foldTranslatableFields($data);
     }
 
     public static function foldTranslatableFields(array $data): array
     {
-        foreach (['title', 'description'] as $field) {
+        foreach (['name', 'description'] as $field) {
             $data[$field] = [
                 'en' => $data["{$field}_en"] ?? null,
                 'sw' => $data["{$field}_sw"] ?? null,
             ];
             unset($data["{$field}_en"], $data["{$field}_sw"]);
         }
+
+        // Examples are lists, so empty means [] rather than null.
+        $data['examples'] = [
+            'en' => array_values($data['examples_en'] ?? []),
+            'sw' => array_values($data['examples_sw'] ?? []),
+        ];
+        unset($data['examples_en'], $data['examples_sw']);
 
         return $data;
     }

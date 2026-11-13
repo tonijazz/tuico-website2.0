@@ -29,6 +29,14 @@ class PageForm
                     ->required(),
                 Builder::make('blocks')
                     ->blocks([
+                        Block::make('intro')
+                            ->label('Page Intro (shown in the page header)')
+                            ->schema([
+                                Textarea::make('content')
+                                    ->label('Intro Text')
+                                    ->required()
+                                    ->rows(2),
+                            ]),
                         Block::make('heading')
                             ->schema([
                                 TextInput::make('content')
@@ -49,6 +57,36 @@ class PageForm
                                     ->schema([
                                         TextInput::make('item')
                                             ->label('Item Text')
+                                            ->required(),
+                                    ])
+                                    ->required(),
+                            ]),
+                        Block::make('key_figures')
+                            ->label('Key Figures (About page card)')
+                            ->schema([
+                                Repeater::make('items')
+                                    ->label('Figures')
+                                    ->schema([
+                                        TextInput::make('value')
+                                            ->label('Figure (e.g. 1995 or 150,000+)')
+                                            ->required(),
+                                        TextInput::make('label')
+                                            ->label('Caption (e.g. Established)')
+                                            ->required(),
+                                    ])
+                                    ->required(),
+                            ]),
+                        Block::make('mission_commitments')
+                            ->label('Mission Commitments (numbered list under the Mission)')
+                            ->schema([
+                                TextInput::make('intro')
+                                    ->label('Intro line (optional, e.g. "We do this by:")')
+                                    ->default(null),
+                                Repeater::make('items')
+                                    ->label('Commitments')
+                                    ->schema([
+                                        TextInput::make('item')
+                                            ->label('Commitment')
                                             ->required(),
                                     ])
                                     ->required(),

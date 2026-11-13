@@ -34,6 +34,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
             {{-- DESCRIPTION --}}
+            {{-- DESCRIPTION --}}
             <div class="lg:col-span-2">
 
                 <p class="text-sm uppercase tracking-widest text-blue-700 mb-2">
@@ -47,6 +48,54 @@
                 <p class="mt-5 text-gray-600 leading-8">
                     {{ $unit->getTranslation('description', app()->getLocale()) }}
                 </p>
+
+                {{-- EXAMPLES --}}
+                @php
+                    $examples = $unit->getTranslation('examples', app()->getLocale());
+                @endphp
+
+                @if (is_array($examples) && count($examples))
+
+                    <h3 class="mt-8 text-xl font-bold text-gray-900">
+                        {{ $isSwahili ? 'Mifano ya kazi' : 'Examples of work' }}
+                    </h3>
+
+                    <ul class="mt-4 space-y-2 text-gray-600 leading-7">
+                        @foreach ($examples as $example)
+                            <li class="flex gap-3">
+                                <span class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-700"></span>
+                                <span>{{ $example }}</span>
+                            </li>
+                        @endforeach
+                    </ul>
+
+                @endif
+
+                {{-- BUTTONS --}}
+                <div class="mt-8 flex flex-wrap gap-3">
+
+                    @if ($unit->order === 1)
+                        {{-- Mobilisation & Strengthening: joining is the main action --}}
+                        <a href="{{ $isSwahili ? '/sw/join-us' : '/join-us' }}"
+                            class="bg-blue-700 px-5 py-2.5 text-sm font-semibold text-white hover:bg-blue-900 transition">
+                            {{ $isSwahili ? 'Uliza kuhusu kujiunga na TUICO' : 'Ask about joining TUICO' }}
+                        </a>
+                    @endif
+
+                    @if ($unit->order === 2)
+                        {{-- Information & Public Relations: updates and publications --}}
+                        <a href="{{ $isSwahili ? '/sw/resources' : '/resources' }}"
+                            class="bg-blue-700 px-5 py-2.5 text-sm font-semibold text-white hover:bg-blue-900 transition">
+                            {{ $isSwahili ? 'Nyaraka na Machapisho' : 'News and Resources' }}
+                        </a>
+                    @endif
+
+                    <a href="{{ $isSwahili ? '/sw/contact' : '/contact' }}"
+                        class="{{ in_array($unit->order, [1, 2]) ? 'border border-blue-700 text-blue-700 hover:bg-blue-50' : 'bg-blue-700 text-white hover:bg-blue-900' }} px-5 py-2.5 text-sm font-semibold transition">
+                        {{ $isSwahili ? 'Wasiliana na TUICO' : 'Contact TUICO' }}
+                    </a>
+
+                </div>
 
             </div>
 
@@ -65,23 +114,13 @@
                         <div class="mt-5">
 
                             @if ($unit->leader->photo)
-
-                                <img
-                                    src="{{ asset('storage/' . $unit->leader->photo) }}"
-                                    alt="{{ $unit->leader->name }}"
-                                    class="w-24 h-24 object-cover rounded-full border-4 border-white shadow-sm"
-                                >
-
+                                <img src="{{ asset('storage/' . $unit->leader->photo) }}" alt="{{ $unit->leader->name }}"
+                                    class="w-24 h-24 object-cover rounded-full border-4 border-white shadow-sm">
                             @else
-
-                                <div class="w-24 h-24 rounded-full bg-blue-50 flex items-center justify-center text-blue-700 text-2xl font-bold">
-                                    {{ collect(explode(' ', $unit->leader->name))
-                                        ->filter()
-                                        ->map(fn ($name) => strtoupper(substr($name, 0, 1)))
-                                        ->take(2)
-                                        ->implode('') }}
+                                <div
+                                    class="w-24 h-24 rounded-full bg-blue-50 flex items-center justify-center text-blue-700 text-2xl font-bold">
+                                    {{ collect(explode(' ', $unit->leader->name))->filter()->map(fn($name) => strtoupper(substr($name, 0, 1)))->take(2)->implode('') }}
                                 </div>
-
                             @endif
 
                             <h3 class="mt-5 text-xl font-bold text-gray-900">
@@ -120,9 +159,7 @@
                 </p>
 
                 <h2 class="text-3xl font-bold text-gray-900">
-                    {{ $isSwahili
-                        ? 'Gundua Vitengo Vingine vya TUICO'
-                        : 'Explore Other TUICO Units' }}
+                    {{ $isSwahili ? 'Gundua Vitengo Vingine vya TUICO' : 'Explore Other TUICO Units' }}
                 </h2>
 
             </div>
@@ -130,14 +167,7 @@
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-                @foreach (
-                    \App\Models\OrgUnit::where('type', \App\Enums\OrgUnitType::Unit)
-                        ->where('id', '!=', $unit->id)
-                        ->orderBy('order')
-                        ->get()
-                    as $otherUnit
-                )
-
+                @foreach (\App\Models\OrgUnit::where('type', \App\Enums\OrgUnitType::Unit)->where('id', '!=', $unit->id)->orderBy('order')->get() as $otherUnit)
                     <a href="{{ $isSwahili
                         ? '/sw/units/' . \Illuminate\Support\Str::slug($otherUnit->getTranslation('name', 'en'))
                         : '/units/' . \Illuminate\Support\Str::slug($otherUnit->getTranslation('name', 'en')) }}"
@@ -148,10 +178,7 @@
                         </h3>
 
                         <p class="mt-3 text-sm text-gray-600 leading-6">
-                            {{ \Illuminate\Support\Str::limit(
-                                $otherUnit->getTranslation('description', app()->getLocale()),
-                                120
-                            ) }}
+                            {{ \Illuminate\Support\Str::limit($otherUnit->getTranslation('description', app()->getLocale()), 120) }}
                         </p>
 
                         <span class="inline-flex items-center mt-5 text-sm font-semibold text-blue-700">
@@ -160,7 +187,6 @@
                         </span>
 
                     </a>
-
                 @endforeach
 
             </div>

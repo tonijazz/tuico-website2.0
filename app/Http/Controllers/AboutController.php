@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\OrgUnitType;
 use App\Models\GovernanceLevel;
 use App\Models\Office;
+use App\Models\OrgUnit;
 use App\Models\Page;
-use App\Models\StrategicArea;
 use App\Models\Zone;
 use App\Settings\SiteSettings;
 
@@ -17,11 +18,11 @@ class AboutController extends Controller
             ->where('locale', app()->getLocale())
             ->first();
 
-        $strategicAreas = StrategicArea::orderBy('order')->get();
-
         $governanceLevels = GovernanceLevel::with('meetings')
             ->orderBy('order')
             ->get();
+
+        $sectorsCount = OrgUnit::where('type', OrgUnitType::Sector)->count();
 
         $zonesCount = Zone::count();
 
@@ -33,8 +34,8 @@ class AboutController extends Controller
 
         return view('about.index', [
             'page' => $page,
-            'strategicAreas' => $strategicAreas,
             'governanceLevels' => $governanceLevels,
+            'sectorsCount' => $sectorsCount,
             'zonesCount' => $zonesCount,
             'regionalOfficesCount' => $regionalOfficesCount,
             'subOfficesCount' => $subOfficesCount,

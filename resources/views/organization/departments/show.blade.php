@@ -34,6 +34,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
             {{-- DESCRIPTION --}}
+            {{-- DESCRIPTION --}}
             <div class="lg:col-span-2">
 
                 <p class="text-sm uppercase tracking-widest text-blue-700 mb-2">
@@ -47,6 +48,43 @@
                 <p class="mt-5 text-gray-600 leading-8">
                     {{ $department->getTranslation('description', app()->getLocale()) }}
                 </p>
+
+                {{-- EXAMPLES --}}
+                @php
+                    $examples = $department->getTranslation('examples', app()->getLocale());
+                @endphp
+
+                @if (is_array($examples) && count($examples))
+
+                    <h3 class="mt-8 text-xl font-bold text-gray-900">
+                        {{ $isSwahili ? 'Mifano ya kazi' : 'Examples of work' }}
+                    </h3>
+
+                    <ul class="mt-4 space-y-2 text-gray-600 leading-7">
+                        @foreach ($examples as $example)
+                            <li class="flex gap-3">
+                                <span class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-700"></span>
+                                <span>{{ $example }}</span>
+                            </li>
+                        @endforeach
+                    </ul>
+
+                @endif
+
+                {{-- BUTTONS --}}
+                <div class="mt-8 flex flex-wrap gap-3">
+
+                    <a href="{{ $isSwahili ? '/sw/regions' : '/regions' }}"
+                        class="bg-blue-700 px-5 py-2.5 text-sm font-semibold text-white hover:bg-blue-900 transition">
+                        {{ $isSwahili ? 'Tafuta ofisi ya mkoa' : 'Find a regional office' }}
+                    </a>
+
+                    <a href="{{ $isSwahili ? '/sw/contact' : '/contact' }}"
+                        class="border border-blue-700 px-5 py-2.5 text-sm font-semibold text-blue-700 hover:bg-blue-50 transition">
+                        {{ $isSwahili ? 'Wasiliana na TUICO' : 'Contact TUICO' }}
+                    </a>
+
+                </div>
 
             </div>
 
@@ -65,23 +103,14 @@
                         <div class="mt-5">
 
                             @if ($department->leader->photo)
-
-                                <img
-                                    src="{{ asset('storage/' . $department->leader->photo) }}"
+                                <img src="{{ asset('storage/' . $department->leader->photo) }}"
                                     alt="{{ $department->leader->name }}"
-                                    class="w-24 h-24 object-cover rounded-full border-4 border-white shadow-sm"
-                                >
-
+                                    class="w-24 h-24 object-cover rounded-full border-4 border-white shadow-sm">
                             @else
-
-                                <div class="w-24 h-24 rounded-full bg-blue-50 flex items-center justify-center text-blue-700 text-2xl font-bold">
-                                    {{ collect(explode(' ', $department->leader->name))
-                                        ->filter()
-                                        ->map(fn ($name) => strtoupper(substr($name, 0, 1)))
-                                        ->take(2)
-                                        ->implode('') }}
+                                <div
+                                    class="w-24 h-24 rounded-full bg-blue-50 flex items-center justify-center text-blue-700 text-2xl font-bold">
+                                    {{ collect(explode(' ', $department->leader->name))->filter()->map(fn($name) => strtoupper(substr($name, 0, 1)))->take(2)->implode('') }}
                                 </div>
-
                             @endif
 
                             <h3 class="mt-5 text-xl font-bold text-gray-900">
@@ -120,9 +149,7 @@
                 </p>
 
                 <h2 class="text-3xl font-bold text-gray-900">
-                    {{ $isSwahili
-                        ? 'Gundua Idara Nyingine za TUICO'
-                        : 'Explore Other TUICO Departments' }}
+                    {{ $isSwahili ? 'Gundua Idara Nyingine za TUICO' : 'Explore Other TUICO Departments' }}
                 </h2>
 
             </div>
@@ -130,14 +157,7 @@
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-                @foreach (
-                    \App\Models\OrgUnit::where('type', \App\Enums\OrgUnitType::Department)
-                        ->where('id', '!=', $department->id)
-                        ->orderBy('order')
-                        ->get()
-                    as $otherDepartment
-                )
-
+                @foreach (\App\Models\OrgUnit::where('type', \App\Enums\OrgUnitType::Department)->where('id', '!=', $department->id)->orderBy('order')->get() as $otherDepartment)
                     <a href="{{ $isSwahili
                         ? '/sw/departments/' . \Illuminate\Support\Str::slug($otherDepartment->getTranslation('name', 'en'))
                         : '/departments/' . \Illuminate\Support\Str::slug($otherDepartment->getTranslation('name', 'en')) }}"
@@ -148,10 +168,7 @@
                         </h3>
 
                         <p class="mt-3 text-sm text-gray-600 leading-6">
-                            {{ \Illuminate\Support\Str::limit(
-                                $otherDepartment->getTranslation('description', app()->getLocale()),
-                                120
-                            ) }}
+                            {{ \Illuminate\Support\Str::limit($otherDepartment->getTranslation('description', app()->getLocale()), 120) }}
                         </p>
 
                         <span class="inline-flex items-center mt-5 text-sm font-semibold text-blue-700">
@@ -160,7 +177,6 @@
                         </span>
 
                     </a>
-
                 @endforeach
 
             </div>

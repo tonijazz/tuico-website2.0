@@ -3,11 +3,13 @@
 namespace App\Filament\Resources\OrgUnits\Schemas;
 
 use App\Enums\OrgUnitType;
+use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Tabs;
 use Filament\Schemas\Components\Tabs\Tab;
+use Filament\Schemas\Components\Utilities\Get;
 use Filament\Schemas\Schema;
 
 class OrgUnitForm
@@ -16,7 +18,7 @@ class OrgUnitForm
     {
         return $schema
             ->components([
-             Tabs::make('Translations')
+                Tabs::make('Translations')
                     ->tabs([
                         Tab::make('English')
                             ->schema([
@@ -27,6 +29,13 @@ class OrgUnitForm
                                     ->label('Description (English)')
                                     ->required()
                                     ->rows(3),
+                                Repeater::make('examples_en')
+                                    ->label(fn (Get $get) => $get('type') === 'sector'
+                                        ? 'Examples of workplaces (English)'
+                                        : 'Examples of work (English)')
+                                    ->simple(TextInput::make('item')->required())
+                                    ->addActionLabel('Add example')
+                                    ->reorderable(),
                             ]),
                         Tab::make('Kiswahili')
                             ->schema([
@@ -37,12 +46,20 @@ class OrgUnitForm
                                     ->label('Description (Kiswahili)')
                                     ->required()
                                     ->rows(3),
+                                Repeater::make('examples_sw')
+                                    ->label(fn (Get $get) => $get('type') === 'sector'
+                                        ? 'Mifano ya maeneo ya kazi (Kiswahili)'
+                                        : 'Mifano ya kazi (Kiswahili)')
+                                    ->simple(TextInput::make('item')->required())
+                                    ->addActionLabel('Add example')
+                                    ->reorderable(),
                             ]),
                     ])
                     ->columnSpanFull(),
                 Select::make('type')
                     ->options(OrgUnitType::class)
                     ->default('sector')
+                    ->live()
                     ->required(),
                 TextInput::make('order')
                     ->required()
