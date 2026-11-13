@@ -10,10 +10,10 @@
 
     {{-- HERO --}}
 
-    <section class="bg-tuico-navy text-white">
+    <section class="bg-main text-white">
         <div class="max-w-7xl mx-auto px-6 py-12">
 
-            <p class="text-sm uppercase tracking-widest text-blue-200 mb-2">
+            <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
                 {{ $isSwahili ? 'Habari na Matukio' : 'News & Events' }}
             </p>
 
@@ -21,7 +21,7 @@
                 {{ $isSwahili ? 'Habari na Matukio ya TUICO' : 'TUICO News & Events' }}
             </h1>
 
-            <p class="mt-5 max-w-2xl text-lg leading-8 text-blue-100">
+            <p class="mt-5 max-w-2xl text-lg leading-8 text-white/80">
                 {{ $isSwahili
                     ? 'Fuatilia habari, taarifa, shughuli na matukio yanayohusiana na TUICO.'
                     : 'Stay informed about TUICO news, updates, activities and upcoming events.' }}
@@ -41,7 +41,7 @@
 
                 <div>
 
-                    <p class="text-sm uppercase tracking-widest text-blue-700 mb-2">
+                    <p class="text-sm uppercase tracking-widest text-action mb-2">
                         {{ $isSwahili ? 'Taarifa kutoka TUICO' : 'Updates from TUICO' }}
                     </p>
 
@@ -53,7 +53,7 @@
 
                 <a
                     href="{{ $isSwahili ? '/sw/news' : '/news' }}"
-                    class="inline-flex items-center text-sm font-semibold text-blue-700 hover:text-blue-950 transition"
+                    class="inline-flex items-center text-sm font-semibold text-action hover:text-main transition"
                 >
                     {{ $isSwahili ? 'Angalia Habari Zote' : 'View All News' }}
 
@@ -103,7 +103,7 @@
 
                                 @else
 
-                                    <div class="aspect-[16/10] bg-tuico-navy flex items-center justify-center">
+                                    <div class="aspect-[16/10] bg-main flex items-center justify-center">
 
                                         <div class="text-center">
 
@@ -111,7 +111,7 @@
                                                 TUICO
                                             </div>
 
-                                            <div class="mt-1 text-xs uppercase tracking-widest text-blue-200">
+                                            <div class="mt-1 text-xs uppercase tracking-widest text-white/70">
                                                 {{ $isSwahili ? 'Habari' : 'News' }}
                                             </div>
 
@@ -132,7 +132,7 @@
 
                                     @if ($article->type)
 
-                                        <span class="inline-flex items-center px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-blue-700 bg-blue-50 border border-blue-100 rounded-full">
+                                        <span class="inline-flex items-center px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-action bg-action/10 border border-action/20 rounded-full">
                                             {{ $articleTypeLabel }}
                                         </span>
 
@@ -149,7 +149,7 @@
                                 </div>
 
 
-                                <h3 class="mt-4 text-xl font-bold leading-snug text-gray-900 group-hover:text-blue-700 transition">
+                                <h3 class="mt-4 text-xl font-bold leading-snug text-gray-900 group-hover:text-action transition">
 
                                     <a href="{{ $isSwahili ? '/sw/news/' . $article->slug : '/news/' . $article->slug }}">
                                         {{ $article->getTranslation('title', app()->getLocale()) }}
@@ -188,7 +188,7 @@
 
                                     <a
                                         href="{{ $isSwahili ? '/sw/news/' . $article->slug : '/news/' . $article->slug }}"
-                                        class="inline-flex items-center text-sm font-semibold text-blue-700 hover:text-blue-950 transition"
+                                        class="inline-flex items-center text-sm font-semibold text-action hover:text-main transition"
                                     >
                                         {{ $isSwahili ? 'Soma Habari' : 'Read Story' }}
 
@@ -236,7 +236,7 @@
 
                 <div>
 
-                    <p class="text-sm uppercase tracking-widest text-blue-700 mb-2">
+                    <p class="text-sm uppercase tracking-widest text-action mb-2">
                         {{ $isSwahili ? 'Ratiba zijazo' : 'What’s Coming Up' }}
                     </p>
 
@@ -248,7 +248,7 @@
 
                 <a
                     href="{{ $isSwahili ? '/sw/events' : '/events' }}"
-                    class="inline-flex items-center text-sm font-semibold text-blue-700 hover:text-blue-950 transition"
+                    class="inline-flex items-center text-sm font-semibold text-action hover:text-main transition"
                 >
                     {{ $isSwahili ? 'Angalia Matukio Yote' : 'View All Events' }}
 
@@ -284,7 +284,7 @@
 
                             @else
 
-                                <div class="aspect-[16/9] bg-tuico-navy flex items-center justify-center">
+                                <div class="aspect-[16/9] bg-main flex items-center justify-center">
 
                                     <div class="text-center">
 
@@ -292,7 +292,7 @@
                                             TUICO
                                         </div>
 
-                                        <div class="mt-1 text-xs uppercase tracking-widest text-blue-200">
+                                        <div class="mt-1 text-xs uppercase tracking-widest text-white/70">
                                             {{ $isSwahili ? 'Tukio' : 'Event' }}
                                         </div>
 
@@ -309,7 +309,7 @@
 
                                 <div class="flex items-center gap-4">
 
-                                    <div class="flex h-14 w-14 shrink-0 flex-col items-center justify-center bg-blue-50 text-blue-800">
+                                    <div class="flex h-14 w-14 shrink-0 flex-col items-center justify-center bg-action/10 text-action">
 
                                         <span class="text-lg font-bold leading-none">
                                             {{ $event->starts_at->format('d') }}
@@ -323,7 +323,7 @@
 
                                     <div>
 
-                                        <p class="text-xs font-semibold uppercase tracking-wider text-blue-700">
+                                        <p class="text-xs font-semibold uppercase tracking-wider text-action">
                                             {{ $isSwahili ? 'Tarehe' : 'Date' }}
                                         </p>
 
@@ -340,7 +340,7 @@
 
                                     <div class="mt-5">
 
-                                        <span class="inline-flex items-center px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-blue-700 bg-blue-50 border border-blue-100 rounded-full">
+                                        <span class="inline-flex items-center px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-action bg-action/10 border border-action/20 rounded-full">
                                             {{ $isSwahili ? 'Mkutano wa Kikatiba' : 'Statutory Meeting' }}
                                         </span>
 
@@ -373,7 +373,7 @@
                                     <div class="mt-auto pt-6 flex items-start gap-2 text-sm text-gray-500">
 
                                         <svg
-                                            class="h-5 w-5 shrink-0 text-blue-700"
+                                            class="h-5 w-5 shrink-0 text-action"
                                             fill="none"
                                             viewBox="0 0 24 24"
                                             stroke="currentColor"
@@ -429,7 +429,7 @@
 
     {{-- CTA --}}
 
-    <section class="bg-tuico-navy text-white">
+    <section class="bg-main text-white">
 
         <div class="max-w-7xl mx-auto px-6 py-10">
 
@@ -437,7 +437,7 @@
 
                 <div class="max-w-2xl">
 
-                    <p class="text-sm uppercase tracking-widest text-blue-200 mb-2">
+                    <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
                         {{ $isSwahili ? 'Endelea kufuatilia TUICO' : 'Stay Connected with TUICO' }}
                     </p>
 
@@ -453,14 +453,14 @@
 
                     <a
                         href="{{ $isSwahili ? '/sw/news' : '/news' }}"
-                        class="inline-flex items-center justify-center bg-white px-6 py-3 text-sm font-semibold text-tuico-navy hover:bg-blue-50 transition"
+                        class="inline-flex items-center justify-center bg-white px-6 py-3 text-sm font-semibold text-main hover:bg-white/90 transition"
                     >
                         {{ $isSwahili ? 'Habari' : 'News' }}
                     </a>
 
                     <a
                         href="{{ $isSwahili ? '/sw/events' : '/events' }}"
-                        class="inline-flex items-center justify-center border border-blue-300 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10 transition"
+                        class="inline-flex items-center justify-center border border-white/40 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10 transition"
                     >
                         {{ $isSwahili ? 'Matukio' : 'Events' }}
                     </a>

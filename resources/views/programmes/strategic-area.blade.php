@@ -10,14 +10,14 @@ $isSwahili = app()->getLocale() === 'sw';
 
 {{-- HERO --}}
 
-<section class="bg-tuico-navy text-white">
+<section class="bg-main text-white">
 
 <div class="max-w-7xl mx-auto px-6 py-12">
 
     <div class="max-w-4xl">
 
         @if ($strategicArea->icon)
-            <div class="mb-5 text-blue-200">
+            <div class="mb-5 text-white/70">
                 <x-dynamic-component
                     :component="$strategicArea->icon"
                     class="w-8 h-8"
@@ -25,7 +25,7 @@ $isSwahili = app()->getLocale() === 'sw';
             </div>
         @endif
 
-        <p class="text-sm uppercase tracking-widest text-blue-200 mb-2">
+        <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
             {{ $isSwahili ? 'Eneo la Kimkakati' : 'Strategic Area' }}
         </p>
 
@@ -50,7 +50,7 @@ $isSwahili = app()->getLocale() === 'sw';
 
         <a
             href="{{ $isSwahili ? url('/sw/strategic-plan') : route('programmes.index') }}"
-            class="inline-flex items-center text-sm font-semibold text-blue-700 hover:text-tuico-navy transition"
+            class="inline-flex items-center text-sm font-semibold text-action hover:text-main transition"
         >
             ← {{ $isSwahili ? 'Rudi kwenye Mpango Mkakati' : 'Back to Strategic Plan' }}
         </a>
@@ -64,7 +64,7 @@ $isSwahili = app()->getLocale() === 'sw';
 
             <div>
 
-                <p class="text-sm uppercase tracking-widest text-blue-700">
+                <p class="text-sm uppercase tracking-widest text-action">
                     {{ $isSwahili ? 'Maelezo ya Eneo' : 'Strategic Area Overview' }}
                 </p>
 

@@ -19,14 +19,14 @@ $categoryName = $resource->category
 
 
 {{-- HERO --}}
-<section class="bg-tuico-navy text-white">
+<section class="bg-main text-white">
     <div class="max-w-7xl mx-auto px-6 py-12">
 
         <div class="max-w-4xl">
 
             @if ($categoryName)
 
-                <p class="text-sm uppercase tracking-widest text-blue-200 mb-2">
+                <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
                     {{ $categoryName }}
                 </p>
 
@@ -38,14 +38,14 @@ $categoryName = $resource->category
 
             @if ($resource->is_publication && ($resource->author || $resource->publish_year))
 
-                <div class="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 text-blue-100 text-sm">
+                <div class="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 text-white/80 text-sm">
 
                     @if ($resource->author)
                         <span>{{ $resource->author }}</span>
                     @endif
 
                     @if ($resource->author && $resource->publish_year)
-                        <span class="text-blue-300">•</span>
+                        <span class="text-white/60">•</span>
                     @endif
 
                     @if ($resource->publish_year)
@@ -85,10 +85,10 @@ $categoryName = $resource->category
 
                 @else
 
-                    <div class="aspect-[3/4] rounded-lg bg-blue-50 border border-gray-100 flex items-center justify-center">
+                    <div class="aspect-[3/4] rounded-lg bg-action/10 border border-gray-100 flex items-center justify-center">
 
                         <svg
-                            class="w-16 h-16 text-blue-700"
+                            class="w-16 h-16 text-action"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
@@ -120,7 +120,7 @@ $categoryName = $resource->category
 
                 @if ($categoryName)
 
-                    <p class="text-sm uppercase tracking-widest text-blue-700">
+                    <p class="text-sm uppercase tracking-widest text-action">
                         {{ $categoryName }}
                     </p>
 
@@ -144,7 +144,7 @@ $categoryName = $resource->category
                                     {{ $isSwahili ? 'Mwandishi' : 'Author' }}
                                 </p>
 
-                                <p class="mt-1 text-tuico-navy">
+                                <p class="mt-1 text-main">
                                     {{ $resource->author }}
                                 </p>
 
@@ -161,7 +161,7 @@ $categoryName = $resource->category
                                     {{ $isSwahili ? 'Mwaka' : 'Year' }}
                                 </p>
 
-                                <p class="mt-1 text-tuico-navy">
+                                <p class="mt-1 text-main">
                                     {{ $resource->publish_year }}
                                 </p>
 
@@ -201,7 +201,7 @@ $categoryName = $resource->category
                             href="{{ asset('storage/' . $resource->file_path) }}"
                             target="_blank"
                             rel="noopener noreferrer"
-                            class="inline-flex items-center justify-center rounded-full bg-tuico-navy px-6 py-3 text-sm font-semibold text-white hover:bg-tuico-navy transition"
+                            class="inline-flex items-center justify-center rounded-full bg-action px-6 py-3 text-sm font-semibold text-white hover:bg-main transition"
                         >
                             {{ $isSwahili ? 'Pakua Nyaraka' : 'Download Resource' }}
 
@@ -227,7 +227,7 @@ $categoryName = $resource->category
 
         <a
             href="{{ $isSwahili ? '/sw/resources' : '/resources' }}"
-            class="inline-flex items-center text-sm font-semibold text-blue-700 hover:text-tuico-navy transition"
+            class="inline-flex items-center text-sm font-semibold text-action hover:text-main transition"
         >
             <span class="mr-2">←</span>
 

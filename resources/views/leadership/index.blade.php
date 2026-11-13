@@ -8,11 +8,11 @@
      HERO
 ========================== --}}
 
-<section class="bg-tuico-navy text-white">
+<section class="bg-main text-white">
 
     <div class="max-w-7xl mx-auto px-6 py-12">
 
-        <p class="text-sm uppercase tracking-widest text-blue-200 mb-2">
+        <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
             {{ $isSwahili ? 'Uongozi' : 'Leadership' }}
         </p>
 
@@ -20,10 +20,11 @@
             {{ $isSwahili ? 'Uongozi wa TUICO' : 'TUICO Leadership' }}
         </h1>
 
-        <p class="mt-5 max-w-2xl text-lg leading-8 text-blue-100">
+        <p class="mt-5 max-w-2xl text-lg leading-8 text-white/80">
             {{ $isSwahili
-                ? 'Kutana na viongozi wanaosimamia uongozi wa kitaifa na shughuli za kisekta, kiidara na vitengo vya TUICO.'
-                : 'Meet the leaders responsible for the national leadership and the sectoral, departmental, and unit-level functions of TUICO.' }}
+                ? 'Mwenyekiti wa Taifa huongoza vikao vikuu vinavyosimamia shughuli za Chama. Katibu Mkuu husimamia utawala wa Chama na utekelezaji wa maamuzi ya vyombo vyake vya uongozi. Wakuu wa sekta huratibu uwakilishi katika sekta nne, huku wakuu wa idara na vitengo wakisaidia utekelezaji wa shughuli za kila siku za Chama.'
+                : 'The National Chairperson provides leadership and oversight. The General Secretary oversees the union’s administration and implements decisions made by its governing bodies. Sector heads coordinate representation in the four sectors, while department and unit heads support the union’s day-to-day work.
+' }}
         </p>
 
     </div>
@@ -39,7 +40,7 @@
 
     <div class="mb-6">
 
-        <p class="text-sm uppercase tracking-widest text-blue-700 mb-2">
+        <p class="text-sm uppercase tracking-widest text-action mb-2">
             {{ $isSwahili ? 'Uongozi Taifa' : 'National Leadership' }}
         </p>
 
@@ -82,7 +83,7 @@
 
                     @else
 
-                        <div class="w-24 h-24 rounded-full bg-blue-50 flex items-center justify-center text-blue-700 text-2xl font-bold flex-shrink-0">
+                        <div class="w-24 h-24 rounded-full bg-action/10 flex items-center justify-center text-action text-2xl font-bold flex-shrink-0">
                             {{ collect(explode(' ', $executive->name))
                                 ->filter()
                                 ->map(fn ($name) => strtoupper(substr($name, 0, 1)))
@@ -95,7 +96,7 @@
 
                     <div>
 
-                        <p class="text-sm uppercase tracking-widest text-blue-700 mb-2">
+                        <p class="text-sm uppercase tracking-widest text-action mb-2">
                             {{ $executive->getTranslation('position', app()->getLocale()) }}
                         </p>
 
@@ -134,7 +135,7 @@
 
         <div class="mb-6">
 
-            <p class="text-sm uppercase tracking-widest text-blue-700 mb-2">
+            <p class="text-sm uppercase tracking-widest text-action mb-2">
                 {{ $isSwahili ? 'Sekta' : 'Sectors' }}
             </p>
 
@@ -161,7 +162,7 @@
 
                     @else
 
-                        <div class="w-20 h-20 rounded-full bg-blue-50 flex items-center justify-center text-blue-700 text-xl font-bold">
+                        <div class="w-20 h-20 rounded-full bg-action/10 flex items-center justify-center text-action text-xl font-bold">
                             {{ $sector->leader
                                 ? collect(explode(' ', $sector->leader->name))
                                     ->filter()
@@ -174,7 +175,7 @@
                     @endif
 
 
-                    <p class="mt-5 text-xs uppercase tracking-widest text-blue-700">
+                    <p class="mt-5 text-xs uppercase tracking-widest text-action">
                         {{ $sector->getTranslation('name', app()->getLocale()) }}
                     </p>
 
@@ -209,7 +210,7 @@
 
     <div class="mb-6">
 
-        <p class="text-sm uppercase tracking-widest text-blue-700 mb-2">
+        <p class="text-sm uppercase tracking-widest text-action mb-2">
             {{ $isSwahili ? 'Idara' : 'Departments' }}
         </p>
 
@@ -236,7 +237,7 @@
 
                 @else
 
-                    <div class="w-20 h-20 rounded-full bg-blue-50 flex items-center justify-center text-blue-700 text-xl font-bold">
+                    <div class="w-20 h-20 rounded-full bg-action/10 flex items-center justify-center text-action text-xl font-bold">
                         {{ $department->leader
                             ? collect(explode(' ', $department->leader->name))
                                 ->filter()
@@ -249,7 +250,7 @@
                 @endif
 
 
-                <p class="mt-5 text-xs uppercase tracking-widest text-blue-700">
+                <p class="mt-5 text-xs uppercase tracking-widest text-action">
                     {{ $department->getTranslation('name', app()->getLocale()) }}
                 </p>
 
@@ -284,7 +285,7 @@
 
         <div class="mb-6">
 
-            <p class="text-sm uppercase tracking-widest text-blue-700 mb-2">
+            <p class="text-sm uppercase tracking-widest text-action mb-2">
                 {{ $isSwahili ? 'Vitengo' : 'Units' }}
             </p>
 
@@ -311,7 +312,7 @@
 
                     @else
 
-                        <div class="w-20 h-20 rounded-full bg-blue-50 flex items-center justify-center text-blue-700 text-xl font-bold">
+                        <div class="w-20 h-20 rounded-full bg-action/10 flex items-center justify-center text-action text-xl font-bold">
                             {{ $unit->leader
                                 ? collect(explode(' ', $unit->leader->name))
                                     ->filter()
@@ -324,7 +325,7 @@
                     @endif
 
 
-                    <p class="mt-5 text-xs uppercase tracking-widest text-blue-700">
+                    <p class="mt-5 text-xs uppercase tracking-widest text-action">
                         {{ $unit->getTranslation('name', app()->getLocale()) }}
                     </p>
 

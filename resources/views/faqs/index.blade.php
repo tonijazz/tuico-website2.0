@@ -11,13 +11,13 @@ $locale = app()->getLocale();
 
 {{-- HERO --}}
 
-<section class="bg-tuico-navy text-white">
+<section class="bg-main text-white">
 
 <div class="max-w-7xl mx-auto px-6 py-12">
 
     <div class="max-w-3xl">
 
-        <p class="text-sm uppercase tracking-widest text-blue-200 mb-2">
+        <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
             {{ $isSwahili ? 'Mawasiliano' : 'Inquiries' }}
         </p>
 
@@ -27,7 +27,7 @@ $locale = app()->getLocale();
                 : 'Frequently Asked Questions' }}
         </h1>
 
-        <p class="mt-5 max-w-2xl text-lg leading-8 text-blue-100">
+        <p class="mt-5 max-w-2xl text-lg leading-8 text-white/80">
             {{ $isSwahili
                 ? 'Pata majibu ya baadhi ya maswali yanayoulizwa mara kwa mara kuhusu TUICO na huduma zake.'
                 : 'Find answers to some of the questions commonly asked about TUICO and its services.' }}
@@ -67,7 +67,7 @@ $locale = app()->getLocale();
                     </span>
 
                     <span
-                        class="flex-shrink-0 text-xl text-blue-700 transition-transform duration-200"
+                        class="flex-shrink-0 text-xl text-action transition-transform duration-200"
                         :class="{ 'rotate-45': open }"
                     >
                         +
@@ -102,7 +102,7 @@ $locale = app()->getLocale();
                             <button
                                 type="button"
                                 @click="questionOpen = !questionOpen"
-                                class="flex items-center justify-between w-full gap-6 py-5 text-left hover:text-tuico-navy transition"
+                                class="flex items-center justify-between w-full gap-6 py-5 text-left hover:text-main transition"
                             >
 
                                 <span class="font-semibold text-gray-800">
@@ -110,7 +110,7 @@ $locale = app()->getLocale();
                                 </span>
 
                                 <span
-                                    class="flex-shrink-0 text-lg text-blue-700 transition-transform duration-200"
+                                    class="flex-shrink-0 text-lg text-action transition-transform duration-200"
                                     :class="{ 'rotate-45': questionOpen }"
                                 >
                                     +
@@ -140,7 +140,7 @@ $locale = app()->getLocale();
 
                                             <a
                                                 href="{{ $link->url }}"
-                                                class="inline-flex items-center font-semibold text-tuico-navy underline underline-offset-4 hover:text-blue-700 transition"
+                                                class="inline-flex items-center font-semibold text-main underline underline-offset-4 hover:text-action transition"
                                             >
                                                 {{ $link->getTranslation('label', $locale) }}
 

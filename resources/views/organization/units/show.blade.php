@@ -8,11 +8,11 @@
          HERO
     ========================== --}}
 
-    <section class="bg-tuico-navy text-white">
+    <section class="bg-main text-white">
 
         <div class="max-w-7xl mx-auto px-6 py-12">
 
-            <p class="text-sm uppercase tracking-widest text-blue-200 mb-2">
+            <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
                 {{ $isSwahili ? 'Kitengo' : 'Unit' }}
             </p>
 
@@ -37,7 +37,7 @@
             {{-- DESCRIPTION --}}
             <div class="lg:col-span-2">
 
-                <p class="text-sm uppercase tracking-widest text-blue-700 mb-2">
+                <p class="text-sm uppercase tracking-widest text-action mb-2">
                     {{ $isSwahili ? 'Kuhusu Kitengo' : 'About the Unit' }}
                 </p>
 
@@ -63,7 +63,7 @@
                     <ul class="mt-4 space-y-2 text-gray-600 leading-7">
                         @foreach ($examples as $example)
                             <li class="flex gap-3">
-                                <span class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-700"></span>
+                                <span class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-action"></span>
                                 <span>{{ $example }}</span>
                             </li>
                         @endforeach
@@ -77,7 +77,7 @@
                     @if ($unit->order === 1)
                         {{-- Mobilisation & Strengthening: joining is the main action --}}
                         <a href="{{ $isSwahili ? '/sw/join-us' : '/join-us' }}"
-                            class="bg-blue-700 px-5 py-2.5 text-sm font-semibold text-white hover:bg-blue-900 transition">
+                            class="bg-action px-5 py-2.5 text-sm font-semibold text-white hover:bg-main transition">
                             {{ $isSwahili ? 'Uliza kuhusu kujiunga na TUICO' : 'Ask about joining TUICO' }}
                         </a>
                     @endif
@@ -85,13 +85,13 @@
                     @if ($unit->order === 2)
                         {{-- Information & Public Relations: updates and publications --}}
                         <a href="{{ $isSwahili ? '/sw/resources' : '/resources' }}"
-                            class="bg-blue-700 px-5 py-2.5 text-sm font-semibold text-white hover:bg-blue-900 transition">
+                            class="bg-action px-5 py-2.5 text-sm font-semibold text-white hover:bg-main transition">
                             {{ $isSwahili ? 'Nyaraka na Machapisho' : 'News and Resources' }}
                         </a>
                     @endif
 
                     <a href="{{ $isSwahili ? '/sw/contact' : '/contact' }}"
-                        class="{{ in_array($unit->order, [1, 2]) ? 'border border-blue-700 text-blue-700 hover:bg-blue-50' : 'bg-blue-700 text-white hover:bg-blue-900' }} px-5 py-2.5 text-sm font-semibold transition">
+                        class="{{ in_array($unit->order, [1, 2]) ? 'border border-action text-action hover:bg-action/10' : 'bg-action text-white hover:bg-main' }} px-5 py-2.5 text-sm font-semibold transition">
                         {{ $isSwahili ? 'Wasiliana na TUICO' : 'Contact TUICO' }}
                     </a>
 
@@ -107,7 +107,7 @@
 
                     <div class="border border-gray-100 bg-gray-50 p-6">
 
-                        <p class="text-sm uppercase tracking-widest text-blue-700 mb-2">
+                        <p class="text-sm uppercase tracking-widest text-action mb-2">
                             {{ $isSwahili ? 'Mkuu wa Kitengo' : 'Unit Head' }}
                         </p>
 
@@ -118,7 +118,7 @@
                                     class="w-24 h-24 object-cover rounded-full border-4 border-white shadow-sm">
                             @else
                                 <div
-                                    class="w-24 h-24 rounded-full bg-blue-50 flex items-center justify-center text-blue-700 text-2xl font-bold">
+                                    class="w-24 h-24 rounded-full bg-action/10 flex items-center justify-center text-action text-2xl font-bold">
                                     {{ collect(explode(' ', $unit->leader->name))->filter()->map(fn($name) => strtoupper(substr($name, 0, 1)))->take(2)->implode('') }}
                                 </div>
                             @endif
@@ -154,7 +154,7 @@
 
             <div class="mb-6">
 
-                <p class="text-sm uppercase tracking-widest text-blue-700 mb-2">
+                <p class="text-sm uppercase tracking-widest text-action mb-2">
                     {{ $isSwahili ? 'Vitengo Vingine' : 'Explore Other Units' }}
                 </p>
 
@@ -171,9 +171,9 @@
                     <a href="{{ $isSwahili
                         ? '/sw/units/' . \Illuminate\Support\Str::slug($otherUnit->getTranslation('name', 'en'))
                         : '/units/' . \Illuminate\Support\Str::slug($otherUnit->getTranslation('name', 'en')) }}"
-                        class="group bg-white border border-gray-100 p-6 hover:border-blue-700 hover:shadow-sm transition">
+                        class="group bg-white border border-gray-100 p-6 hover:border-action hover:shadow-sm transition">
 
-                        <h3 class="text-lg font-bold text-gray-900 group-hover:text-blue-700 transition">
+                        <h3 class="text-lg font-bold text-gray-900 group-hover:text-action transition">
                             {{ $otherUnit->getTranslation('name', app()->getLocale()) }}
                         </h3>
 
@@ -181,7 +181,7 @@
                             {{ \Illuminate\Support\Str::limit($otherUnit->getTranslation('description', app()->getLocale()), 120) }}
                         </p>
 
-                        <span class="inline-flex items-center mt-5 text-sm font-semibold text-blue-700">
+                        <span class="inline-flex items-center mt-5 text-sm font-semibold text-action">
                             {{ $isSwahili ? 'Angalia Kitengo' : 'View Unit' }}
                             <span class="ml-2 group-hover:translate-x-1 transition">→</span>
                         </span>
@@ -203,7 +203,7 @@
     <section class="max-w-7xl mx-auto px-6 py-8">
 
         <a href="{{ $isSwahili ? '/sw/units' : '/units' }}"
-            class="inline-flex items-center text-sm font-semibold text-blue-700 hover:text-blue-950 transition">
+            class="inline-flex items-center text-sm font-semibold text-action hover:text-main transition">
 
             <span class="mr-2">←</span>
 

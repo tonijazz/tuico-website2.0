@@ -6,13 +6,13 @@
 
 {{-- HERO --}}
 
-<section class="bg-tuico-navy text-white">
+<section class="bg-main text-white">
 
 <div class="max-w-7xl mx-auto px-6 py-12">
 
     <div class="max-w-4xl">
 
-        <p class="text-sm uppercase tracking-widest text-blue-200 mb-2">
+        <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
             {{ app()->getLocale() === 'sw' ? 'Taarifa ya Kisheria' : 'Legal Information' }}
         </p>
 

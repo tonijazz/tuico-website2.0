@@ -12,10 +12,10 @@
 {{-- =========================================================
     HERO
 ========================================================== --}}
-<section class="bg-tuico-navy text-white">
+<section class="bg-main text-white">
     <div class="max-w-7xl mx-auto px-6 py-12">
 
-        <p class="text-sm uppercase tracking-widest text-blue-200 mb-2">
+        <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
             {{ $isSwahili ? 'Habari na Taarifa' : 'News & Updates' }}
         </p>
 
@@ -23,7 +23,7 @@
             {{ $isSwahili ? 'Habari za TUICO' : 'TUICO News' }}
         </h1>
 
-        <p class="mt-5 max-w-2xl text-lg leading-8 text-blue-100">
+        <p class="mt-5 max-w-2xl text-lg leading-8 text-white/80">
             {{ $isSwahili
                 ? 'Fuatilia taarifa, shughuli, mafanikio na maendeleo ya TUICO.'
                 : 'Follow TUICO news, activities, announcements, developments and stories.' }}
@@ -45,7 +45,7 @@
 
             <div>
 
-                <p class="text-sm uppercase tracking-widest text-blue-700 mb-2">
+                <p class="text-sm uppercase tracking-widest text-action mb-2">
                     {{ $isSwahili ? 'Taarifa kutoka TUICO' : 'Updates from TUICO' }}
                 </p>
 
@@ -57,7 +57,7 @@
 
             <a
                 href="{{ $isSwahili ? '/sw/news-events' : '/news-events' }}"
-                class="inline-flex items-center text-sm font-semibold text-blue-700 hover:text-tuico-navy transition"
+                class="inline-flex items-center text-sm font-semibold text-action hover:text-main transition"
             >
                 ← {{ $isSwahili ? 'Habari na Matukio' : 'News & Events' }}
             </a>
@@ -72,8 +72,8 @@
                 href="{{ $isSwahili ? '/sw/news' : '/news' }}"
                 class="inline-flex items-center px-4 py-2 text-xs font-bold uppercase tracking-wider border rounded-full transition
                     {{ !$currentType
-                        ? 'bg-tuico-navy border-tuico-navy text-white'
-                        : 'bg-white border-gray-200 text-gray-600 hover:border-blue-200 hover:text-blue-700' }}"
+                        ? 'bg-main border-main text-white'
+                        : 'bg-white border-gray-200 text-gray-600 hover:border-action/30 hover:text-action' }}"
             >
                 {{ $isSwahili ? 'Zote' : 'All' }}
             </a>
@@ -99,8 +99,8 @@
                     href="{{ $typeUrl }}"
                     class="inline-flex items-center px-4 py-2 text-xs font-bold uppercase tracking-wider border rounded-full transition
                         {{ $isActive
-                            ? 'bg-tuico-navy border-tuico-navy text-white'
-                            : 'bg-white border-gray-200 text-gray-600 hover:border-blue-200 hover:text-blue-700' }}"
+                            ? 'bg-main border-main text-white'
+                            : 'bg-white border-gray-200 text-gray-600 hover:border-action/30 hover:text-action' }}"
                 >
                     {{ $typeLabel }}
                 </a>
@@ -149,7 +149,7 @@
 
                             @else
 
-                                <div class="aspect-[16/10] bg-tuico-navy flex items-center justify-center">
+                                <div class="aspect-[16/10] bg-main flex items-center justify-center">
 
                                     <div class="text-center">
 
@@ -157,7 +157,7 @@
                                             TUICO
                                         </div>
 
-                                        <div class="mt-1 text-xs uppercase tracking-widest text-blue-200">
+                                        <div class="mt-1 text-xs uppercase tracking-widest text-white/70">
                                             {{ $isSwahili ? 'Habari' : 'News' }}
                                         </div>
 
@@ -178,7 +178,7 @@
                                 @if ($article->type)
 
                                     <span
-                                        class="inline-flex items-center px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-blue-700 bg-blue-50 border border-blue-100 rounded-full"
+                                        class="inline-flex items-center px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-action bg-action/10 border border-action/20 rounded-full"
                                     >
                                         {{ $articleTypeLabel }}
                                     </span>
@@ -197,7 +197,7 @@
 
 
                             {{-- TITLE --}}
-                            <h3 class="mt-4 text-xl font-bold leading-snug text-gray-900 group-hover:text-blue-700 transition">
+                            <h3 class="mt-4 text-xl font-bold leading-snug text-gray-900 group-hover:text-action transition">
 
                                 <a
                                     href="{{ $isSwahili ? '/sw/news/' . $article->slug : '/news/' . $article->slug }}"
@@ -238,7 +238,7 @@
 
                                 <a
                                     href="{{ $isSwahili ? '/sw/news/' . $article->slug : '/news/' . $article->slug }}"
-                                    class="inline-flex items-center text-sm font-semibold text-blue-700 hover:text-tuico-navy transition"
+                                    class="inline-flex items-center text-sm font-semibold text-action hover:text-main transition"
                                 >
                                     {{ $isSwahili ? 'Soma Habari' : 'Read Story' }}
 
@@ -272,7 +272,7 @@
             {{-- EMPTY STATE --}}
             <div class="bg-white rounded-lg border border-gray-100 px-6 py-16 text-center">
 
-                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-blue-50 text-blue-700">
+                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-action/10 text-action">
 
                     <svg
                         class="h-7 w-7"

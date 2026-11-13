@@ -6,15 +6,20 @@
 @source '../**/*.blade.php';
 @source '../**/*.js';
 
-[x-cloak] { display: none !important; }
+[x-cloak] {
+    display: none !important;
+}
 
 @theme {
     --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
     --font-display: 'Barlow Condensed', ui-sans-serif, system-ui, sans-serif;
 
-    --color-tuico-navy: #0E3A5F;
-    --color-tuico-sky: #2EA8DC;
-    --color-tuico-yellow: #F5C518;
-    --color-tuico-green: #1C8A4B;
-    --color-tuico-charcoal: #33322A;
+    --color-blue-*: initial;
+    --color-sky-*: initial;
+    --color-indigo-*: initial;
+    --color-cyan-*: initial;
+
+    --color-main: #1C398E;
+    --color-action: #155DFC;
+    --color-chrome: #162456;
 }

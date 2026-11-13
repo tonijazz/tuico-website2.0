@@ -10,13 +10,13 @@
 
     {{-- HERO --}}
 
-    <section class="bg-tuico-navy text-white">
+    <section class="bg-main text-white">
 
         <div class="max-w-7xl mx-auto px-6 py-12">
 
             <div class="max-w-3xl">
 
-                <p class="text-sm uppercase tracking-widest text-blue-200 mb-2">
+                <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
                     {{ $isSwahili ? 'Uanachama' : 'Membership' }}
                 </p>
 
@@ -24,7 +24,7 @@
                     {{ $isSwahili ? 'Jiunge Nasi' : 'Join Us' }}
                 </h1>
 
-                <p class="mt-5 max-w-2xl text-lg leading-8 text-blue-100">
+                <p class="mt-5 max-w-2xl text-lg leading-8 text-white/80">
                     {{ $isSwahili
                         ? 'Onyesha nia yako ya kujiunga na TUICO na timu yetu itawasiliana nawe kwa hatua zinazofuata.'
                         : 'Register your interest in joining TUICO and our team will get in touch with you about the next steps.' }}
@@ -53,7 +53,7 @@
 
                 <div class="mb-8">
 
-                    <p class="text-sm uppercase tracking-widest text-blue-700">
+                    <p class="text-sm uppercase tracking-widest text-action">
                         {{ $isSwahili ? 'Fomu ya Kujiunga' : 'Membership Interest Form' }}
                     </p>
 
@@ -83,7 +83,7 @@
                         </label>
 
                         <input type="text" name="name" id="name" value="{{ old('name') }}"
-                            class="mt-2 block w-full rounded-lg border-gray-300 px-4 py-3 shadow-sm focus:border-blue-700 focus:ring-blue-700">
+                            class="mt-2 block w-full rounded-lg border-gray-300 px-4 py-3 shadow-sm focus:border-action focus:ring-action">
 
                         @error('name')
                             <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
@@ -102,7 +102,7 @@
                             </label>
 
                             <input type="email" name="email" id="email" value="{{ old('email') }}" required
-                                class="mt-2 block w-full rounded-lg border-gray-300 px-4 py-3 shadow-sm focus:border-blue-700 focus:ring-blue-700">
+                                class="mt-2 block w-full rounded-lg border-gray-300 px-4 py-3 shadow-sm focus:border-action focus:ring-action">
 
                             @error('email')
                                 <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
@@ -118,7 +118,7 @@
                             </label>
 
                             <input type="text" name="phone" id="phone" value="{{ old('phone') }}"
-                                class="mt-2 block w-full rounded-lg border-gray-300 px-4 py-3 shadow-sm focus:border-blue-700 focus:ring-blue-700">
+                                class="mt-2 block w-full rounded-lg border-gray-300 px-4 py-3 shadow-sm focus:border-action focus:ring-action">
 
                         </div>
 
@@ -133,7 +133,7 @@
                         </label>
 
                         <input type="text" name="workplace" id="workplace" value="{{ old('workplace') }}"
-                            class="mt-2 block w-full rounded-lg border-gray-300 px-4 py-3 shadow-sm focus:border-blue-700 focus:ring-blue-700">
+                            class="mt-2 block w-full rounded-lg border-gray-300 px-4 py-3 shadow-sm focus:border-action focus:ring-action">
 
                     </div>
 
@@ -146,7 +146,7 @@
                         </label>
 
                         <select name="region_id" id="region_id"
-                            class="mt-2 block w-full rounded-lg border-gray-300 px-4 py-3 shadow-sm focus:border-blue-700 focus:ring-blue-700">
+                            class="mt-2 block w-full rounded-lg border-gray-300 px-4 py-3 shadow-sm focus:border-action focus:ring-action">
 
                             <option value="">
                                 {{ $isSwahili ? 'Chagua ofisi' : 'Select an office' }}
@@ -176,7 +176,7 @@
                         </label>
 
                         <textarea name="message" id="message" rows="7" required
-                            class="mt-2 block w-full rounded-lg border-gray-300 px-4 py-3 shadow-sm focus:border-blue-700 focus:ring-blue-700">{{ old('message') }}</textarea>
+                            class="mt-2 block w-full rounded-lg border-gray-300 px-4 py-3 shadow-sm focus:border-action focus:ring-action">{{ old('message') }}</textarea>
 
                         @error('message')
                             <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
@@ -189,7 +189,7 @@
                     <div class="pt-2">
 
                         <button type="submit"
-                            class="inline-flex items-center justify-center rounded-lg bg-tuico-navy px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-tuico-navy">
+                            class="inline-flex items-center justify-center rounded-lg bg-action px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-main">
                             {{ $isSwahili ? 'Tuma Ombi' : 'Submit Interest' }}
 
                             <span class="ml-2">→</span>

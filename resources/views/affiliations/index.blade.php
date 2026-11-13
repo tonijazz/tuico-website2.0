@@ -9,12 +9,12 @@
 @section('content')
 
     {{-- HERO --}}
-    <section class="bg-tuico-navy text-white">
+    <section class="bg-main text-white">
         <div class="max-w-7xl mx-auto px-6 py-12">
 
             <div class="max-w-3xl">
 
-                <p class="text-sm uppercase tracking-widest text-blue-200 mb-2">
+                <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
                     {{ $isSwahili ? 'Ushirikiano na Mahusiano' : 'Partnerships & Relations' }}
                 </p>
 
@@ -22,7 +22,7 @@
                     {{ $isSwahili ? 'Washirika na Taasisi Tunazoshirikiana Nazo' : 'Affiliations & Partners' }}
                 </h1>
 
-                <p class="mt-5 max-w-2xl text-lg leading-8 text-blue-100">
+                <p class="mt-5 max-w-2xl text-lg leading-8 text-white/80">
                     {{ $isSwahili
                         ? 'TUICO inashirikiana na taasisi za kitaifa na kimataifa katika kukuza haki, ustawi na maendeleo ya wafanyakazi.'
                         : 'TUICO works with national and international institutions to advance workers’ rights, welfare and development.' }}
@@ -43,7 +43,7 @@
 
                 <div class="max-w-3xl mb-8">
 
-                    <p class="text-sm uppercase tracking-widest text-blue-700 mb-2">
+                    <p class="text-sm uppercase tracking-widest text-action mb-2">
                         {{ $isSwahili ? 'Taasisi za Kitaifa' : 'National' }}
                     </p>
 
@@ -58,7 +58,7 @@
                     @foreach ($national as $affiliation)
 
                         <article
-                            class="group flex flex-col border border-gray-100 bg-white rounded-lg p-6 hover:border-blue-200 hover:shadow-sm transition"
+                            class="group flex flex-col border border-gray-100 bg-white rounded-lg p-6 hover:border-action/30 hover:shadow-sm transition"
                         >
 
                             {{-- LOGO --}}
@@ -74,7 +74,7 @@
 
                                 @else
 
-                                    <div class="text-2xl font-bold text-tuico-navy text-center">
+                                    <div class="text-2xl font-bold text-main text-center">
                                         {{ $affiliation->name }}
                                     </div>
 
@@ -87,7 +87,7 @@
                             @if ($affiliation->type)
 
                                 <span
-                                    class="self-start inline-flex items-center px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-blue-700 bg-blue-50 border border-blue-100 rounded-full"
+                                    class="self-start inline-flex items-center px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-action bg-action/10 border border-action/20 rounded-full"
                                 >
                                     {{ $affiliation->type->getLabel() }}
                                 </span>
@@ -120,7 +120,7 @@
                                         href="{{ $affiliation->website_url }}"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        class="inline-flex items-center text-sm font-semibold text-blue-700 hover:text-tuico-navy transition"
+                                        class="inline-flex items-center text-sm font-semibold text-action hover:text-main transition"
                                     >
                                         {{ $isSwahili ? 'Tembelea Tovuti' : 'Visit Website' }}
 
@@ -153,7 +153,7 @@
 
                 <div class="max-w-3xl mb-8">
 
-                    <p class="text-sm uppercase tracking-widest text-blue-700 mb-2">
+                    <p class="text-sm uppercase tracking-widest text-action mb-2">
                         {{ $isSwahili ? 'Taasisi za Kimataifa' : 'International' }}
                     </p>
 
@@ -168,7 +168,7 @@
                     @foreach ($international as $affiliation)
 
                         <article
-                            class="group flex flex-col border border-gray-100 bg-white rounded-lg p-6 hover:border-blue-200 hover:shadow-sm transition"
+                            class="group flex flex-col border border-gray-100 bg-white rounded-lg p-6 hover:border-action/30 hover:shadow-sm transition"
                         >
 
                             {{-- LOGO --}}
@@ -184,7 +184,7 @@
 
                                 @else
 
-                                    <div class="text-2xl font-bold text-tuico-navy text-center">
+                                    <div class="text-2xl font-bold text-main text-center">
                                         {{ $affiliation->name }}
                                     </div>
 
@@ -197,7 +197,7 @@
                             @if ($affiliation->type)
 
                                 <span
-                                    class="self-start inline-flex items-center px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-blue-700 bg-blue-50 border border-blue-100 rounded-full"
+                                    class="self-start inline-flex items-center px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-action bg-action/10 border border-action/20 rounded-full"
                                 >
                                     {{ $affiliation->type->getLabel() }}
                                 </span>
@@ -230,7 +230,7 @@
                                         href="{{ $affiliation->website_url }}"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        class="inline-flex items-center text-sm font-semibold text-blue-700 hover:text-tuico-navy transition"
+                                        class="inline-flex items-center text-sm font-semibold text-action hover:text-main transition"
                                     >
                                         {{ $isSwahili ? 'Tembelea Tovuti' : 'Visit Website' }}
 

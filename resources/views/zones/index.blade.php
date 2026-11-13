@@ -9,11 +9,11 @@
          HERO
     ========================== --}}
 
-    <section class="bg-tuico-navy text-white">
+    <section class="bg-main text-white">
 
         <div class="max-w-7xl mx-auto px-6 py-12">
 
-            <p class="text-sm uppercase tracking-widest text-blue-200 mb-2">
+            <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
                 {{ app()->getLocale() === 'sw' ? 'Uongozi wa Chama' : 'Union Administration' }}
             </p>
 
@@ -21,7 +21,7 @@
                 {{ app()->getLocale() === 'sw' ? 'Kanda Zetu' : 'Our Zones' }}
             </h1>
 
-            <p class="mt-5 max-w-2xl text-lg leading-8 text-blue-100">
+            <p class="mt-5 max-w-2xl text-lg leading-8 text-white/80">
                 {{ app()->getLocale() === 'sw'
                     ? 'TUICO inaendesha shughuli zake kupitia kanda nane zinazounganisha na kuratibu shughuli za ofisi za mikoa.'
                     : 'TUICO operates through eight zones that connect and coordinate the activities of its regional offices.' }}
@@ -40,7 +40,7 @@
 
         <div class="mb-6">
 
-            <p class="text-sm uppercase tracking-widest text-blue-700 mb-2">
+            <p class="text-sm uppercase tracking-widest text-action mb-2">
                 {{ app()->getLocale() === 'sw' ? 'Muundo wa Kanda' : 'Zonal Structure' }}
             </p>
 
@@ -71,7 +71,7 @@
 
                         </div>
 
-                        <div class="w-10 h-10 bg-blue-50 text-blue-700 flex items-center justify-center shrink-0">
+                        <div class="w-10 h-10 bg-action/10 text-action flex items-center justify-center shrink-0">
 
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8"
                                 stroke="currentColor" class="w-5 h-5">
@@ -89,19 +89,19 @@
 
                         @foreach ($zone->offices as $office)
                             <a href="{{ app()->getLocale() === 'sw' ? url('/sw/regions/' . $office->slug . '?from=zones') : route('regions.show', $office->slug) . '?from=zones' }}"
-                                class="group flex items-center justify-between gap-4 border border-gray-100 bg-gray-50 px-4 py-3 hover:bg-blue-50 hover:border-blue-100 transition">
+                                class="group flex items-center justify-between gap-4 border border-gray-100 bg-gray-50 px-4 py-3 hover:bg-action/10 hover:border-action/20 transition">
 
                                 <div class="min-w-0">
 
                                     <div class="flex flex-wrap items-center gap-2">
 
-                                        <span class="font-medium text-gray-900 group-hover:text-blue-800">
+                                        <span class="font-medium text-gray-900 group-hover:text-action">
                                             {{ $office->name }}
                                         </span>
 
                                         @if ($office->is_zonal_seat)
                                             <span
-                                                class="inline-flex items-center rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800">
+                                                class="inline-flex items-center rounded-full bg-action/20 px-2.5 py-0.5 text-xs font-medium text-action">
                                                 {{ app()->getLocale() === 'sw' ? 'Ofisi ya Kanda' : 'Zonal Office' }}
                                             </span>
                                         @endif
@@ -120,7 +120,7 @@
 
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.8" stroke="currentColor"
-                                    class="w-5 h-5 text-gray-400 group-hover:text-blue-700 shrink-0">
+                                    class="w-5 h-5 text-gray-400 group-hover:text-action shrink-0">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="m9 5 7 7-7 7" />
                                 </svg>
 
@@ -147,7 +147,7 @@
 
             <div class="mb-6">
 
-                <p class="text-sm uppercase tracking-widest text-blue-700 mb-2">
+                <p class="text-sm uppercase tracking-widest text-action mb-2">
                     {{ app()->getLocale() === 'sw' ? 'Uwepo wa TUICO' : 'TUICO Presence' }}
                 </p>
 

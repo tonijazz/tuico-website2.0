@@ -6,10 +6,10 @@
 
     {{-- HERO --}}
 
-    <section class="bg-tuico-navy text-white">
+    <section class="bg-main text-white">
         <div class="max-w-7xl mx-auto px-6 py-12">
 
-            <p class="text-sm uppercase tracking-widest text-blue-200 mb-2">
+            <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
                 {{ app()->getLocale() === 'sw' ? 'Uwepo wa TUICO Nchini' : 'TUICO Presence Across Tanzania' }}
             </p>
 
@@ -17,7 +17,7 @@
                 {{ app()->getLocale() === 'sw' ? 'Ofisi za Mikoa' : 'Regional Offices' }}
             </h1>
 
-            <p class="mt-5 max-w-2xl text-lg leading-8 text-blue-100">
+            <p class="mt-5 max-w-2xl text-lg leading-8 text-white/80">
                 {{ app()->getLocale() === 'sw'
                     ? 'Ofisi za TUICO zinazoratibu shughuli za Chama na huduma kwa wanachama katika maeneo mbalimbali nchini.'
                     : 'TUICO regional offices coordinate the Union’s activities and services to members across different parts of Tanzania.' }}
@@ -34,7 +34,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
 
             <div class="border border-gray-100 rounded-lg p-5 bg-white">
-                <p class="text-3xl font-bold text-tuico-navy">
+                <p class="text-3xl font-bold text-main">
                     {{ $regions->count() }}
                 </p>
 
@@ -44,7 +44,7 @@
             </div>
 
             <div class="border border-gray-100 rounded-lg p-5 bg-white">
-                <p class="text-3xl font-bold text-tuico-navy">
+                <p class="text-3xl font-bold text-main">
                     8
                 </p>
 
@@ -54,7 +54,7 @@
             </div>
 
             <div class="border border-gray-100 rounded-lg p-5 bg-white">
-                <p class="text-3xl font-bold text-tuico-navy">
+                <p class="text-3xl font-bold text-main">
                     3
                 </p>
 
@@ -74,7 +74,7 @@
 
         <div class="mb-6">
 
-            <p class="text-sm uppercase tracking-widest text-blue-700 mb-2">
+            <p class="text-sm uppercase tracking-widest text-action mb-2">
                 {{ app()->getLocale() === 'sw' ? 'Ofisi Zetu' : 'Our Offices' }}
             </p>
 
@@ -91,7 +91,7 @@
 
                 @foreach ($regions as $region)
 
-                    <article class="border border-gray-100 rounded-lg bg-white p-6 hover:border-blue-200 transition">
+                    <article class="border border-gray-100 rounded-lg bg-white p-6 hover:border-action/30 transition">
 
                         <div class="flex items-start justify-between gap-4">
 
@@ -109,7 +109,7 @@
 
                             @if ($region->is_zonal_seat)
 
-                                <span class="shrink-0 inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700">
+                                <span class="shrink-0 inline-flex items-center rounded-full bg-action/10 px-3 py-1 text-xs font-medium text-action">
                                     {{ app()->getLocale() === 'sw' ? 'Ofisi ya Kanda' : 'Zonal Office' }}
                                 </span>
 
@@ -195,7 +195,7 @@
 
 <a
     href="{{ app()->getLocale() === 'sw' ? url('/sw/regions/' . $region->slug . '?from=regions') : route('regions.show', $region->slug) . '?from=regions' }}"
-    class="inline-flex items-center text-sm font-semibold text-blue-700 hover:text-blue-900"
+    class="inline-flex items-center text-sm font-semibold text-action hover:text-main"
 >
     {{ app()->getLocale() === 'sw' ? 'Tazama Ofisi' : 'View Office' }}
     <span class="ml-2">→</span>

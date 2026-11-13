@@ -37,10 +37,10 @@
      HERO
 ========================== --}}
 
-    <section class="bg-tuico-navy text-white">
+    <section class="bg-main text-white">
         <div class="max-w-7xl mx-auto px-6 py-12">
 
-            <p class="text-sm uppercase tracking-widest text-blue-200 mb-2">
+            <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
                 {{ app()->getLocale() === 'sw' ? 'Kuhusu Sisi' : 'About Us' }}
             </p>
 
@@ -49,7 +49,7 @@
             </h1>
 
             @if ($introText)
-                <p class="mt-5 max-w-2xl text-lg leading-8 text-blue-100">
+                <p class="mt-5 max-w-2xl text-lg leading-8 text-white/80">
                     {{ $introText }}
                 </p>
             @endif
@@ -93,7 +93,7 @@
             {{-- TUICO at a Glance --}}
             <div class="bg-gray-50 border border-gray-100 rounded-lg p-6">
 
-                <p class="text-sm uppercase tracking-widest text-blue-700 mb-2">
+                <p class="text-sm uppercase tracking-widest text-action mb-2">
                     {{ app()->getLocale() === 'sw' ? 'TUICO kwa Ufupi' : 'TUICO at a Glance' }}
                 </p>
 
@@ -107,7 +107,7 @@
 
                     @foreach ($keyFigures as $figure)
                         <div class="bg-white p-4">
-                            <p class="text-2xl font-bold text-tuico-navy">
+                            <p class="text-2xl font-bold text-main">
                                 {{ $figure['value'] ?? '' }}
                             </p>
                             <p class="text-xs text-gray-500 mt-1">
@@ -118,7 +118,7 @@
 
                     @if (isset($sectorsCount))
                         <div class="bg-white p-4">
-                            <p class="text-2xl font-bold text-tuico-navy">
+                            <p class="text-2xl font-bold text-main">
                                 {{ $sectorsCount }}
                             </p>
                             <p class="text-xs text-gray-500 mt-1">
@@ -128,7 +128,7 @@
                     @endif
 
                     <div class="bg-white p-4">
-                        <p class="text-2xl font-bold text-tuico-navy">
+                        <p class="text-2xl font-bold text-main">
                             {{ $zonesCount }}
                         </p>
                         <p class="text-xs text-gray-500 mt-1">
@@ -137,7 +137,7 @@
                     </div>
 
                     <div class="bg-white p-4">
-                        <p class="text-2xl font-bold text-tuico-navy">
+                        <p class="text-2xl font-bold text-main">
                             {{ $regionalOfficesCount }}
                         </p>
                         <p class="text-xs text-gray-500 mt-1">
@@ -146,7 +146,7 @@
                     </div>
 
                     <div class="bg-white p-4">
-                        <p class="text-2xl font-bold text-tuico-navy">
+                        <p class="text-2xl font-bold text-main">
                             {{ $subOfficesCount }}
                         </p>
                         <p class="text-xs text-gray-500 mt-1">
@@ -159,14 +159,14 @@
                 <div class="mt-4 flex flex-col gap-3">
 
                     <a href="{{ app()->getLocale() === 'sw' ? '/sw/sectors' : '/sectors' }}"
-                        class="inline-flex w-full items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-md border border-blue-600 hover:border-blue-700 transition">
+                        class="inline-flex w-full items-center justify-center bg-action hover:bg-main text-white font-semibold px-6 py-3 rounded-md border border-action hover:border-main transition">
                         {{ app()->getLocale() === 'sw' ? 'Tazama sekta zetu' : 'Explore our sectors' }}
 
                         <span class="ml-2 text-lg">→</span>
                     </a>
 
                     <a href="{{ app()->getLocale() === 'sw' ? '/sw/regions' : '/regions' }}"
-                        class="inline-flex w-full items-center justify-center bg-white text-blue-800 hover:bg-blue-50 font-semibold px-6 py-3 rounded-md border border-blue-700 transition">
+                        class="inline-flex w-full items-center justify-center bg-white text-action hover:bg-action/10 font-semibold px-6 py-3 rounded-md border border-action transition">
                         {{ app()->getLocale() === 'sw' ? 'Tafuta ofisi ya mkoa wako' : 'Find your regional office' }}
 
                         <span class="ml-2 text-lg">→</span>
@@ -248,7 +248,7 @@
 
         <div class="max-w-3xl mb-5">
 
-            <p class="text-sm uppercase tracking-widest text-blue-700 mb-2">
+            <p class="text-sm uppercase tracking-widest text-action mb-2">
                 {{ $aboutIsSw ? 'Mwelekeo wa Chama' : 'Our Direction' }}
             </p>
 
@@ -317,7 +317,7 @@
 
             <div class="max-w-3xl mb-4">
 
-                <p class="text-sm uppercase tracking-widest text-blue-700 mb-2">
+                <p class="text-sm uppercase tracking-widest text-action mb-2">
                     {{ app()->getLocale() === 'sw' ? 'Tunachofanya' : 'What We Do' }}
                 </p>
 
@@ -339,7 +339,7 @@
             <div>
 
                 <a href="{{ app()->getLocale() === 'sw' ? url('/sw/strategic-plan') : url('/strategic-plan') }}"
-                    class="inline-flex items-center text-sm font-semibold text-blue-700 hover:text-blue-950 transition">
+                    class="inline-flex items-center text-sm font-semibold text-action hover:text-main transition">
                     {{ app()->getLocale() === 'sw' ? 'Soma Mpango Mkakati' : 'Read the strategic plan' }}
 
                     <span class="ml-2">→</span>
@@ -359,7 +359,7 @@
 
         <div class="max-w-3xl mb-5">
 
-            <p class="text-sm uppercase tracking-widest text-blue-700 mb-2">
+            <p class="text-sm uppercase tracking-widest text-action mb-2">
                 {{ app()->getLocale() === 'sw' ? 'Utawala wa Chama' : 'Union Governance' }}
             </p>
 

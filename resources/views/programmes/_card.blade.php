@@ -9,7 +9,7 @@
 
         <div class="max-w-3xl">
 
-            <h3 class="text-xl md:text-2xl font-bold leading-snug text-blue-950">
+            <h3 class="text-xl md:text-2xl font-bold leading-snug text-main">
                 {{ $programme->title }}
             </h3>
 

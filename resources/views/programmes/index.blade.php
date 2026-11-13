@@ -12,13 +12,13 @@
 HERO
 ========================================================== --}}
 
-    <section class="bg-tuico-navy text-white">
+    <section class="bg-main text-white">
 
         <div class="max-w-7xl mx-auto px-6 py-12">
 
             <div class="max-w-3xl">
 
-                <p class="text-sm uppercase tracking-widest text-blue-200 mb-2">
+                <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
                     {{ $isSwahili ? 'Mwelekeo wa Kimkakati' : 'Strategic Direction' }}
                 </p>
 
@@ -26,7 +26,7 @@ HERO
                     {{ $isSwahili ? 'Mpango Mkakati' : 'Strategic Plan' }}
                 </h1>
 
-                <p class="mt-5 max-w-2xl text-lg leading-8 text-blue-100">
+                <p class="mt-5 max-w-2xl text-lg leading-8 text-white/80">
                     {{ $isSwahili
                         ? 'Mwelekeo unaoongoza vipaumbele na utekelezaji wa TUICO.'
                         : 'The strategic direction guiding TUICO’s priorities and implementation.' }}
@@ -48,7 +48,7 @@ STRATEGIC AREAS
 
             <div class="mb-8">
 
-                <p class="text-sm uppercase tracking-widest text-blue-700 mb-2">
+                <p class="text-sm uppercase tracking-widest text-action mb-2">
                     {{ $isSwahili ? 'Vipaumbele' : 'Priorities' }}
                 </p>
 
@@ -65,15 +65,15 @@ STRATEGIC AREAS
 
                     @foreach ($strategicAreas as $area)
                         <article
-                            class="group bg-white rounded-lg border border-gray-100 p-6 hover:border-blue-200 hover:shadow-sm transition">
+                            class="group bg-white rounded-lg border border-gray-100 p-6 hover:border-action/30 hover:shadow-sm transition">
 
                             @if ($area->icon)
-                                <div class="mb-5 text-tuico-navy">
+                                <div class="mb-5 text-main">
                                     <x-dynamic-component :component="$area->icon" class="w-8 h-8" />
                                 </div>
                             @endif
 
-                            <h3 class="text-xl font-bold text-gray-900 group-hover:text-blue-700 transition">
+                            <h3 class="text-xl font-bold text-gray-900 group-hover:text-action transition">
                                 {{ $area->title }}
                             </h3>
 
@@ -86,7 +86,7 @@ STRATEGIC AREAS
                             <a href="{{ $isSwahili
     ? url('/sw/strategic-plan/areas/' . $area->id)
     : route('programmes.strategic-area', $area) }}"
-                                class="inline-flex items-center mt-5 text-sm font-semibold text-blue-700 hover:text-tuico-navy transition">
+                                class="inline-flex items-center mt-5 text-sm font-semibold text-action hover:text-main transition">
                                 {{ $isSwahili ? 'Angalia Maelezo' : 'View Details' }}
                                 <span class="ml-2">→</span>
                             </a>
@@ -129,7 +129,7 @@ PROGRAMMES
 
             <div class="mb-8">
 
-                <p class="text-sm uppercase tracking-widest text-blue-700 mb-2">
+                <p class="text-sm uppercase tracking-widest text-action mb-2">
                     {{ $isSwahili ? 'Utekelezaji' : 'Implementation' }}
                 </p>
 
@@ -148,8 +148,8 @@ PROGRAMMES
                     <button @click="tab = 'active'"
                         :class="tab === 'active'
                             ?
-                            'bg-tuico-navy border-tuico-navy text-white' :
-                            'bg-white border-gray-200 text-gray-600 hover:border-blue-200 hover:text-blue-700'"
+                            'bg-main border-main text-white' :
+                            'bg-white border-gray-200 text-gray-600 hover:border-action/30 hover:text-action'"
                         class="px-4 py-2 text-xs font-bold uppercase tracking-wider border rounded-full transition">
                         {{ $isSwahili ? 'Zinazoendelea' : 'Active' }}
                     </button>
@@ -157,8 +157,8 @@ PROGRAMMES
                     <button @click="tab = 'past'"
                         :class="tab === 'past'
                             ?
-                            'bg-tuico-navy border-tuico-navy text-white' :
-                            'bg-white border-gray-200 text-gray-600 hover:border-blue-200 hover:text-blue-700'"
+                            'bg-main border-main text-white' :
+                            'bg-white border-gray-200 text-gray-600 hover:border-action/30 hover:text-action'"
                         class="px-4 py-2 text-xs font-bold uppercase tracking-wider border rounded-full transition">
                         {{ $isSwahili ? 'Zilizopita' : 'Past' }}
                     </button>
@@ -175,7 +175,7 @@ PROGRAMMES
 
                             @foreach ($activeProgrammes as $programme)
                                 <article
-                                    class="bg-white rounded-lg border border-gray-100 p-6 hover:border-blue-200 hover:shadow-sm transition">
+                                    class="bg-white rounded-lg border border-gray-100 p-6 hover:border-action/30 hover:shadow-sm transition">
 
                                     <div class="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
 
@@ -231,7 +231,7 @@ PROGRAMMES
 
 
                                     <a href="{{ route('programmes.programme', $programme) }}"
-                                        class="inline-flex items-center mt-5 text-sm font-semibold text-blue-700 hover:text-tuico-navy transition">
+                                        class="inline-flex items-center mt-5 text-sm font-semibold text-action hover:text-main transition">
                                         {{ $isSwahili ? 'Angalia Programu' : 'View Programme' }}
                                         <span class="ml-2">→</span>
                                     </a>
@@ -270,7 +270,7 @@ PROGRAMMES
 
                             @foreach ($pastProgrammes as $programme)
                                 <article
-                                    class="bg-white rounded-lg border border-gray-100 p-6 hover:border-blue-200 hover:shadow-sm transition">
+                                    class="bg-white rounded-lg border border-gray-100 p-6 hover:border-action/30 hover:shadow-sm transition">
 
                                     <div class="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
 
@@ -326,7 +326,7 @@ PROGRAMMES
 
 
                                     <a href="{{ route('programmes.programme', $programme) }}"
-                                        class="inline-flex items-center mt-5 text-sm font-semibold text-blue-700 hover:text-tuico-navy transition">
+                                        class="inline-flex items-center mt-5 text-sm font-semibold text-action hover:text-main transition">
                                         {{ $isSwahili ? 'Angalia Programu' : 'View Programme' }}
                                         <span class="ml-2">→</span>
                                     </a>

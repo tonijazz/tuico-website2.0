@@ -8,11 +8,11 @@
          HERO
     ========================== --}}
 
-    <section class="bg-tuico-navy text-white">
+    <section class="bg-main text-white">
 
         <div class="max-w-7xl mx-auto px-6 py-12">
 
-            <p class="text-sm uppercase tracking-widest text-blue-200 mb-2">
+            <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
                 {{ $isSwahili ? 'Shirika' : 'Organization' }}
             </p>
 
@@ -20,7 +20,7 @@
                 {{ $isSwahili ? 'Vitengo' : 'Units' }}
             </h1>
 
-            <p class="mt-5 max-w-2xl text-lg leading-8 text-blue-100">
+            <p class="mt-5 max-w-2xl text-lg leading-8 text-white/80">
                 {{ $isSwahili
                     ? 'Vitengo vya TUICO vinavyosaidia utekelezaji wa shughuli maalum na kuimarisha uendeshaji wa Chama.'
                     : 'TUICO units that support specialised functions and strengthen the effective operation of the Union.' }}
@@ -39,7 +39,7 @@
 
         <div class="mb-6">
 
-            <p class="text-sm uppercase tracking-widest text-blue-700 mb-2">
+            <p class="text-sm uppercase tracking-widest text-action mb-2">
                 {{ $isSwahili ? 'Vitengo vya TUICO' : 'TUICO Units' }}
             </p>
 
@@ -59,23 +59,23 @@
                 <a href="{{ $isSwahili
                     ? '/sw/units/' . \Illuminate\Support\Str::slug($unit->getTranslation('name', 'en'))
                     : '/units/' . \Illuminate\Support\Str::slug($unit->getTranslation('name', 'en')) }}"
-                    class="group border border-gray-100 bg-white p-6 hover:border-blue-700 hover:shadow-sm transition">
+                    class="group border border-gray-100 bg-white p-6 hover:border-action hover:shadow-sm transition">
 
                     <div class="flex items-start justify-between gap-6">
 
                         <div>
 
-                            <p class="text-sm uppercase tracking-widest text-blue-700 mb-2">
+                            <p class="text-sm uppercase tracking-widest text-action mb-2">
                                 {{ $isSwahili ? 'Kitengo' : 'Unit' }}
                             </p>
 
-                            <h3 class="text-xl font-bold text-gray-900 group-hover:text-blue-700 transition">
+                            <h3 class="text-xl font-bold text-gray-900 group-hover:text-action transition">
                                 {{ $unit->getTranslation('name', app()->getLocale()) }}
                             </h3>
 
                         </div>
 
-                        <span class="shrink-0 text-blue-700 text-xl group-hover:translate-x-1 transition">
+                        <span class="shrink-0 text-action text-xl group-hover:translate-x-1 transition">
                             →
                         </span>
 
@@ -88,7 +88,7 @@
                         ) }}
                     </p>
 
-                    <span class="inline-flex items-center mt-5 text-sm font-semibold text-blue-700">
+                    <span class="inline-flex items-center mt-5 text-sm font-semibold text-action">
                         {{ $isSwahili ? 'Angalia Kitengo' : 'View Unit' }}
                     </span>
 

@@ -14,12 +14,12 @@
 HERO
 ========================================================= --}}
 
-<section class="bg-tuico-navy text-white">
+<section class="bg-main text-white">
     <div class="max-w-7xl mx-auto px-6 py-12">
 
         <div class="max-w-3xl">
 
-            <p class="text-sm uppercase tracking-widest text-blue-200 mb-2">
+            <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
                 {{ $isSwahili ? 'Kalenda na Shughuli' : 'Calendar & Activities' }}
             </p>
 
@@ -27,7 +27,7 @@ HERO
                 {{ $isSwahili ? 'Matukio ya TUICO' : 'TUICO Events' }}
             </h1>
 
-            <p class="mt-5 max-w-2xl text-lg leading-8 text-blue-100">
+            <p class="mt-5 max-w-2xl text-lg leading-8 text-white/80">
                 {{ $isSwahili
                     ? 'Fuatilia mikutano, shughuli, programu na matukio mbalimbali yanayohusiana na kazi za TUICO.'
                     : 'Follow meetings, activities, programmes and other events connected to the work of TUICO.' }}
@@ -56,8 +56,8 @@ EVENTS
                     type="button"
                     @click="tab = 'upcoming'"
                     :class="tab === 'upcoming'
-                        ? 'bg-tuico-navy text-white'
-                        : 'bg-white text-gray-600 border border-gray-200 hover:border-blue-200 hover:text-blue-700'"
+                        ? 'bg-main text-white'
+                        : 'bg-white text-gray-600 border border-gray-200 hover:border-action/30 hover:text-action'"
                     class="px-5 py-2.5 rounded-full text-sm font-semibold transition"
                 >
                     {{ $isSwahili ? 'Matukio Yanayokuja' : 'Upcoming Events' }}
@@ -67,8 +67,8 @@ EVENTS
                     type="button"
                     @click="tab = 'past'"
                     :class="tab === 'past'
-                        ? 'bg-tuico-navy text-white'
-                        : 'bg-white text-gray-600 border border-gray-200 hover:border-blue-200 hover:text-blue-700'"
+                        ? 'bg-main text-white'
+                        : 'bg-white text-gray-600 border border-gray-200 hover:border-action/30 hover:text-action'"
                     class="px-5 py-2.5 rounded-full text-sm font-semibold transition"
                 >
                     {{ $isSwahili ? 'Matukio Yaliyopita' : 'Past Events' }}
@@ -110,8 +110,8 @@ EVENTS
 
                                 @else
 
-                                    <div class="aspect-[16/9] bg-tuico-navy flex items-center justify-center">
-                                        <span class="text-blue-200 text-sm font-semibold uppercase tracking-wider">
+                                    <div class="aspect-[16/9] bg-main flex items-center justify-center">
+                                        <span class="text-white/70 text-sm font-semibold uppercase tracking-wider">
                                             TUICO
                                         </span>
                                     </div>
@@ -124,13 +124,13 @@ EVENTS
                                     {{-- Date --}}
                                     <div class="flex items-start gap-4 mb-5">
 
-                                        <div class="w-16 h-16 shrink-0 rounded-lg bg-blue-50 border border-blue-100 flex flex-col items-center justify-center">
+                                        <div class="w-16 h-16 shrink-0 rounded-lg bg-action/10 border border-action/20 flex flex-col items-center justify-center">
 
-                                            <span class="text-2xl font-bold text-tuico-navy leading-none">
+                                            <span class="text-2xl font-bold text-main leading-none">
                                                 {{ $event->starts_at->format('d') }}
                                             </span>
 
-                                            <span class="text-[11px] font-semibold uppercase tracking-wide text-blue-700 mt-1">
+                                            <span class="text-[11px] font-semibold uppercase tracking-wide text-action mt-1">
                                                 {{ $event->starts_at->format('M') }}
                                             </span>
 
@@ -161,7 +161,7 @@ EVENTS
 
                                         <div class="mb-3">
 
-                                            <span class="inline-flex items-center px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-semibold">
+                                            <span class="inline-flex items-center px-2.5 py-1 rounded-full bg-action/10 text-action text-xs font-semibold">
                                                 {{ $event->governanceMeeting->name }}
                                             </span>
 
@@ -192,7 +192,7 @@ EVENTS
                                         <div class="mt-5 flex items-start gap-2 text-sm text-gray-500">
 
                                             <svg
-                                                class="w-4 h-4 mt-0.5 shrink-0 text-blue-700"
+                                                class="w-4 h-4 mt-0.5 shrink-0 text-action"
                                                 fill="none"
                                                 stroke="currentColor"
                                                 viewBox="0 0 24 24"
@@ -229,10 +229,10 @@ EVENTS
 
                     <div class="bg-white rounded-lg border border-gray-100 p-10 text-center">
 
-                        <div class="w-14 h-14 mx-auto rounded-full bg-blue-50 flex items-center justify-center mb-4">
+                        <div class="w-14 h-14 mx-auto rounded-full bg-action/10 flex items-center justify-center mb-4">
 
                             <svg
-                                class="w-7 h-7 text-blue-700"
+                                class="w-7 h-7 text-action"
                                 fill="none"
                                 stroke="currentColor"
                                 viewBox="0 0 24 24"
@@ -358,7 +358,7 @@ EVENTS
 
                                         <div class="mb-3">
 
-                                            <span class="inline-flex items-center px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-semibold">
+                                            <span class="inline-flex items-center px-2.5 py-1 rounded-full bg-action/10 text-action text-xs font-semibold">
                                                 {{ $event->governanceMeeting->name }}
                                             </span>
 
@@ -471,7 +471,7 @@ EVENTS
 CTA
 ========================================================= --}}
 
-<section class="bg-tuico-navy text-white">
+<section class="bg-main text-white">
 
     <div class="max-w-7xl mx-auto px-6 py-12">
 
@@ -483,7 +483,7 @@ CTA
                     {{ $isSwahili ? 'Endelea kufuatilia TUICO' : 'Stay connected with TUICO' }}
                 </p>
 
-                <p class="mt-2 text-blue-100">
+                <p class="mt-2 text-white/80">
                     {{ $isSwahili
                         ? 'Soma habari na taarifa za hivi karibuni kutoka TUICO.'
                         : 'Read the latest news and updates from TUICO.' }}
@@ -493,7 +493,7 @@ CTA
 
             <a
                 href="{{ $isSwahili ? '/sw/news' : '/news' }}"
-                class="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-white text-tuico-navy font-semibold hover:bg-blue-50 transition"
+                class="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-white text-main font-semibold hover:bg-white/90 transition"
             >
                 {{ $isSwahili ? 'Soma Habari' : 'Read News' }}
             </a>

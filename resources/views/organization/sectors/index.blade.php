@@ -8,11 +8,11 @@
          HERO
     ========================== --}}
 
-    <section class="bg-tuico-navy text-white">
+    <section class="bg-main text-white">
 
         <div class="max-w-7xl mx-auto px-6 py-12">
 
-            <p class="text-sm uppercase tracking-widest text-blue-200 mb-2">
+            <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
                 {{ $isSwahili ? 'Uwakilishi wa TUICO' : 'TUICO Representation' }}
             </p>
 
@@ -20,7 +20,7 @@
                 {{ $isSwahili ? 'Sekta Tunazozihudumia' : 'The Sectors We Represent' }}
             </h1>
 
-            <p class="mt-5 max-w-2xl text-lg leading-8 text-blue-100">
+            <p class="mt-5 max-w-2xl text-lg leading-8 text-white/80">
                 {{ $isSwahili
                     ? 'TUICO inahudumia wafanyakazi katika sekta nne (4): viwanda, biashara, taasisi za fedha, na huduma na ushauri.'
                     : 'TUICO represents workers across industrial, commercial, financial, services, and consultancy sectors.' }}
@@ -49,8 +49,8 @@
                         class="group bg-white border border-gray-100 p-6 shadow-sm hover:shadow-md hover:-translate-y-1 transition duration-300">
 
                         {{-- ICON --}}
-                        <div class="flex h-11 w-11 items-center justify-center bg-blue-50 text-blue-700
-                                    group-hover:bg-blue-700 group-hover:text-white transition">
+                        <div class="flex h-11 w-11 items-center justify-center bg-action/10 text-action
+                                    group-hover:bg-action group-hover:text-white transition">
 
                             @if ($loop->iteration === 1)
 
@@ -98,7 +98,7 @@
 
 
                         {{-- NAME --}}
-                        <h2 class="mt-6 text-xl font-bold text-blue-950">
+                        <h2 class="mt-6 text-xl font-bold text-main">
                             {{ $sector->getTranslation('name', app()->getLocale()) }}
                         </h2>
 
@@ -113,7 +113,7 @@
 
 
                         {{-- LINK --}}
-                        <div class="mt-5 text-sm font-semibold text-blue-700 group-hover:text-blue-900">
+                        <div class="mt-5 text-sm font-semibold text-action group-hover:text-main">
                             {{ $isSwahili ? 'Angalia Sekta →' : 'View Sector →' }}
                         </div>
 

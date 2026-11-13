@@ -14,10 +14,10 @@ $currentYear = request('year');
 @section('content')
 
 {{-- HERO --}}
-<section class="bg-tuico-navy text-white">
+<section class="bg-main text-white">
     <div class="max-w-7xl mx-auto px-6 py-12">
 
-        <p class="text-sm uppercase tracking-widest text-blue-200 mb-2">
+        <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
             {{ $isSwahili ? 'Nyaraka na Taarifa' : 'Documents & Information' }}
         </p>
 
@@ -25,7 +25,7 @@ $currentYear = request('year');
             {{ $isSwahili ? 'Nyaraka' : 'Resources' }}
         </h1>
 
-        <p class="mt-5 max-w-2xl text-lg leading-8 text-blue-100">
+        <p class="mt-5 max-w-2xl text-lg leading-8 text-white/80">
             {{ $isSwahili
                 ? 'Pata nyaraka, machapisho, miongozo, sheria na taarifa mbalimbali zinazohusiana na kazi na shughuli za TUICO.'
                 : 'Access TUICO documents, publications, guides, labour laws and other resources related to our work and activities.' }}
@@ -64,7 +64,7 @@ $currentYear = request('year');
                         name="search"
                         value="{{ $currentSearch }}"
                         placeholder="{{ $isSwahili ? 'Tafuta nyaraka...' : 'Search resources...' }}"
-                        class="w-full rounded-lg border-gray-200 px-4 py-3 text-sm focus:border-blue-700 focus:ring-blue-700"
+                        class="w-full rounded-lg border-gray-200 px-4 py-3 text-sm focus:border-action focus:ring-action"
                     >
 
                 </div>
@@ -83,7 +83,7 @@ $currentYear = request('year');
                     <select
                         id="category"
                         name="category"
-                        class="w-full rounded-lg border-gray-200 px-4 py-3 text-sm focus:border-blue-700 focus:ring-blue-700"
+                        class="w-full rounded-lg border-gray-200 px-4 py-3 text-sm focus:border-action focus:ring-action"
                     >
 
                         <option value="">
@@ -119,7 +119,7 @@ $currentYear = request('year');
                     <select
                         id="year"
                         name="year"
-                        class="w-full rounded-lg border-gray-200 px-4 py-3 text-sm focus:border-blue-700 focus:ring-blue-700"
+                        class="w-full rounded-lg border-gray-200 px-4 py-3 text-sm focus:border-action focus:ring-action"
                     >
 
                         <option value="">
@@ -149,7 +149,7 @@ $currentYear = request('year');
 
                 <button
                     type="submit"
-                    class="inline-flex items-center justify-center rounded-full bg-tuico-navy px-6 py-3 text-sm font-semibold text-white hover:bg-tuico-navy transition"
+                    class="inline-flex items-center justify-center rounded-full bg-action px-6 py-3 text-sm font-semibold text-white hover:bg-main transition"
                 >
                     {{ $isSwahili ? 'Tafuta Nyaraka' : 'Search Resources' }}
                 </button>
@@ -158,7 +158,7 @@ $currentYear = request('year');
 
                     <a
                         href="{{ $isSwahili ? '/sw/resources' : '/resources' }}"
-                        class="inline-flex items-center text-sm font-semibold text-gray-600 hover:text-tuico-navy transition"
+                        class="inline-flex items-center text-sm font-semibold text-gray-600 hover:text-main transition"
                     >
                         {{ $isSwahili ? 'Ondoa Vichujio' : 'Clear Filters' }}
                     </a>
@@ -206,7 +206,7 @@ $currentYear = request('year');
                     @endphp
 
                     <article
-                        class="group flex flex-col rounded-lg bg-white border border-gray-100 p-6 hover:border-blue-200 hover:shadow-sm transition"
+                        class="group flex flex-col rounded-lg bg-white border border-gray-100 p-6 hover:border-action/30 hover:shadow-sm transition"
                     >
 
                         {{-- COVER IMAGE --}}
@@ -225,10 +225,10 @@ $currentYear = request('year');
                         @else
 
                             <div
-                                class="mb-6 flex items-center justify-center rounded-lg bg-blue-50 aspect-[16/9]"
+                                class="mb-6 flex items-center justify-center rounded-lg bg-action/10 aspect-[16/9]"
                             >
                                 <svg
-                                    class="w-12 h-12 text-blue-700"
+                                    class="w-12 h-12 text-action"
                                     fill="none"
                                     stroke="currentColor"
                                     viewBox="0 0 24 24"
@@ -255,7 +255,7 @@ $currentYear = request('year');
                         {{-- CATEGORY --}}
                         @if ($categoryName)
 
-                            <p class="text-xs font-semibold uppercase tracking-widest text-blue-700">
+                            <p class="text-xs font-semibold uppercase tracking-widest text-action">
                                 {{ $categoryName }}
                             </p>
 
@@ -305,7 +305,7 @@ $currentYear = request('year');
 
                             <a
                                 href="{{ $isSwahili ? '/sw/resources/' . $resource->id : '/resources/' . $resource->id }}"
-                                class="inline-flex items-center text-sm font-semibold text-blue-700 hover:text-tuico-navy transition"
+                                class="inline-flex items-center text-sm font-semibold text-action hover:text-main transition"
                             >
                                 {{ $isSwahili ? 'Tazama Nyaraka' : 'View Resource' }}
 
@@ -318,7 +318,7 @@ $currentYear = request('year');
                                     href="{{ asset('storage/' . $resource->file_path) }}"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    class="inline-flex items-center text-sm font-semibold text-gray-600 hover:text-tuico-navy transition"
+                                    class="inline-flex items-center text-sm font-semibold text-gray-600 hover:text-main transition"
                                 >
                                     {{ $isSwahili ? 'Pakua' : 'Download' }}
 
@@ -350,10 +350,10 @@ $currentYear = request('year');
             {{-- NO RESULTS --}}
             <div class="mt-8 rounded-lg bg-white border border-gray-100 px-6 py-16 text-center shadow-sm">
 
-                <div class="mx-auto w-16 h-16 rounded-lg bg-blue-50 flex items-center justify-center">
+                <div class="mx-auto w-16 h-16 rounded-lg bg-action/10 flex items-center justify-center">
 
                     <svg
-                        class="w-8 h-8 text-blue-700"
+                        class="w-8 h-8 text-action"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -389,7 +389,7 @@ $currentYear = request('year');
 
                     <a
                         href="{{ $isSwahili ? '/sw/resources' : '/resources' }}"
-                        class="inline-flex items-center mt-6 text-sm font-semibold text-blue-700 hover:text-tuico-navy transition"
+                        class="inline-flex items-center mt-6 text-sm font-semibold text-action hover:text-main transition"
                     >
                         {{ $isSwahili ? 'Angalia Nyaraka Zote' : 'View All Resources' }}
 

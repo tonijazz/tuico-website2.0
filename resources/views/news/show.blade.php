@@ -23,7 +23,7 @@
 {{-- =========================================================
     ARTICLE HERO
 ========================================================== --}}
-<section class="bg-tuico-navy text-white">
+<section class="bg-main text-white">
 
     <div class="max-w-5xl mx-auto px-6 py-12">
 
@@ -32,7 +32,7 @@
             @if ($article->type)
 
                 <span
-                    class="inline-flex items-center px-3 py-1 text-[11px] font-bold uppercase tracking-wider bg-white/10 border border-white/20 text-blue-50 rounded-full"
+                    class="inline-flex items-center px-3 py-1 text-[11px] font-bold uppercase tracking-wider bg-white/10 border border-white/20 text-white/90 rounded-full"
                 >
                     {{ $articleTypeLabel }}
                 </span>
@@ -41,7 +41,7 @@
 
             @if ($article->published_at)
 
-                <span class="text-sm text-blue-200">
+                <span class="text-sm text-white/70">
                     {{ $article->published_at->format('d M Y') }}
                 </span>
 
@@ -59,7 +59,7 @@
         {{-- EXCERPT --}}
         @if ($excerpt)
 
-            <p class="mt-5 max-w-3xl text-lg leading-8 text-blue-100">
+            <p class="mt-5 max-w-3xl text-lg leading-8 text-white/80">
                 {{ $excerpt }}
             </p>
 
@@ -69,9 +69,9 @@
         {{-- AUTHOR --}}
         @if ($article->author)
 
-            <div class="mt-6 flex items-center gap-3 text-sm text-blue-200">
+            <div class="mt-6 flex items-center gap-3 text-sm text-white/70">
 
-                <span class="h-px w-8 bg-blue-400"></span>
+                <span class="h-px w-8 bg-white/40"></span>
 
                 <span>
                     {{ $isSwahili ? 'Na' : 'By' }}
@@ -120,11 +120,11 @@
                 prose-headings:font-bold
                 prose-p:text-gray-700
                 prose-p:leading-8
-                prose-a:text-blue-700
+                prose-a:text-action
                 prose-a:no-underline
                 hover:prose-a:underline
                 prose-strong:text-gray-900
-                prose-blockquote:border-blue-700
+                prose-blockquote:border-action
                 prose-blockquote:text-gray-600
                 prose-img:rounded-lg"
         >
@@ -145,7 +145,7 @@
 
         <a
             href="{{ $isSwahili ? '/sw/news' : '/news' }}"
-            class="inline-flex items-center text-sm font-semibold text-blue-700 hover:text-tuico-navy transition"
+            class="inline-flex items-center text-sm font-semibold text-action hover:text-main transition"
         >
 
             <span class="mr-2">

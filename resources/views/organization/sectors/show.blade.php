@@ -8,11 +8,11 @@
          HERO
     ========================== --}}
 
-    <section class="bg-tuico-navy text-white">
+    <section class="bg-main text-white">
 
         <div class="max-w-7xl mx-auto px-6 py-12">
 
-            <p class="text-sm uppercase tracking-widest text-blue-200 mb-2">
+            <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
                 {{ $isSwahili ? 'Sekta' : 'Sector' }}
             </p>
 
@@ -37,7 +37,7 @@
             {{-- DESCRIPTION --}}
             <div class="lg:col-span-2">
 
-                <p class="text-sm uppercase tracking-widest text-blue-700 mb-2">
+                <p class="text-sm uppercase tracking-widest text-action mb-2">
                     {{ $isSwahili ? 'Kuhusu Sekta' : 'About the Sector' }}
                 </p>
 
@@ -63,7 +63,7 @@
                     <ul class="mt-4 space-y-2 text-gray-600 leading-7">
                         @foreach ($examples as $example)
                             <li class="flex gap-3">
-                                <span class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-700"></span>
+                                <span class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-action"></span>
                                 <span>{{ $example }}</span>
                             </li>
                         @endforeach
@@ -72,16 +72,16 @@
                 @endif
 
                 {{-- COVERAGE NOTE --}}
-                <p class="mt-8 border-l-4 border-blue-200 bg-blue-50 px-4 py-3 text-sm leading-6 text-gray-700">
+                <p class="mt-8 border-l-4 border-action/30 bg-action/10 px-4 py-3 text-sm leading-6 text-gray-700">
                     @if ($isSwahili)
                         Hii ni mifano. Kwa orodha kamili, soma
-                        <a href="/sw/resources" class="font-semibold text-blue-700 underline">kanuni ya 13.2 ya Kanuni za
+                        <a href="/sw/resources" class="font-semibold text-action underline">kanuni ya 13.2 ya Kanuni za
                             Katiba ya TUICO za mwaka 2021</a>.
                         Hujui eneo lako la kazi linaangukia sekta gani? Tuambie mahali unapofanya kazi kupitia fomu ya
                         maelezo ya uanachama.
                     @else
                         These are examples. See
-                        <a href="/resources" class="font-semibold text-blue-700 underline">regulation 13.2 of the 2021 TUICO
+                        <a href="/resources" class="font-semibold text-action underline">regulation 13.2 of the 2021 TUICO
                             Constitutional Regulations</a>
                         for the full list. Unsure where your workplace fits? Tell us where you work through the membership
                         enquiry form.
@@ -92,12 +92,12 @@
                 <div class="mt-8 flex flex-wrap gap-3">
 
                     <a href="{{ $isSwahili ? '/sw/join-us' : '/join-us' }}"
-                        class="bg-blue-700 px-5 py-2.5 text-sm font-semibold text-white hover:bg-blue-900 transition">
+                        class="bg-action px-5 py-2.5 text-sm font-semibold text-white hover:bg-main transition">
                         {{ $isSwahili ? 'Uliza kuhusu kujiunga na TUICO' : 'Ask about joining TUICO' }}
                     </a>
 
                     <a href="{{ $isSwahili ? '/sw/regions' : '/regions' }}"
-                        class="border border-blue-700 px-5 py-2.5 text-sm font-semibold text-blue-700 hover:bg-blue-50 transition">
+                        class="border border-action px-5 py-2.5 text-sm font-semibold text-action hover:bg-action/10 transition">
                         {{ $isSwahili ? 'Tafuta ofisi ya mkoa' : 'Find a regional office' }}
                     </a>
 
@@ -113,7 +113,7 @@
 
                     <div class="border border-gray-100 bg-gray-50 p-6">
 
-                        <p class="text-sm uppercase tracking-widest text-blue-700 mb-2">
+                        <p class="text-sm uppercase tracking-widest text-action mb-2">
                             {{ $isSwahili ? 'Mkuu wa Sekta' : 'Sector Head' }}
                         </p>
 
@@ -125,7 +125,7 @@
                                     class="w-24 h-24 object-cover rounded-full border-4 border-white shadow-sm">
                             @else
                                 <div
-                                    class="w-24 h-24 rounded-full bg-blue-50 flex items-center justify-center text-blue-700 text-2xl font-bold">
+                                    class="w-24 h-24 rounded-full bg-action/10 flex items-center justify-center text-action text-2xl font-bold">
                                     {{ collect(explode(' ', $sector->leader->name))->filter()->map(fn($name) => strtoupper(substr($name, 0, 1)))->take(2)->implode('') }}
                                 </div>
                             @endif
@@ -161,7 +161,7 @@
 
             <div class="mb-6">
 
-                <p class="text-sm uppercase tracking-widest text-blue-700 mb-2">
+                <p class="text-sm uppercase tracking-widest text-action mb-2">
                     {{ $isSwahili ? 'Sekta Nyingine' : 'Explore Other Sectors' }}
                 </p>
 
@@ -178,9 +178,9 @@
                     <a href="{{ $isSwahili
                         ? '/sw/sectors/' . \Illuminate\Support\Str::slug($otherSector->getTranslation('name', 'en'))
                         : '/sectors/' . \Illuminate\Support\Str::slug($otherSector->getTranslation('name', 'en')) }}"
-                        class="group bg-white border border-gray-100 p-6 hover:border-blue-700 hover:shadow-sm transition">
+                        class="group bg-white border border-gray-100 p-6 hover:border-action hover:shadow-sm transition">
 
-                        <h3 class="text-lg font-bold text-gray-900 group-hover:text-blue-700 transition">
+                        <h3 class="text-lg font-bold text-gray-900 group-hover:text-action transition">
                             {{ $otherSector->getTranslation('name', app()->getLocale()) }}
                         </h3>
 
@@ -188,7 +188,7 @@
                             {{ \Illuminate\Support\Str::limit($otherSector->getTranslation('description', app()->getLocale()), 120) }}
                         </p>
 
-                        <span class="inline-flex items-center mt-5 text-sm font-semibold text-blue-700">
+                        <span class="inline-flex items-center mt-5 text-sm font-semibold text-action">
                             {{ $isSwahili ? 'Angalia Sekta' : 'View Sector' }}
                             <span class="ml-2 group-hover:translate-x-1 transition">→</span>
                         </span>
@@ -210,7 +210,7 @@
     <section class="max-w-7xl mx-auto px-6 py-8">
 
         <a href="{{ $isSwahili ? '/sw/sectors' : '/sectors' }}"
-            class="inline-flex items-center text-sm font-semibold text-blue-700 hover:text-blue-950 transition">
+            class="inline-flex items-center text-sm font-semibold text-action hover:text-main transition">
 
             <span class="mr-2">←</span>
 

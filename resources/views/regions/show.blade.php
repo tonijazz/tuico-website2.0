@@ -9,10 +9,10 @@
 
     {{-- HERO --}}
 
-    <section class="bg-tuico-navy text-white">
+    <section class="bg-main text-white">
         <div class="max-w-7xl mx-auto px-6 py-12">
 
-            <p class="text-sm uppercase tracking-widest text-blue-200 mb-2">
+            <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
                 {{ app()->getLocale() === 'sw' ? 'Ofisi za Mikoa' : 'Regional Offices' }}
             </p>
 
@@ -23,7 +23,7 @@
                         {{ $region->name }}
                     </h1>
 
-                    <p class="mt-3 text-lg text-blue-100">
+                    <p class="mt-3 text-lg text-white/80">
                         {{ app()->getLocale() === 'sw'
                             ? 'Ofisi ya Mkoa'
                             : 'Regional Office' }}
@@ -54,7 +54,7 @@
 
                 <div class="mb-6">
 
-                    <p class="text-sm uppercase tracking-widest text-blue-700 mb-2">
+                    <p class="text-sm uppercase tracking-widest text-action mb-2">
                         {{ app()->getLocale() === 'sw' ? 'Taarifa za Ofisi' : 'Office Information' }}
                     </p>
 
@@ -97,7 +97,7 @@
 
                                 <a
                                     href="tel:{{ $region->phone }}"
-                                    class="text-gray-800 font-medium hover:text-blue-700"
+                                    class="text-gray-800 font-medium hover:text-action"
                                 >
                                     {{ $region->phone }}
                                 </a>
@@ -116,7 +116,7 @@
 
                                 <a
                                     href="mailto:{{ $region->email }}"
-                                    class="text-gray-800 font-medium hover:text-blue-700 break-all"
+                                    class="text-gray-800 font-medium hover:text-action break-all"
                                 >
                                     {{ $region->email }}
                                 </a>
@@ -138,7 +138,7 @@
 
                 <div class="bg-gray-50 border border-gray-100 rounded-lg p-6">
 
-                    <p class="text-sm uppercase tracking-widest text-blue-700 mb-2">
+                    <p class="text-sm uppercase tracking-widest text-action mb-2">
                         {{ app()->getLocale() === 'sw' ? 'Kanda' : 'Zone' }}
                     </p>
 
@@ -150,15 +150,15 @@
 
                         @if ($region->is_zonal_seat)
 
-                            <div class="mt-5 border border-blue-100 bg-blue-50 rounded-lg p-4">
+                            <div class="mt-5 border border-action/20 bg-action/10 rounded-lg p-4">
 
-                                <p class="text-sm font-semibold text-blue-800">
+                                <p class="text-sm font-semibold text-action">
                                     {{ app()->getLocale() === 'sw'
                                         ? 'Ofisi ya Kanda'
                                         : 'Zonal Office' }}
                                 </p>
 
-                                <p class="text-sm text-blue-700 mt-1">
+                                <p class="text-sm text-action mt-1">
                                     {{ app()->getLocale() === 'sw'
                                         ? 'Ofisi hii hutumika kama kituo cha shughuli za Kanda.'
                                         : 'This regional office serves as the zone activity centre.' }}
@@ -197,7 +197,7 @@
 
                 <div class="max-w-3xl mb-6">
 
-                    <p class="text-sm uppercase tracking-widest text-blue-700 mb-2">
+                    <p class="text-sm uppercase tracking-widest text-action mb-2">
                         {{ app()->getLocale() === 'sw'
                             ? 'Uongozi wa Mkoa'
                             : 'Regional Leadership' }}
@@ -221,7 +221,7 @@
 
                             <div class="flex flex-col sm:flex-row gap-5">
 
-                                <div class="w-24 h-24 flex-shrink-0 rounded-lg bg-blue-50 flex items-center justify-center overflow-hidden">
+                                <div class="w-24 h-24 flex-shrink-0 rounded-lg bg-action/10 flex items-center justify-center overflow-hidden">
 
                                     @if ($region->chairperson->photo)
 
@@ -234,7 +234,7 @@
                                     @else
 
                                         <svg
-                                            class="w-10 h-10 text-blue-300"
+                                            class="w-10 h-10 text-action/40"
                                             fill="none"
                                             stroke="currentColor"
                                             viewBox="0 0 24 24"
@@ -254,7 +254,7 @@
 
                                 <div class="min-w-0">
 
-                                    <p class="text-xs uppercase tracking-wider text-blue-700">
+                                    <p class="text-xs uppercase tracking-wider text-action">
                                         {{ app()->getLocale() === 'sw'
                                             ? 'Mwenyekiti wa Mkoa'
                                             : 'Regional Chairperson' }}
@@ -289,7 +289,7 @@
 
                             <div class="flex flex-col sm:flex-row gap-5">
 
-                                <div class="w-24 h-24 flex-shrink-0 rounded-lg bg-blue-50 flex items-center justify-center overflow-hidden">
+                                <div class="w-24 h-24 flex-shrink-0 rounded-lg bg-action/10 flex items-center justify-center overflow-hidden">
 
                                     @if ($region->secretary->photo)
 
@@ -302,7 +302,7 @@
                                     @else
 
                                         <svg
-                                            class="w-10 h-10 text-blue-300"
+                                            class="w-10 h-10 text-action/40"
                                             fill="none"
                                             stroke="currentColor"
                                             viewBox="0 0 24 24"
@@ -322,7 +322,7 @@
 
                                 <div class="min-w-0">
 
-                                    <p class="text-xs uppercase tracking-wider text-blue-700">
+                                    <p class="text-xs uppercase tracking-wider text-action">
                                         {{ app()->getLocale() === 'sw'
                                             ? 'Katibu wa Mkoa'
                                             : 'Regional Secretary' }}
@@ -367,7 +367,7 @@
 
                 <div class="max-w-3xl mb-6">
 
-                    <p class="text-sm uppercase tracking-widest text-blue-700 mb-2">
+                    <p class="text-sm uppercase tracking-widest text-action mb-2">
                         {{ app()->getLocale() === 'sw' ? 'Ofisi Zinazohusiana' : 'Associated Offices' }}
                     </p>
 
@@ -451,7 +451,7 @@
 
             <div class="max-w-3xl mb-6">
 
-                <p class="text-sm uppercase tracking-widest text-blue-700 mb-2">
+                <p class="text-sm uppercase tracking-widest text-action mb-2">
                     {{ app()->getLocale() === 'sw' ? 'Mahali' : 'Location' }}
                 </p>
 
@@ -512,7 +512,7 @@
         href="{{ $backToZones
             ? (app()->getLocale() === 'sw' ? url('/sw/zones') : route('zones.index'))
             : (app()->getLocale() === 'sw' ? url('/sw/regions') : route('regions.index')) }}"
-        class="inline-flex items-center text-sm font-semibold text-blue-700 hover:text-blue-900"
+        class="inline-flex items-center text-sm font-semibold text-action hover:text-main"
     >
         <span class="mr-2">←</span>
 

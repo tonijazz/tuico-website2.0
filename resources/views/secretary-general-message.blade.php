@@ -14,10 +14,10 @@
          PAGE HERO
     ========================== --}}
 
-    <section class="bg-tuico-navy text-white">
+    <section class="bg-main text-white">
         <div class="max-w-7xl mx-auto px-6 py-16 md:py-20">
 
-            <p class="text-sm font-semibold uppercase tracking-widest text-blue-200">
+            <p class="text-sm font-semibold uppercase tracking-widest text-white/70">
                 {{ $isSwahili ? 'Uongozi wa TUICO' : 'TUICO Leadership' }}
             </p>
 
@@ -72,11 +72,11 @@
 
                             <div class="mt-6">
 
-                                <h2 class="text-2xl font-bold text-blue-950">
+                                <h2 class="text-2xl font-bold text-main">
                                     {{ $selectedMessage->leader?->name }}
                                 </h2>
 
-                                <p class="mt-1 text-tuico-sky font-medium">
+                                <p class="mt-1 text-action font-medium">
                                     {{ $isSwahili
                                         ? 'Katibu Mkuu'
                                         : 'General Secretary' }}
@@ -97,7 +97,7 @@
 
                         <div class="max-w-3xl">
 
-                            <h2 class="text-3xl md:text-4xl font-bold text-blue-950 leading-tight">
+                            <h2 class="text-3xl md:text-4xl font-bold text-main leading-tight">
                                 {{ $selectedMessage->getTranslation('title', app()->getLocale()) }}
                             </h2>
 
@@ -113,15 +113,6 @@
 
                             <div class="mt-10 pt-8 border-t border-gray-200">
 
-                                <p class="font-bold text-blue-950">
-                                    {{ $selectedMessage->leader?->name }}
-                                </p>
-
-                                <p class="mt-1 text-gray-600">
-                                    {{ $isSwahili
-                                        ? 'Katibu Mkuu, Tanzania Union of Industrial and Commercial Workers (TUICO)'
-                                        : 'General Secretary, Tanzania Union of Industrial and Commercial Workers (TUICO)' }}
-                                </p>
 
                             </div>
 
@@ -138,7 +129,7 @@
 
                         <div class="lg:sticky lg:top-28">
 
-                            <h3 class="text-sm font-semibold uppercase tracking-wider text-blue-950">
+                            <h3 class="text-sm font-semibold uppercase tracking-wider text-main">
                                 {{ $isSwahili
                                     ? 'Ujumbe Mwingine'
                                     : 'Other Messages' }}
@@ -150,10 +141,10 @@
 
                                     <a
                                         href="{{ request()->url() }}?message={{ $message->id }}"
-                                        class="block p-4 rounded-lg border border-gray-200 hover:border-tuico-sky hover:bg-sky-50 transition"
+                                        class="block p-4 rounded-lg border border-gray-200 hover:border-action hover:bg-action/10 transition"
                                     >
 
-                                        <p class="font-semibold text-blue-950 leading-snug">
+                                        <p class="font-semibold text-main leading-snug">
                                             {{ $message->getTranslation('title', app()->getLocale()) }}
                                         </p>
 

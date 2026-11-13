@@ -10,13 +10,13 @@ $isSwahili = app()->getLocale() === 'sw';
 
 {{-- HERO --}}
 
-<section class="bg-tuico-navy text-white">
+<section class="bg-main text-white">
 
 <div class="max-w-7xl mx-auto px-6 py-12">
 
     <div class="max-w-4xl">
 
-        <p class="text-sm uppercase tracking-widest text-blue-200 mb-2">
+        <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
             {{ $isSwahili ? 'Programu' : 'Programme' }}
         </p>
 
@@ -43,7 +43,7 @@ $isSwahili = app()->getLocale() === 'sw';
 
         <a
             href="{{ $isSwahili ? url('/sw/strategic-plan') : route('programmes.index') }}"
-            class="inline-flex items-center text-sm font-semibold text-blue-700 hover:text-tuico-navy transition"
+            class="inline-flex items-center text-sm font-semibold text-action hover:text-main transition"
         >
             ← {{ $isSwahili ? 'Rudi kwenye Mpango Mkakati' : 'Back to Strategic Plan' }}
         </a>
@@ -77,7 +77,7 @@ $isSwahili = app()->getLocale() === 'sw';
 
             <div>
 
-                <p class="text-sm uppercase tracking-widest text-blue-700">
+                <p class="text-sm uppercase tracking-widest text-action">
                     {{ $isSwahili ? 'Maelezo ya Programu' : 'Programme Overview' }}
                 </p>
 
@@ -101,7 +101,7 @@ $isSwahili = app()->getLocale() === 'sw';
                         {{ $isSwahili ? 'Mshirika' : 'Affiliation' }}
                     </p>
 
-                    <p class="mt-2 text-sm font-semibold text-tuico-navy">
+                    <p class="mt-2 text-sm font-semibold text-main">
                         {{ $programme->affiliation->name }}
                     </p>
 
@@ -118,7 +118,7 @@ $isSwahili = app()->getLocale() === 'sw';
                         {{ $isSwahili ? 'Tarehe ya Kuanza' : 'Start Date' }}
                     </p>
 
-                    <p class="mt-2 text-sm font-semibold text-tuico-navy">
+                    <p class="mt-2 text-sm font-semibold text-main">
                         {{ $programme->starts_at->format('d M Y') }}
                     </p>
 
@@ -135,7 +135,7 @@ $isSwahili = app()->getLocale() === 'sw';
                         {{ $isSwahili ? 'Tarehe ya Kumalizika' : 'End Date' }}
                     </p>
 
-                    <p class="mt-2 text-sm font-semibold text-tuico-navy">
+                    <p class="mt-2 text-sm font-semibold text-main">
                         {{ $programme->ends_at->format('d M Y') }}
                     </p>
 
@@ -151,7 +151,7 @@ $isSwahili = app()->getLocale() === 'sw';
 
             <div class="mt-8 pt-8 border-t border-gray-100">
 
-                <p class="text-sm uppercase tracking-widest text-blue-700">
+                <p class="text-sm uppercase tracking-widest text-action">
                     {{ $isSwahili ? 'Matokeo Yanayotarajiwa' : 'Expected Outcomes' }}
                 </p>
 
