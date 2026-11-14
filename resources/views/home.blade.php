@@ -9,7 +9,7 @@
     |--------------------------------------------------------------------------
     */
     $locale = app()->getLocale();
-    
+
     /*
     |--------------------------------------------------------------------------
     | Shared class strings (palette: main, action, chrome)
@@ -85,10 +85,11 @@
 @section('content')
 
     {{-- =========================
-         HERO SLIDER
+    HERO SLIDER
     ========================== --}}
     @if ($slides->count())
-        <section x-data="{ current: 0, total: {{ $slides->count() }} }" x-init="setInterval(() => { current = (current + 1) % total }, 6000)"
+        <section x-data="{ current: 0, total: {{ $slides->count() }} }"
+            x-init="setInterval(() => { current = (current + 1) % total }, 6000)"
             class="relative overflow-hidden min-h-[480px] md:min-h-[560px]">
 
             @foreach ($slides as $index => $slide)
@@ -147,7 +148,7 @@
 
 
     {{-- =========================
-         GENERAL SECRETARY + STANDING TOGETHER
+    GENERAL SECRETARY + STANDING TOGETHER
     ========================== --}}
     <section class="grid grid-cols-1 lg:grid-cols-2">
 
@@ -203,9 +204,9 @@
 
                 <p class="mt-5 text-gray-600 leading-relaxed">
                     {{ localized(
-                        'TUICO is an independent trade union for workers in industry, commerce, financial institutions, and services and consultancy. Through our workplace branches and regional offices, members organise, raise concerns and bargain together for better terms and conditions of employment.',
-                        'TUICO ni chama huru cha wafanyakazi katika sekta za viwanda, biashara, taasisi za fedha, na huduma na ushauri. Kupitia matawi yetu mahali pa kazi na ofisi za mikoa, wanachama huhamasishana, huwasilisha hoja zao na hushiriki katika majadiliano ya pamoja ili kuboresha masharti na mazingira ya kazi.',
-                    ) }}
+        'TUICO is an independent trade union for workers in industry, commerce, financial institutions, and services and consultancy. Through our workplace branches and regional offices, members organise, raise concerns and bargain together for better terms and conditions of employment.',
+        'TUICO ni chama huru cha wafanyakazi katika sekta za viwanda, biashara, taasisi za fedha, na huduma na ushauri. Kupitia matawi yetu mahali pa kazi na ofisi za mikoa, wanachama huhamasishana, huwasilisha hoja zao na hushiriki katika majadiliano ya pamoja ili kuboresha masharti na mazingira ya kazi.',
+    ) }}
                 </p>
 
                 <div class="mt-6 grid grid-cols-2 gap-5">
@@ -236,7 +237,7 @@
 
 
     {{-- =========================
-         WHAT WE DO
+    WHAT WE DO
     ========================== --}}
     <section class="bg-white">
         <div class="{{ $container }}">
@@ -289,7 +290,7 @@
 
 
     {{-- =========================
-         OUR SECTORS
+    OUR SECTORS
     ========================== --}}
     <section class="bg-gray-50">
         <div class="{{ $container }}">
@@ -312,11 +313,7 @@
                         <div class="flex items-center gap-3">
                             <div
                                 class="flex h-11 w-11 shrink-0 items-center justify-center bg-action/10 text-action group-hover:bg-action group-hover:text-white transition">
-                                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                                    aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
-                                        d="{{ $sectorIcons[min($loop->index, count($sectorIcons) - 1)] }}" />
-                                </svg>
+                                <x-sector-icon :name="$sector->icon" />
                             </div>
 
                             <h3 class="text-lg font-bold text-main leading-tight group-hover:text-action transition">
@@ -347,7 +344,7 @@
 
 
     {{-- =========================
-         LATEST NEWS
+    LATEST NEWS
     ========================== --}}
     <section class="bg-white">
         <div class="{{ $container }}">
@@ -397,8 +394,7 @@
                                     </p>
                                 @endif
 
-                                <h3
-                                    class="mt-3 text-xl font-bold text-main leading-snug group-hover:text-action transition">
+                                <h3 class="mt-3 text-xl font-bold text-main leading-snug group-hover:text-action transition">
                                     {{ $news->getTranslation('title', $locale) }}
                                 </h3>
 
@@ -431,7 +427,7 @@
 
 
     {{-- =========================
-         AFFILIATIONS & PARTNERS
+    AFFILIATIONS & PARTNERS
     ========================== --}}
     @if ($affiliations->count())
         <section class="bg-gray-50 border-t border-gray-200">
@@ -456,51 +452,49 @@
                 </div>
 
                 {{-- CAROUSEL --}}
-                <div class="relative mt-6"
-                    x-data="{
-                        current: 0,
-                        total: {{ $affiliations->count() }},
-                        visible: 2,
-                        cardWidth: 0,
-                        timer: null,
+                <div class="relative mt-6" x-data="{
+                                current: 0,
+                                total: {{ $affiliations->count() }},
+                                visible: 2,
+                                cardWidth: 0,
+                                timer: null,
 
-                        maxIndex() {
-                            return Math.max(0, this.total - this.visible);
-                        },
+                                maxIndex() {
+                                    return Math.max(0, this.total - this.visible);
+                                },
 
-                        updateLayout() {
-                            this.visible = window.innerWidth >= 768 ? 4 : 2;
+                                updateLayout() {
+                                    this.visible = window.innerWidth >= 768 ? 4 : 2;
 
-                            if (this.$refs.viewport) {
-                                this.cardWidth = this.$refs.viewport.clientWidth / this.visible;
-                            }
+                                    if (this.$refs.viewport) {
+                                        this.cardWidth = this.$refs.viewport.clientWidth / this.visible;
+                                    }
 
-                            if (this.current > this.maxIndex()) {
-                                this.current = 0;
-                            }
-                        },
+                                    if (this.current > this.maxIndex()) {
+                                        this.current = 0;
+                                    }
+                                },
 
-                        next() {
-                            this.current = this.current >= this.maxIndex() ? 0 : this.current + 1;
-                        },
+                                next() {
+                                    this.current = this.current >= this.maxIndex() ? 0 : this.current + 1;
+                                },
 
-                        previous() {
-                            this.current = this.current <= 0 ? this.maxIndex() : this.current - 1;
-                        },
+                                previous() {
+                                    this.current = this.current <= 0 ? this.maxIndex() : this.current - 1;
+                                },
 
-                        start() {
-                            this.stop();
-                            this.timer = setInterval(() => this.next(), 4000);
-                        },
+                                start() {
+                                    this.stop();
+                                    this.timer = setInterval(() => this.next(), 4000);
+                                },
 
-                        stop() {
-                            if (this.timer) {
-                                clearInterval(this.timer);
-                                this.timer = null;
-                            }
-                        }
-                    }"
-                    x-init="updateLayout(); start(); window.addEventListener('resize', () => updateLayout());"
+                                stop() {
+                                    if (this.timer) {
+                                        clearInterval(this.timer);
+                                        this.timer = null;
+                                    }
+                                }
+                            }" x-init="updateLayout(); start(); window.addEventListener('resize', () => updateLayout());"
                     @mouseenter="stop()" @mouseleave="start()">
 
                     {{-- PREVIOUS --}}
@@ -533,13 +527,15 @@
 
                                 <div class="flex-none w-1/2 md:w-1/4 px-2">
                                     <{{ $tag }}
-                                        @if ($affiliationUrl) href="{{ $affiliationUrl }}" target="_blank" rel="noopener noreferrer" aria-label="{{ $affiliation->name }}" @endif
-                                        class="h-40 bg-white border border-gray-200 flex flex-col items-center justify-center px-5 py-6 hover:border-action hover:shadow-md transition duration-300 focus:outline-none focus:ring-2 focus:ring-action">
+                                        @if ($affiliationUrl) href="{{ $affiliationUrl }}" target="_blank" rel="noopener noreferrer"
+                                        aria-label="{{ $affiliation->name }}" @endif
+                                        class="h-40 bg-white border border-gray-200 flex flex-col items-center justify-center px-5
+                                        py-6 hover:border-action hover:shadow-md transition duration-300 focus:outline-none
+                                        focus:ring-2 focus:ring-action">
 
                                         @if ($affiliation->logo)
                                             <div class="h-20 w-full flex items-center justify-center">
-                                                <img src="{{ asset('storage/' . $affiliation->logo) }}"
-                                                    alt="{{ $affiliation->name }}"
+                                                <img src="{{ asset('storage/' . $affiliation->logo) }}" alt="{{ $affiliation->name }}"
                                                     class="max-h-16 max-w-[150px] object-contain">
                                             </div>
 
@@ -571,7 +567,7 @@
 
 
     {{-- =========================
-         JOIN TUICO
+    JOIN TUICO
     ========================== --}}
     <section class="bg-main text-white">
         <div class="{{ $container }}">
@@ -588,9 +584,9 @@
 
                     <p class="mt-4 text-white/80 text-base md:text-lg leading-relaxed">
                         {{ localized(
-                            'For information about membership, services and how to get in touch with TUICO, contact us.',
-                            'Kwa maelezo kuhusu uanachama, huduma na jinsi ya kuwasiliana na TUICO, wasiliana nasi.',
-                        ) }}
+        'For information about membership, services and how to get in touch with TUICO, contact us.',
+        'Kwa maelezo kuhusu uanachama, huduma na jinsi ya kuwasiliana na TUICO, wasiliana nasi.',
+    ) }}
                     </p>
                 </div>
 
