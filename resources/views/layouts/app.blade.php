@@ -42,12 +42,7 @@
     | Locale + URL helpers
     |--------------------------------------------------------------------------
     */
-    $isSwahili = app()->getLocale() === 'sw';
-
-    $t = fn(string $en, string $sw) => $isSwahili ? $sw : $en;
-
-    $localeUrl = fn(string $path = '') => ($isSwahili ? '/sw' : '') .
-        ($path === '' ? ($isSwahili ? '' : '/') : '/' . ltrim($path, '/'));
+    $isSwahili = is_sw();
 
     // Language switcher: same page in the other language, query string preserved
     $currentPath = request()->path();
@@ -105,55 +100,55 @@
     |--------------------------------------------------------------------------
     */
     $menu = [
-        ['label' => $t('HOME', 'NYUMBANI'), 'url' => $localeUrl()],
-        ['label' => $t('ABOUT US', 'KUHUSU SISI'), 'url' => $localeUrl('about')],
+        ['label' => localized('HOME', 'NYUMBANI'), 'url' => locale_url()],
+        ['label' => localized('ABOUT US', 'KUHUSU SISI'), 'url' => locale_url('about')],
         [
-            'label' => $t('ORGANIZATION', 'UONGOZI'),
+            'label' => localized('ORGANIZATION', 'UONGOZI'),
             'children' => [
-                ['label' => $t('Leadership', 'Uongozi Taifa'), 'url' => $localeUrl('leadership')],
-                ['label' => $t('Sectors', 'Sekta'), 'url' => $localeUrl('sectors')],
-                ['label' => $t('Departments', 'Idara'), 'url' => $localeUrl('departments')],
-                ['label' => $t('Units', 'Vitengo'), 'url' => $localeUrl('units')],
+                ['label' => localized('Leadership', 'Uongozi Taifa'), 'url' => locale_url('leadership')],
+                ['label' => localized('Sectors', 'Sekta'), 'url' => locale_url('sectors')],
+                ['label' => localized('Departments', 'Idara'), 'url' => locale_url('departments')],
+                ['label' => localized('Units', 'Vitengo'), 'url' => locale_url('units')],
             ],
         ],
         [
-            'label' => $t('OFFICES', 'OFISI'),
+            'label' => localized('OFFICES', 'OFISI'),
             'children' => [
-                ['label' => $t('Zones', 'Kanda'), 'url' => $localeUrl('zones')],
-                ['label' => $t('Regions', 'Mikoa'), 'url' => $localeUrl('regions')],
+                ['label' => localized('Zones', 'Kanda'), 'url' => locale_url('zones')],
+                ['label' => localized('Regions', 'Mikoa'), 'url' => locale_url('regions')],
             ],
         ],
-        ['label' => $t('NEWS & EVENTS', 'HABARI NA MATUKIO'), 'url' => $localeUrl('news-events')],
-        ['label' => $t('AFFILIATIONS', 'WASHIRIKA'), 'url' => $localeUrl('affiliations')],
-        ['label' => $t('RESOURCES', 'NYARAKA'), 'url' => $localeUrl('resources')],
-        ['label' => $t('STRATEGIC PLAN', 'MPANGO MKAKATI'), 'url' => $localeUrl('strategic-plan')],
+        ['label' => localized('NEWS & EVENTS', 'HABARI NA MATUKIO'), 'url' => locale_url('news-events')],
+        ['label' => localized('AFFILIATIONS', 'WASHIRIKA'), 'url' => locale_url('affiliations')],
+        ['label' => localized('RESOURCES', 'NYARAKA'), 'url' => locale_url('resources')],
+        ['label' => localized('STRATEGIC PLAN', 'MPANGO MKAKATI'), 'url' => locale_url('strategic-plan')],
         [
-            'label' => $t('INQUIRIES', 'MAWASILIANO'),
+            'label' => localized('INQUIRIES', 'MAWASILIANO'),
             'children' => [
-                ['label' => $t('Send an Inquiry', 'Tuma Swali / Ombi'), 'url' => $localeUrl('contact')],
-                ['label' => $t('FAQs', 'Maswali Yanayoulizwa Mara kwa Mara'), 'url' => $localeUrl('faq')],
+                ['label' => localized('Send an Inquiry', 'Tuma Swali / Ombi'), 'url' => locale_url('contact')],
+                ['label' => localized('FAQs', 'Maswali Yanayoulizwa Mara kwa Mara'), 'url' => locale_url('faq')],
             ],
         ],
     ];
 
-    $joinLabel = $t('JOIN US NOW', 'JIUNGE NASI');
-    $joinUrl = $localeUrl('join-us');
+    $joinLabel = localized('JOIN US NOW', 'JIUNGE NASI');
+    $joinUrl = locale_url('join-us');
 
     /*
     |--------------------------------------------------------------------------
     | Footer
     |--------------------------------------------------------------------------
     */
-    $footerHref = fn(string $url) => str_starts_with($url, 'http') ? $url : $localeUrl($url);
+    $footerHref = fn(string $url) => str_starts_with($url, 'http') ? $url : locale_url($url);
 
     $footerLinkGroups = [
         [
-            'title' => $t('Important Links', 'Viungo Muhimu'),
+            'title' => localized('Important Links', 'Viungo Muhimu'),
             'links' => $footerImportantLinks,
             'withFaq' => true,
         ],
         [
-            'title' => $t('Quick Links', 'Viungo vya Haraka'),
+            'title' => localized('Quick Links', 'Viungo vya Haraka'),
             'links' => $footerPartnerLinks,
             'withFaq' => false,
         ],
@@ -212,7 +207,7 @@
         <div class="flex items-center min-h-28 py-5">
 
             {{-- LOGO --}}
-            <a href="{{ $localeUrl() }}" class="shrink-0">
+            <a href="{{ locale_url() }}" class="shrink-0">
                 @if ($siteSettings->logo)
                     <img src="{{ asset('storage/' . $siteSettings->logo) }}" alt="TUICO"
                         class="h-24 w-auto object-contain">
@@ -225,12 +220,12 @@
             <div class="flex-1 min-w-0 ml-4 lg:ml-10 text-center">
                 <div
                     class="font-sans text-lg sm:text-xl lg:text-2xl xl:text-3xl font-semibold leading-snug tracking-wide text-main">
-                    {{ $t($orgNameEn, $orgNameSw) }}
+                    {{ localized($orgNameEn, $orgNameSw) }}
                 </div>
 
                 <div
                     class="hidden lg:block mt-2 font-sans text-sm font-normal leading-relaxed tracking-wide text-gray-500">
-                    {{ $t($orgNameSw, $orgNameEn) }}
+                    {{ localized($orgNameSw, $orgNameEn) }}
                 </div>
             </div>
 
@@ -364,13 +359,13 @@
             {{-- GENERAL SECRETARY OFFICE --}}
             <div>
                 <h4 class="text-white font-semibold text-lg mb-4">
-                    {{ $t('General Secretary Office', 'Ofisi ya Katibu Mkuu') }}
+                    {{ localized('General Secretary Office', 'Ofisi ya Katibu Mkuu') }}
                 </h4>
 
                 <div class="space-y-2 text-sm">
-                    <p>{{ $t($orgNameEn, $orgNameSw) }}</p>
+                    <p>{{ localized($orgNameEn, $orgNameSw) }}</p>
                     <p>{{ $siteSettings->street_address }}</p>
-                    <p>{{ $t('P.O. Box', 'S.L.P.') }} {{ $siteSettings->po_box }}</p>
+                    <p>{{ localized('P.O. Box', 'S.L.P.') }} {{ $siteSettings->po_box }}</p>
 
                     <p>
                         <a href="mailto:{{ $siteSettings->email }}" class="hover:text-white transition">
@@ -384,7 +379,7 @@
                         </a>
                     </p>
 
-                    <p>{{ $t('Fax:', 'Faksi:') }} {{ $siteSettings->fax }}</p>
+                    <p>{{ localized('Fax:', 'Faksi:') }} {{ $siteSettings->fax }}</p>
                 </div>
             </div>
 
@@ -407,8 +402,8 @@
 
                         @if ($group['withFaq'])
                             <li>
-                                <a href="{{ $localeUrl('faq') }}" class="hover:text-white transition">
-                                    {{ $t('FAQs', 'Maswali Yanayoulizwa Mara kwa Mara') }}
+                                <a href="{{ locale_url('faq') }}" class="hover:text-white transition">
+                                    {{ localized('FAQs', 'Maswali Yanayoulizwa Mara kwa Mara') }}
                                 </a>
                             </li>
                         @endif

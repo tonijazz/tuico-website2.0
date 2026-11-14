@@ -11,11 +11,6 @@
     $locale = app()->getLocale();
     $isSwahili = $locale === 'sw';
 
-    $t = fn(string $en, string $sw) => $isSwahili ? $sw : $en;
-
-    $localeUrl = fn(string $path = '') => ($isSwahili ? '/sw' : '') .
-        ($path === '' ? ($isSwahili ? '' : '/') : '/' . ltrim($path, '/'));
-
     /*
     |--------------------------------------------------------------------------
     | Shared class strings (palette: main, action, chrome)
@@ -43,33 +38,33 @@
     |--------------------------------------------------------------------------
     */
     $stats = [
-        ['value' => '1995', 'label' => $t('Founded', 'Ilianzishwa')],
-        ['value' => $zonesCount, 'label' => $t('Zones', 'Kanda')],
-        ['value' => $regionalOfficesCount, 'label' => $t('Regional Offices', 'Ofisi za Mikoa')],
-        ['value' => $subOfficesCount, 'label' => $t('Sub-offices', 'Ofisi Ndogo')],
+        ['value' => '1995', 'label' => localized('Founded', 'Ilianzishwa')],
+        ['value' => $zonesCount, 'label' => localized('Zones', 'Kanda')],
+        ['value' => $regionalOfficesCount, 'label' => localized('Regional Offices', 'Ofisi za Mikoa')],
+        ['value' => $subOfficesCount, 'label' => localized('Sub-offices', 'Ofisi Ndogo')],
     ];
 
     $pillars = [
         [
             'number' => '01',
-            'title' => $t('Representation', 'Uwakilishi'),
-            'text' => $t(
+            'title' => localized('Representation', 'Uwakilishi'),
+            'text' => localized(
                 'Your workplace representative or regional office can help you raise a concern, understand your rights or seek support with a workplace dispute. TUICO also trains members and representatives to take part in workplace decisions.',
                 'Mwakilishi wako mahali pa kazi au ofisi ya mkoa inaweza kukusaidia kuwasilisha hoja, kuelewa haki zako au kupata msaada katika mgogoro wa kazi. TUICO pia hutoa mafunzo kwa wanachama na wawakilishi ili waweze kushiriki katika maamuzi mahali pa kazi.',
             ),
         ],
         [
             'number' => '02',
-            'title' => $t('Influence', 'Ushawishi'),
-            'text' => $t(
+            'title' => localized('Influence', 'Ushawishi'),
+            'text' => localized(
                 'We bring workers\' concerns into negotiations with employers and into dialogue with government and other labour stakeholders. We work with trade unions in Tanzania and internationally on issues workers share.',
                 'Tunawasilisha hoja za wafanyakazi katika majadiliano na waajiri, serikali na wadau wengine wa masuala ya kazi. Tunashirikiana na vyama vya wafanyakazi nchini Tanzania na kimataifa katika masuala yanayowahusu wafanyakazi kwa pamoja.',
             ),
         ],
         [
             'number' => '03',
-            'title' => $t('Results', 'Matokeo'),
-            'text' => $t(
+            'title' => localized('Results', 'Matokeo'),
+            'text' => localized(
                 'Follow updates on collective bargaining agreements and other documented outcomes for workers. Our Strategic Plan 2026-2030 sets out what TUICO aims to achieve during the period.',
                 'Fuatilia taarifa kuhusu Mikataba ya Hali Bora na matokeo mengine yaliyothibitishwa kwa wafanyakazi. Mpango Mkakati wa TUICO wa 2026-2030 unaeleza malengo ambayo Chama kimejiwekea kwa kipindi hicho.',
             ),
@@ -172,7 +167,7 @@
                     @endphp
 
                     <p class="{{ $eyebrow }} text-white/70">
-                        {{ $t('Message from the General Secretary', 'Ujumbe wa Katibu Mkuu') }}
+                        {{ localized('Message from the General Secretary', 'Ujumbe wa Katibu Mkuu') }}
                     </p>
 
                     <h2 class="mt-3 {{ $heading }}">
@@ -184,15 +179,15 @@
                     </p>
 
                     <div class="mt-8">
-                        <a href="{{ $localeUrl('secretary-general-message') }}"
+                        <a href="{{ locale_url('secretary-general-message') }}"
                             class="inline-flex items-center font-semibold text-white hover:text-white/70 transition">
-                            {{ $t('Read full message', 'Soma ujumbe wote') }}
+                            {{ localized('Read full message', 'Soma ujumbe wote') }}
                             <span class="ml-2">→</span>
                         </a>
                     </div>
                 @else
                     <p class="text-white/70">
-                        {{ $t('No General Secretary message is currently available.', 'Hakuna ujumbe wa Katibu Mkuu kwa sasa.') }}
+                        {{ localized('No General Secretary message is currently available.', 'Hakuna ujumbe wa Katibu Mkuu kwa sasa.') }}
                     </p>
                 @endif
 
@@ -204,11 +199,11 @@
             <div class="max-w-xl mx-auto lg:ml-0 lg:mr-auto">
 
                 <h2 class="{{ $heading }} text-main">
-                    {{ $t('Standing together for better working lives', 'Pamoja kwa maslahi bora ya wafanyakazi') }}
+                    {{ localized('Standing together for better working lives', 'Pamoja kwa maslahi bora ya wafanyakazi') }}
                 </h2>
 
                 <p class="mt-5 text-gray-600 leading-relaxed">
-                    {{ $t(
+                    {{ localized(
                         'TUICO is an independent trade union for workers in industry, commerce, financial institutions, and services and consultancy. Through our workplace branches and regional offices, members organise, raise concerns and bargain together for better terms and conditions of employment.',
                         'TUICO ni chama huru cha wafanyakazi katika sekta za viwanda, biashara, taasisi za fedha, na huduma na ushauri. Kupitia matawi yetu mahali pa kazi na ofisi za mikoa, wanachama huhamasishana, huwasilisha hoja zao na hushiriki katika majadiliano ya pamoja ili kuboresha masharti na mazingira ya kazi.',
                     ) }}
@@ -224,13 +219,13 @@
                 </div>
 
                 <div class="mt-6 flex flex-col sm:flex-row gap-3">
-                    <a href="{{ $localeUrl('join-us') }}" class="{{ $btnPrimary }}">
-                        {{ $t('Join TUICO', 'Jiunge na TUICO') }}
+                    <a href="{{ locale_url('join-us') }}" class="{{ $btnPrimary }}">
+                        {{ localized('Join TUICO', 'Jiunge na TUICO') }}
                         <span class="ml-2 text-lg">→</span>
                     </a>
 
-                    <a href="{{ $localeUrl('regions') }}" class="{{ $btnOutline }}">
-                        {{ $t('Find your regional office', 'Tafuta ofisi ya mkoa wako') }}
+                    <a href="{{ locale_url('regions') }}" class="{{ $btnOutline }}">
+                        {{ localized('Find your regional office', 'Tafuta ofisi ya mkoa wako') }}
                         <span class="ml-2 text-lg">→</span>
                     </a>
                 </div>
@@ -251,23 +246,23 @@
                 {{-- INTRODUCTION --}}
                 <div>
                     <p class="{{ $eyebrow }} text-action">
-                        {{ $t('What We Do', 'Tunachofanya') }}
+                        {{ localized('What We Do', 'Tunachofanya') }}
                     </p>
 
                     <h2 class="mt-3 text-2xl md:text-3xl lg:text-4xl font-bold leading-tight text-main">
-                        {{ $t('Representation. Influence. Results.', 'Uwakilishi. Ushawishi. Matokeo.') }}
+                        {{ localized('Representation. Influence. Results.', 'Uwakilishi. Ushawishi. Matokeo.') }}
                     </h2>
 
                     <div class="mt-6">
-                        <a href="{{ $localeUrl('news') }}" class="{{ $link }}">
-                            {{ $t('Read TUICO news', 'Soma habari za TUICO') }}
+                        <a href="{{ locale_url('news') }}" class="{{ $link }}">
+                            {{ localized('Read TUICO news', 'Soma habari za TUICO') }}
                             <span class="ml-2">→</span>
                         </a>
                     </div>
 
                     <div class="mt-3">
-                        <a href="{{ $localeUrl('strategic-plan') }}" class="{{ $link }}">
-                            {{ $t('Explore the strategic plan', 'Tazama Mpango Mkakati') }}
+                        <a href="{{ locale_url('strategic-plan') }}" class="{{ $link }}">
+                            {{ localized('Explore the strategic plan', 'Tazama Mpango Mkakati') }}
                             <span class="ml-2">→</span>
                         </a>
                     </div>
@@ -302,17 +297,17 @@
 
             <div class="text-center">
                 <p class="{{ $eyebrow }} text-action">
-                    {{ $t('Our Sectors', 'Sekta Zetu') }}
+                    {{ localized('Our Sectors', 'Sekta Zetu') }}
                 </p>
 
                 <h2 class="mt-3 {{ $heading }} text-main">
-                    {{ $t('Find your sector', 'Tambua sekta yako') }}
+                    {{ localized('Find your sector', 'Tambua sekta yako') }}
                 </h2>
             </div>
 
             <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 @foreach ($sectors as $sector)
-                    <a href="{{ $localeUrl('sectors/' . Str::slug($sector->getTranslation('name', 'en'))) }}"
+                    <a href="{{ locale_url('sectors/' . Str::slug($sector->getTranslation('name', 'en'))) }}"
                         class="group bg-white border border-gray-200 p-6 shadow-sm hover:border-action hover:shadow-md hover:-translate-y-1 transition duration-300">
 
                         <div class="flex items-center gap-3">
@@ -335,7 +330,7 @@
                         </p>
 
                         <span class="inline-flex items-center mt-5 text-sm font-semibold text-action">
-                            {{ $t('View Sector', 'Angalia Sekta') }}
+                            {{ localized('View Sector', 'Angalia Sekta') }}
                             <span class="ml-2 group-hover:translate-x-1 transition">→</span>
                         </span>
                     </a>
@@ -343,9 +338,9 @@
             </div>
 
             <p class="mt-5 text-center text-sm text-gray-500">
-                {{ $t('If you are unsure which sector or office covers your workplace, contact your ', 'Kama hujui sekta au ofisi inayohudumia eneo lako la kazi, wasiliana na ') }}<a
-                    href="{{ $localeUrl('regions') }}"
-                    class="underline underline-offset-2 hover:text-action transition">{{ $t('nearest TUICO office', 'ofisi ya TUICO iliyo karibu nawe') }}</a>.
+                {{ localized('If you are unsure which sector or office covers your workplace, contact your ', 'Kama hujui sekta au ofisi inayohudumia eneo lako la kazi, wasiliana na ') }}<a
+                    href="{{ locale_url('regions') }}"
+                    class="underline underline-offset-2 hover:text-action transition">{{ localized('nearest TUICO office', 'ofisi ya TUICO iliyo karibu nawe') }}</a>.
             </p>
 
         </div>
@@ -361,16 +356,16 @@
             <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
                 <div>
                     <p class="{{ $eyebrow }} text-action">
-                        {{ $t('Latest News', 'Habari za Hivi Karibuni') }}
+                        {{ localized('Latest News', 'Habari za Hivi Karibuni') }}
                     </p>
 
                     <h2 class="mt-3 {{ $heading }} text-main">
-                        {{ $t('TUICO News & Updates', 'Habari na Matukio ya TUICO') }}
+                        {{ localized('TUICO News & Updates', 'Habari na Matukio ya TUICO') }}
                     </h2>
                 </div>
 
-                <a href="{{ $localeUrl('news') }}" class="{{ $link }}">
-                    {{ $t('View All News', 'Angalia Habari Zote') }}
+                <a href="{{ locale_url('news') }}" class="{{ $link }}">
+                    {{ localized('View All News', 'Angalia Habari Zote') }}
                     <span class="ml-2">→</span>
                 </a>
             </div>
@@ -414,9 +409,9 @@
                                     </p>
                                 @endif
 
-                                <a href="{{ $localeUrl('news/' . $news->slug) }}"
+                                <a href="{{ locale_url('news/' . $news->slug) }}"
                                     class="inline-flex items-center mt-5 text-sm font-semibold text-action hover:text-main transition">
-                                    {{ $t('Read More', 'Soma Zaidi') }}
+                                    {{ localized('Read More', 'Soma Zaidi') }}
                                     <span class="ml-2 group-hover:translate-x-1 transition">→</span>
                                 </a>
 
@@ -427,7 +422,7 @@
             @else
                 <div class="mt-6 border border-gray-200 bg-gray-50 px-6 py-10 text-center">
                     <p class="text-gray-600">
-                        {{ $t('No published news is currently available.', 'Hakuna habari zilizochapishwa kwa sasa.') }}
+                        {{ localized('No published news is currently available.', 'Hakuna habari zilizochapishwa kwa sasa.') }}
                     </p>
                 </div>
             @endif
@@ -447,16 +442,16 @@
                 <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
                     <div>
                         <p class="{{ $eyebrow }} text-action">
-                            {{ $t('Affiliations & Partners', 'Mahusiano na Ushirikiano') }}
+                            {{ localized('Affiliations & Partners', 'Mahusiano na Ushirikiano') }}
                         </p>
 
                         <h2 class="mt-3 {{ $heading }} text-main">
-                            {{ $t('Our Affiliations & Partners', 'Taasisi Tunazoshirikiana Nazo') }}
+                            {{ localized('Our Affiliations & Partners', 'Taasisi Tunazoshirikiana Nazo') }}
                         </h2>
                     </div>
 
-                    <a href="{{ $localeUrl('affiliations') }}" class="{{ $link }}">
-                        {{ $t('View All Affiliations', 'Angalia Mahusiano Yote') }}
+                    <a href="{{ locale_url('affiliations') }}" class="{{ $link }}">
+                        {{ localized('View All Affiliations', 'Angalia Mahusiano Yote') }}
                         <span class="ml-2">→</span>
                     </a>
                 </div>
@@ -585,15 +580,15 @@
 
                 <div class="max-w-3xl">
                     <p class="{{ $eyebrow }} text-white/70">
-                        {{ $t('Join TUICO', 'Jiunge na TUICO') }}
+                        {{ localized('Join TUICO', 'Jiunge na TUICO') }}
                     </p>
 
                     <h2 class="mt-3 {{ $heading }}">
-                        {{ $t('Be Part of the Workers’ Movement', 'Kuwa Sehemu ya Mshikamano wa Wafanyakazi') }}
+                        {{ localized('Be Part of the Workers’ Movement', 'Kuwa Sehemu ya Mshikamano wa Wafanyakazi') }}
                     </h2>
 
                     <p class="mt-4 text-white/80 text-base md:text-lg leading-relaxed">
-                        {{ $t(
+                        {{ localized(
                             'For information about membership, services and how to get in touch with TUICO, contact us.',
                             'Kwa maelezo kuhusu uanachama, huduma na jinsi ya kuwasiliana na TUICO, wasiliana nasi.',
                         ) }}
@@ -601,8 +596,8 @@
                 </div>
 
                 <div class="flex-shrink-0">
-                    <a href="{{ $localeUrl('join-us') }}" class="{{ $btnLight }}">
-                        {{ $t('Join TUICO', 'Jiunge na TUICO') }}
+                    <a href="{{ locale_url('join-us') }}" class="{{ $btnLight }}">
+                        {{ localized('Join TUICO', 'Jiunge na TUICO') }}
                         <span class="ml-2">→</span>
                     </a>
                 </div>
