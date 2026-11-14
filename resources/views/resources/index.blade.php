@@ -13,23 +13,7 @@ $currentYear = request('year');
 @section('content')
 
 {{-- HERO --}}
-<section class="bg-main text-white">
-    <div class="max-w-7xl mx-auto px-6 py-12">
-
-        <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
-            {{ localized('Documents & Information', 'Nyaraka na Taarifa') }}
-        </p>
-
-        <h1 class="text-4xl md:text-5xl font-bold">
-            {{ localized('Resources', 'Nyaraka') }}
-        </h1>
-
-        <p class="mt-5 max-w-2xl text-lg leading-8 text-white/80">
-            {{ localized('Access TUICO documents, publications, guides, labour laws and other resources related to our work and activities.', 'Pata nyaraka, machapisho, miongozo, sheria na taarifa mbalimbali zinazohusiana na kazi na shughuli za TUICO.') }}
-        </p>
-
-    </div>
-</section>
+<x-page-hero :eyebrow="localized('Documents & Information', 'Nyaraka na Taarifa')" :title="localized('Resources', 'Nyaraka')" :intro="localized('Access TUICO documents, publications, guides, labour laws and other resources related to our work and activities.', 'Pata nyaraka, machapisho, miongozo, sheria na taarifa mbalimbali zinazohusiana na kazi na shughuli za TUICO.')" />
 
 
 {{-- RESOURCE LIBRARY --}}

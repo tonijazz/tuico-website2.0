@@ -8,25 +8,7 @@
          HERO
     ========================== --}}
 
-    <section class="bg-main text-white">
-
-        <div class="max-w-7xl mx-auto px-6 py-12">
-
-            <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
-                {{ localized('Organization', 'Shirika') }}
-            </p>
-
-            <h1 class="text-4xl md:text-5xl font-bold">
-                {{ localized('Departments', 'Idara') }}
-            </h1>
-
-            <p class="mt-5 max-w-2xl text-lg leading-8 text-white/80">
-                {{ localized('TUICO departments responsible for coordinating and supporting the Union’s administrative, professional, and strategic functions.', 'Idara za TUICO zinazoratibu na kutekeleza majukumu mbalimbali ya kiutawala, kitaalamu na kimkakati ya Chama.') }}
-            </p>
-
-        </div>
-
-    </section>
+    <x-page-hero :eyebrow="localized('Organization', 'Shirika')" :title="localized('Departments', 'Idara')" :intro="localized('TUICO departments responsible for coordinating and supporting the Union’s administrative, professional, and strategic functions.', 'Idara za TUICO zinazoratibu na kutekeleza majukumu mbalimbali ya kiutawala, kitaalamu na kimkakati ya Chama.')" />
 
 
     {{-- =========================

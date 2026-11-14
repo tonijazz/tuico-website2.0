@@ -8,21 +8,7 @@
          HERO
     ========================== --}}
 
-    <section class="bg-main text-white">
-
-        <div class="max-w-7xl mx-auto px-6 py-12">
-
-            <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
-                {{ localized('Sector', 'Sekta') }}
-            </p>
-
-            <h1 class="text-4xl md:text-5xl font-bold">
-                {{ $sector->getTranslation('name', app()->getLocale()) }}
-            </h1>
-
-        </div>
-
-    </section>
+    <x-page-hero :eyebrow="localized('Sector', 'Sekta')" :title="$sector->getTranslation('name', app()->getLocale())" />
 
 
     {{-- =========================

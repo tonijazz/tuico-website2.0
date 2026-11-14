@@ -10,29 +10,7 @@ $locale = app()->getLocale();
 
 {{-- HERO --}}
 
-<section class="bg-main text-white">
-
-<div class="max-w-7xl mx-auto px-6 py-12">
-
-    <div class="max-w-3xl">
-
-        <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
-            {{ localized('Inquiries', 'Mawasiliano') }}
-        </p>
-
-        <h1 class="text-4xl md:text-5xl font-bold leading-tight">
-            {{ localized('Frequently Asked Questions', 'Maswali Yanayoulizwa Mara kwa Mara') }}
-        </h1>
-
-        <p class="mt-5 max-w-2xl text-lg leading-8 text-white/80">
-            {{ localized('Find answers to some of the questions commonly asked about TUICO and its services.', 'Pata majibu ya baadhi ya maswali yanayoulizwa mara kwa mara kuhusu TUICO na huduma zake.') }}
-        </p>
-
-    </div>
-
-</div>
-
-</section>
+<x-page-hero :eyebrow="localized('Inquiries', 'Mawasiliano')" :title="localized('Frequently Asked Questions', 'Maswali Yanayoulizwa Mara kwa Mara')" :intro="localized('Find answers to some of the questions commonly asked about TUICO and its services.', 'Pata majibu ya baadhi ya maswali yanayoulizwa mara kwa mara kuhusu TUICO na huduma zake.')" />
 
 {{-- FAQ CONTENT --}}
 

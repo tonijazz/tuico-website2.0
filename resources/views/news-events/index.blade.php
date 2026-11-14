@@ -7,23 +7,7 @@
 
     {{-- HERO --}}
 
-    <section class="bg-main text-white">
-        <div class="max-w-7xl mx-auto px-6 py-12">
-
-            <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
-                {{ localized('News & Events', 'Habari na Matukio') }}
-            </p>
-
-            <h1 class="text-4xl md:text-5xl font-bold">
-                {{ localized('TUICO News & Events', 'Habari na Matukio ya TUICO') }}
-            </h1>
-
-            <p class="mt-5 max-w-2xl text-lg leading-8 text-white/80">
-                {{ localized('Stay informed about TUICO news, updates, activities and upcoming events.', 'Fuatilia habari, taarifa, shughuli na matukio yanayohusiana na TUICO.') }}
-            </p>
-
-        </div>
-    </section>
+    <x-page-hero :eyebrow="localized('News & Events', 'Habari na Matukio')" :title="localized('TUICO News & Events', 'Habari na Matukio ya TUICO')" :intro="localized('Stay informed about TUICO news, updates, activities and upcoming events.', 'Fuatilia habari, taarifa, shughuli na matukio yanayohusiana na TUICO.')" />
 
 
     {{-- LATEST NEWS --}}

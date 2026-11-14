@@ -6,27 +6,7 @@
 @section('content')
 
     {{-- HERO --}}
-    <section class="bg-main text-white">
-        <div class="max-w-7xl mx-auto px-6 py-12">
-
-            <div class="max-w-3xl">
-
-                <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
-                    {{ localized('Partnerships & Relations', 'Ushirikiano na Mahusiano') }}
-                </p>
-
-                <h1 class="text-4xl md:text-5xl font-bold">
-                    {{ localized('Affiliations & Partners', 'Washirika na Taasisi Tunazoshirikiana Nazo') }}
-                </h1>
-
-                <p class="mt-5 max-w-2xl text-lg leading-8 text-white/80">
-                    {{ localized('TUICO works with national and international institutions to advance workers’ rights, welfare and development.', 'TUICO inashirikiana na taasisi za kitaifa na kimataifa katika kukuza haki, ustawi na maendeleo ya wafanyakazi.') }}
-                </p>
-
-            </div>
-
-        </div>
-    </section>
+    <x-page-hero :eyebrow="localized('Partnerships & Relations', 'Ushirikiano na Mahusiano')" :title="localized('Affiliations & Partners', 'Washirika na Taasisi Tunazoshirikiana Nazo')" :intro="localized('TUICO works with national and international institutions to advance workers’ rights, welfare and development.', 'TUICO inashirikiana na taasisi za kitaifa na kimataifa katika kukuza haki, ustawi na maendeleo ya wafanyakazi.')" />
 
 
     {{-- NATIONAL --}}

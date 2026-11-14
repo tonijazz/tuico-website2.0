@@ -11,27 +11,7 @@
 HERO
 ========================================================= --}}
 
-<section class="bg-main text-white">
-    <div class="max-w-7xl mx-auto px-6 py-12">
-
-        <div class="max-w-3xl">
-
-            <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
-                {{ localized('Calendar & Activities', 'Kalenda na Shughuli') }}
-            </p>
-
-            <h1 class="text-4xl md:text-5xl font-bold">
-                {{ localized('TUICO Events', 'Matukio ya TUICO') }}
-            </h1>
-
-            <p class="mt-5 max-w-2xl text-lg leading-8 text-white/80">
-                {{ localized('Follow meetings, activities, programmes and other events connected to the work of TUICO.', 'Fuatilia mikutano, shughuli, programu na matukio mbalimbali yanayohusiana na kazi za TUICO.') }}
-            </p>
-
-        </div>
-
-    </div>
-</section>
+<x-page-hero :eyebrow="localized('Calendar & Activities', 'Kalenda na Shughuli')" :title="localized('TUICO Events', 'Matukio ya TUICO')" :intro="localized('Follow meetings, activities, programmes and other events connected to the work of TUICO.', 'Fuatilia mikutano, shughuli, programu na matukio mbalimbali yanayohusiana na kazi za TUICO.')" />
 
 
 {{-- =========================================================

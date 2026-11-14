@@ -7,29 +7,7 @@
 
     {{-- HERO --}}
 
-    <section class="bg-main text-white">
-
-        <div class="max-w-7xl mx-auto px-6 py-12">
-
-            <div class="max-w-3xl">
-
-                <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
-                    {{ localized('Membership', 'Uanachama') }}
-                </p>
-
-                <h1 class="text-4xl md:text-5xl font-bold leading-tight">
-                    {{ localized('Join Us', 'Jiunge Nasi') }}
-                </h1>
-
-                <p class="mt-5 max-w-2xl text-lg leading-8 text-white/80">
-                    {{ localized('Register your interest in joining TUICO and our team will get in touch with you about the next steps.', 'Onyesha nia yako ya kujiunga na TUICO na timu yetu itawasiliana nawe kwa hatua zinazofuata.') }}
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
+    <x-page-hero :eyebrow="localized('Membership', 'Uanachama')" :title="localized('Join Us', 'Jiunge Nasi')" :intro="localized('Register your interest in joining TUICO and our team will get in touch with you about the next steps.', 'Onyesha nia yako ya kujiunga na TUICO na timu yetu itawasiliana nawe kwa hatua zinazofuata.')" />
 
     {{-- JOIN FORM --}}
 

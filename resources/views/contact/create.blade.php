@@ -7,29 +7,7 @@
 
     {{-- HERO --}}
 
-    <section class="bg-main text-white">
-
-        <div class="max-w-7xl mx-auto px-6 py-12">
-
-            <div class="max-w-3xl">
-
-                <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
-                    {{ localized('Inquiries', 'Mawasiliano') }}
-                </p>
-
-                <h1 class="text-4xl md:text-5xl font-bold leading-tight">
-                    {{ localized('Send an Inquiry', 'Wasiliana Nasi') }}
-                </h1>
-
-                <p class="mt-5 max-w-2xl text-lg leading-8 text-white/80">
-                    {{ localized('Send your inquiry to TUICO and our team will respond as soon as possible.', 'Tuma ujumbe wako kwa TUICO na timu yetu itakujibu kwa wakati unaofaa.') }}
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
+    <x-page-hero :eyebrow="localized('Inquiries', 'Mawasiliano')" :title="localized('Send an Inquiry', 'Wasiliana Nasi')" :intro="localized('Send your inquiry to TUICO and our team will respond as soon as possible.', 'Tuma ujumbe wako kwa TUICO na timu yetu itakujibu kwa wakati unaofaa.')" />
 
     {{-- FORM --}}
 

@@ -9,29 +9,7 @@
 HERO
 ========================================================== --}}
 
-    <section class="bg-main text-white">
-
-        <div class="max-w-7xl mx-auto px-6 py-12">
-
-            <div class="max-w-3xl">
-
-                <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
-                    {{ localized('Strategic Direction', 'Mwelekeo wa Kimkakati') }}
-                </p>
-
-                <h1 class="text-4xl md:text-5xl font-bold">
-                    {{ localized('Strategic Plan', 'Mpango Mkakati') }}
-                </h1>
-
-                <p class="mt-5 max-w-2xl text-lg leading-8 text-white/80">
-                    {{ localized('The strategic direction guiding TUICO’s priorities and implementation.', 'Mwelekeo unaoongoza vipaumbele na utekelezaji wa TUICO.') }}
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
+    <x-page-hero :eyebrow="localized('Strategic Direction', 'Mwelekeo wa Kimkakati')" :title="localized('Strategic Plan', 'Mpango Mkakati')" :intro="localized('The strategic direction guiding TUICO’s priorities and implementation.', 'Mwelekeo unaoongoza vipaumbele na utekelezaji wa TUICO.')" />
 
     {{-- =========================================================
 STRATEGIC AREAS

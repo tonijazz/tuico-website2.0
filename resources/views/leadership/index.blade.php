@@ -8,26 +8,8 @@
      HERO
 ========================== --}}
 
-<section class="bg-main text-white">
-
-    <div class="max-w-7xl mx-auto px-6 py-12">
-
-        <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
-            {{ localized('Leadership', 'Uongozi') }}
-        </p>
-
-        <h1 class="text-4xl md:text-5xl font-bold">
-            {{ localized('TUICO Leadership', 'Uongozi wa TUICO') }}
-        </h1>
-
-        <p class="mt-5 max-w-2xl text-lg leading-8 text-white/80">
-            {{ localized('The National Chairperson provides leadership and oversight. The General Secretary oversees the union’s administration and implements decisions made by its governing bodies. Sector heads coordinate representation in the four sectors, while department and unit heads support the union’s day-to-day work.
-', 'Mwenyekiti wa Taifa huongoza vikao vikuu vinavyosimamia shughuli za Chama. Katibu Mkuu husimamia utawala wa Chama na utekelezaji wa maamuzi ya vyombo vyake vya uongozi. Wakuu wa sekta huratibu uwakilishi katika sekta nne, huku wakuu wa idara na vitengo wakisaidia utekelezaji wa shughuli za kila siku za Chama.') }}
-        </p>
-
-    </div>
-
-</section>
+<x-page-hero :eyebrow="localized('Leadership', 'Uongozi')" :title="localized('TUICO Leadership', 'Uongozi wa TUICO')" :intro="localized('The National Chairperson provides leadership and oversight. The General Secretary oversees the union’s administration and implements decisions made by its governing bodies. Sector heads coordinate representation in the four sectors, while department and unit heads support the union’s day-to-day work.
+', 'Mwenyekiti wa Taifa huongoza vikao vikuu vinavyosimamia shughuli za Chama. Katibu Mkuu husimamia utawala wa Chama na utekelezaji wa maamuzi ya vyombo vyake vya uongozi. Wakuu wa sekta huratibu uwakilishi katika sekta nne, huku wakuu wa idara na vitengo wakisaidia utekelezaji wa shughuli za kila siku za Chama.')" />
 
 
 {{-- =========================

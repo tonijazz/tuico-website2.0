@@ -6,25 +6,9 @@
 
     {{-- HERO --}}
 
-    <section class="bg-main text-white">
-        <div class="max-w-7xl mx-auto px-6 py-12">
-
-            <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
-                {{ app()->getLocale() === 'sw' ? 'Uwepo wa TUICO Nchini' : 'TUICO Presence Across Tanzania' }}
-            </p>
-
-            <h1 class="text-4xl md:text-5xl font-bold">
-                {{ app()->getLocale() === 'sw' ? 'Ofisi za Mikoa' : 'Regional Offices' }}
-            </h1>
-
-            <p class="mt-5 max-w-2xl text-lg leading-8 text-white/80">
-                {{ app()->getLocale() === 'sw'
+    <x-page-hero :eyebrow="app()->getLocale() === 'sw' ? 'Uwepo wa TUICO Nchini' : 'TUICO Presence Across Tanzania'" :title="app()->getLocale() === 'sw' ? 'Ofisi za Mikoa' : 'Regional Offices'" :intro="app()->getLocale() === 'sw'
                     ? 'Ofisi za TUICO zinazoratibu shughuli za Chama na huduma kwa wanachama katika maeneo mbalimbali nchini.'
-                    : 'TUICO regional offices coordinate the Union’s activities and services to members across different parts of Tanzania.' }}
-            </p>
-
-        </div>
-    </section>
+                    : 'TUICO regional offices coordinate the Union’s activities and services to members across different parts of Tanzania.'" />
 
 
     {{-- AT A GLANCE --}}

@@ -9,27 +9,9 @@
          HERO
     ========================== --}}
 
-    <section class="bg-main text-white">
-
-        <div class="max-w-7xl mx-auto px-6 py-12">
-
-            <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
-                {{ app()->getLocale() === 'sw' ? 'Uongozi wa Chama' : 'Union Administration' }}
-            </p>
-
-            <h1 class="text-4xl md:text-5xl font-bold">
-                {{ app()->getLocale() === 'sw' ? 'Kanda Zetu' : 'Our Zones' }}
-            </h1>
-
-            <p class="mt-5 max-w-2xl text-lg leading-8 text-white/80">
-                {{ app()->getLocale() === 'sw'
+    <x-page-hero :eyebrow="app()->getLocale() === 'sw' ? 'Uongozi wa Chama' : 'Union Administration'" :title="app()->getLocale() === 'sw' ? 'Kanda Zetu' : 'Our Zones'" :intro="app()->getLocale() === 'sw'
                     ? 'TUICO inaendesha shughuli zake kupitia kanda nane zinazounganisha na kuratibu shughuli za ofisi za mikoa.'
-                    : 'TUICO operates through eight zones that connect and coordinate the activities of its regional offices.' }}
-            </p>
-
-        </div>
-
-    </section>
+                    : 'TUICO operates through eight zones that connect and coordinate the activities of its regional offices.'" />
 
 
     {{-- =========================
