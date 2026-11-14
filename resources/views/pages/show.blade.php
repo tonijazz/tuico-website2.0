@@ -6,25 +6,7 @@
 
 {{-- HERO --}}
 
-<section class="bg-main text-white">
-
-<div class="max-w-7xl mx-auto px-6 py-12">
-
-    <div class="max-w-4xl">
-
-        <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
-            {{ app()->getLocale() === 'sw' ? 'Taarifa ya Kisheria' : 'Legal Information' }}
-        </p>
-
-        <h1 class="text-4xl md:text-5xl font-bold leading-tight">
-            {{ $page->title }}
-        </h1>
-
-    </div>
-
-</div>
-
-</section>
+<x-page-hero :eyebrow="localized('Legal Information', 'Taarifa ya Kisheria')" :title="$page->title" />
 
 {{-- CONTENT --}}
 

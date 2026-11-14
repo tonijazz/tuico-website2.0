@@ -37,25 +37,7 @@
      HERO
 ========================== --}}
 
-    <section class="bg-main text-white">
-        <div class="max-w-7xl mx-auto px-6 py-12">
-
-            <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
-                {{ app()->getLocale() === 'sw' ? 'Kuhusu Sisi' : 'About Us' }}
-            </p>
-
-            <h1 class="text-4xl md:text-5xl font-bold">
-                {{ $page?->title ?? (app()->getLocale() === 'sw' ? 'Kuhusu TUICO' : 'About TUICO') }}
-            </h1>
-
-            @if ($introText)
-                <p class="mt-5 max-w-2xl text-lg leading-8 text-white/80">
-                    {{ $introText }}
-                </p>
-            @endif
-
-        </div>
-    </section>
+    <x-page-hero :eyebrow="localized('About Us', 'Kuhusu Sisi')" :title="$page?->title ?? localized('About TUICO', 'Kuhusu TUICO')" :intro="$introText" />
 
 
     {{-- =========================

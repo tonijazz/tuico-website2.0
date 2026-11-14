@@ -7,26 +7,7 @@
 
 {{-- HERO --}}
 
-<section class="bg-main text-white">
-
-<div class="max-w-7xl mx-auto px-6 py-12">
-
-    <div class="max-w-4xl">
-
-        <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
-            {{ localized('Programme', 'Programu') }}
-        </p>
-
-        <h1 class="text-4xl md:text-5xl font-bold leading-tight">
-            {{ $programme->title }}
-        </h1>
-
-    </div>
-
-</div>
-
-
-</section>
+<x-page-hero :eyebrow="localized('Programme', 'Programu')" :title="$programme->title" />
 
 {{-- PROGRAMME DETAILS --}}
 

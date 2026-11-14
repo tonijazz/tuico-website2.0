@@ -7,34 +7,7 @@
 
 {{-- HERO --}}
 
-<section class="bg-main text-white">
-
-<div class="max-w-7xl mx-auto px-6 py-12">
-
-    <div class="max-w-4xl">
-
-        @if ($strategicArea->icon)
-            <div class="mb-5 text-white/70">
-                <x-dynamic-component
-                    :component="$strategicArea->icon"
-                    class="w-8 h-8"
-                />
-            </div>
-        @endif
-
-        <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
-            {{ localized('Strategic Area', 'Eneo la Kimkakati') }}
-        </p>
-
-        <h1 class="text-4xl md:text-5xl font-bold leading-tight">
-            {{ $strategicArea->title }}
-        </h1>
-
-    </div>
-
-</div>
-
-</section>
+<x-page-hero :icon="$strategicArea->icon" :eyebrow="localized('Strategic Area', 'Eneo la Kimkakati')" :title="$strategicArea->title" />
 
 {{-- CONTENT --}}
 

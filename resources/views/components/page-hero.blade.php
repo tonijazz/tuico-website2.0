@@ -1,10 +1,16 @@
-@props(['eyebrow' => null, 'title', 'intro' => null])
+@props(['eyebrow' => null, 'title', 'intro' => null, 'icon' => null])
 
 <section class="bg-main text-white">
     <div class="max-w-7xl mx-auto px-6 py-12">
         <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-5">
 
             <div class="max-w-3xl">
+                @if ($icon)
+                    <div class="mb-5 text-white/70">
+                        <x-dynamic-component :component="$icon" class="w-8 h-8" />
+                    </div>
+                @endif
+
                 @if ($eyebrow)
                     <p class="text-sm uppercase tracking-widest text-white/70 mb-2">{{ $eyebrow }}</p>
                 @endif

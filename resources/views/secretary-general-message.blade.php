@@ -11,19 +11,7 @@
          PAGE HERO
     ========================== --}}
 
-    <section class="bg-main text-white">
-        <div class="max-w-7xl mx-auto px-6 py-16 md:py-20">
-
-            <p class="text-sm font-semibold uppercase tracking-widest text-white/70">
-                {{ localized('TUICO Leadership', 'Uongozi wa TUICO') }}
-            </p>
-
-            <h1 class="mt-3 text-4xl md:text-5xl font-bold">
-                {{ localized('Message from the General Secretary', 'Ujumbe wa Katibu Mkuu') }}
-            </h1>
-
-        </div>
-    </section>
+    <x-page-hero :eyebrow="localized('TUICO Leadership', 'Uongozi wa TUICO')" :title="localized('Message from the General Secretary', 'Ujumbe wa Katibu Mkuu')" />
 
 
     {{-- =========================
