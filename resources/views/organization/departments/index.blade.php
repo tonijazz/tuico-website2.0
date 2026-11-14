@@ -52,9 +52,7 @@
 
             @foreach ($departments as $department)
 
-                <a href="{{ is_sw()
-                    ? '/sw/departments/' . \Illuminate\Support\Str::slug($department->getTranslation('name', 'en'))
-                    : '/departments/' . \Illuminate\Support\Str::slug($department->getTranslation('name', 'en')) }}"
+                <a href="{{ locale_url('departments/' . \Illuminate\Support\Str::slug($department->getTranslation('name', 'en'))) }}"
                     class="group border border-gray-100 bg-white p-6 hover:border-action hover:shadow-sm transition">
 
                     <div class="flex items-start justify-between gap-6">

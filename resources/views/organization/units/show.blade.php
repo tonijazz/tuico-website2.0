@@ -168,9 +168,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
                 @foreach (\App\Models\OrgUnit::where('type', \App\Enums\OrgUnitType::Unit)->where('id', '!=', $unit->id)->orderBy('order')->get() as $otherUnit)
-                    <a href="{{ is_sw()
-                        ? '/sw/units/' . \Illuminate\Support\Str::slug($otherUnit->getTranslation('name', 'en'))
-                        : '/units/' . \Illuminate\Support\Str::slug($otherUnit->getTranslation('name', 'en')) }}"
+                    <a href="{{ locale_url('units/' . \Illuminate\Support\Str::slug($otherUnit->getTranslation('name', 'en'))) }}"
                         class="group bg-white border border-gray-100 p-6 hover:border-action hover:shadow-sm transition">
 
                         <h3 class="text-lg font-bold text-gray-900 group-hover:text-action transition">

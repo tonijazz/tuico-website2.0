@@ -158,9 +158,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
                 @foreach (\App\Models\OrgUnit::where('type', \App\Enums\OrgUnitType::Department)->where('id', '!=', $department->id)->orderBy('order')->get() as $otherDepartment)
-                    <a href="{{ is_sw()
-                        ? '/sw/departments/' . \Illuminate\Support\Str::slug($otherDepartment->getTranslation('name', 'en'))
-                        : '/departments/' . \Illuminate\Support\Str::slug($otherDepartment->getTranslation('name', 'en')) }}"
+                    <a href="{{ locale_url('departments/' . \Illuminate\Support\Str::slug($otherDepartment->getTranslation('name', 'en'))) }}"
                         class="group bg-white border border-gray-100 p-6 hover:border-action hover:shadow-sm transition">
 
                         <h3 class="text-lg font-bold text-gray-900 group-hover:text-action transition">

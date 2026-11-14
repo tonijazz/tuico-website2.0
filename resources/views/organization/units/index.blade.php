@@ -52,9 +52,7 @@
 
             @foreach ($units as $unit)
 
-                <a href="{{ is_sw()
-                    ? '/sw/units/' . \Illuminate\Support\Str::slug($unit->getTranslation('name', 'en'))
-                    : '/units/' . \Illuminate\Support\Str::slug($unit->getTranslation('name', 'en')) }}"
+                <a href="{{ locale_url('units/' . \Illuminate\Support\Str::slug($unit->getTranslation('name', 'en'))) }}"
                     class="group border border-gray-100 bg-white p-6 hover:border-action hover:shadow-sm transition">
 
                     <div class="flex items-start justify-between gap-6">
