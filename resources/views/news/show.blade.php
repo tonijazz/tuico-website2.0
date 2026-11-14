@@ -144,7 +144,7 @@
     <div class="max-w-5xl mx-auto px-6 py-8">
 
         <a
-            href="{{ $isSwahili ? '/sw/news' : '/news' }}"
+            href="{{ locale_url('news') }}"
             class="inline-flex items-center text-sm font-semibold text-action hover:text-main transition"
         >
 

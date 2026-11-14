@@ -52,7 +52,7 @@
                 </div>
 
                 <a
-                    href="{{ $isSwahili ? '/sw/news' : '/news' }}"
+                    href="{{ locale_url('news') }}"
                     class="inline-flex items-center text-sm font-semibold text-action hover:text-main transition"
                 >
                     {{ $isSwahili ? 'Angalia Habari Zote' : 'View All News' }}
@@ -85,7 +85,7 @@
                             {{-- IMAGE --}}
 
                             <a
-                                href="{{ $isSwahili ? '/sw/news/' . $article->slug : '/news/' . $article->slug }}"
+                                href="{{ locale_url('news/' . $article->slug) }}"
                                 class="block overflow-hidden"
                             >
 
@@ -151,7 +151,7 @@
 
                                 <h3 class="mt-4 text-xl font-bold leading-snug text-gray-900 group-hover:text-action transition">
 
-                                    <a href="{{ $isSwahili ? '/sw/news/' . $article->slug : '/news/' . $article->slug }}">
+                                    <a href="{{ locale_url('news/' . $article->slug) }}">
                                         {{ $article->getTranslation('title', app()->getLocale()) }}
                                     </a>
 
@@ -187,7 +187,7 @@
                                     @endif
 
                                     <a
-                                        href="{{ $isSwahili ? '/sw/news/' . $article->slug : '/news/' . $article->slug }}"
+                                        href="{{ locale_url('news/' . $article->slug) }}"
                                         class="inline-flex items-center text-sm font-semibold text-action hover:text-main transition"
                                     >
                                         {{ $isSwahili ? 'Soma Habari' : 'Read Story' }}
@@ -247,7 +247,7 @@
                 </div>
 
                 <a
-                    href="{{ $isSwahili ? '/sw/events' : '/events' }}"
+                    href="{{ locale_url('events') }}"
                     class="inline-flex items-center text-sm font-semibold text-action hover:text-main transition"
                 >
                     {{ $isSwahili ? 'Angalia Matukio Yote' : 'View All Events' }}
@@ -452,14 +452,14 @@
                 <div class="flex flex-wrap gap-3">
 
                     <a
-                        href="{{ $isSwahili ? '/sw/news' : '/news' }}"
+                        href="{{ locale_url('news') }}"
                         class="inline-flex items-center justify-center bg-white px-6 py-3 text-sm font-semibold text-main hover:bg-white/90 transition"
                     >
                         {{ $isSwahili ? 'Habari' : 'News' }}
                     </a>
 
                     <a
-                        href="{{ $isSwahili ? '/sw/events' : '/events' }}"
+                        href="{{ locale_url('events') }}"
                         class="inline-flex items-center justify-center border border-white/40 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10 transition"
                     >
                         {{ $isSwahili ? 'Matukio' : 'Events' }}

@@ -42,7 +42,7 @@ $currentYear = request('year');
         {{-- FILTERS --}}
         <form
             method="GET"
-            action="{{ $isSwahili ? '/sw/resources' : '/resources' }}"
+            action="{{ locale_url('resources') }}"
             class="rounded-lg bg-white border border-gray-100 p-5 md:p-6 shadow-sm"
         >
 
@@ -157,7 +157,7 @@ $currentYear = request('year');
                 @if ($currentSearch || $currentCategory || $currentYear)
 
                     <a
-                        href="{{ $isSwahili ? '/sw/resources' : '/resources' }}"
+                        href="{{ locale_url('resources') }}"
                         class="inline-flex items-center text-sm font-semibold text-gray-600 hover:text-main transition"
                     >
                         {{ $isSwahili ? 'Ondoa Vichujio' : 'Clear Filters' }}
@@ -304,7 +304,7 @@ $currentYear = request('year');
                         <div class="mt-auto pt-6 flex flex-wrap items-center gap-4">
 
                             <a
-                                href="{{ $isSwahili ? '/sw/resources/' . $resource->id : '/resources/' . $resource->id }}"
+                                href="{{ locale_url('resources/' . $resource->id) }}"
                                 class="inline-flex items-center text-sm font-semibold text-action hover:text-main transition"
                             >
                                 {{ $isSwahili ? 'Tazama Nyaraka' : 'View Resource' }}
@@ -388,7 +388,7 @@ $currentYear = request('year');
                 @if ($currentSearch || $currentCategory || $currentYear)
 
                     <a
-                        href="{{ $isSwahili ? '/sw/resources' : '/resources' }}"
+                        href="{{ locale_url('resources') }}"
                         class="inline-flex items-center mt-6 text-sm font-semibold text-action hover:text-main transition"
                     >
                         {{ $isSwahili ? 'Angalia Nyaraka Zote' : 'View All Resources' }}

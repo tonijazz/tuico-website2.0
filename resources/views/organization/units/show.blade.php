@@ -76,7 +76,7 @@
 
                     @if ($unit->order === 1)
                         {{-- Mobilisation & Strengthening: joining is the main action --}}
-                        <a href="{{ $isSwahili ? '/sw/join-us' : '/join-us' }}"
+                        <a href="{{ locale_url('join-us') }}"
                             class="bg-action px-5 py-2.5 text-sm font-semibold text-white hover:bg-main transition">
                             {{ $isSwahili ? 'Uliza kuhusu kujiunga na TUICO' : 'Ask about joining TUICO' }}
                         </a>
@@ -84,13 +84,13 @@
 
                     @if ($unit->order === 2)
                         {{-- Information & Public Relations: updates and publications --}}
-                        <a href="{{ $isSwahili ? '/sw/resources' : '/resources' }}"
+                        <a href="{{ locale_url('resources') }}"
                             class="bg-action px-5 py-2.5 text-sm font-semibold text-white hover:bg-main transition">
                             {{ $isSwahili ? 'Nyaraka na Machapisho' : 'News and Resources' }}
                         </a>
                     @endif
 
-                    <a href="{{ $isSwahili ? '/sw/contact' : '/contact' }}"
+                    <a href="{{ locale_url('contact') }}"
                         class="{{ in_array($unit->order, [1, 2]) ? 'border border-action text-action hover:bg-action/10' : 'bg-action text-white hover:bg-main' }} px-5 py-2.5 text-sm font-semibold transition">
                         {{ $isSwahili ? 'Wasiliana na TUICO' : 'Contact TUICO' }}
                     </a>
@@ -202,7 +202,7 @@
 
     <section class="max-w-7xl mx-auto px-6 py-8">
 
-        <a href="{{ $isSwahili ? '/sw/units' : '/units' }}"
+        <a href="{{ locale_url('units') }}"
             class="inline-flex items-center text-sm font-semibold text-action hover:text-main transition">
 
             <span class="mr-2">←</span>

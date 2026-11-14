@@ -91,12 +91,12 @@
                 {{-- BUTTONS --}}
                 <div class="mt-8 flex flex-wrap gap-3">
 
-                    <a href="{{ $isSwahili ? '/sw/join-us' : '/join-us' }}"
+                    <a href="{{ locale_url('join-us') }}"
                         class="bg-action px-5 py-2.5 text-sm font-semibold text-white hover:bg-main transition">
                         {{ $isSwahili ? 'Uliza kuhusu kujiunga na TUICO' : 'Ask about joining TUICO' }}
                     </a>
 
-                    <a href="{{ $isSwahili ? '/sw/regions' : '/regions' }}"
+                    <a href="{{ locale_url('regions') }}"
                         class="border border-action px-5 py-2.5 text-sm font-semibold text-action hover:bg-action/10 transition">
                         {{ $isSwahili ? 'Tafuta ofisi ya mkoa' : 'Find a regional office' }}
                     </a>
@@ -209,7 +209,7 @@
 
     <section class="max-w-7xl mx-auto px-6 py-8">
 
-        <a href="{{ $isSwahili ? '/sw/sectors' : '/sectors' }}"
+        <a href="{{ locale_url('sectors') }}"
             class="inline-flex items-center text-sm font-semibold text-action hover:text-main transition">
 
             <span class="mr-2">←</span>

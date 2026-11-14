@@ -226,7 +226,7 @@ $categoryName = $resource->category
     <div class="max-w-7xl mx-auto px-6 py-8">
 
         <a
-            href="{{ $isSwahili ? '/sw/resources' : '/resources' }}"
+            href="{{ locale_url('resources') }}"
             class="inline-flex items-center text-sm font-semibold text-action hover:text-main transition"
         >
             <span class="mr-2">←</span>

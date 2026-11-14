@@ -56,7 +56,7 @@
             </div>
 
             <a
-                href="{{ $isSwahili ? '/sw/news-events' : '/news-events' }}"
+                href="{{ locale_url('news-events') }}"
                 class="inline-flex items-center text-sm font-semibold text-action hover:text-main transition"
             >
                 ← {{ $isSwahili ? 'Habari na Matukio' : 'News & Events' }}
@@ -69,7 +69,7 @@
         <div class="mb-8 flex flex-wrap gap-2">
 
             <a
-                href="{{ $isSwahili ? '/sw/news' : '/news' }}"
+                href="{{ locale_url('news') }}"
                 class="inline-flex items-center px-4 py-2 text-xs font-bold uppercase tracking-wider border rounded-full transition
                     {{ !$currentType
                         ? 'bg-main border-main text-white'
@@ -131,7 +131,7 @@
                     >
 
                         <a
-                            href="{{ $isSwahili ? '/sw/news/' . $article->slug : '/news/' . $article->slug }}"
+                            href="{{ locale_url('news/' . $article->slug) }}"
                             class="block overflow-hidden"
                         >
 
@@ -200,7 +200,7 @@
                             <h3 class="mt-4 text-xl font-bold leading-snug text-gray-900 group-hover:text-action transition">
 
                                 <a
-                                    href="{{ $isSwahili ? '/sw/news/' . $article->slug : '/news/' . $article->slug }}"
+                                    href="{{ locale_url('news/' . $article->slug) }}"
                                 >
                                     {{ $article->getTranslation('title', app()->getLocale()) }}
                                 </a>
@@ -237,7 +237,7 @@
                                 @endif
 
                                 <a
-                                    href="{{ $isSwahili ? '/sw/news/' . $article->slug : '/news/' . $article->slug }}"
+                                    href="{{ locale_url('news/' . $article->slug) }}"
                                     class="inline-flex items-center text-sm font-semibold text-action hover:text-main transition"
                                 >
                                     {{ $isSwahili ? 'Soma Habari' : 'Read Story' }}

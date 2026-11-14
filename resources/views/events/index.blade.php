@@ -492,7 +492,7 @@ CTA
             </div>
 
             <a
-                href="{{ $isSwahili ? '/sw/news' : '/news' }}"
+                href="{{ locale_url('news') }}"
                 class="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-white text-main font-semibold hover:bg-white/90 transition"
             >
                 {{ $isSwahili ? 'Soma Habari' : 'Read News' }}
