@@ -52,7 +52,7 @@
 
             @foreach ($departments as $department)
 
-                <a href="{{ $isSwahili
+                <a href="{{ is_sw()
                     ? '/sw/departments/' . \Illuminate\Support\Str::slug($department->getTranslation('name', 'en'))
                     : '/departments/' . \Illuminate\Support\Str::slug($department->getTranslation('name', 'en')) }}"
                     class="group border border-gray-100 bg-white p-6 hover:border-action hover:shadow-sm transition">

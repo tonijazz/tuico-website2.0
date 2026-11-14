@@ -1,8 +1,5 @@
 @extends('layouts.app')
 
-@php
-    $isSwahili = app()->getLocale() === 'sw';
-@endphp
 
 @section('title', localized('Strategic Plan', 'Mpango Mkakati'))
 
@@ -81,7 +78,7 @@ STRATEGIC AREAS
                                 </p>
                             @endif
 
-                            <a href="{{ $isSwahili
+                            <a href="{{ is_sw()
     ? url('/sw/strategic-plan/areas/' . $area->id)
     : route('programmes.strategic-area', $area) }}"
                                 class="inline-flex items-center mt-5 text-sm font-semibold text-action hover:text-main transition">

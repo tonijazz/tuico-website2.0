@@ -41,7 +41,7 @@
 
                 @foreach ($sectors as $sector)
 
-                    <a href="{{ $isSwahili
+                    <a href="{{ is_sw()
                         ? '/sw/sectors/' . \Illuminate\Support\Str::slug($sector->getTranslation('name', 'en'))
                         : '/sectors/' . \Illuminate\Support\Str::slug($sector->getTranslation('name', 'en')) }}"
                         class="group bg-white border border-gray-100 p-6 shadow-sm hover:shadow-md hover:-translate-y-1 transition duration-300">

@@ -73,7 +73,7 @@
 
                 {{-- COVERAGE NOTE --}}
                 <p class="mt-8 border-l-4 border-action/30 bg-action/10 px-4 py-3 text-sm leading-6 text-gray-700">
-                    @if ($isSwahili)
+                    @if (is_sw())
                         Hii ni mifano. Kwa orodha kamili, soma
                         <a href="/sw/resources" class="font-semibold text-action underline">kanuni ya 13.2 ya Kanuni za
                             Katiba ya TUICO za mwaka 2021</a>.
@@ -175,7 +175,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
                 @foreach (\App\Models\OrgUnit::where('type', \App\Enums\OrgUnitType::Sector)->where('id', '!=', $sector->id)->orderBy('order')->get() as $otherSector)
-                    <a href="{{ $isSwahili
+                    <a href="{{ is_sw()
                         ? '/sw/sectors/' . \Illuminate\Support\Str::slug($otherSector->getTranslation('name', 'en'))
                         : '/sectors/' . \Illuminate\Support\Str::slug($otherSector->getTranslation('name', 'en')) }}"
                         class="group bg-white border border-gray-100 p-6 hover:border-action hover:shadow-sm transition">

@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @php
-    $isSwahili = app()->getLocale() === 'sw';
     $currentType = request('type');
 @endphp
 
@@ -79,7 +78,7 @@
             @foreach ($newsTypes as $newsType)
 
                 @php
-                    $typeUrl = $isSwahili
+                    $typeUrl = is_sw()
                         ? '/sw/news?type=' . $newsType->value
                         : '/news?type=' . $newsType->value;
 

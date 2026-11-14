@@ -52,7 +52,7 @@
 
             @foreach ($units as $unit)
 
-                <a href="{{ $isSwahili
+                <a href="{{ is_sw()
                     ? '/sw/units/' . \Illuminate\Support\Str::slug($unit->getTranslation('name', 'en'))
                     : '/units/' . \Illuminate\Support\Str::slug($unit->getTranslation('name', 'en')) }}"
                     class="group border border-gray-100 bg-white p-6 hover:border-action hover:shadow-sm transition">
