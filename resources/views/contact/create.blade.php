@@ -17,17 +17,15 @@
             <div class="max-w-3xl">
 
                 <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
-                    {{ $isSwahili ? 'Mawasiliano' : 'Inquiries' }}
+                    {{ localized('Inquiries', 'Mawasiliano') }}
                 </p>
 
                 <h1 class="text-4xl md:text-5xl font-bold leading-tight">
-                    {{ $isSwahili ? 'Wasiliana Nasi' : 'Send an Inquiry' }}
+                    {{ localized('Send an Inquiry', 'Wasiliana Nasi') }}
                 </h1>
 
                 <p class="mt-5 max-w-2xl text-lg leading-8 text-white/80">
-                    {{ $isSwahili
-                        ? 'Tuma ujumbe wako kwa TUICO na timu yetu itakujibu kwa wakati unaofaa.'
-                        : 'Send your inquiry to TUICO and our team will respond as soon as possible.' }}
+                    {{ localized('Send your inquiry to TUICO and our team will respond as soon as possible.', 'Tuma ujumbe wako kwa TUICO na timu yetu itakujibu kwa wakati unaofaa.') }}
                 </p>
 
             </div>
@@ -54,11 +52,11 @@
                 <div class="mb-8">
 
                     <p class="text-sm uppercase tracking-widest text-action">
-                        {{ $isSwahili ? 'Tuma Ujumbe' : 'Get in Touch' }}
+                        {{ localized('Get in Touch', 'Tuma Ujumbe') }}
                     </p>
 
                     <h2 class="mt-2 text-2xl font-bold text-gray-900">
-                        {{ $isSwahili ? 'Tunawezaje kukusaidia?' : 'How can we help you?' }}
+                        {{ localized('How can we help you?', 'Tunawezaje kukusaidia?') }}
                     </h2>
 
                 </div>
@@ -73,7 +71,7 @@
                     <div>
 
                         <label for="name" class="block text-sm font-semibold text-gray-700">
-                            {{ $isSwahili ? 'Jina' : 'Name' }}
+                            {{ localized('Name', 'Jina') }}
                         </label>
 
                         <input type="text" name="name" id="name" value="{{ old('name') }}"
@@ -92,7 +90,7 @@
                         <div>
 
                             <label for="email" class="block text-sm font-semibold text-gray-700">
-                                {{ $isSwahili ? 'Barua Pepe' : 'Email' }}
+                                {{ localized('Email', 'Barua Pepe') }}
                             </label>
 
                             <input type="email" name="email" id="email" value="{{ old('email') }}" required
@@ -108,7 +106,7 @@
                         <div>
 
                             <label for="phone" class="block text-sm font-semibold text-gray-700">
-                                {{ $isSwahili ? 'Simu' : 'Phone' }}
+                                {{ localized('Phone', 'Simu') }}
                             </label>
 
                             <input type="text" name="phone" id="phone" value="{{ old('phone') }}"
@@ -123,7 +121,7 @@
                     <div>
 
                         <label for="subject" class="block text-sm font-semibold text-gray-700">
-                            {{ $isSwahili ? 'Mada' : 'Subject' }}
+                            {{ localized('Subject', 'Mada') }}
                         </label>
 
                         <input type="text" name="subject" id="subject" value="{{ old('subject') }}"
@@ -136,7 +134,7 @@
                     <div>
 
                         <label for="message" class="block text-sm font-semibold text-gray-700">
-                            {{ $isSwahili ? 'Ujumbe' : 'Message' }}
+                            {{ localized('Message', 'Ujumbe') }}
                         </label>
 
                         <textarea name="message" id="message" rows="7" required
@@ -154,7 +152,7 @@
 
                         <button type="submit"
                             class="inline-flex items-center justify-center rounded-lg bg-action px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-main">
-                            {{ $isSwahili ? 'Tuma Ujumbe' : 'Send Message' }}
+                            {{ localized('Send Message', 'Tuma Ujumbe') }}
 
                             <span class="ml-2">→</span>
                         </button>

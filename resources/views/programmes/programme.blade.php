@@ -17,7 +17,7 @@ $isSwahili = app()->getLocale() === 'sw';
     <div class="max-w-4xl">
 
         <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
-            {{ $isSwahili ? 'Programu' : 'Programme' }}
+            {{ localized('Programme', 'Programu') }}
         </p>
 
         <h1 class="text-4xl md:text-5xl font-bold leading-tight">
@@ -45,7 +45,7 @@ $isSwahili = app()->getLocale() === 'sw';
             href="{{ $isSwahili ? url('/sw/strategic-plan') : route('programmes.index') }}"
             class="inline-flex items-center text-sm font-semibold text-action hover:text-main transition"
         >
-            ← {{ $isSwahili ? 'Rudi kwenye Mpango Mkakati' : 'Back to Strategic Plan' }}
+            ← {{ localized('Back to Strategic Plan', 'Rudi kwenye Mpango Mkakati') }}
         </a>
 
     </div>
@@ -78,7 +78,7 @@ $isSwahili = app()->getLocale() === 'sw';
             <div>
 
                 <p class="text-sm uppercase tracking-widest text-action">
-                    {{ $isSwahili ? 'Maelezo ya Programu' : 'Programme Overview' }}
+                    {{ localized('Programme Overview', 'Maelezo ya Programu') }}
                 </p>
 
                 <div class="mt-4 text-gray-600 leading-8">
@@ -98,7 +98,7 @@ $isSwahili = app()->getLocale() === 'sw';
                 <div>
 
                     <p class="text-xs font-semibold uppercase tracking-widest text-gray-400">
-                        {{ $isSwahili ? 'Mshirika' : 'Affiliation' }}
+                        {{ localized('Affiliation', 'Mshirika') }}
                     </p>
 
                     <p class="mt-2 text-sm font-semibold text-main">
@@ -115,7 +115,7 @@ $isSwahili = app()->getLocale() === 'sw';
                 <div>
 
                     <p class="text-xs font-semibold uppercase tracking-widest text-gray-400">
-                        {{ $isSwahili ? 'Tarehe ya Kuanza' : 'Start Date' }}
+                        {{ localized('Start Date', 'Tarehe ya Kuanza') }}
                     </p>
 
                     <p class="mt-2 text-sm font-semibold text-main">
@@ -132,7 +132,7 @@ $isSwahili = app()->getLocale() === 'sw';
                 <div>
 
                     <p class="text-xs font-semibold uppercase tracking-widest text-gray-400">
-                        {{ $isSwahili ? 'Tarehe ya Kumalizika' : 'End Date' }}
+                        {{ localized('End Date', 'Tarehe ya Kumalizika') }}
                     </p>
 
                     <p class="mt-2 text-sm font-semibold text-main">
@@ -152,7 +152,7 @@ $isSwahili = app()->getLocale() === 'sw';
             <div class="mt-8 pt-8 border-t border-gray-100">
 
                 <p class="text-sm uppercase tracking-widest text-action">
-                    {{ $isSwahili ? 'Matokeo Yanayotarajiwa' : 'Expected Outcomes' }}
+                    {{ localized('Expected Outcomes', 'Matokeo Yanayotarajiwa') }}
                 </p>
 
                 <div class="mt-4 text-gray-600 leading-8">

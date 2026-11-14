@@ -13,17 +13,15 @@
         <div class="max-w-7xl mx-auto px-6 py-12">
 
             <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
-                {{ $isSwahili ? 'Shirika' : 'Organization' }}
+                {{ localized('Organization', 'Shirika') }}
             </p>
 
             <h1 class="text-4xl md:text-5xl font-bold">
-                {{ $isSwahili ? 'Vitengo' : 'Units' }}
+                {{ localized('Units', 'Vitengo') }}
             </h1>
 
             <p class="mt-5 max-w-2xl text-lg leading-8 text-white/80">
-                {{ $isSwahili
-                    ? 'Vitengo vya TUICO vinavyosaidia utekelezaji wa shughuli maalum na kuimarisha uendeshaji wa Chama.'
-                    : 'TUICO units that support specialised functions and strengthen the effective operation of the Union.' }}
+                {{ localized('TUICO units that support specialised functions and strengthen the effective operation of the Union.', 'Vitengo vya TUICO vinavyosaidia utekelezaji wa shughuli maalum na kuimarisha uendeshaji wa Chama.') }}
             </p>
 
         </div>
@@ -40,13 +38,11 @@
         <div class="mb-6">
 
             <p class="text-sm uppercase tracking-widest text-action mb-2">
-                {{ $isSwahili ? 'Vitengo vya TUICO' : 'TUICO Units' }}
+                {{ localized('TUICO Units', 'Vitengo vya TUICO') }}
             </p>
 
             <h2 class="text-3xl font-bold text-gray-900">
-                {{ $isSwahili
-                    ? 'Majukumu ya Vitengo'
-                    : 'Units of the Union' }}
+                {{ localized('Units of the Union', 'Majukumu ya Vitengo') }}
             </h2>
 
         </div>
@@ -66,7 +62,7 @@
                         <div>
 
                             <p class="text-sm uppercase tracking-widest text-action mb-2">
-                                {{ $isSwahili ? 'Kitengo' : 'Unit' }}
+                                {{ localized('Unit', 'Kitengo') }}
                             </p>
 
                             <h3 class="text-xl font-bold text-gray-900 group-hover:text-action transition">
@@ -89,7 +85,7 @@
                     </p>
 
                     <span class="inline-flex items-center mt-5 text-sm font-semibold text-action">
-                        {{ $isSwahili ? 'Angalia Kitengo' : 'View Unit' }}
+                        {{ localized('View Unit', 'Angalia Kitengo') }}
                     </span>
 
                 </a>

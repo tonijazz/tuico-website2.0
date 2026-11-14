@@ -13,7 +13,7 @@
         <div class="max-w-7xl mx-auto px-6 py-12">
 
             <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
-                {{ $isSwahili ? 'Kitengo' : 'Unit' }}
+                {{ localized('Unit', 'Kitengo') }}
             </p>
 
             <h1 class="text-4xl md:text-5xl font-bold">
@@ -38,7 +38,7 @@
             <div class="lg:col-span-2">
 
                 <p class="text-sm uppercase tracking-widest text-action mb-2">
-                    {{ $isSwahili ? 'Kuhusu Kitengo' : 'About the Unit' }}
+                    {{ localized('About the Unit', 'Kuhusu Kitengo') }}
                 </p>
 
                 <h2 class="text-3xl font-bold text-gray-900">
@@ -57,7 +57,7 @@
                 @if (is_array($examples) && count($examples))
 
                     <h3 class="mt-8 text-xl font-bold text-gray-900">
-                        {{ $isSwahili ? 'Mifano ya kazi' : 'Examples of work' }}
+                        {{ localized('Examples of work', 'Mifano ya kazi') }}
                     </h3>
 
                     <ul class="mt-4 space-y-2 text-gray-600 leading-7">
@@ -78,7 +78,7 @@
                         {{-- Mobilisation & Strengthening: joining is the main action --}}
                         <a href="{{ locale_url('join-us') }}"
                             class="bg-action px-5 py-2.5 text-sm font-semibold text-white hover:bg-main transition">
-                            {{ $isSwahili ? 'Uliza kuhusu kujiunga na TUICO' : 'Ask about joining TUICO' }}
+                            {{ localized('Ask about joining TUICO', 'Uliza kuhusu kujiunga na TUICO') }}
                         </a>
                     @endif
 
@@ -86,13 +86,13 @@
                         {{-- Information & Public Relations: updates and publications --}}
                         <a href="{{ locale_url('resources') }}"
                             class="bg-action px-5 py-2.5 text-sm font-semibold text-white hover:bg-main transition">
-                            {{ $isSwahili ? 'Nyaraka na Machapisho' : 'News and Resources' }}
+                            {{ localized('News and Resources', 'Nyaraka na Machapisho') }}
                         </a>
                     @endif
 
                     <a href="{{ locale_url('contact') }}"
                         class="{{ in_array($unit->order, [1, 2]) ? 'border border-action text-action hover:bg-action/10' : 'bg-action text-white hover:bg-main' }} px-5 py-2.5 text-sm font-semibold transition">
-                        {{ $isSwahili ? 'Wasiliana na TUICO' : 'Contact TUICO' }}
+                        {{ localized('Contact TUICO', 'Wasiliana na TUICO') }}
                     </a>
 
                 </div>
@@ -108,7 +108,7 @@
                     <div class="border border-gray-100 bg-gray-50 p-6">
 
                         <p class="text-sm uppercase tracking-widest text-action mb-2">
-                            {{ $isSwahili ? 'Mkuu wa Kitengo' : 'Unit Head' }}
+                            {{ localized('Unit Head', 'Mkuu wa Kitengo') }}
                         </p>
 
                         <div class="mt-5">
@@ -155,11 +155,11 @@
             <div class="mb-6">
 
                 <p class="text-sm uppercase tracking-widest text-action mb-2">
-                    {{ $isSwahili ? 'Vitengo Vingine' : 'Explore Other Units' }}
+                    {{ localized('Explore Other Units', 'Vitengo Vingine') }}
                 </p>
 
                 <h2 class="text-3xl font-bold text-gray-900">
-                    {{ $isSwahili ? 'Gundua Vitengo Vingine vya TUICO' : 'Explore Other TUICO Units' }}
+                    {{ localized('Explore Other TUICO Units', 'Gundua Vitengo Vingine vya TUICO') }}
                 </h2>
 
             </div>
@@ -182,7 +182,7 @@
                         </p>
 
                         <span class="inline-flex items-center mt-5 text-sm font-semibold text-action">
-                            {{ $isSwahili ? 'Angalia Kitengo' : 'View Unit' }}
+                            {{ localized('View Unit', 'Angalia Kitengo') }}
                             <span class="ml-2 group-hover:translate-x-1 transition">→</span>
                         </span>
 
@@ -207,7 +207,7 @@
 
             <span class="mr-2">←</span>
 
-            {{ $isSwahili ? 'Rudi kwenye Vitengo' : 'Back to Units' }}
+            {{ localized('Back to Units', 'Rudi kwenye Vitengo') }}
 
         </a>
 

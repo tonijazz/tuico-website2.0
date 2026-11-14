@@ -18,13 +18,11 @@
         <div class="max-w-7xl mx-auto px-6 py-16 md:py-20">
 
             <p class="text-sm font-semibold uppercase tracking-widest text-white/70">
-                {{ $isSwahili ? 'Uongozi wa TUICO' : 'TUICO Leadership' }}
+                {{ localized('TUICO Leadership', 'Uongozi wa TUICO') }}
             </p>
 
             <h1 class="mt-3 text-4xl md:text-5xl font-bold">
-                {{ $isSwahili
-                    ? 'Ujumbe wa Katibu Mkuu'
-                    : 'Message from the General Secretary' }}
+                {{ localized('Message from the General Secretary', 'Ujumbe wa Katibu Mkuu') }}
             </h1>
 
         </div>
@@ -61,9 +59,7 @@
                                 @else
                                     <div class="h-full flex items-center justify-center text-gray-400">
                                         <span class="text-sm">
-                                            {{ $isSwahili
-                                                ? 'Picha ya Katibu Mkuu'
-                                                : 'General Secretary Photo' }}
+                                            {{ localized('General Secretary Photo', 'Picha ya Katibu Mkuu') }}
                                         </span>
                                     </div>
                                 @endif
@@ -77,9 +73,7 @@
                                 </h2>
 
                                 <p class="mt-1 text-action font-medium">
-                                    {{ $isSwahili
-                                        ? 'Katibu Mkuu'
-                                        : 'General Secretary' }}
+                                    {{ localized('General Secretary', 'Katibu Mkuu') }}
                                 </p>
 
                             </div>
@@ -130,9 +124,7 @@
                         <div class="lg:sticky lg:top-28">
 
                             <h3 class="text-sm font-semibold uppercase tracking-wider text-main">
-                                {{ $isSwahili
-                                    ? 'Ujumbe Mwingine'
-                                    : 'Other Messages' }}
+                                {{ localized('Other Messages', 'Ujumbe Mwingine') }}
                             </h3>
 
                             <div class="mt-4 space-y-3">
@@ -159,9 +151,7 @@
                                 @empty
 
                                     <p class="text-sm text-gray-500">
-                                        {{ $isSwahili
-                                            ? 'Hakuna ujumbe mwingine uliyochapishwa.'
-                                            : 'No other published messages.' }}
+                                        {{ localized('No other published messages.', 'Hakuna ujumbe mwingine uliyochapishwa.') }}
                                     </p>
 
                                 @endforelse
@@ -178,9 +168,7 @@
 
                 <div class="py-16 text-center">
                     <p class="text-gray-500">
-                        {{ $isSwahili
-                            ? 'Hakuna ujumbe uliyochapishwa kwa sasa.'
-                            : 'No published messages are currently available.' }}
+                        {{ localized('No published messages are currently available.', 'Hakuna ujumbe uliyochapishwa kwa sasa.') }}
                     </p>
                 </div>
 

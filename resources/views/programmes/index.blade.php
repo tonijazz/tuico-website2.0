@@ -19,17 +19,15 @@ HERO
             <div class="max-w-3xl">
 
                 <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
-                    {{ $isSwahili ? 'Mwelekeo wa Kimkakati' : 'Strategic Direction' }}
+                    {{ localized('Strategic Direction', 'Mwelekeo wa Kimkakati') }}
                 </p>
 
                 <h1 class="text-4xl md:text-5xl font-bold">
-                    {{ $isSwahili ? 'Mpango Mkakati' : 'Strategic Plan' }}
+                    {{ localized('Strategic Plan', 'Mpango Mkakati') }}
                 </h1>
 
                 <p class="mt-5 max-w-2xl text-lg leading-8 text-white/80">
-                    {{ $isSwahili
-                        ? 'Mwelekeo unaoongoza vipaumbele na utekelezaji wa TUICO.'
-                        : 'The strategic direction guiding TUICO’s priorities and implementation.' }}
+                    {{ localized('The strategic direction guiding TUICO’s priorities and implementation.', 'Mwelekeo unaoongoza vipaumbele na utekelezaji wa TUICO.') }}
                 </p>
 
             </div>
@@ -49,11 +47,11 @@ STRATEGIC AREAS
             <div class="mb-8">
 
                 <p class="text-sm uppercase tracking-widest text-action mb-2">
-                    {{ $isSwahili ? 'Vipaumbele' : 'Priorities' }}
+                    {{ localized('Priorities', 'Vipaumbele') }}
                 </p>
 
                 <h2 class="text-3xl font-bold text-gray-900">
-                    {{ $isSwahili ? 'Maeneo ya Kimkakati' : 'Strategic Areas' }}
+                    {{ localized('Strategic Areas', 'Maeneo ya Kimkakati') }}
                 </h2>
 
             </div>
@@ -87,7 +85,7 @@ STRATEGIC AREAS
     ? url('/sw/strategic-plan/areas/' . $area->id)
     : route('programmes.strategic-area', $area) }}"
                                 class="inline-flex items-center mt-5 text-sm font-semibold text-action hover:text-main transition">
-                                {{ $isSwahili ? 'Angalia Maelezo' : 'View Details' }}
+                                {{ localized('View Details', 'Angalia Maelezo') }}
                                 <span class="ml-2">→</span>
                             </a>
 
@@ -106,9 +104,7 @@ STRATEGIC AREAS
                 <div class="bg-white rounded-lg border border-gray-100 px-6 py-12 text-center">
 
                     <p class="text-sm text-gray-500">
-                        {{ $isSwahili
-                            ? 'Hakuna maeneo ya kimkakati yaliyowekwa kwa sasa.'
-                            : 'No strategic areas are currently available.' }}
+                        {{ localized('No strategic areas are currently available.', 'Hakuna maeneo ya kimkakati yaliyowekwa kwa sasa.') }}
                     </p>
 
                 </div>
@@ -130,11 +126,11 @@ PROGRAMMES
             <div class="mb-8">
 
                 <p class="text-sm uppercase tracking-widest text-action mb-2">
-                    {{ $isSwahili ? 'Utekelezaji' : 'Implementation' }}
+                    {{ localized('Implementation', 'Utekelezaji') }}
                 </p>
 
                 <h2 class="text-3xl font-bold text-gray-900">
-                    {{ $isSwahili ? 'Programu' : 'Programmes' }}
+                    {{ localized('Programmes', 'Programu') }}
                 </h2>
 
             </div>
@@ -151,7 +147,7 @@ PROGRAMMES
                             'bg-main border-main text-white' :
                             'bg-white border-gray-200 text-gray-600 hover:border-action/30 hover:text-action'"
                         class="px-4 py-2 text-xs font-bold uppercase tracking-wider border rounded-full transition">
-                        {{ $isSwahili ? 'Zinazoendelea' : 'Active' }}
+                        {{ localized('Active', 'Zinazoendelea') }}
                     </button>
 
                     <button @click="tab = 'past'"
@@ -160,7 +156,7 @@ PROGRAMMES
                             'bg-main border-main text-white' :
                             'bg-white border-gray-200 text-gray-600 hover:border-action/30 hover:text-action'"
                         class="px-4 py-2 text-xs font-bold uppercase tracking-wider border rounded-full transition">
-                        {{ $isSwahili ? 'Zilizopita' : 'Past' }}
+                        {{ localized('Past', 'Zilizopita') }}
                     </button>
 
                 </div>
@@ -195,7 +191,7 @@ PROGRAMMES
 
                                         <span
                                             class="inline-flex w-fit shrink-0 items-center px-3 py-1 text-[11px] font-bold uppercase tracking-wider rounded-full bg-green-50 text-green-700 border border-green-100">
-                                            {{ $isSwahili ? 'Inaendelea' : 'Active' }}
+                                            {{ localized('Active', 'Inaendelea') }}
                                         </span>
 
                                     </div>
@@ -206,7 +202,7 @@ PROGRAMMES
                                         @if ($programme->starts_at)
                                             <div>
                                                 <p class="text-xs font-semibold uppercase tracking-wider text-gray-400">
-                                                    {{ $isSwahili ? 'Kuanza' : 'Start Date' }}
+                                                    {{ localized('Start Date', 'Kuanza') }}
                                                 </p>
 
                                                 <p class="mt-1 text-sm font-semibold text-gray-700">
@@ -218,7 +214,7 @@ PROGRAMMES
                                         @if ($programme->ends_at)
                                             <div>
                                                 <p class="text-xs font-semibold uppercase tracking-wider text-gray-400">
-                                                    {{ $isSwahili ? 'Kumalizika' : 'End Date' }}
+                                                    {{ localized('End Date', 'Kumalizika') }}
                                                 </p>
 
                                                 <p class="mt-1 text-sm font-semibold text-gray-700">
@@ -232,7 +228,7 @@ PROGRAMMES
 
                                     <a href="{{ route('programmes.programme', $programme) }}"
                                         class="inline-flex items-center mt-5 text-sm font-semibold text-action hover:text-main transition">
-                                        {{ $isSwahili ? 'Angalia Programu' : 'View Programme' }}
+                                        {{ localized('View Programme', 'Angalia Programu') }}
                                         <span class="ml-2">→</span>
                                     </a>
 
@@ -251,7 +247,7 @@ PROGRAMMES
                         <div class="rounded-lg border border-gray-100 bg-gray-50 px-6 py-12 text-center">
 
                             <p class="text-sm text-gray-500">
-                                {{ $isSwahili ? 'Hakuna programu zinazoendelea kwa sasa.' : 'No active programmes are currently available.' }}
+                                {{ localized('No active programmes are currently available.', 'Hakuna programu zinazoendelea kwa sasa.') }}
                             </p>
 
                         </div>
@@ -290,7 +286,7 @@ PROGRAMMES
 
                                         <span
                                             class="inline-flex w-fit shrink-0 items-center px-3 py-1 text-[11px] font-bold uppercase tracking-wider rounded-full bg-gray-100 text-gray-600 border border-gray-200">
-                                            {{ $isSwahili ? 'Iliyopita' : 'Past' }}
+                                            {{ localized('Past', 'Iliyopita') }}
                                         </span>
 
                                     </div>
@@ -301,7 +297,7 @@ PROGRAMMES
                                         @if ($programme->starts_at)
                                             <div>
                                                 <p class="text-xs font-semibold uppercase tracking-wider text-gray-400">
-                                                    {{ $isSwahili ? 'Kuanza' : 'Start Date' }}
+                                                    {{ localized('Start Date', 'Kuanza') }}
                                                 </p>
 
                                                 <p class="mt-1 text-sm font-semibold text-gray-700">
@@ -313,7 +309,7 @@ PROGRAMMES
                                         @if ($programme->ends_at)
                                             <div>
                                                 <p class="text-xs font-semibold uppercase tracking-wider text-gray-400">
-                                                    {{ $isSwahili ? 'Kumalizika' : 'End Date' }}
+                                                    {{ localized('End Date', 'Kumalizika') }}
                                                 </p>
 
                                                 <p class="mt-1 text-sm font-semibold text-gray-700">
@@ -327,7 +323,7 @@ PROGRAMMES
 
                                     <a href="{{ route('programmes.programme', $programme) }}"
                                         class="inline-flex items-center mt-5 text-sm font-semibold text-action hover:text-main transition">
-                                        {{ $isSwahili ? 'Angalia Programu' : 'View Programme' }}
+                                        {{ localized('View Programme', 'Angalia Programu') }}
                                         <span class="ml-2">→</span>
                                     </a>
 
@@ -346,7 +342,7 @@ PROGRAMMES
                         <div class="rounded-lg border border-gray-100 bg-gray-50 px-6 py-12 text-center">
 
                             <p class="text-sm text-gray-500">
-                                {{ $isSwahili ? 'Hakuna programu zilizopita kwa sasa.' : 'No past programmes are currently available.' }}
+                                {{ localized('No past programmes are currently available.', 'Hakuna programu zilizopita kwa sasa.') }}
                             </p>
 
                         </div>

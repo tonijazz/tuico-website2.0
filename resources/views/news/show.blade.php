@@ -74,7 +74,7 @@
                 <span class="h-px w-8 bg-white/40"></span>
 
                 <span>
-                    {{ $isSwahili ? 'Na' : 'By' }}
+                    {{ localized('By', 'Na') }}
 
                     <span class="font-semibold text-white">
                         {{ $article->author->name }}
@@ -152,7 +152,7 @@
                 ←
             </span>
 
-            {{ $isSwahili ? 'Rudi kwenye Habari' : 'Back to News' }}
+            {{ localized('Back to News', 'Rudi kwenye Habari') }}
 
         </a>
 

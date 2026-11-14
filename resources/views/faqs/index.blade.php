@@ -18,19 +18,15 @@ $locale = app()->getLocale();
     <div class="max-w-3xl">
 
         <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
-            {{ $isSwahili ? 'Mawasiliano' : 'Inquiries' }}
+            {{ localized('Inquiries', 'Mawasiliano') }}
         </p>
 
         <h1 class="text-4xl md:text-5xl font-bold leading-tight">
-            {{ $isSwahili
-                ? 'Maswali Yanayoulizwa Mara kwa Mara'
-                : 'Frequently Asked Questions' }}
+            {{ localized('Frequently Asked Questions', 'Maswali Yanayoulizwa Mara kwa Mara') }}
         </h1>
 
         <p class="mt-5 max-w-2xl text-lg leading-8 text-white/80">
-            {{ $isSwahili
-                ? 'Pata majibu ya baadhi ya maswali yanayoulizwa mara kwa mara kuhusu TUICO na huduma zake.'
-                : 'Find answers to some of the questions commonly asked about TUICO and its services.' }}
+            {{ localized('Find answers to some of the questions commonly asked about TUICO and its services.', 'Pata majibu ya baadhi ya maswali yanayoulizwa mara kwa mara kuhusu TUICO na huduma zake.') }}
         </p>
 
     </div>
@@ -168,9 +164,7 @@ $locale = app()->getLocale();
             <div class="bg-white rounded-lg border border-gray-100 p-8 text-center">
 
                 <p class="text-gray-500">
-                    {{ $isSwahili
-                        ? 'Hakuna maswali yanayopatikana kwa sasa.'
-                        : 'No frequently asked questions are currently available.' }}
+                    {{ localized('No frequently asked questions are currently available.', 'Hakuna maswali yanayopatikana kwa sasa.') }}
                 </p>
 
             </div>

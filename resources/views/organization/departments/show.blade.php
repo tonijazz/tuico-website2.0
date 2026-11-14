@@ -13,7 +13,7 @@
         <div class="max-w-7xl mx-auto px-6 py-12">
 
             <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
-                {{ $isSwahili ? 'Idara' : 'Department' }}
+                {{ localized('Department', 'Idara') }}
             </p>
 
             <h1 class="text-4xl md:text-5xl font-bold">
@@ -38,7 +38,7 @@
             <div class="lg:col-span-2">
 
                 <p class="text-sm uppercase tracking-widest text-action mb-2">
-                    {{ $isSwahili ? 'Kuhusu Idara' : 'About the Department' }}
+                    {{ localized('About the Department', 'Kuhusu Idara') }}
                 </p>
 
                 <h2 class="text-3xl font-bold text-gray-900">
@@ -57,7 +57,7 @@
                 @if (is_array($examples) && count($examples))
 
                     <h3 class="mt-8 text-xl font-bold text-gray-900">
-                        {{ $isSwahili ? 'Mifano ya kazi' : 'Examples of work' }}
+                        {{ localized('Examples of work', 'Mifano ya kazi') }}
                     </h3>
 
                     <ul class="mt-4 space-y-2 text-gray-600 leading-7">
@@ -76,12 +76,12 @@
 
                     <a href="{{ locale_url('regions') }}"
                         class="bg-action px-5 py-2.5 text-sm font-semibold text-white hover:bg-main transition">
-                        {{ $isSwahili ? 'Tafuta ofisi ya mkoa' : 'Find a regional office' }}
+                        {{ localized('Find a regional office', 'Tafuta ofisi ya mkoa') }}
                     </a>
 
                     <a href="{{ locale_url('contact') }}"
                         class="border border-action px-5 py-2.5 text-sm font-semibold text-action hover:bg-action/10 transition">
-                        {{ $isSwahili ? 'Wasiliana na TUICO' : 'Contact TUICO' }}
+                        {{ localized('Contact TUICO', 'Wasiliana na TUICO') }}
                     </a>
 
                 </div>
@@ -97,7 +97,7 @@
                     <div class="border border-gray-100 bg-gray-50 p-6">
 
                         <p class="text-sm uppercase tracking-widest text-action mb-2">
-                            {{ $isSwahili ? 'Mkuu wa Idara' : 'Department Head' }}
+                            {{ localized('Department Head', 'Mkuu wa Idara') }}
                         </p>
 
                         <div class="mt-5">
@@ -145,11 +145,11 @@
             <div class="mb-6">
 
                 <p class="text-sm uppercase tracking-widest text-action mb-2">
-                    {{ $isSwahili ? 'Idara Nyingine' : 'Explore Other Departments' }}
+                    {{ localized('Explore Other Departments', 'Idara Nyingine') }}
                 </p>
 
                 <h2 class="text-3xl font-bold text-gray-900">
-                    {{ $isSwahili ? 'Gundua Idara Nyingine za TUICO' : 'Explore Other TUICO Departments' }}
+                    {{ localized('Explore Other TUICO Departments', 'Gundua Idara Nyingine za TUICO') }}
                 </h2>
 
             </div>
@@ -172,7 +172,7 @@
                         </p>
 
                         <span class="inline-flex items-center mt-5 text-sm font-semibold text-action">
-                            {{ $isSwahili ? 'Angalia Idara' : 'View Department' }}
+                            {{ localized('View Department', 'Angalia Idara') }}
                             <span class="ml-2 group-hover:translate-x-1 transition">→</span>
                         </span>
 
@@ -197,7 +197,7 @@
 
             <span class="mr-2">←</span>
 
-            {{ $isSwahili ? 'Rudi kwenye Idara' : 'Back to Departments' }}
+            {{ localized('Back to Departments', 'Rudi kwenye Idara') }}
 
         </a>
 

@@ -13,17 +13,15 @@
         <div class="max-w-7xl mx-auto px-6 py-12">
 
             <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
-                {{ $isSwahili ? 'Shirika' : 'Organization' }}
+                {{ localized('Organization', 'Shirika') }}
             </p>
 
             <h1 class="text-4xl md:text-5xl font-bold">
-                {{ $isSwahili ? 'Idara' : 'Departments' }}
+                {{ localized('Departments', 'Idara') }}
             </h1>
 
             <p class="mt-5 max-w-2xl text-lg leading-8 text-white/80">
-                {{ $isSwahili
-                    ? 'Idara za TUICO zinazoratibu na kutekeleza majukumu mbalimbali ya kiutawala, kitaalamu na kimkakati ya Chama.'
-                    : 'TUICO departments responsible for coordinating and supporting the Union’s administrative, professional, and strategic functions.' }}
+                {{ localized('TUICO departments responsible for coordinating and supporting the Union’s administrative, professional, and strategic functions.', 'Idara za TUICO zinazoratibu na kutekeleza majukumu mbalimbali ya kiutawala, kitaalamu na kimkakati ya Chama.') }}
             </p>
 
         </div>
@@ -40,11 +38,11 @@
         <div class="mb-6">
 
             <p class="text-sm uppercase tracking-widest text-action mb-2">
-                {{ $isSwahili ? 'Idara za TUICO' : 'TUICO Departments' }}
+                {{ localized('TUICO Departments', 'Idara za TUICO') }}
             </p>
 
             <h2 class="text-3xl font-bold text-gray-900">
-                {{ $isSwahili ? 'Majukumu ya Idara' : 'Departments of the Union' }}
+                {{ localized('Departments of the Union', 'Majukumu ya Idara') }}
             </h2>
 
         </div>
@@ -64,7 +62,7 @@
                         <div>
 
                             <p class="text-sm uppercase tracking-widest text-action mb-2">
-                                {{ $isSwahili ? 'Idara' : 'Department' }}
+                                {{ localized('Department', 'Idara') }}
                             </p>
 
                             <h3 class="text-xl font-bold text-gray-900 group-hover:text-action transition">
@@ -87,7 +85,7 @@
                     </p>
 
                     <span class="inline-flex items-center mt-5 text-sm font-semibold text-action">
-                        {{ $isSwahili ? 'Angalia Idara' : 'View Department' }}
+                        {{ localized('View Department', 'Angalia Idara') }}
                     </span>
 
                 </a>

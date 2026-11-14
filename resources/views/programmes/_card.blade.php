@@ -50,7 +50,7 @@
             <div>
 
                 <p class="text-xs font-semibold uppercase tracking-wider text-gray-400">
-                    {{ $isSwahili ? 'Mshirika' : 'Affiliation' }}
+                    {{ localized('Affiliation', 'Mshirika') }}
                 </p>
 
                 <p class="mt-1 text-sm font-semibold text-gray-700">
@@ -68,7 +68,7 @@
             <div>
 
                 <p class="text-xs font-semibold uppercase tracking-wider text-gray-400">
-                    {{ $isSwahili ? 'Kuanza' : 'Start Date' }}
+                    {{ localized('Start Date', 'Kuanza') }}
                 </p>
 
                 <p class="mt-1 text-sm font-semibold text-gray-700">
@@ -86,7 +86,7 @@
             <div>
 
                 <p class="text-xs font-semibold uppercase tracking-wider text-gray-400">
-                    {{ $isSwahili ? 'Kumalizika' : 'End Date' }}
+                    {{ localized('End Date', 'Kumalizika') }}
                 </p>
 
                 <p class="mt-1 text-sm font-semibold text-gray-700">
@@ -106,7 +106,7 @@
         <div class="mt-6 pt-5 border-t border-gray-100">
 
             <p class="text-xs font-semibold uppercase tracking-wider text-gray-400">
-                {{ $isSwahili ? 'Matokeo Yanayotarajiwa' : 'Expected Outcomes' }}
+                {{ localized('Expected Outcomes', 'Matokeo Yanayotarajiwa') }}
             </p>
 
             <p class="mt-2 text-sm text-gray-600 leading-7">

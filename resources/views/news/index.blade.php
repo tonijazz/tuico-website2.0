@@ -16,17 +16,15 @@
     <div class="max-w-7xl mx-auto px-6 py-12">
 
         <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
-            {{ $isSwahili ? 'Habari na Taarifa' : 'News & Updates' }}
+            {{ localized('News & Updates', 'Habari na Taarifa') }}
         </p>
 
         <h1 class="text-4xl md:text-5xl font-bold">
-            {{ $isSwahili ? 'Habari za TUICO' : 'TUICO News' }}
+            {{ localized('TUICO News', 'Habari za TUICO') }}
         </h1>
 
         <p class="mt-5 max-w-2xl text-lg leading-8 text-white/80">
-            {{ $isSwahili
-                ? 'Fuatilia taarifa, shughuli, mafanikio na maendeleo ya TUICO.'
-                : 'Follow TUICO news, activities, announcements, developments and stories.' }}
+            {{ localized('Follow TUICO news, activities, announcements, developments and stories.', 'Fuatilia taarifa, shughuli, mafanikio na maendeleo ya TUICO.') }}
         </p>
 
     </div>
@@ -46,11 +44,11 @@
             <div>
 
                 <p class="text-sm uppercase tracking-widest text-action mb-2">
-                    {{ $isSwahili ? 'Taarifa kutoka TUICO' : 'Updates from TUICO' }}
+                    {{ localized('Updates from TUICO', 'Taarifa kutoka TUICO') }}
                 </p>
 
                 <h2 class="text-3xl font-bold text-gray-900">
-                    {{ $isSwahili ? 'Habari na Makala' : 'News & Articles' }}
+                    {{ localized('News & Articles', 'Habari na Makala') }}
                 </h2>
 
             </div>
@@ -59,7 +57,7 @@
                 href="{{ locale_url('news-events') }}"
                 class="inline-flex items-center text-sm font-semibold text-action hover:text-main transition"
             >
-                ← {{ $isSwahili ? 'Habari na Matukio' : 'News & Events' }}
+                ← {{ localized('News & Events', 'Habari na Matukio') }}
             </a>
 
         </div>
@@ -75,7 +73,7 @@
                         ? 'bg-main border-main text-white'
                         : 'bg-white border-gray-200 text-gray-600 hover:border-action/30 hover:text-action' }}"
             >
-                {{ $isSwahili ? 'Zote' : 'All' }}
+                {{ localized('All', 'Zote') }}
             </a>
 
             @foreach ($newsTypes as $newsType)
@@ -158,7 +156,7 @@
                                         </div>
 
                                         <div class="mt-1 text-xs uppercase tracking-widest text-white/70">
-                                            {{ $isSwahili ? 'Habari' : 'News' }}
+                                            {{ localized('News', 'Habari') }}
                                         </div>
 
                                     </div>
@@ -227,7 +225,7 @@
                                 @if ($article->author)
 
                                     <p class="mb-4 text-xs text-gray-500">
-                                        {{ $isSwahili ? 'Na' : 'By' }}
+                                        {{ localized('By', 'Na') }}
 
                                         <span class="font-semibold text-gray-700">
                                             {{ $article->author->name }}
@@ -240,7 +238,7 @@
                                     href="{{ locale_url('news/' . $article->slug) }}"
                                     class="inline-flex items-center text-sm font-semibold text-action hover:text-main transition"
                                 >
-                                    {{ $isSwahili ? 'Soma Habari' : 'Read Story' }}
+                                    {{ localized('Read Story', 'Soma Habari') }}
 
                                     <span class="ml-2 transform group-hover:translate-x-1 transition">
                                         →
@@ -291,9 +289,7 @@
                 </div>
 
                 <p class="mt-5 text-gray-600">
-                    {{ $isSwahili
-                        ? 'Hakuna habari zilizochapishwa kwa sasa.'
-                        : 'No published news is currently available.' }}
+                    {{ localized('No published news is currently available.', 'Hakuna habari zilizochapishwa kwa sasa.') }}
                 </p>
 
             </div>

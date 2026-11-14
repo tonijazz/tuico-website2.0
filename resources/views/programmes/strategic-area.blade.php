@@ -26,7 +26,7 @@ $isSwahili = app()->getLocale() === 'sw';
         @endif
 
         <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
-            {{ $isSwahili ? 'Eneo la Kimkakati' : 'Strategic Area' }}
+            {{ localized('Strategic Area', 'Eneo la Kimkakati') }}
         </p>
 
         <h1 class="text-4xl md:text-5xl font-bold leading-tight">
@@ -52,7 +52,7 @@ $isSwahili = app()->getLocale() === 'sw';
             href="{{ $isSwahili ? url('/sw/strategic-plan') : route('programmes.index') }}"
             class="inline-flex items-center text-sm font-semibold text-action hover:text-main transition"
         >
-            ← {{ $isSwahili ? 'Rudi kwenye Mpango Mkakati' : 'Back to Strategic Plan' }}
+            ← {{ localized('Back to Strategic Plan', 'Rudi kwenye Mpango Mkakati') }}
         </a>
 
     </div>
@@ -65,7 +65,7 @@ $isSwahili = app()->getLocale() === 'sw';
             <div>
 
                 <p class="text-sm uppercase tracking-widest text-action">
-                    {{ $isSwahili ? 'Maelezo ya Eneo' : 'Strategic Area Overview' }}
+                    {{ localized('Strategic Area Overview', 'Maelezo ya Eneo') }}
                 </p>
 
                 <div class="mt-4 text-gray-600 leading-8">
@@ -77,9 +77,7 @@ $isSwahili = app()->getLocale() === 'sw';
         @else
 
             <p class="text-gray-500">
-                {{ $isSwahili
-                    ? 'Hakuna maelezo ya eneo hili kwa sasa.'
-                    : 'No description is currently available for this strategic area.' }}
+                {{ localized('No description is currently available for this strategic area.', 'Hakuna maelezo ya eneo hili kwa sasa.') }}
             </p>
 
         @endif

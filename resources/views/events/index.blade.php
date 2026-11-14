@@ -20,17 +20,15 @@ HERO
         <div class="max-w-3xl">
 
             <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
-                {{ $isSwahili ? 'Kalenda na Shughuli' : 'Calendar & Activities' }}
+                {{ localized('Calendar & Activities', 'Kalenda na Shughuli') }}
             </p>
 
             <h1 class="text-4xl md:text-5xl font-bold">
-                {{ $isSwahili ? 'Matukio ya TUICO' : 'TUICO Events' }}
+                {{ localized('TUICO Events', 'Matukio ya TUICO') }}
             </h1>
 
             <p class="mt-5 max-w-2xl text-lg leading-8 text-white/80">
-                {{ $isSwahili
-                    ? 'Fuatilia mikutano, shughuli, programu na matukio mbalimbali yanayohusiana na kazi za TUICO.'
-                    : 'Follow meetings, activities, programmes and other events connected to the work of TUICO.' }}
+                {{ localized('Follow meetings, activities, programmes and other events connected to the work of TUICO.', 'Fuatilia mikutano, shughuli, programu na matukio mbalimbali yanayohusiana na kazi za TUICO.') }}
             </p>
 
         </div>
@@ -60,7 +58,7 @@ EVENTS
                         : 'bg-white text-gray-600 border border-gray-200 hover:border-action/30 hover:text-action'"
                     class="px-5 py-2.5 rounded-full text-sm font-semibold transition"
                 >
-                    {{ $isSwahili ? 'Matukio Yanayokuja' : 'Upcoming Events' }}
+                    {{ localized('Upcoming Events', 'Matukio Yanayokuja') }}
                 </button>
 
                 <button
@@ -71,7 +69,7 @@ EVENTS
                         : 'bg-white text-gray-600 border border-gray-200 hover:border-action/30 hover:text-action'"
                     class="px-5 py-2.5 rounded-full text-sm font-semibold transition"
                 >
-                    {{ $isSwahili ? 'Matukio Yaliyopita' : 'Past Events' }}
+                    {{ localized('Past Events', 'Matukio Yaliyopita') }}
                 </button>
 
             </div>
@@ -145,7 +143,7 @@ EVENTS
                                             @if ($event->ends_at && !$event->starts_at->isSameDay($event->ends_at))
 
                                                 <p class="text-sm text-gray-500 mt-1">
-                                                    {{ $isSwahili ? 'Hadi' : 'Until' }}
+                                                    {{ localized('Until', 'Hadi') }}
                                                     {{ $event->ends_at->format('F j, Y') }}
                                                 </p>
 
@@ -248,13 +246,11 @@ EVENTS
                         </div>
 
                         <h2 class="text-xl font-bold text-gray-900">
-                            {{ $isSwahili ? 'Hakuna matukio yanayokuja' : 'No upcoming events' }}
+                            {{ localized('No upcoming events', 'Hakuna matukio yanayokuja') }}
                         </h2>
 
                         <p class="mt-2 text-gray-500">
-                            {{ $isSwahili
-                                ? 'Hakuna tukio lililopangwa kwa sasa.'
-                                : 'There are no upcoming events scheduled at the moment.' }}
+                            {{ localized('There are no upcoming events scheduled at the moment.', 'Hakuna tukio lililopangwa kwa sasa.') }}
                         </p>
 
                     </div>
@@ -332,7 +328,7 @@ EVENTS
                                             @if ($event->ends_at && !$event->starts_at->isSameDay($event->ends_at))
 
                                                 <p class="text-sm text-gray-500 mt-1">
-                                                    {{ $isSwahili ? 'Hadi' : 'Until' }}
+                                                    {{ localized('Until', 'Hadi') }}
                                                     {{ $event->ends_at->format('F j, Y') }}
                                                 </p>
 
@@ -347,7 +343,7 @@ EVENTS
                                     <div class="mb-3">
 
                                         <span class="inline-flex items-center px-2.5 py-1 rounded-full bg-gray-100 text-gray-600 text-xs font-semibold">
-                                            {{ $isSwahili ? 'Tukio Lililopita' : 'Past Event' }}
+                                            {{ localized('Past Event', 'Tukio Lililopita') }}
                                         </span>
 
                                     </div>
@@ -445,13 +441,11 @@ EVENTS
                         </div>
 
                         <h2 class="text-xl font-bold text-gray-900">
-                            {{ $isSwahili ? 'Hakuna matukio yaliyopita' : 'No past events' }}
+                            {{ localized('No past events', 'Hakuna matukio yaliyopita') }}
                         </h2>
 
                         <p class="mt-2 text-gray-500">
-                            {{ $isSwahili
-                                ? 'Hakuna matukio yaliyopita ya kuonyesha kwa sasa.'
-                                : 'There are no past events to display at the moment.' }}
+                            {{ localized('There are no past events to display at the moment.', 'Hakuna matukio yaliyopita ya kuonyesha kwa sasa.') }}
                         </p>
 
                     </div>
@@ -480,13 +474,11 @@ CTA
             <div>
 
                 <p class="text-xl font-bold">
-                    {{ $isSwahili ? 'Endelea kufuatilia TUICO' : 'Stay connected with TUICO' }}
+                    {{ localized('Stay connected with TUICO', 'Endelea kufuatilia TUICO') }}
                 </p>
 
                 <p class="mt-2 text-white/80">
-                    {{ $isSwahili
-                        ? 'Soma habari na taarifa za hivi karibuni kutoka TUICO.'
-                        : 'Read the latest news and updates from TUICO.' }}
+                    {{ localized('Read the latest news and updates from TUICO.', 'Soma habari na taarifa za hivi karibuni kutoka TUICO.') }}
                 </p>
 
             </div>
@@ -495,7 +487,7 @@ CTA
                 href="{{ locale_url('news') }}"
                 class="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-white text-main font-semibold hover:bg-white/90 transition"
             >
-                {{ $isSwahili ? 'Soma Habari' : 'Read News' }}
+                {{ localized('Read News', 'Soma Habari') }}
             </a>
 
         </div>

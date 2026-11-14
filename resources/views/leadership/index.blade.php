@@ -13,18 +13,16 @@
     <div class="max-w-7xl mx-auto px-6 py-12">
 
         <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
-            {{ $isSwahili ? 'Uongozi' : 'Leadership' }}
+            {{ localized('Leadership', 'Uongozi') }}
         </p>
 
         <h1 class="text-4xl md:text-5xl font-bold">
-            {{ $isSwahili ? 'Uongozi wa TUICO' : 'TUICO Leadership' }}
+            {{ localized('TUICO Leadership', 'Uongozi wa TUICO') }}
         </h1>
 
         <p class="mt-5 max-w-2xl text-lg leading-8 text-white/80">
-            {{ $isSwahili
-                ? 'Mwenyekiti wa Taifa huongoza vikao vikuu vinavyosimamia shughuli za Chama. Katibu Mkuu husimamia utawala wa Chama na utekelezaji wa maamuzi ya vyombo vyake vya uongozi. Wakuu wa sekta huratibu uwakilishi katika sekta nne, huku wakuu wa idara na vitengo wakisaidia utekelezaji wa shughuli za kila siku za Chama.'
-                : 'The National Chairperson provides leadership and oversight. The General Secretary oversees the union’s administration and implements decisions made by its governing bodies. Sector heads coordinate representation in the four sectors, while department and unit heads support the union’s day-to-day work.
-' }}
+            {{ localized('The National Chairperson provides leadership and oversight. The General Secretary oversees the union’s administration and implements decisions made by its governing bodies. Sector heads coordinate representation in the four sectors, while department and unit heads support the union’s day-to-day work.
+', 'Mwenyekiti wa Taifa huongoza vikao vikuu vinavyosimamia shughuli za Chama. Katibu Mkuu husimamia utawala wa Chama na utekelezaji wa maamuzi ya vyombo vyake vya uongozi. Wakuu wa sekta huratibu uwakilishi katika sekta nne, huku wakuu wa idara na vitengo wakisaidia utekelezaji wa shughuli za kila siku za Chama.') }}
         </p>
 
     </div>
@@ -41,11 +39,11 @@
     <div class="mb-6">
 
         <p class="text-sm uppercase tracking-widest text-action mb-2">
-            {{ $isSwahili ? 'Uongozi Taifa' : 'National Leadership' }}
+            {{ localized('National Leadership', 'Uongozi Taifa') }}
         </p>
 
         <h2 class="text-3xl font-bold text-gray-900">
-            {{ $isSwahili ? 'Viongozi Wakuu wa TUICO' : 'National Leaders of TUICO' }}
+            {{ localized('National Leaders of TUICO', 'Viongozi Wakuu wa TUICO') }}
         </h2>
 
     </div>
@@ -136,11 +134,11 @@
         <div class="mb-6">
 
             <p class="text-sm uppercase tracking-widest text-action mb-2">
-                {{ $isSwahili ? 'Sekta' : 'Sectors' }}
+                {{ localized('Sectors', 'Sekta') }}
             </p>
 
             <h2 class="text-3xl font-bold text-gray-900">
-                {{ $isSwahili ? 'Wakuu wa Sekta' : 'Sector Heads' }}
+                {{ localized('Sector Heads', 'Wakuu wa Sekta') }}
             </h2>
 
         </div>
@@ -211,11 +209,11 @@
     <div class="mb-6">
 
         <p class="text-sm uppercase tracking-widest text-action mb-2">
-            {{ $isSwahili ? 'Idara' : 'Departments' }}
+            {{ localized('Departments', 'Idara') }}
         </p>
 
         <h2 class="text-3xl font-bold text-gray-900">
-            {{ $isSwahili ? 'Wakuu wa Idara' : 'Department Heads' }}
+            {{ localized('Department Heads', 'Wakuu wa Idara') }}
         </h2>
 
     </div>
@@ -286,11 +284,11 @@
         <div class="mb-6">
 
             <p class="text-sm uppercase tracking-widest text-action mb-2">
-                {{ $isSwahili ? 'Vitengo' : 'Units' }}
+                {{ localized('Units', 'Vitengo') }}
             </p>
 
             <h2 class="text-3xl font-bold text-gray-900">
-                {{ $isSwahili ? 'Wakuu wa Vitengo' : 'Unit Heads' }}
+                {{ localized('Unit Heads', 'Wakuu wa Vitengo') }}
             </h2>
 
         </div>

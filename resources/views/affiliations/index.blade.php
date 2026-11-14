@@ -15,17 +15,15 @@
             <div class="max-w-3xl">
 
                 <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
-                    {{ $isSwahili ? 'Ushirikiano na Mahusiano' : 'Partnerships & Relations' }}
+                    {{ localized('Partnerships & Relations', 'Ushirikiano na Mahusiano') }}
                 </p>
 
                 <h1 class="text-4xl md:text-5xl font-bold">
-                    {{ $isSwahili ? 'Washirika na Taasisi Tunazoshirikiana Nazo' : 'Affiliations & Partners' }}
+                    {{ localized('Affiliations & Partners', 'Washirika na Taasisi Tunazoshirikiana Nazo') }}
                 </h1>
 
                 <p class="mt-5 max-w-2xl text-lg leading-8 text-white/80">
-                    {{ $isSwahili
-                        ? 'TUICO inashirikiana na taasisi za kitaifa na kimataifa katika kukuza haki, ustawi na maendeleo ya wafanyakazi.'
-                        : 'TUICO works with national and international institutions to advance workers’ rights, welfare and development.' }}
+                    {{ localized('TUICO works with national and international institutions to advance workers’ rights, welfare and development.', 'TUICO inashirikiana na taasisi za kitaifa na kimataifa katika kukuza haki, ustawi na maendeleo ya wafanyakazi.') }}
                 </p>
 
             </div>
@@ -44,11 +42,11 @@
                 <div class="max-w-3xl mb-8">
 
                     <p class="text-sm uppercase tracking-widest text-action mb-2">
-                        {{ $isSwahili ? 'Taasisi za Kitaifa' : 'National' }}
+                        {{ localized('National', 'Taasisi za Kitaifa') }}
                     </p>
 
                     <h2 class="text-3xl font-bold text-gray-900">
-                        {{ $isSwahili ? 'Mahusiano ya Kitaifa' : 'National Partners & Affiliations' }}
+                        {{ localized('National Partners & Affiliations', 'Mahusiano ya Kitaifa') }}
                     </h2>
 
                 </div>
@@ -122,7 +120,7 @@
                                         rel="noopener noreferrer"
                                         class="inline-flex items-center text-sm font-semibold text-action hover:text-main transition"
                                     >
-                                        {{ $isSwahili ? 'Tembelea Tovuti' : 'Visit Website' }}
+                                        {{ localized('Visit Website', 'Tembelea Tovuti') }}
 
                                         <span class="ml-2">↗</span>
                                     </a>
@@ -154,11 +152,11 @@
                 <div class="max-w-3xl mb-8">
 
                     <p class="text-sm uppercase tracking-widest text-action mb-2">
-                        {{ $isSwahili ? 'Taasisi za Kimataifa' : 'International' }}
+                        {{ localized('International', 'Taasisi za Kimataifa') }}
                     </p>
 
                     <h2 class="text-3xl font-bold text-gray-900">
-                        {{ $isSwahili ? 'Mahusiano ya Kimataifa' : 'International Partners & Affiliations' }}
+                        {{ localized('International Partners & Affiliations', 'Mahusiano ya Kimataifa') }}
                     </h2>
 
                 </div>
@@ -232,7 +230,7 @@
                                         rel="noopener noreferrer"
                                         class="inline-flex items-center text-sm font-semibold text-action hover:text-main transition"
                                     >
-                                        {{ $isSwahili ? 'Tembelea Tovuti' : 'Visit Website' }}
+                                        {{ localized('Visit Website', 'Tembelea Tovuti') }}
 
                                         <span class="ml-2">↗</span>
                                     </a>

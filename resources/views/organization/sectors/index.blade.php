@@ -13,17 +13,15 @@
         <div class="max-w-7xl mx-auto px-6 py-12">
 
             <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
-                {{ $isSwahili ? 'Uwakilishi wa TUICO' : 'TUICO Representation' }}
+                {{ localized('TUICO Representation', 'Uwakilishi wa TUICO') }}
             </p>
 
             <h1 class="text-4xl md:text-5xl font-bold">
-                {{ $isSwahili ? 'Sekta Tunazozihudumia' : 'The Sectors We Represent' }}
+                {{ localized('The Sectors We Represent', 'Sekta Tunazozihudumia') }}
             </h1>
 
             <p class="mt-5 max-w-2xl text-lg leading-8 text-white/80">
-                {{ $isSwahili
-                    ? 'TUICO inahudumia wafanyakazi katika sekta nne (4): viwanda, biashara, taasisi za fedha, na huduma na ushauri.'
-                    : 'TUICO represents workers across industrial, commercial, financial, services, and consultancy sectors.' }}
+                {{ localized('TUICO represents workers across industrial, commercial, financial, services, and consultancy sectors.', 'TUICO inahudumia wafanyakazi katika sekta nne (4): viwanda, biashara, taasisi za fedha, na huduma na ushauri.') }}
             </p>
 
         </div>
@@ -114,7 +112,7 @@
 
                         {{-- LINK --}}
                         <div class="mt-5 text-sm font-semibold text-action group-hover:text-main">
-                            {{ $isSwahili ? 'Angalia Sekta →' : 'View Sector →' }}
+                            {{ localized('View Sector →', 'Angalia Sekta →') }}
                         </div>
 
                     </a>

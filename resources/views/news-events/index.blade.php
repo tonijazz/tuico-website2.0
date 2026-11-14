@@ -14,17 +14,15 @@
         <div class="max-w-7xl mx-auto px-6 py-12">
 
             <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
-                {{ $isSwahili ? 'Habari na Matukio' : 'News & Events' }}
+                {{ localized('News & Events', 'Habari na Matukio') }}
             </p>
 
             <h1 class="text-4xl md:text-5xl font-bold">
-                {{ $isSwahili ? 'Habari na Matukio ya TUICO' : 'TUICO News & Events' }}
+                {{ localized('TUICO News & Events', 'Habari na Matukio ya TUICO') }}
             </h1>
 
             <p class="mt-5 max-w-2xl text-lg leading-8 text-white/80">
-                {{ $isSwahili
-                    ? 'Fuatilia habari, taarifa, shughuli na matukio yanayohusiana na TUICO.'
-                    : 'Stay informed about TUICO news, updates, activities and upcoming events.' }}
+                {{ localized('Stay informed about TUICO news, updates, activities and upcoming events.', 'Fuatilia habari, taarifa, shughuli na matukio yanayohusiana na TUICO.') }}
             </p>
 
         </div>
@@ -42,11 +40,11 @@
                 <div>
 
                     <p class="text-sm uppercase tracking-widest text-action mb-2">
-                        {{ $isSwahili ? 'Taarifa kutoka TUICO' : 'Updates from TUICO' }}
+                        {{ localized('Updates from TUICO', 'Taarifa kutoka TUICO') }}
                     </p>
 
                     <h2 class="text-3xl font-bold text-gray-900">
-                        {{ $isSwahili ? 'Habari za Hivi Karibuni' : 'Latest News' }}
+                        {{ localized('Latest News', 'Habari za Hivi Karibuni') }}
                     </h2>
 
                 </div>
@@ -55,7 +53,7 @@
                     href="{{ locale_url('news') }}"
                     class="inline-flex items-center text-sm font-semibold text-action hover:text-main transition"
                 >
-                    {{ $isSwahili ? 'Angalia Habari Zote' : 'View All News' }}
+                    {{ localized('View All News', 'Angalia Habari Zote') }}
 
                     <span class="ml-2">
                         →
@@ -112,7 +110,7 @@
                                             </div>
 
                                             <div class="mt-1 text-xs uppercase tracking-widest text-white/70">
-                                                {{ $isSwahili ? 'Habari' : 'News' }}
+                                                {{ localized('News', 'Habari') }}
                                             </div>
 
                                         </div>
@@ -176,7 +174,7 @@
 
                                         <p class="mb-4 text-xs text-gray-500">
 
-                                            {{ $isSwahili ? 'Na' : 'By' }}
+                                            {{ localized('By', 'Na') }}
 
                                             <span class="font-semibold text-gray-700">
                                                 {{ $article->author->name }}
@@ -190,7 +188,7 @@
                                         href="{{ locale_url('news/' . $article->slug) }}"
                                         class="inline-flex items-center text-sm font-semibold text-action hover:text-main transition"
                                     >
-                                        {{ $isSwahili ? 'Soma Habari' : 'Read Story' }}
+                                        {{ localized('Read Story', 'Soma Habari') }}
 
                                         <span class="ml-2">
                                             →
@@ -212,9 +210,7 @@
                 <div class="bg-white border border-gray-100 rounded-lg px-6 py-12 text-center">
 
                     <p class="text-gray-600">
-                        {{ $isSwahili
-                            ? 'Hakuna habari zilizochapishwa kwa sasa.'
-                            : 'No published news is currently available.' }}
+                        {{ localized('No published news is currently available.', 'Hakuna habari zilizochapishwa kwa sasa.') }}
                     </p>
 
                 </div>
@@ -237,11 +233,11 @@
                 <div>
 
                     <p class="text-sm uppercase tracking-widest text-action mb-2">
-                        {{ $isSwahili ? 'Ratiba zijazo' : 'What’s Coming Up' }}
+                        {{ localized('What’s Coming Up', 'Ratiba zijazo') }}
                     </p>
 
                     <h2 class="text-3xl font-bold text-gray-900">
-                        {{ $isSwahili ? 'Matukio Yanayokuja' : 'Upcoming Events' }}
+                        {{ localized('Upcoming Events', 'Matukio Yanayokuja') }}
                     </h2>
 
                 </div>
@@ -250,7 +246,7 @@
                     href="{{ locale_url('events') }}"
                     class="inline-flex items-center text-sm font-semibold text-action hover:text-main transition"
                 >
-                    {{ $isSwahili ? 'Angalia Matukio Yote' : 'View All Events' }}
+                    {{ localized('View All Events', 'Angalia Matukio Yote') }}
 
                     <span class="ml-2">
                         →
@@ -293,7 +289,7 @@
                                         </div>
 
                                         <div class="mt-1 text-xs uppercase tracking-widest text-white/70">
-                                            {{ $isSwahili ? 'Tukio' : 'Event' }}
+                                            {{ localized('Event', 'Tukio') }}
                                         </div>
 
                                     </div>
@@ -324,7 +320,7 @@
                                     <div>
 
                                         <p class="text-xs font-semibold uppercase tracking-wider text-action">
-                                            {{ $isSwahili ? 'Tarehe' : 'Date' }}
+                                            {{ localized('Date', 'Tarehe') }}
                                         </p>
 
                                         <p class="mt-1 text-sm font-semibold text-gray-700">
@@ -341,7 +337,7 @@
                                     <div class="mt-5">
 
                                         <span class="inline-flex items-center px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-action bg-action/10 border border-action/20 rounded-full">
-                                            {{ $isSwahili ? 'Mkutano wa Kikatiba' : 'Statutory Meeting' }}
+                                            {{ localized('Statutory Meeting', 'Mkutano wa Kikatiba') }}
                                         </span>
 
                                     </div>
@@ -413,9 +409,7 @@
                 <div class="bg-gray-50 border border-gray-100 rounded-lg px-6 py-12 text-center">
 
                     <p class="text-gray-600">
-                        {{ $isSwahili
-                            ? 'Hakuna matukio yajayo kwa sasa.'
-                            : 'There are no upcoming events at the moment.' }}
+                        {{ localized('There are no upcoming events at the moment.', 'Hakuna matukio yajayo kwa sasa.') }}
                     </p>
 
                 </div>
@@ -438,13 +432,11 @@
                 <div class="max-w-2xl">
 
                     <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
-                        {{ $isSwahili ? 'Endelea kufuatilia TUICO' : 'Stay Connected with TUICO' }}
+                        {{ localized('Stay Connected with TUICO', 'Endelea kufuatilia TUICO') }}
                     </p>
 
                     <h2 class="text-2xl md:text-3xl font-bold">
-                        {{ $isSwahili
-                            ? 'Pata habari na taarifa za hivi karibuni kutoka TUICO.'
-                            : 'Keep up with the latest news and activities from TUICO.' }}
+                        {{ localized('Keep up with the latest news and activities from TUICO.', 'Pata habari na taarifa za hivi karibuni kutoka TUICO.') }}
                     </h2>
 
                 </div>
@@ -455,14 +447,14 @@
                         href="{{ locale_url('news') }}"
                         class="inline-flex items-center justify-center bg-white px-6 py-3 text-sm font-semibold text-main hover:bg-white/90 transition"
                     >
-                        {{ $isSwahili ? 'Habari' : 'News' }}
+                        {{ localized('News', 'Habari') }}
                     </a>
 
                     <a
                         href="{{ locale_url('events') }}"
                         class="inline-flex items-center justify-center border border-white/40 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10 transition"
                     >
-                        {{ $isSwahili ? 'Matukio' : 'Events' }}
+                        {{ localized('Events', 'Matukio') }}
                     </a>
 
                 </div>

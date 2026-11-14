@@ -18,17 +18,15 @@ $currentYear = request('year');
     <div class="max-w-7xl mx-auto px-6 py-12">
 
         <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
-            {{ $isSwahili ? 'Nyaraka na Taarifa' : 'Documents & Information' }}
+            {{ localized('Documents & Information', 'Nyaraka na Taarifa') }}
         </p>
 
         <h1 class="text-4xl md:text-5xl font-bold">
-            {{ $isSwahili ? 'Nyaraka' : 'Resources' }}
+            {{ localized('Resources', 'Nyaraka') }}
         </h1>
 
         <p class="mt-5 max-w-2xl text-lg leading-8 text-white/80">
-            {{ $isSwahili
-                ? 'Pata nyaraka, machapisho, miongozo, sheria na taarifa mbalimbali zinazohusiana na kazi na shughuli za TUICO.'
-                : 'Access TUICO documents, publications, guides, labour laws and other resources related to our work and activities.' }}
+            {{ localized('Access TUICO documents, publications, guides, labour laws and other resources related to our work and activities.', 'Pata nyaraka, machapisho, miongozo, sheria na taarifa mbalimbali zinazohusiana na kazi na shughuli za TUICO.') }}
         </p>
 
     </div>
@@ -55,7 +53,7 @@ $currentYear = request('year');
                         for="search"
                         class="block text-sm font-semibold text-gray-900 mb-2"
                     >
-                        {{ $isSwahili ? 'Tafuta' : 'Search' }}
+                        {{ localized('Search', 'Tafuta') }}
                     </label>
 
                     <input
@@ -63,7 +61,7 @@ $currentYear = request('year');
                         type="text"
                         name="search"
                         value="{{ $currentSearch }}"
-                        placeholder="{{ $isSwahili ? 'Tafuta nyaraka...' : 'Search resources...' }}"
+                        placeholder="{{ localized('Search resources...', 'Tafuta nyaraka...') }}"
                         class="w-full rounded-lg border-gray-200 px-4 py-3 text-sm focus:border-action focus:ring-action"
                     >
 
@@ -77,7 +75,7 @@ $currentYear = request('year');
                         for="category"
                         class="block text-sm font-semibold text-gray-900 mb-2"
                     >
-                        {{ $isSwahili ? 'Kategoria' : 'Category' }}
+                        {{ localized('Category', 'Kategoria') }}
                     </label>
 
                     <select
@@ -87,7 +85,7 @@ $currentYear = request('year');
                     >
 
                         <option value="">
-                            {{ $isSwahili ? 'Kategoria Zote' : 'All Categories' }}
+                            {{ localized('All Categories', 'Kategoria Zote') }}
                         </option>
 
                         @foreach ($categories as $category)
@@ -113,7 +111,7 @@ $currentYear = request('year');
                         for="year"
                         class="block text-sm font-semibold text-gray-900 mb-2"
                     >
-                        {{ $isSwahili ? 'Mwaka' : 'Year' }}
+                        {{ localized('Year', 'Mwaka') }}
                     </label>
 
                     <select
@@ -123,7 +121,7 @@ $currentYear = request('year');
                     >
 
                         <option value="">
-                            {{ $isSwahili ? 'Miaka Yote' : 'All Years' }}
+                            {{ localized('All Years', 'Miaka Yote') }}
                         </option>
 
                         @foreach ($years as $year)
@@ -151,7 +149,7 @@ $currentYear = request('year');
                     type="submit"
                     class="inline-flex items-center justify-center rounded-full bg-action px-6 py-3 text-sm font-semibold text-white hover:bg-main transition"
                 >
-                    {{ $isSwahili ? 'Tafuta Nyaraka' : 'Search Resources' }}
+                    {{ localized('Search Resources', 'Tafuta Nyaraka') }}
                 </button>
 
                 @if ($currentSearch || $currentCategory || $currentYear)
@@ -160,7 +158,7 @@ $currentYear = request('year');
                         href="{{ locale_url('resources') }}"
                         class="inline-flex items-center text-sm font-semibold text-gray-600 hover:text-main transition"
                     >
-                        {{ $isSwahili ? 'Ondoa Vichujio' : 'Clear Filters' }}
+                        {{ localized('Clear Filters', 'Ondoa Vichujio') }}
                     </a>
 
                 @endif
@@ -176,12 +174,12 @@ $currentYear = request('year');
             <div>
 
                 <h2 class="text-3xl font-bold text-gray-900">
-                    {{ $isSwahili ? 'Maktaba ya Nyaraka' : 'Resource Library' }}
+                    {{ localized('Resource Library', 'Maktaba ya Nyaraka') }}
                 </h2>
 
                 <p class="mt-1 text-sm text-gray-600">
                     {{ $resources->total() }}
-                    {{ $isSwahili ? 'nyaraka zimepatikana' : 'resources found' }}
+                    {{ localized('resources found', 'nyaraka zimepatikana') }}
                 </p>
 
             </div>
@@ -307,7 +305,7 @@ $currentYear = request('year');
                                 href="{{ locale_url('resources/' . $resource->id) }}"
                                 class="inline-flex items-center text-sm font-semibold text-action hover:text-main transition"
                             >
-                                {{ $isSwahili ? 'Tazama Nyaraka' : 'View Resource' }}
+                                {{ localized('View Resource', 'Tazama Nyaraka') }}
 
                                 <span class="ml-2">→</span>
                             </a>
@@ -320,7 +318,7 @@ $currentYear = request('year');
                                     rel="noopener noreferrer"
                                     class="inline-flex items-center text-sm font-semibold text-gray-600 hover:text-main transition"
                                 >
-                                    {{ $isSwahili ? 'Pakua' : 'Download' }}
+                                    {{ localized('Download', 'Pakua') }}
 
                                     <span class="ml-2">↗</span>
                                 </a>
@@ -376,13 +374,11 @@ $currentYear = request('year');
                 </div>
 
                 <h2 class="mt-5 text-xl font-bold text-gray-900">
-                    {{ $isSwahili ? 'Hakuna nyaraka zilizopatikana' : 'No resources found' }}
+                    {{ localized('No resources found', 'Hakuna nyaraka zilizopatikana') }}
                 </h2>
 
                 <p class="mt-2 text-sm text-gray-600">
-                    {{ $isSwahili
-                        ? 'Jaribu kubadilisha utafutaji au vichujio ulivyotumia.'
-                        : 'Try adjusting your search or filters.' }}
+                    {{ localized('Try adjusting your search or filters.', 'Jaribu kubadilisha utafutaji au vichujio ulivyotumia.') }}
                 </p>
 
                 @if ($currentSearch || $currentCategory || $currentYear)
@@ -391,7 +387,7 @@ $currentYear = request('year');
                         href="{{ locale_url('resources') }}"
                         class="inline-flex items-center mt-6 text-sm font-semibold text-action hover:text-main transition"
                     >
-                        {{ $isSwahili ? 'Angalia Nyaraka Zote' : 'View All Resources' }}
+                        {{ localized('View All Resources', 'Angalia Nyaraka Zote') }}
 
                         <span class="ml-2">→</span>
                     </a>

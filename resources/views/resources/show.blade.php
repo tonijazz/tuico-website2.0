@@ -141,7 +141,7 @@ $categoryName = $resource->category
                             <div>
 
                                 <p class="font-semibold text-gray-500">
-                                    {{ $isSwahili ? 'Mwandishi' : 'Author' }}
+                                    {{ localized('Author', 'Mwandishi') }}
                                 </p>
 
                                 <p class="mt-1 text-main">
@@ -158,7 +158,7 @@ $categoryName = $resource->category
                             <div>
 
                                 <p class="font-semibold text-gray-500">
-                                    {{ $isSwahili ? 'Mwaka' : 'Year' }}
+                                    {{ localized('Year', 'Mwaka') }}
                                 </p>
 
                                 <p class="mt-1 text-main">
@@ -180,7 +180,7 @@ $categoryName = $resource->category
                     <div class="mt-8">
 
                         <h3 class="text-lg font-bold text-gray-900">
-                            {{ $isSwahili ? 'Kuhusu Nyaraka Hizi' : 'About This Resource' }}
+                            {{ localized('About This Resource', 'Kuhusu Nyaraka Hizi') }}
                         </h3>
 
                         <div class="mt-4 text-gray-600 leading-8 whitespace-pre-line">
@@ -203,7 +203,7 @@ $categoryName = $resource->category
                             rel="noopener noreferrer"
                             class="inline-flex items-center justify-center rounded-full bg-action px-6 py-3 text-sm font-semibold text-white hover:bg-main transition"
                         >
-                            {{ $isSwahili ? 'Pakua Nyaraka' : 'Download Resource' }}
+                            {{ localized('Download Resource', 'Pakua Nyaraka') }}
 
                             <span class="ml-2">↗</span>
                         </a>
@@ -231,7 +231,7 @@ $categoryName = $resource->category
         >
             <span class="mr-2">←</span>
 
-            {{ $isSwahili ? 'Rudi kwenye Nyaraka' : 'Back to Resources' }}
+            {{ localized('Back to Resources', 'Rudi kwenye Nyaraka') }}
         </a>
 
     </div>

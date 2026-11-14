@@ -17,17 +17,15 @@
             <div class="max-w-3xl">
 
                 <p class="text-sm uppercase tracking-widest text-white/70 mb-2">
-                    {{ $isSwahili ? 'Uanachama' : 'Membership' }}
+                    {{ localized('Membership', 'Uanachama') }}
                 </p>
 
                 <h1 class="text-4xl md:text-5xl font-bold leading-tight">
-                    {{ $isSwahili ? 'Jiunge Nasi' : 'Join Us' }}
+                    {{ localized('Join Us', 'Jiunge Nasi') }}
                 </h1>
 
                 <p class="mt-5 max-w-2xl text-lg leading-8 text-white/80">
-                    {{ $isSwahili
-                        ? 'Onyesha nia yako ya kujiunga na TUICO na timu yetu itawasiliana nawe kwa hatua zinazofuata.'
-                        : 'Register your interest in joining TUICO and our team will get in touch with you about the next steps.' }}
+                    {{ localized('Register your interest in joining TUICO and our team will get in touch with you about the next steps.', 'Onyesha nia yako ya kujiunga na TUICO na timu yetu itawasiliana nawe kwa hatua zinazofuata.') }}
                 </p>
 
             </div>
@@ -54,17 +52,15 @@
                 <div class="mb-8">
 
                     <p class="text-sm uppercase tracking-widest text-action">
-                        {{ $isSwahili ? 'Fomu ya Kujiunga' : 'Membership Interest Form' }}
+                        {{ localized('Membership Interest Form', 'Fomu ya Kujiunga') }}
                     </p>
 
                     <h2 class="mt-2 text-2xl font-bold text-gray-900">
-                        {{ $isSwahili ? 'Tupe taarifa zako' : 'Tell us about yourself' }}
+                        {{ localized('Tell us about yourself', 'Tupe taarifa zako') }}
                     </h2>
 
                     <p class="mt-3 text-gray-600 leading-7">
-                        {{ $isSwahili
-                            ? 'Jaza taarifa zilizo hapa chini ili TUICO iweze kukuelekeza kuhusu hatua za uanachama.'
-                            : 'Complete the form below so TUICO can guide you through the membership process.' }}
+                        {{ localized('Complete the form below so TUICO can guide you through the membership process.', 'Jaza taarifa zilizo hapa chini ili TUICO iweze kukuelekeza kuhusu hatua za uanachama.') }}
                     </p>
 
                 </div>
@@ -79,7 +75,7 @@
                     <div>
 
                         <label for="name" class="block text-sm font-semibold text-gray-700">
-                            {{ $isSwahili ? 'Jina' : 'Name' }}
+                            {{ localized('Name', 'Jina') }}
                         </label>
 
                         <input type="text" name="name" id="name" value="{{ old('name') }}"
@@ -98,7 +94,7 @@
                         <div>
 
                             <label for="email" class="block text-sm font-semibold text-gray-700">
-                                {{ $isSwahili ? 'Barua Pepe' : 'Email' }}
+                                {{ localized('Email', 'Barua Pepe') }}
                             </label>
 
                             <input type="email" name="email" id="email" value="{{ old('email') }}" required
@@ -114,7 +110,7 @@
                         <div>
 
                             <label for="phone" class="block text-sm font-semibold text-gray-700">
-                                {{ $isSwahili ? 'Simu' : 'Phone' }}
+                                {{ localized('Phone', 'Simu') }}
                             </label>
 
                             <input type="text" name="phone" id="phone" value="{{ old('phone') }}"
@@ -129,7 +125,7 @@
                     <div>
 
                         <label for="workplace" class="block text-sm font-semibold text-gray-700">
-                            {{ $isSwahili ? 'Mahali pa Kazi' : 'Workplace' }}
+                            {{ localized('Workplace', 'Mahali pa Kazi') }}
                         </label>
 
                         <input type="text" name="workplace" id="workplace" value="{{ old('workplace') }}"
@@ -142,14 +138,14 @@
                     <div>
 
                         <label for="region_id" class="block text-sm font-semibold text-gray-700">
-                            {{ $isSwahili ? 'Ofisi' : 'Office' }}
+                            {{ localized('Office', 'Ofisi') }}
                         </label>
 
                         <select name="region_id" id="region_id"
                             class="mt-2 block w-full rounded-lg border-gray-300 px-4 py-3 shadow-sm focus:border-action focus:ring-action">
 
                             <option value="">
-                                {{ $isSwahili ? 'Chagua ofisi' : 'Select an office' }}
+                                {{ localized('Select an office', 'Chagua ofisi') }}
                             </option>
 
                             @foreach ($regions as $region)
@@ -172,7 +168,7 @@
                     <div>
 
                         <label for="message" class="block text-sm font-semibold text-gray-700">
-                            {{ $isSwahili ? 'Ujumbe' : 'Message' }}
+                            {{ localized('Message', 'Ujumbe') }}
                         </label>
 
                         <textarea name="message" id="message" rows="7" required
@@ -190,7 +186,7 @@
 
                         <button type="submit"
                             class="inline-flex items-center justify-center rounded-lg bg-action px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-main">
-                            {{ $isSwahili ? 'Tuma Ombi' : 'Submit Interest' }}
+                            {{ localized('Submit Interest', 'Tuma Ombi') }}
 
                             <span class="ml-2">→</span>
                         </button>
