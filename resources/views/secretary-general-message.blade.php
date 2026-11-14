@@ -6,10 +6,7 @@
 
 @section('content')
 
-    @php
-        $isSwahili = app()->getLocale() === 'sw';
-    @endphp
-
+    
     {{-- =========================
          PAGE HERO
     ========================== --}}

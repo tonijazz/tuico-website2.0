@@ -6,9 +6,6 @@
 
 @section('content')
 
-@php
-    $isSwahili = app()->getLocale() === 'sw';
-@endphp
 
 {{-- =========================================================
 HERO

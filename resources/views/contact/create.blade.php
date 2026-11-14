@@ -1,8 +1,5 @@
 @extends('layouts.app')
 
-@php
-    $isSwahili = app()->getLocale() === 'sw';
-@endphp
 
 @section('title', localized('Send an Inquiry', 'Wasiliana Nasi'))
 

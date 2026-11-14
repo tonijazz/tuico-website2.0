@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @php
-$isSwahili = app()->getLocale() === 'sw';
 
 $title = $resource->getTranslation('title', app()->getLocale());
 $description = $resource->getTranslation('description', app()->getLocale());

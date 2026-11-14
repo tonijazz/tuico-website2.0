@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @php
-$isSwahili = app()->getLocale() === 'sw';
 
 $currentSearch = request('search');
 $currentCategory = request('category');
