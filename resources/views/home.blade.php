@@ -157,14 +157,6 @@
             <div class="max-w-xl mx-auto lg:ml-auto lg:mr-0">
 
                 @if ($featuredSecretaryGeneralMessage)
-                    @php
-                        $messageContent = $featuredSecretaryGeneralMessage->getTranslation('content', $locale);
-
-                        $messageExcerpt = Str::limit(
-                            trim(strip_tags(preg_replace('/<\/(p|div|h[1-6]|li)>|<br\s*\/?>/i', "\n", $messageContent))),
-                            280,
-                        );
-                    @endphp
 
                     <p class="{{ $eyebrow }} text-white/70">
                         {{ localized('Message from the General Secretary', 'Ujumbe wa Katibu Mkuu') }}
@@ -175,7 +167,7 @@
                     </h2>
 
                     <p class="mt-6 text-white/90 leading-relaxed whitespace-pre-line">
-                        {{ $messageExcerpt }}
+                        {{ $featuredSecretaryGeneralMessage->excerpt() }}
                     </p>
 
                     <div class="mt-8">

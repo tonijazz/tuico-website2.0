@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Spatie\Translatable\HasTranslations;
+use Illuminate\Support\Str;
 
 class SecretaryGeneralMessage extends Model
 {
@@ -35,5 +36,14 @@ class SecretaryGeneralMessage extends Model
     public function leader(): BelongsTo
     {
         return $this->belongsTo(Leader::class);
+    }
+
+        public function excerpt(int $limit = 280): string
+    {
+        $content = (string) $this->getTranslation('content', app()->getLocale());
+
+        $text = preg_replace('/<\/(p|div|h[1-6]|li)>|<br\s*\/?>/i', "\n", $content);
+
+        return Str::limit(trim(strip_tags($text)), $limit);
     }
 }
