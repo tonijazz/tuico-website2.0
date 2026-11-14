@@ -6,12 +6,7 @@
     $excerpt = $article->getTranslation('excerpt', app()->getLocale());
     $body = $article->getTranslation('body', app()->getLocale());
 
-    $articleTypeLabel = match ($article->type?->value) {
-        'update' => localized('Update', 'Taarifa'),
-        'press_release' => localized('Press Release', 'Taarifa kwa Vyombo vya Habari'),
-        'blog' => localized('Blog', 'Makala'),
-        default => $article->type?->getLabel(),
-    };
+    $articleTypeLabel = news_type_label($article->type);
 @endphp
 
 @section('title', $title)

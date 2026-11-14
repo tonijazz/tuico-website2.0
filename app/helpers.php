@@ -24,4 +24,18 @@ if (! function_exists('locale_url')) {
 
         return $path === '' ? ($prefix ?: '/') : $prefix . '/' . $path;
     }
+
+}
+
+if (! function_exists('news_type_label')) {
+    /** Label for a news type enum (or null) in the current language. */
+    function news_type_label($type)
+    {
+        return match ($type?->value) {
+            'update'        => localized('Update', 'Taarifa'),
+            'press_release' => localized('Press Release', 'Taarifa kwa Vyombo vya Habari'),
+            'blog'          => localized('Blog', 'Makala'),
+            default         => $type?->getLabel(),
+        };
+    }
 }

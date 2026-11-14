@@ -51,12 +51,7 @@
                     @foreach ($latestNews as $article)
 
                         @php
-                            $articleTypeLabel = match ($article->type?->value) {
-                                'update' => localized('Update', 'Taarifa'),
-                                'press_release' => localized('Press Release', 'Taarifa kwa Vyombo vya Habari'),
-                                'blog' => localized('Blog', 'Makala'),
-                                default => $article->type?->getLabel(),
-                            };
+                            $articleTypeLabel = news_type_label($article->type);
                         @endphp
 
                         <article class="group flex flex-col overflow-hidden bg-white border border-gray-100 rounded-lg hover:shadow-sm transition">

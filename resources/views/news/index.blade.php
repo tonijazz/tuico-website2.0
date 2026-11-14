@@ -68,12 +68,7 @@
 
                     $isActive = $currentType === $newsType->value;
 
-                    $typeLabel = match ($newsType->value) {
-                        'update' => localized('Update', 'Taarifa'),
-                        'press_release' => localized('Press Release', 'Taarifa kwa Vyombo vya Habari'),
-                        'blog' => localized('Blog', 'Makala'),
-                        default => $newsType->getLabel(),
-                    };
+                    $typeLabel = news_type_label($newsType);
                 @endphp
 
                 <a
@@ -99,12 +94,7 @@
                 @foreach ($articles as $article)
 
                     @php
-                        $articleTypeLabel = match ($article->type?->value) {
-                            'update' => localized('Update', 'Taarifa'),
-                            'press_release' => localized('Press Release', 'Taarifa kwa Vyombo vya Habari'),
-                            'blog' => localized('Blog', 'Makala'),
-                            default => $article->type?->getLabel(),
-                        };
+                        $articleTypeLabel = news_type_label($article->type);
                     @endphp
 
                     <article
