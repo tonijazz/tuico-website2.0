@@ -8,9 +8,9 @@
     $body = $article->getTranslation('body', app()->getLocale());
 
     $articleTypeLabel = match ($article->type?->value) {
-        'update' => $isSwahili ? 'Taarifa' : 'Update',
-        'press_release' => $isSwahili ? 'Taarifa kwa Vyombo vya Habari' : 'Press Release',
-        'blog' => $isSwahili ? 'Makala' : 'Blog',
+        'update' => localized('Update', 'Taarifa'),
+        'press_release' => localized('Press Release', 'Taarifa kwa Vyombo vya Habari'),
+        'blog' => localized('Blog', 'Makala'),
         default => $article->type?->getLabel(),
     };
 @endphp

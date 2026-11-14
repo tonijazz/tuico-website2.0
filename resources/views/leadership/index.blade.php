@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', $isSwahili ? 'Uongozi' : 'Leadership')
+@section('title', localized('Leadership', 'Uongozi'))
 
 @section('content')
 
@@ -178,7 +178,7 @@
                     </p>
 
                     <h3 class="mt-2 text-lg font-bold text-gray-900">
-                        {{ $sector->leader?->name ?? ($isSwahili ? 'Haijaainishwa' : 'Not assigned') }}
+                        {{ $sector->leader?->name ?? (localized('Not assigned', 'Haijaainishwa')) }}
                     </h3>
 
                     @if ($sector->leader)
@@ -253,7 +253,7 @@
                 </p>
 
                 <h3 class="mt-2 text-lg font-bold text-gray-900">
-                    {{ $department->leader?->name ?? ($isSwahili ? 'Haijaainishwa' : 'Not assigned') }}
+                    {{ $department->leader?->name ?? (localized('Not assigned', 'Haijaainishwa')) }}
                 </h3>
 
                 @if ($department->leader)
@@ -328,7 +328,7 @@
                     </p>
 
                     <h3 class="mt-2 text-lg font-bold text-gray-900">
-                        {{ $unit->leader?->name ?? ($isSwahili ? 'Haijaainishwa' : 'Not assigned') }}
+                        {{ $unit->leader?->name ?? (localized('Not assigned', 'Haijaainishwa')) }}
                     </h3>
 
                     @if ($unit->leader)

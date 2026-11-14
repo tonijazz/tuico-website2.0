@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', $isSwahili ? 'Vitengo' : 'Units')
+@section('title', localized('Units', 'Vitengo'))
 
 @section('content')
 

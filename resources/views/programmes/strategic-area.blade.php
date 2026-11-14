@@ -49,7 +49,7 @@ $isSwahili = app()->getLocale() === 'sw';
     <div class="mb-6">
 
         <a
-            href="{{ $isSwahili ? url('/sw/strategic-plan') : route('programmes.index') }}"
+            href="{{ locale_url('strategic-plan') }}"
             class="inline-flex items-center text-sm font-semibold text-action hover:text-main transition"
         >
             ← {{ localized('Back to Strategic Plan', 'Rudi kwenye Mpango Mkakati') }}

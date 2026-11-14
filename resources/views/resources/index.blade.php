@@ -9,7 +9,7 @@ $currentYear = request('year');
 
 @endphp
 
-@section('title', $isSwahili ? 'Nyaraka' : 'Resources')
+@section('title', localized('Resources', 'Nyaraka'))
 
 @section('content')
 

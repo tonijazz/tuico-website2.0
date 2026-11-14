@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', $isSwahili ? 'Sekta' : 'Sectors')
+@section('title', localized('Sectors', 'Sekta'))
 
 @section('content')
 

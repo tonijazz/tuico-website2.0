@@ -5,7 +5,7 @@
     $currentType = request('type');
 @endphp
 
-@section('title', $isSwahili ? 'Habari' : 'News')
+@section('title', localized('News', 'Habari'))
 
 @section('content')
 
@@ -86,9 +86,9 @@
                     $isActive = $currentType === $newsType->value;
 
                     $typeLabel = match ($newsType->value) {
-                        'update' => $isSwahili ? 'Taarifa' : 'Update',
-                        'press_release' => $isSwahili ? 'Taarifa kwa Vyombo vya Habari' : 'Press Release',
-                        'blog' => $isSwahili ? 'Makala' : 'Blog',
+                        'update' => localized('Update', 'Taarifa'),
+                        'press_release' => localized('Press Release', 'Taarifa kwa Vyombo vya Habari'),
+                        'blog' => localized('Blog', 'Makala'),
                         default => $newsType->getLabel(),
                     };
                 @endphp
@@ -117,9 +117,9 @@
 
                     @php
                         $articleTypeLabel = match ($article->type?->value) {
-                            'update' => $isSwahili ? 'Taarifa' : 'Update',
-                            'press_release' => $isSwahili ? 'Taarifa kwa Vyombo vya Habari' : 'Press Release',
-                            'blog' => $isSwahili ? 'Makala' : 'Blog',
+                            'update' => localized('Update', 'Taarifa'),
+                            'press_release' => localized('Press Release', 'Taarifa kwa Vyombo vya Habari'),
+                            'blog' => localized('Blog', 'Makala'),
                             default => $article->type?->getLabel(),
                         };
                     @endphp

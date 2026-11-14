@@ -4,7 +4,7 @@
     $isSwahili = app()->getLocale() === 'sw';
 @endphp
 
-@section('title', $isSwahili ? 'Habari na Matukio' : 'News & Events')
+@section('title', localized('News & Events', 'Habari na Matukio'))
 
 @section('content')
 
@@ -71,9 +71,9 @@
 
                         @php
                             $articleTypeLabel = match ($article->type?->value) {
-                                'update' => $isSwahili ? 'Taarifa' : 'Update',
-                                'press_release' => $isSwahili ? 'Taarifa kwa Vyombo vya Habari' : 'Press Release',
-                                'blog' => $isSwahili ? 'Makala' : 'Blog',
+                                'update' => localized('Update', 'Taarifa'),
+                                'press_release' => localized('Press Release', 'Taarifa kwa Vyombo vya Habari'),
+                                'blog' => localized('Blog', 'Makala'),
                                 default => $article->type?->getLabel(),
                             };
                         @endphp

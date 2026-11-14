@@ -5,7 +5,7 @@ $isSwahili = app()->getLocale() === 'sw';
 $locale = app()->getLocale();
 @endphp
 
-@section('title', $isSwahili ? 'Maswali Yanayoulizwa Mara kwa Mara' : 'Frequently Asked Questions')
+@section('title', localized('Frequently Asked Questions', 'Maswali Yanayoulizwa Mara kwa Mara'))
 
 @section('content')
 
