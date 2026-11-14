@@ -8,7 +8,7 @@
          HERO
     ========================== --}}
 
-    <x-page-hero :eyebrow="app()->getLocale() === 'sw' ? 'Kanda' : 'Zone'" :title="$zone->name" />
+    <x-page-hero :eyebrow="localized('Zone', 'Kanda')" :title="$zone->name" />
 
 
     {{-- =========================
@@ -24,7 +24,7 @@
                 <div class="border border-gray-100 bg-gray-50 p-6">
 
                     <p class="text-sm uppercase tracking-widest text-action mb-2">
-                        {{ app()->getLocale() === 'sw' ? 'Mwenyekiti wa Kanda' : 'Zone Chairperson' }}
+                        {{ localized('Zone Chairperson', 'Mwenyekiti wa Kanda') }}
                     </p>
 
                     <h2 class="text-xl font-bold text-gray-900">
@@ -39,17 +39,17 @@
             <div class="{{ $zone->chairperson ? 'lg:col-span-2' : 'lg:col-span-3' }}">
 
                 <p class="text-sm uppercase tracking-widest text-action mb-2">
-                    {{ app()->getLocale() === 'sw' ? 'Mikoa Wanachama' : 'Member Regions' }}
+                    {{ localized('Member Regions', 'Mikoa Wanachama') }}
                 </p>
 
                 <h2 class="text-3xl font-bold text-gray-900">
-                    {{ app()->getLocale() === 'sw' ? 'Mikoa ya Kanda' : 'Regions in this Zone' }}
+                    {{ localized('Regions in this Zone', 'Mikoa ya Kanda') }}
                 </h2>
 
                 <div class="mt-6 space-y-3">
 
                     @foreach ($zone->offices as $office)
-                        <a href="{{ app()->getLocale() === 'sw' ? url('/sw/regions/' . $office->slug) : route('regions.show', $office->slug) }}"
+                        <a href="{{ is_sw() ? url('/sw/regions/' . $office->slug) : route('regions.show', $office->slug) }}"
                             class="group flex items-center justify-between gap-4 border border-gray-100 bg-white px-5 py-4 hover:border-action/20 hover:bg-action/10 transition">
 
                             <div class="min-w-0">
@@ -61,7 +61,7 @@
                                 @if ($office->is_zonal_seat)
                                     <span
                                         class="inline-flex items-center rounded-full bg-action/20 px-2.5 py-0.5 text-xs font-medium text-action ml-2">
-                                        {{ app()->getLocale() === 'sw' ? 'Ofisi ya Kanda' : 'Zonal Office' }}
+                                        {{ localized('Zonal Office', 'Ofisi ya Kanda') }}
                                     </span>
                                 @endif
 
@@ -91,12 +91,12 @@
 
         <div class="max-w-7xl mx-auto px-6 py-8">
 
-            <a href="{{ app()->getLocale() === 'sw' ? url('/sw/zones') : route('zones.index') }}"
+            <a href="{{ is_sw() ? url('/sw/zones') : route('zones.index') }}"
                 class="inline-flex items-center text-sm font-semibold text-action hover:text-main transition">
 
                 <span class="mr-2">←</span>
 
-                {{ app()->getLocale() === 'sw' ? 'Rudi kwenye Kanda' : 'Back to Zones' }}
+                {{ localized('Back to Zones', 'Rudi kwenye Kanda') }}
 
             </a>
 

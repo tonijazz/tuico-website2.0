@@ -2,7 +2,7 @@
 
 @section('title')
     {{ $region->name }} —
-    {{ app()->getLocale() === 'sw' ? 'Ofisi ya Mkoa' : 'Regional Office' }}
+    {{ localized('Regional Office', 'Ofisi ya Mkoa') }}
 @endsection
 
 @section('content')
@@ -32,12 +32,12 @@
                 <div class="mb-6">
 
                     <p class="text-sm uppercase tracking-widest text-action mb-2">
-                        {{ app()->getLocale() === 'sw' ? 'Taarifa za Ofisi' : 'Office Information' }}
+                        {{ localized('Office Information', 'Taarifa za Ofisi') }}
                     </p>
 
                     <h2 class="text-3xl font-bold text-gray-900">
                         {{ $region->name }}
-                        {{ app()->getLocale() === 'sw' ? '— Ofisi ya Mkoa' : 'Regional Office' }}
+                        {{ localized('Regional Office', '— Ofisi ya Mkoa') }}
                     </h2>
 
                 </div>
@@ -48,7 +48,7 @@
                         <div class="border border-gray-100 rounded-lg p-6">
 
                             <h3 class="text-sm uppercase tracking-wider text-gray-400 mb-2">
-                                {{ app()->getLocale() === 'sw' ? 'Anwani' : 'Address' }}
+                                {{ localized('Address', 'Anwani') }}
                             </h3>
 
                             <p class="text-gray-700 leading-7">
@@ -64,7 +64,7 @@
                             <div class="border border-gray-100 rounded-lg p-6">
 
                                 <h3 class="text-sm uppercase tracking-wider text-gray-400 mb-2">
-                                    {{ app()->getLocale() === 'sw' ? 'Simu' : 'Phone' }}
+                                    {{ localized('Phone', 'Simu') }}
                                 </h3>
 
                                 <a href="tel:{{ $region->phone }}" class="text-gray-800 font-medium hover:text-action">
@@ -78,7 +78,7 @@
                             <div class="border border-gray-100 rounded-lg p-6">
 
                                 <h3 class="text-sm uppercase tracking-wider text-gray-400 mb-2">
-                                    {{ app()->getLocale() === 'sw' ? 'Barua Pepe' : 'Email' }}
+                                    {{ localized('Email', 'Barua Pepe') }}
                                 </h3>
 
                                 <a href="mailto:{{ $region->email }}"
@@ -103,7 +103,7 @@
                 <div class="bg-gray-50 border border-gray-100 rounded-lg p-6">
 
                     <p class="text-sm uppercase tracking-widest text-action mb-2">
-                        {{ app()->getLocale() === 'sw' ? 'Kanda' : 'Zone' }}
+                        {{ localized('Zone', 'Kanda') }}
                     </p>
 
                     @if ($region->zone)
@@ -115,20 +115,18 @@
                             <div class="mt-5 border border-action/20 bg-action/10 rounded-lg p-4">
 
                                 <p class="text-sm font-semibold text-action">
-                                    {{ app()->getLocale() === 'sw' ? 'Ofisi ya Kanda' : 'Zonal Office' }}
+                                    {{ localized('Zonal Office', 'Ofisi ya Kanda') }}
                                 </p>
 
                                 <p class="text-sm text-action mt-1">
-                                    {{ app()->getLocale() === 'sw'
-                                        ? 'Ofisi hii hutumika kama kituo cha shughuli za Kanda.'
-                                        : 'This regional office serves as the zone activity centre.' }}
+                                    {{ localized('This regional office serves as the zone activity centre.', 'Ofisi hii hutumika kama kituo cha shughuli za Kanda.') }}
                                 </p>
 
                             </div>
                         @endif
                     @else
                         <p class="text-gray-500">
-                            {{ app()->getLocale() === 'sw' ? 'Kanda haijaainishwa.' : 'Zone not assigned.' }}
+                            {{ localized('Zone not assigned.', 'Kanda haijaainishwa.') }}
                         </p>
                     @endif
 
@@ -152,11 +150,11 @@
                 <div class="max-w-3xl mb-6">
 
                     <p class="text-sm uppercase tracking-widest text-action mb-2">
-                        {{ app()->getLocale() === 'sw' ? 'Uongozi wa Mkoa' : 'Regional Leadership' }}
+                        {{ localized('Regional Leadership', 'Uongozi wa Mkoa') }}
                     </p>
 
                     <h2 class="text-3xl font-bold text-gray-900">
-                        {{ app()->getLocale() === 'sw' ? 'Viongozi wa Mkoa' : 'Regional Leaders' }}
+                        {{ localized('Regional Leaders', 'Viongozi wa Mkoa') }}
                     </h2>
 
                 </div>
@@ -189,7 +187,7 @@
                                 <div class="min-w-0">
 
                                     <p class="text-xs uppercase tracking-wider text-action">
-                                        {{ app()->getLocale() === 'sw' ? 'Mwenyekiti wa Mkoa' : 'Regional Chairperson' }}
+                                        {{ localized('Regional Chairperson', 'Mwenyekiti wa Mkoa') }}
                                     </p>
 
                                     <h3 class="text-xl font-semibold text-gray-900 mt-1">
@@ -236,7 +234,7 @@
                                 <div class="min-w-0">
 
                                     <p class="text-xs uppercase tracking-wider text-action">
-                                        {{ app()->getLocale() === 'sw' ? 'Katibu wa Mkoa' : 'Regional Secretary' }}
+                                        {{ localized('Regional Secretary', 'Katibu wa Mkoa') }}
                                     </p>
 
                                     <h3 class="text-xl font-semibold text-gray-900 mt-1">
@@ -275,11 +273,11 @@
                 <div class="max-w-3xl mb-6">
 
                     <p class="text-sm uppercase tracking-widest text-action mb-2">
-                        {{ app()->getLocale() === 'sw' ? 'Ofisi Zinazohusiana' : 'Associated Offices' }}
+                        {{ localized('Associated Offices', 'Ofisi Zinazohusiana') }}
                     </p>
 
                     <h2 class="text-3xl font-bold text-gray-900">
-                        {{ app()->getLocale() === 'sw' ? 'Ofisi Ndogo' : 'Sub-Offices' }}
+                        {{ localized('Sub-Offices', 'Ofisi Ndogo') }}
                     </h2>
 
                 </div>
@@ -294,7 +292,7 @@
                             </h3>
 
                             <p class="text-sm text-gray-500 mt-1">
-                                {{ app()->getLocale() === 'sw' ? 'Ofisi Ndogo' : 'Sub-Office' }}
+                                {{ localized('Sub-Office', 'Ofisi Ndogo') }}
                             </p>
 
                             <div class="mt-5 space-y-3">
@@ -302,7 +300,7 @@
                                 @if ($subOffice->address)
                                     <p class="text-sm text-gray-600 leading-6">
                                         <span class="font-medium text-gray-800">
-                                            {{ app()->getLocale() === 'sw' ? 'Anwani:' : 'Address:' }}
+                                            {{ localized('Address:', 'Anwani:') }}
                                         </span>
                                         {{ $subOffice->address }}
                                     </p>
@@ -311,7 +309,7 @@
                                 @if ($subOffice->phone)
                                     <p class="text-sm text-gray-600">
                                         <span class="font-medium text-gray-800">
-                                            {{ app()->getLocale() === 'sw' ? 'Simu:' : 'Phone:' }}
+                                            {{ localized('Phone:', 'Simu:') }}
                                         </span>
                                         {{ $subOffice->phone }}
                                     </p>
@@ -320,7 +318,7 @@
                                 @if ($subOffice->email)
                                     <p class="text-sm text-gray-600 break-all">
                                         <span class="font-medium text-gray-800">
-                                            {{ app()->getLocale() === 'sw' ? 'Barua pepe:' : 'Email:' }}
+                                            {{ localized('Email:', 'Barua pepe:') }}
                                         </span>
                                         {{ $subOffice->email }}
                                     </p>
@@ -347,11 +345,11 @@
             <div class="max-w-3xl mb-6">
 
                 <p class="text-sm uppercase tracking-widest text-action mb-2">
-                    {{ app()->getLocale() === 'sw' ? 'Mahali' : 'Location' }}
+                    {{ localized('Location', 'Mahali') }}
                 </p>
 
                 <h2 class="text-3xl font-bold text-gray-900">
-                    {{ app()->getLocale() === 'sw' ? 'Mahali pa Mkoa' : 'Regional Location' }}
+                    {{ localized('Regional Location', 'Mahali pa Mkoa') }}
                 </h2>
 
             </div>
@@ -380,7 +378,7 @@
                 L.marker([lat, lng])
                     .addTo(map)
                     .bindPopup(
-                        '<strong>{{ $region->name }}</strong><br>{{ app()->getLocale() === 'sw' ? 'Ofisi ya Mkoa' : 'Regional Office' }}'
+                        '<strong>{{ $region->name }}</strong><br>{{ localized('Regional Office', 'Ofisi ya Mkoa') }}'
                     )
                     .openPopup();
 
@@ -398,22 +396,18 @@
     <section class="max-w-7xl mx-auto px-6 pb-12">
 
         <a href="{{ $backToZones
-            ? (app()->getLocale() === 'sw'
+            ? (is_sw()
                 ? url('/sw/zones')
                 : route('zones.index'))
-            : (app()->getLocale() === 'sw'
+            : (is_sw()
                 ? url('/sw/regions')
                 : route('regions.index')) }}"
             class="inline-flex items-center text-sm font-semibold text-action hover:text-main">
             <span class="mr-2">←</span>
 
             {{ $backToZones
-                ? (app()->getLocale() === 'sw'
-                    ? 'Rudi kwenye Kanda'
-                    : 'Back to Zones')
-                : (app()->getLocale() === 'sw'
-                    ? 'Rudi kwenye Ofisi za Mikoa'
-                    : 'Back to Regional Offices') }}
+                ? (localized('Back to Zones', 'Rudi kwenye Kanda'))
+                : (localized('Back to Regional Offices', 'Rudi kwenye Ofisi za Mikoa')) }}
         </a>
 
     </section>

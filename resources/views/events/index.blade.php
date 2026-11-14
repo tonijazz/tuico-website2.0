@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    {{ app()->getLocale() === 'sw' ? 'Matukio' : 'Events' }}
+    {{ localized('Events', 'Matukio') }}
 @endsection
 
 @section('content')

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', $page?->title ?? (app()->getLocale() === 'sw' ? 'Kuhusu Sisi' : 'About Us'))
+@section('title', $page?->title ?? (localized('About Us', 'Kuhusu Sisi')))
 
 @section('content')
 
@@ -15,7 +15,7 @@
         $introText = $blocks->firstWhere('type', 'intro')['content'] ?? null;
 
         // The History heading and its paragraphs are shown in their own section, not in the main column.
-        $aboutHistoryHeading = app()->getLocale() === 'sw' ? 'Historia' : 'Background and History';
+        $aboutHistoryHeading = localized('Background and History', 'Historia');
         $aboutHistoryIndex = $blocks->search(
             fn($block) => ($block['type'] ?? null) === 'heading' && ($block['content'] ?? null) === $aboutHistoryHeading,
         );
@@ -76,7 +76,7 @@
             <div class="bg-gray-50 border border-gray-100 rounded-lg p-6">
 
                 <p class="text-sm uppercase tracking-widest text-action mb-2">
-                    {{ app()->getLocale() === 'sw' ? 'TUICO kwa Ufupi' : 'TUICO at a Glance' }}
+                    {{ localized('TUICO at a Glance', 'TUICO kwa Ufupi') }}
                 </p>
 
                 <div class="grid grid-cols-2 gap-px bg-gray-200 mt-5 border border-gray-200 rounded-lg overflow-hidden">
@@ -104,7 +104,7 @@
                                 {{ $sectorsCount }}
                             </p>
                             <p class="text-xs text-gray-500 mt-1">
-                                {{ app()->getLocale() === 'sw' ? 'Sekta' : 'Sectors' }}
+                                {{ localized('Sectors', 'Sekta') }}
                             </p>
                         </div>
                     @endif
@@ -114,7 +114,7 @@
                             {{ $zonesCount }}
                         </p>
                         <p class="text-xs text-gray-500 mt-1">
-                            {{ app()->getLocale() === 'sw' ? 'Kanda' : 'Zones' }}
+                            {{ localized('Zones', 'Kanda') }}
                         </p>
                     </div>
 
@@ -123,7 +123,7 @@
                             {{ $regionalOfficesCount }}
                         </p>
                         <p class="text-xs text-gray-500 mt-1">
-                            {{ app()->getLocale() === 'sw' ? 'Ofisi za Mikoa' : 'Regional Offices' }}
+                            {{ localized('Regional Offices', 'Ofisi za Mikoa') }}
                         </p>
                     </div>
 
@@ -132,7 +132,7 @@
                             {{ $subOfficesCount }}
                         </p>
                         <p class="text-xs text-gray-500 mt-1">
-                            {{ app()->getLocale() === 'sw' ? 'Ofisi Ndogo' : 'Sub-Offices' }}
+                            {{ localized('Sub-Offices', 'Ofisi Ndogo') }}
                         </p>
                     </div>
 
@@ -140,16 +140,16 @@
 
                 <div class="mt-4 flex flex-col gap-3">
 
-                    <a href="{{ app()->getLocale() === 'sw' ? '/sw/sectors' : '/sectors' }}"
+                    <a href="{{ localized('/sectors', '/sw/sectors') }}"
                         class="inline-flex w-full items-center justify-center bg-action hover:bg-main text-white font-semibold px-6 py-3 rounded-md border border-action hover:border-main transition">
-                        {{ app()->getLocale() === 'sw' ? 'Tazama sekta zetu' : 'Explore our sectors' }}
+                        {{ localized('Explore our sectors', 'Tazama sekta zetu') }}
 
                         <span class="ml-2 text-lg">→</span>
                     </a>
 
-                    <a href="{{ app()->getLocale() === 'sw' ? '/sw/regions' : '/regions' }}"
+                    <a href="{{ localized('/regions', '/sw/regions') }}"
                         class="inline-flex w-full items-center justify-center bg-white text-action hover:bg-action/10 font-semibold px-6 py-3 rounded-md border border-action transition">
-                        {{ app()->getLocale() === 'sw' ? 'Tafuta ofisi ya mkoa wako' : 'Find your regional office' }}
+                        {{ localized('Find your regional office', 'Tafuta ofisi ya mkoa wako') }}
 
                         <span class="ml-2 text-lg">→</span>
                     </a>
@@ -168,7 +168,7 @@
 ========================== --}}
 
     @php
-        $historyHeading = app()->getLocale() === 'sw' ? 'Historia' : 'Background and History';
+        $historyHeading = localized('Background and History', 'Historia');
 
         $historyBlock = collect($blocks)->firstWhere('content', $historyHeading);
     @endphp
@@ -215,7 +215,7 @@
 ========================== --}}
 
     @php
-        $aboutIsSw = app()->getLocale() === 'sw';
+        $aboutIsSw = is_sw();
 
         // Numbered commitments under the Mission: keyed on the About page as a "Mission Commitments" block.
         $commitmentsBlock = $blocks->firstWhere('type', 'mission_commitments');
@@ -300,17 +300,15 @@
             <div class="max-w-3xl mb-4">
 
                 <p class="text-sm uppercase tracking-widest text-action mb-2">
-                    {{ app()->getLocale() === 'sw' ? 'Tunachofanya' : 'What We Do' }}
+                    {{ localized('What We Do', 'Tunachofanya') }}
                 </p>
 
                 <h2 class="text-3xl font-bold text-gray-900">
-                    {{ app()->getLocale() === 'sw' ? 'Maeneo ya Kimkakati' : 'Strategic Areas' }}
+                    {{ localized('Strategic Areas', 'Maeneo ya Kimkakati') }}
                 </h2>
 
                 <p class="mt-3 text-gray-600 leading-7">
-                    {{ app()->getLocale() === 'sw'
-                        ? 'Maeneo muhimu yanayoongoza utekelezaji wa vipaumbele vya TUICO.'
-                        : 'Key areas that guide the implementation of TUICO’s priorities.' }}
+                    {{ localized('Key areas that guide the implementation of TUICO’s priorities.', 'Maeneo muhimu yanayoongoza utekelezaji wa vipaumbele vya TUICO.') }}
                 </p>
 
             </div>
@@ -320,9 +318,9 @@
 
             <div>
 
-                <a href="{{ app()->getLocale() === 'sw' ? url('/sw/strategic-plan') : url('/strategic-plan') }}"
+                <a href="{{ is_sw() ? url('/sw/strategic-plan') : url('/strategic-plan') }}"
                     class="inline-flex items-center text-sm font-semibold text-action hover:text-main transition">
-                    {{ app()->getLocale() === 'sw' ? 'Soma Mpango Mkakati' : 'Read the strategic plan' }}
+                    {{ localized('Read the strategic plan', 'Soma Mpango Mkakati') }}
 
                     <span class="ml-2">→</span>
                 </a>
@@ -342,15 +340,15 @@
         <div class="max-w-3xl mb-5">
 
             <p class="text-sm uppercase tracking-widest text-action mb-2">
-                {{ app()->getLocale() === 'sw' ? 'Utawala wa Chama' : 'Union Governance' }}
+                {{ localized('Union Governance', 'Utawala wa Chama') }}
             </p>
 
             <h2 class="text-3xl font-bold text-gray-900 mb-3">
-                {{ app()->getLocale() === 'sw' ? 'Vikao vya Kikatiba' : 'Statutory Meetings' }}
+                {{ localized('Statutory Meetings', 'Vikao vya Kikatiba') }}
             </h2>
 
             <p class="text-gray-600 leading-7">
-                {{ app()->getLocale() === 'sw'
+                {{ is_sw()
                     ? 'Vikao hivi hufanyika ili kusimamia shughuli za Chama katika ngazi mbalimbali kwa mujibu wa Katiba na Kanuni za Chama.'
                     : "These meetings conduct and oversee the affairs of the Union at different levels in accordance with the Union's Constitution and Rules." }}
             </p>

@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
-@section('title', app()->getLocale() === 'sw'
-    ? 'Ujumbe wa Katibu Mkuu'
-    : 'Message from the General Secretary')
+@section('title', localized('Message from the General Secretary', 'Ujumbe wa Katibu Mkuu'))
 
 @section('content')
 

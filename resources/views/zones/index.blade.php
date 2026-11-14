@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    {{ app()->getLocale() === 'sw' ? 'Kanda Zetu' : 'Our Zones' }}
+    {{ localized('Our Zones', 'Kanda Zetu') }}
 @endsection
 
 @section('content')
@@ -9,9 +9,7 @@
          HERO
     ========================== --}}
 
-    <x-page-hero :eyebrow="app()->getLocale() === 'sw' ? 'Uongozi wa Chama' : 'Union Administration'" :title="app()->getLocale() === 'sw' ? 'Kanda Zetu' : 'Our Zones'" :intro="app()->getLocale() === 'sw'
-                    ? 'TUICO inaendesha shughuli zake kupitia kanda nane zinazounganisha na kuratibu shughuli za ofisi za mikoa.'
-                    : 'TUICO operates through eight zones that connect and coordinate the activities of its regional offices.'" />
+    <x-page-hero :eyebrow="localized('Union Administration', 'Uongozi wa Chama')" :title="localized('Our Zones', 'Kanda Zetu')" :intro="localized('TUICO operates through eight zones that connect and coordinate the activities of its regional offices.', 'TUICO inaendesha shughuli zake kupitia kanda nane zinazounganisha na kuratibu shughuli za ofisi za mikoa.')" />
 
 
     {{-- =========================
@@ -23,11 +21,11 @@
         <div class="mb-6">
 
             <p class="text-sm uppercase tracking-widest text-action mb-2">
-                {{ app()->getLocale() === 'sw' ? 'Muundo wa Kanda' : 'Zonal Structure' }}
+                {{ localized('Zonal Structure', 'Muundo wa Kanda') }}
             </p>
 
             <h2 class="text-3xl font-bold text-gray-900">
-                {{ app()->getLocale() === 'sw' ? 'Kanda za TUICO' : 'TUICO Zones' }}
+                {{ localized('TUICO Zones', 'Kanda za TUICO') }}
             </h2>
 
         </div>
@@ -48,7 +46,7 @@
 
                             <p class="mt-1 text-sm text-gray-500">
                                 {{ $zone->offices->count() }}
-                                {{ app()->getLocale() === 'sw' ? 'Ofisi za Mikoa' : 'Regional Offices' }}
+                                {{ localized('Regional Offices', 'Ofisi za Mikoa') }}
                             </p>
 
                         </div>
@@ -70,7 +68,7 @@
                     <div class="mt-6 space-y-3">
 
                         @foreach ($zone->offices as $office)
-                            <a href="{{ app()->getLocale() === 'sw' ? url('/sw/regions/' . $office->slug . '?from=zones') : route('regions.show', $office->slug) . '?from=zones' }}"
+                            <a href="{{ is_sw() ? url('/sw/regions/' . $office->slug . '?from=zones') : route('regions.show', $office->slug) . '?from=zones' }}"
                                 class="group flex items-center justify-between gap-4 border border-gray-100 bg-gray-50 px-4 py-3 hover:bg-action/10 hover:border-action/20 transition">
 
                                 <div class="min-w-0">
@@ -84,7 +82,7 @@
                                         @if ($office->is_zonal_seat)
                                             <span
                                                 class="inline-flex items-center rounded-full bg-action/20 px-2.5 py-0.5 text-xs font-medium text-action">
-                                                {{ app()->getLocale() === 'sw' ? 'Ofisi ya Kanda' : 'Zonal Office' }}
+                                                {{ localized('Zonal Office', 'Ofisi ya Kanda') }}
                                             </span>
                                         @endif
 
@@ -93,7 +91,7 @@
                                     @if ($office->subOffices->count())
                                         <p class="mt-1 text-xs text-gray-500">
                                             {{ $office->subOffices->count() }}
-                                            {{ app()->getLocale() === 'sw' ? 'Ofisi Ndogo' : 'Sub-Office' }}{{ $office->subOffices->count() > 1 ? 's' : '' }}
+                                            {{ localized('Sub-Office', 'Ofisi Ndogo') }}{{ $office->subOffices->count() > 1 ? 's' : '' }}
                                         </p>
                                     @endif
 
@@ -130,17 +128,15 @@
             <div class="mb-6">
 
                 <p class="text-sm uppercase tracking-widest text-action mb-2">
-                    {{ app()->getLocale() === 'sw' ? 'Uwepo wa TUICO' : 'TUICO Presence' }}
+                    {{ localized('TUICO Presence', 'Uwepo wa TUICO') }}
                 </p>
 
                 <h2 class="text-3xl font-bold text-gray-900">
-                    {{ app()->getLocale() === 'sw' ? 'Ofisi za Mikoa nchini' : 'Regional Offices Across Tanzania' }}
+                    {{ localized('Regional Offices Across Tanzania', 'Ofisi za Mikoa nchini') }}
                 </h2>
 
                 <p class="mt-3 text-gray-600 leading-7">
-                    {{ app()->getLocale() === 'sw'
-                        ? 'Ramani inaonyesha maeneo ya ofisi za mikoa ya TUICO nchini Tanzania.'
-                        : 'The map shows the regional locations where TUICO maintains offices across Tanzania.' }}
+                    {{ localized('The map shows the regional locations where TUICO maintains offices across Tanzania.', 'Ramani inaonyesha maeneo ya ofisi za mikoa ya TUICO nchini Tanzania.') }}
                 </p>
 
             </div>
@@ -241,7 +237,7 @@
 
                             popup +=
                                 '<br><span style="color:#1d4ed8;font-weight:600;">' +
-                                '{{ app()->getLocale() === 'sw' ? 'Ofisi ya Kanda' : 'Zonal Office' }}' +
+                                '{{ localized('Zonal Office', 'Ofisi ya Kanda') }}' +
                                 '</span>';
 
                         }
@@ -251,10 +247,10 @@
 
 
                         popup +=
-                            '<a href="{{ app()->getLocale() === 'sw' ? '/sw/regions/' : '/regions/' }}' +
+                            '<a href="{{ localized('/regions/', '/sw/regions/') }}' +
                             office.slug + '?from=zones"' +
                             ' style="color:#1d4ed8;font-weight:600;">' +
-                            '{{ app()->getLocale() === 'sw' ? 'Tazama Ofisi' : 'View Office' }}' +
+                            '{{ localized('View Office', 'Tazama Ofisi') }}' +
                             '</a>';
 
 
