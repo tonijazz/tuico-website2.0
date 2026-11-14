@@ -20,4 +20,15 @@ class Affiliation extends Model
         'type' => AffiliationType::class,
         'scope' => AffiliationScope::class,
     ];
+
+        public function getUrlAttribute(): ?string
+    {
+        $url = trim((string) $this->website_url);
+
+        if ($url === '') {
+            return null;
+        }
+
+        return preg_match('#^https?://#i', $url) ? $url : 'https://' . $url;
+    }
 }

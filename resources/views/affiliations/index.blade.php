@@ -87,12 +87,12 @@
 
 
                             {{-- WEBSITE --}}
-                            @if ($affiliation->website_url)
+                            @if ($affiliation->url)
 
                                 <div class="mt-auto pt-6">
 
                                     <a
-                                        href="{{ $affiliation->website_url }}"
+                                        href="{{ $affiliation->url }}"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         class="inline-flex items-center text-sm font-semibold text-action hover:text-main transition"
@@ -197,12 +197,12 @@
 
 
                             {{-- WEBSITE --}}
-                            @if ($affiliation->website_url)
+                            @if ($affiliation->url)
 
                                 <div class="mt-auto pt-6">
 
                                     <a
-                                        href="{{ $affiliation->website_url }}"
+                                        href="{{ $affiliation->url }}"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         class="inline-flex items-center text-sm font-semibold text-action hover:text-main transition"

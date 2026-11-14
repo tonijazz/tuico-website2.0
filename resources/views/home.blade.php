@@ -453,48 +453,49 @@
 
                 {{-- CAROUSEL --}}
                 <div class="relative mt-6" x-data="{
-                                current: 0,
-                                total: {{ $affiliations->count() }},
-                                visible: 2,
-                                cardWidth: 0,
-                                timer: null,
+                                        current: 0,
+                                        total: {{ $affiliations->count() }},
+                                        visible: 2,
+                                        cardWidth: 0,
+                                        timer: null,
 
-                                maxIndex() {
-                                    return Math.max(0, this.total - this.visible);
-                                },
+                                        maxIndex() {
+                                            return Math.max(0, this.total - this.visible);
+                                        },
 
-                                updateLayout() {
-                                    this.visible = window.innerWidth >= 768 ? 4 : 2;
+                                        updateLayout() {
+                                            this.visible = window.innerWidth >= 768 ? 4 : 2;
 
-                                    if (this.$refs.viewport) {
-                                        this.cardWidth = this.$refs.viewport.clientWidth / this.visible;
-                                    }
+                                            if (this.$refs.viewport) {
+                                                this.cardWidth = this.$refs.viewport.clientWidth / this.visible;
+                                            }
 
-                                    if (this.current > this.maxIndex()) {
-                                        this.current = 0;
-                                    }
-                                },
+                                            if (this.current > this.maxIndex()) {
+                                                this.current = 0;
+                                            }
+                                        },
 
-                                next() {
-                                    this.current = this.current >= this.maxIndex() ? 0 : this.current + 1;
-                                },
+                                        next() {
+                                            this.current = this.current >= this.maxIndex() ? 0 : this.current + 1;
+                                        },
 
-                                previous() {
-                                    this.current = this.current <= 0 ? this.maxIndex() : this.current - 1;
-                                },
+                                        previous() {
+                                            this.current = this.current <= 0 ? this.maxIndex() : this.current - 1;
+                                        },
 
-                                start() {
-                                    this.stop();
-                                    this.timer = setInterval(() => this.next(), 4000);
-                                },
+                                        start() {
+                                            this.stop();
+                                            this.timer = setInterval(() => this.next(), 4000);
+                                        },
 
-                                stop() {
-                                    if (this.timer) {
-                                        clearInterval(this.timer);
-                                        this.timer = null;
-                                    }
-                                }
-                            }" x-init="updateLayout(); start(); window.addEventListener('resize', () => updateLayout());"
+                                        stop() {
+                                            if (this.timer) {
+                                                clearInterval(this.timer);
+                                                this.timer = null;
+                                            }
+                                        }
+                                    }"
+                    x-init="updateLayout(); start(); window.addEventListener('resize', () => updateLayout());"
                     @mouseenter="stop()" @mouseleave="start()">
 
                     {{-- PREVIOUS --}}
@@ -511,17 +512,7 @@
 
                             @foreach ($affiliations as $affiliation)
                                 @php
-                                    // TODO: move to an `url` accessor on the Affiliation model.
-                                    $attributes = $affiliation->getAttributes();
-                                    $affiliationUrl = collect(['website_url', 'url', 'website', 'link'])
-                                        ->map(fn($field) => $attributes[$field] ?? null)
-                                        ->filter()
-                                        ->first();
-
-                                    if ($affiliationUrl && !preg_match('#^https?://#i', $affiliationUrl)) {
-                                        $affiliationUrl = 'https://' . $affiliationUrl;
-                                    }
-
+                                    $affiliationUrl = $affiliation->url;
                                     $tag = $affiliationUrl ? 'a' : 'div';
                                 @endphp
 
