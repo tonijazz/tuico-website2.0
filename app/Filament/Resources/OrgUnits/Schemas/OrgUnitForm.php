@@ -30,7 +30,7 @@ class OrgUnitForm
                                     ->required()
                                     ->rows(3),
                                 Repeater::make('examples_en')
-                                    ->label(fn (Get $get) => $get('type') === 'sector'
+                                    ->label(fn(Get $get) => $get('type') === 'sector'
                                         ? 'Examples of workplaces (English)'
                                         : 'Examples of work (English)')
                                     ->simple(TextInput::make('item')->required())
@@ -47,7 +47,7 @@ class OrgUnitForm
                                     ->required()
                                     ->rows(3),
                                 Repeater::make('examples_sw')
-                                    ->label(fn (Get $get) => $get('type') === 'sector'
+                                    ->label(fn(Get $get) => $get('type') === 'sector'
                                         ? 'Mifano ya maeneo ya kazi (Kiswahili)'
                                         : 'Mifano ya kazi (Kiswahili)')
                                     ->simple(TextInput::make('item')->required())
@@ -61,6 +61,19 @@ class OrgUnitForm
                     ->default('sector')
                     ->live()
                     ->required(),
+                Select::make('icon')
+                    ->label('Icon')
+                    ->options([
+                        'factory' => 'Factory (industrial)',
+                        'store'   => 'Storefront (commercial)',
+                        'bank'    => 'Bank (financial)',
+                        'bolt'    => 'Bolt (services)',
+                    ])
+                    ->visible(fn(Get $get) => in_array(
+                        $get('type'),
+                        ['sector', OrgUnitType::Sector, OrgUnitType::Sector->value],
+                        true
+                    )),
                 TextInput::make('order')
                     ->required()
                     ->numeric()
