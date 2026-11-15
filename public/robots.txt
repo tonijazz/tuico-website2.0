@@ -1,2 +1,4 @@
 User-agent: *
 Disallow:
+
+Sitemap: https://tuico.or.tz/sitemap.xml
