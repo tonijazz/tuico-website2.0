@@ -18,6 +18,8 @@ use App\Http\Controllers\ResourceItemController;
 use App\Http\Controllers\SecretaryGeneralMessageController;
 use Illuminate\Support\Facades\Route;
 use Spatie\Honeypot\ProtectAgainstSpam;
+//brings in the legacy redirects from the old site to the new site. This is a temporary measure until the old site is retired.
+require __DIR__ . '/legacy.php';
 
 // =========================
 // DEFINE PUBLIC PAGE ROUTES
