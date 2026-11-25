@@ -6,6 +6,7 @@ use App\Enums\NewsStatus;
 use App\Enums\NewsType;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -29,10 +30,16 @@ class NewsForm
                                 Textarea::make('excerpt_en')
                                     ->label('Excerpt (English)')
                                     ->rows(2),
-                                Textarea::make('body_en')
+                                RichEditor::make('body_en')
                                     ->label('Body (English)')
                                     ->required()
-                                    ->rows(6),
+                                    ->toolbarButtons([
+                                        ['bold', 'italic', 'underline', 'strike', 'link'],
+                                        ['h2', 'h3'],
+                                        ['bulletList', 'orderedList', 'blockquote'],
+                                        ['undo', 'redo'],
+                                    ])
+                                    ->columnSpanFull(),
                             ]),
                         Tab::make('Kiswahili')
                             ->schema([
@@ -42,10 +49,16 @@ class NewsForm
                                 Textarea::make('excerpt_sw')
                                     ->label('Excerpt (Kiswahili)')
                                     ->rows(2),
-                                Textarea::make('body_sw')
+                                RichEditor::make('body_sw')
                                     ->label('Body (Kiswahili)')
                                     ->required()
-                                    ->rows(6),
+                                    ->toolbarButtons([
+                                        ['bold', 'italic', 'underline', 'strike', 'link'],
+                                        ['h2', 'h3'],
+                                        ['bulletList', 'orderedList', 'blockquote'],
+                                        ['undo', 'redo'],
+                                    ])
+                                    ->columnSpanFull(),
                             ]),
                     ])
                     ->columnSpanFull(),
