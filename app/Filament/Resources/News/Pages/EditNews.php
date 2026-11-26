@@ -20,7 +20,7 @@ class EditNews extends EditRecord
 
     protected function mutateFormDataBeforeFill(array $data): array
     {
-        foreach (['title', 'excerpt', 'body'] as $field) {
+        foreach (['title', 'excerpt', 'body', 'image_caption'] as $field) {
             $data["{$field}_en"] = $this->record->getTranslation($field, 'en');
             $data["{$field}_sw"] = $this->record->getTranslation($field, 'sw');
         }

@@ -30,6 +30,9 @@ class NewsForm
                                 Textarea::make('excerpt_en')
                                     ->label('Excerpt (English)')
                                     ->rows(2),
+                                TextInput::make('image_caption_en')
+                                    ->label('Featured image caption (English)')
+                                    ->maxLength(200),
                                 RichEditor::make('body_en')
                                     ->label('Body (English)')
                                     ->required()
@@ -49,6 +52,9 @@ class NewsForm
                                 Textarea::make('excerpt_sw')
                                     ->label('Excerpt (Kiswahili)')
                                     ->rows(2),
+                                TextInput::make('image_caption_sw')
+                                    ->label('Featured image caption (Kiswahili)')
+                                    ->maxLength(200),
                                 RichEditor::make('body_sw')
                                     ->label('Body (Kiswahili)')
                                     ->required()

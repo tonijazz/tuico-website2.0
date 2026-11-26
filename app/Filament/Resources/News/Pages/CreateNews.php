@@ -16,7 +16,7 @@ class CreateNews extends CreateRecord
 
     public static function foldTranslatableFields(array $data): array
     {
-        foreach (['title', 'excerpt', 'body'] as $field) {
+        foreach (['title', 'excerpt', 'body', 'image_caption'] as $field) {
             $data[$field] = [
                 'en' => $data["{$field}_en"] ?? null,
                 'sw' => $data["{$field}_sw"] ?? null,

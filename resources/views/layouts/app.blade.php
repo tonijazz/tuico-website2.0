@@ -18,8 +18,19 @@
     <meta property="og:title" content="@yield('title', 'TUICO')">
     <meta property="og:description"
         content="@yield('meta_description', 'Tanzania Union of Industrial and Commercial Workers (TUICO)')">
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="@yield('og_type', 'website')">
     <meta property="og:url" content="{{ url()->current() }}">
+
+    @php
+    $hasPhoto = trim($__env->yieldContent('og_image')) !== '';
+    $ogImage = $hasPhoto
+        ? trim($__env->yieldContent('og_image'))
+        : ($siteSettings->logo ? asset('storage/' . $siteSettings->logo) : null);
+    @endphp
+    @if ($ogImage)
+        <meta property="og:image" content="{{ $ogImage }}">
+        <meta name="twitter:card" content="{{ $hasPhoto ? 'summary_large_image' : 'summary' }}">
+    @endif
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

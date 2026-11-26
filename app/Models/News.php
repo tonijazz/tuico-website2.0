@@ -16,11 +16,19 @@ class News extends Model
 
     protected $table = 'news_posts';
 
-    public $translatable = ['title', 'excerpt', 'body'];
+    public $translatable = ['title', 'excerpt', 'body', 'image_caption'];
 
     protected $fillable = [
-        'title', 'excerpt', 'body', 'slug', 'type', 'status',
-        'featured_image', 'published_at', 'author_id',
+        'title',
+        'excerpt',
+        'body',
+        'image_caption',
+        'slug',
+        'type',
+        'status',
+        'featured_image',
+        'published_at',
+        'author_id',
     ];
 
     protected $casts = [
