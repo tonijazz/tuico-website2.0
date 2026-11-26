@@ -51,7 +51,10 @@ class EventForm
                 FileUpload::make('banner_image')
                     ->image()
                     ->disk('public')
-                    ->directory('events'),
+                    ->directory('events')
+            ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp'])
+            ->maxSize(2048)
+            ->helperText('JPEG, PNG or WebP, up to 2 MB. iPhone (HEIC) photos must be converted first.'),
                 Select::make('governance_meeting_id')
                     ->relationship('governanceMeeting', 'name')
                     ->default(null),

@@ -39,7 +39,10 @@ class AffiliationForm
                 FileUpload::make('logo')
                     ->image()
                     ->disk('public')
-                    ->directory('affiliations'),
+                    ->directory('affiliations')
+            ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp'])
+            ->maxSize(2048)
+            ->helperText('JPEG, PNG or WebP, up to 2 MB. iPhone (HEIC) photos must be converted first.'),
                 TextInput::make('order')
                     ->required()
                     ->numeric()

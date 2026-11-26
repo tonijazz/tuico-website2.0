@@ -82,7 +82,10 @@ class NewsForm
                 FileUpload::make('featured_image')
                     ->image()
                     ->disk('public')
-                    ->directory('news'),
+                    ->directory('news')
+            ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp'])
+            ->maxSize(2048)
+            ->helperText('JPEG, PNG or WebP, up to 2 MB. iPhone (HEIC) photos must be converted first.'),
                 DateTimePicker::make('published_at'),
                 Select::make('author_id')
                     ->relationship('author', 'name')

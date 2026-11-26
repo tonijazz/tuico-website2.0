@@ -49,7 +49,10 @@ class LeaderForm
                     ->image()
                     ->disk('public')
                     ->directory('leaders')
-                    ->default(null),
+                    ->default(null)
+            ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp'])
+            ->maxSize(2048)
+            ->helperText('JPEG, PNG or WebP, up to 2 MB. iPhone (HEIC) photos must be converted first.'),
                 Select::make('level')
                     ->options(LeaderLevel::class)
                     ->required()

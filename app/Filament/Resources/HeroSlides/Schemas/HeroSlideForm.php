@@ -54,7 +54,10 @@ class HeroSlideForm
                     ->image()
                     ->disk('public')
                     ->directory('hero-slides')
-                    ->required(),
+                    ->required()
+            ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp'])
+            ->maxSize(2048)
+            ->helperText('JPEG, PNG or WebP, up to 2 MB. iPhone (HEIC) photos must be converted first.'),
                 Toggle::make('is_active'),
                 DatePicker::make('starts_at'),
                 DatePicker::make('ends_at'),
