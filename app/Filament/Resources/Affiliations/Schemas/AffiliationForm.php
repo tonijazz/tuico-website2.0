@@ -40,9 +40,9 @@ class AffiliationForm
                     ->image()
                     ->disk('public')
                     ->directory('affiliations')
-            ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp'])
+            ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp', 'image/svg+xml'])
             ->maxSize(2048)
-            ->helperText('JPEG, PNG or WebP, up to 2 MB. iPhone (HEIC) photos must be converted first.'),
+            ->helperText('JPEG, PNG, WebP or SVG, up to 2 MB. iPhone (HEIC) photos must be converted first.'),
                 TextInput::make('order')
                     ->required()
                     ->numeric()
