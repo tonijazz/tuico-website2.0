@@ -67,6 +67,9 @@ class ManageSiteSettings extends Page implements HasForms
                 TextInput::make('youtube_url')->url()->default(null),
                 FileUpload::make('logo')
                     ->image()
+                    ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp'])
+                    ->maxSize(2048)
+                    ->helperText('JPEG, PNG or WebP, up to 2 MB. iPhone (HEIC) photos must be converted first.')
                     ->disk('public')
                     ->directory('site')
                     ->default(null),
