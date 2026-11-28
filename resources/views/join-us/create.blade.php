@@ -41,7 +41,7 @@
                 </div>
 
 
-                <form action="{{ route('join-us.store') }}" method="POST" class="space-y-6">
+                <form action="{{ locale_url('join-us') }}" method="POST" class="space-y-6">
 
                     @csrf
                     <x-honeypot />

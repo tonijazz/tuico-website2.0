@@ -14,11 +14,12 @@ class OrgUnit extends Model
     use HasTranslations;
 
     public $translatable = ['name', 'description', 'examples'];
-    protected $fillable = ['name', 'description', 'examples', 'type', 'order', 'icon'];
+    protected $fillable = ['name', 'description', 'examples', 'type', 'order', 'icon', 'email', 'receives_enquiries'];
 
     protected $casts = [
         'type' => OrgUnitType::class,
         'icon' => 'string',
+        'receives_enquiries' => 'boolean',
     ];
 
     public function leader(): HasOne

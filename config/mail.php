@@ -13,6 +13,7 @@ return [
     | "mailers" array. Examples of each type of mailer are provided.
     |
     */
+    'enquiry_copy' => env('ENQUIRY_COPY_TO'),
 
     'default' => env('MAIL_MAILER', 'log'),
 

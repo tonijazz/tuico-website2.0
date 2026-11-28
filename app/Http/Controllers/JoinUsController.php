@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Inquiry;
 use App\Models\Office;
 use Illuminate\Http\Request;
+use App\Support\InquiryNotifier;
 
 class JoinUsController extends Controller
 {
@@ -23,14 +24,16 @@ class JoinUsController extends Controller
             'phone' => 'nullable|string|max:255',
             'workplace' => 'nullable|string|max:255',
             'region_id' => 'nullable|exists:offices,id',
-            'message' => 'required|string',
+            'message' => 'required|string|max:5000',
         ]);
 
-        Inquiry::create([
+        $inquiry = Inquiry::create([
             ...$validated,
             'type' => 'membership',
         ]);
 
-        return redirect()->route('join-us.create')->with('success', 'Thank you for your interest in joining TUICO. A regional office will be in touch with you soon.');
+        InquiryNotifier::staff($inquiry);
+
+        return redirect(locale_url('join-us'))->with('success', localized('Thank you for your interest in joining TUICO. A regional office will be in touch with you soon.', 'Asante kwa kuonyesha nia ya kujiunga na TUICO. Ofisi ya mkoa itawasiliana nawe hivi karibuni.'));
     }
 }

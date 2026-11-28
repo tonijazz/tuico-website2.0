@@ -11,6 +11,7 @@ use Filament\Schemas\Components\Tabs;
 use Filament\Schemas\Components\Tabs\Tab;
 use Filament\Schemas\Components\Utilities\Get;
 use Filament\Schemas\Schema;
+use Filament\Forms\Components\Toggle;
 
 class OrgUnitForm
 {
@@ -74,6 +75,13 @@ class OrgUnitForm
                         ['sector', OrgUnitType::Sector, OrgUnitType::Sector->value],
                         true
                     )),
+                TextInput::make('email')
+                    ->email()
+                    ->maxLength(255)
+                    ->helperText('Address that receives website enquiries when the box below is ticked.'),
+                Toggle::make('receives_enquiries')
+                    ->label('Receives website enquiries')
+                    ->default(false),
                 TextInput::make('order')
                     ->required()
                     ->numeric()

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Inquiry;
 use Illuminate\Http\Request;
+use App\Support\InquiryNotifier;
 
 class ContactController extends Controller
 {
@@ -19,14 +20,19 @@ class ContactController extends Controller
             'email' => 'required|email|max:255',
             'phone' => 'nullable|string|max:255',
             'subject' => 'nullable|string|max:255',
-            'message' => 'required|string',
+            'message' => 'required|string|max:5000',
+
         ]);
 
-        Inquiry::create([
+
+
+        $inquiry = Inquiry::create([
             ...$validated,
             'type' => 'general',
         ]);
 
-        return redirect()->route('contact.create')->with('success', 'Your message has been sent. We will get back to you soon.');
+        InquiryNotifier::staff($inquiry);
+
+        return redirect(locale_url('contact'))->with('success', localized('Your message has been sent. We will get back to you soon.', 'Ujumbe wako umetumwa. Tutawasiliana nawe hivi karibuni.'));
     }
 }

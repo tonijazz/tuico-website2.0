@@ -37,7 +37,7 @@
                 </div>
 
 
-                <form action="{{ route('contact.store') }}" method="POST" class="space-y-6">
+                <form action="{{ locale_url('contact') }}" method="POST" class="space-y-6">
 
                     @csrf
                     <x-honeypot />
